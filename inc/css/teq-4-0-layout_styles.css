@@ -982,10 +982,17 @@ Heada rhymes with chedda for submenu
 	top: 24%;
 }
 
-.pre-content-container div.column h2 {
+.pre-content-container div.column h1, .pre-content-container div.column h2 {
 	width: 75%;
 	display: block;
 	margin: 0 auto;
+}
+
+.pre-content-container div.column h1.title-text {
+	font-size: 2.1rem;
+}
+
+.pre-content-container div.column h2 {
 	font-size: 1.2rem;
 }
 
