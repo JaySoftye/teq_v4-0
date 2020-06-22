@@ -1,0 +1,238 @@
+@charset "UTF-8";
+
+header#masthead {
+  display: none !important;
+}
+
+.full-section.nycdoe {
+  background-image: url('../images/diit-nycdoe-top-header-bg.jpg');
+}
+
+.full-section.cdw-g-products {
+  background-image: url('../images/teq-g-technology-main-hero-banner-bg.jpg');
+}
+
+.section {
+  min-height: auto;
+  width: auto;
+  display: flex;
+  position: relative;
+  z-index: 100;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.section.cdw-g-stem {
+  background-image: url('../images/teq-g-stem-main-hero-banner-bg.jpg');
+}
+
+.section.cdw-g-pd {
+  background-image: url('../images/teq-g-pd-main-hero-banner-bg.jpg');
+}
+
+.full-section.nycdoe .container nav.navbar {
+  background: transparent;
+}
+
+a.btn {
+  height: 100%;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 9px 27px;
+  text-align: inherit;
+  white-space: normal;
+  cursor: pointer;
+  background-color: rgb(0, 0, 0);
+  box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.15);
+  font-weight: 900;
+  color: #FFFFFF;
+  transition: all ease .24s;
+}
+
+a.btn:hover {
+  box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.75);
+}
+
+a.btn.rounded {
+  border-radius: 6.6px;
+}
+
+a.btn.large {
+  padding: 36px 42px;
+  font-size: 1.2rem;
+}
+
+a.btn.smart-blue {
+  background-color: rgb(0, 98, 186);
+}
+
+a.btn.smart-purple {
+  background-color: rgb(72, 27, 111);
+}
+
+a.blue-button-background {
+  background-color: rgb(0,178,227);
+}
+
+form.filterform select.formselect {
+  height: 4.8rem;
+  width: 85%;
+  margin-top: 21px;
+  padding: 12px 48px;
+  background-image: none;
+  background-color: #ffffff;
+  box-shadow: 21px 21px 61px #cbc9d2, -21px -21px 63px #ffffff;
+  border: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+form.filterform input[type=submit] {
+  height: 4.8rem;
+  width: 15%;
+  position: relative;
+  float: right;
+  margin-top: 21px;
+  background-color: #000000;
+  border: none;
+  border-radius: 0;
+  font-weight: 900;
+  color: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#famis-products-container .post-card .post-card-body {
+  height: 100%;
+  display: block;
+  text-align: center;
+}
+
+#famis-products-container .post-card .post-card-body a {
+  height: auto;
+  width: auto;
+  position: relative;
+}
+
+.topic-tags > p {
+  margin-right: 15%;
+  font-size: 90%;
+}
+
+.topic-tags p > strong {
+  display: block;
+}
+
+.entry-content table.table {
+  width: 100%;
+  margin-top: 54px;
+}
+
+.entry-content table.table thead {
+  background-color: #dbdbdb;
+  font-size: 87%;
+}
+
+/*
+Hubspot Forms
+*/
+div.hbspot-form_quote div.hbspt-form form {
+  width: 100%;
+  margin: 0 auto;
+}
+div.hbspot-form_quote div.hbspt-form form.hs-form fieldset {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+div.hbspot-form_quote div.hbspt-form form > fieldset div.field {
+  margin: 0 0;
+}
+div.hbspot-form_quote div.hbspt-form form > fieldset div.field span.hs-form-required {
+  display: none !important;
+}
+div.hbspot-form_quote div.hbspt-form form div.input {
+	padding: 0 0;
+	border: none !important;
+}
+div.hbspot-form_quote div.hbspt-form div.hs-form-field > label {
+  display: block;
+  padding-top: 21px;
+	font-size: .75rem;
+}
+div.hbspot-form_quote div.hbspt-form form div.input {
+  width: 100%;
+}
+div.hbspot-form_quote div.hbspt-form form div.input input, div.hbspot-form_quote div.hbspt-form form div.input select {
+	height: calc(2.4rem + 3px);
+	width: 100% !important;
+  max-width: 100% !important;
+	padding-bottom: calc(0.5em - 1px);
+  padding-left: calc(0.75em - 1px);
+  padding-right: calc(0.75em - 1px);
+  padding-top: calc(0.5em - 1px);
+	background-color: rgb(236,239,238);
+	border-radius: 3px;
+	border: none;
+  box-shadow: none;
+  font-size: .87rem;
+}
+div.hbspot-form_quote div.hbspt-form form fieldset.form-columns-2 > div:first-child {
+  margin-right: 1.8%;
+}
+div.hbspot-form_quote div.hbspt-form form fieldset.form-columns-2 > div + div {
+  width: 48% !important;
+}
+form ul.hs-error-msgs li > label.hs-error-msg {
+	padding: .48rem;
+	font-weight: 700;
+	font-size: .75rem;
+}
+div.hbspot-form_quote div.hbspt-form form div.hs-submit input[type=submit].hs-button {
+	margin: 36px auto 0 auto;
+  outline: none;
+  border: none;
+  font-size: inherit;
+  text-transform: uppercase;
+  letter-spacing: 2.7px;
+  font-weight: 500;
+  color: #FFFFFF;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+div.hbspot-form_quote div.hbspt-form form div.hs-submit input[type=submit].hs-button:hover {
+  background-color: rgb(0,0,0);
+  color: rgb(0,178,227);
+}
+div.hbspot-form_quote div.hbspt-form form div.input input::placeholder {
+  color: rgb(236,239,238) !important;
+  opacity: 1;
+}
+div.hbspot-form_quote div.hbspt-form form div.input input:-ms-input-placeholder {
+ color: rgb(236,239,238) !important;
+}
+div.hbspot-form_quote div.hbspt-form form div.input input::-ms-input-placeholder {
+ color: rgb(236,239,238) !important;
+}
+
+/* Print Styles */
+@media print {
+
+  nav, div#hbspot-register-form, .button, footer.site-footer > .site-info > .columns:first-child {
+    display: none !important;
+  }
+  body, footer, .columns, .column, footer.site-footer, footer.site-footer > .site-info {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0;
+    padding: 0 0;
+    box-shadow: none;
+  }
+
+
+}
