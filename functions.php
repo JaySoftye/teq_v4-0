@@ -176,6 +176,11 @@ function teq_v4_0_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
+	// STYLESHEET FOR CREATE YOUR SOLUTION
+	if ( is_page_template( 'template-pages/createyoursolution.php' ) ) {
+		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-create_your_solution_stylesheet.css' );
+	}
+
 	// Additional CSS for Specific Channel Partners
 	if ( is_page_template( 'template-pages/nycdoe.php' ) ) {
 		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-additional_stylesheet.css' );

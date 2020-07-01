@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+.create-your-solution-container .pre-content-container div.column h1 {
+  width: 100%;
+  display: block;
+  margin: 0 0;
+  font-weight: 700;
+  letter-spacing: -.18rem;
+  font-size: 5.4rem;
+}
+
+.pre-content-container div.column > * {
+  position: relative;
+}
+
+.pre-content-container div.column {
+  min-height: 75vh;
+}
+
+form.school-name-control {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+form.school-name-control div.input-control {
+  height: 4.8rem;
+  width: 76%;
+}
+
+form.school-name-control input.school-name {
+  height: 100%;
+  width: 100%;
+  padding: 12px 21px;
+  background-image: none;
+  background: #ffffff;
+  box-shadow: 30px 30px 59px #c9cacb, -30px -30px 59px #ffffff;
+  border: none;
+  border-radius: 0;
+  font-size: 1.23rem;
+  font-weight: 300;
+}
+
+form.school-name-control div.button-control {
+  height: 4.8rem;
+  width: 24%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0,0,0);
+  cursor: pointer;
+  transition: all ease .6s;
+}
+
+form.school-name-control div.button-control:hover {
+  box-shadow: -21px -21px 66px #8b8c8d, 21px 21px 66px #ffffff;
+}
+
+div.button-control button.submit-button {
+  height: 100%;
+  width: 100%;
+  display: block;
+  background: none;
+  border: none;
+  text-align: center;
+  font-weight: 700;
+  color: rgb(255,255,255);
+}
