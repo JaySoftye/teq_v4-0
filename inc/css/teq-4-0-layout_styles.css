@@ -970,7 +970,7 @@ Heada rhymes with chedda for submenu
 }
 
 .pre-content-container div.column {
-	min-height: 150vh;
+	min-height: 120vh;
 }
 
 .pre-content-container + div.column {
@@ -1196,7 +1196,7 @@ div.main-page-content-container div.targetScrollContent a.video-link::before{
 }
 
 .iblock-pathway-container .pathway-content .pathway.card {
-	margin-top: -1.5rem;
+	margin-top: calc(100vh - 109vh);
 	padding: 2.4rem;
 }
 

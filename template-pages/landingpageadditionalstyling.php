@@ -8,8 +8,8 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area" scroll>
-		<main id="main" class="site-main section-container">
+	<div id="primary" class="content-area white-background-fill" ng-app="productTabs">
+		<main id="main" class="site-main section-container" ng-controller="TabController">
 			<?php
 				while ( have_posts() ) :
 					the_post();

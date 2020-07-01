@@ -1001,6 +1001,29 @@ svg#theCompleteThought .active-learning-spaces {
   fill:rgb(237,0,96);
 }
 
+.scroll-down {
+  height: 24px;
+  width: 24px;
+  align-self: flex-end;
+  margin: -4.2rem auto 0 auto;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom;
+}
+.bounce {
+  animation-name: bouncing-ball;
+  animation-timing-function: ease;
+}
+@keyframes bouncing-ball {
+  0% { transform: scale(1,1)      translateY(0); }
+  10%  { transform: scale(1.1,.9)   translateY(0); }
+  30%  { transform: scale(.9,1.1)   translateY(-18px); }
+  50%  { transform: scale(1.05,.95) translateY(0); }
+  57%  { transform: scale(1,1)      translateY(-6px); }
+  64%  { transform: scale(1,1)      translateY(0); }
+  100% { transform: scale(1,1)      translateY(0); }
+}
+
 /*
 jquery ui
 */
