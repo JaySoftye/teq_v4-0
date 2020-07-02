@@ -461,10 +461,10 @@ function send_mails_on_publish( $new_status, $old_status, $post ) {
   if ( 'publish' !== $new_status or 'publish' === $old_status or 'nedm-surveys' !== get_post_type( $post ) )
 
     return;
-      $to = 'InfrastructureTeam@teq.com, jay@teq.com';
-      $headers = 'CC: paulprincipato@teq.com';
-      $body = sprintf( 'Hey there is a new entry!' . "\n\n");
-      $body .= sprintf( 'See <%s>', get_permalink( $post ));
+			$to = 'InfrastructureTeam@teq.com, jay@teq.com';
+			$headers = 'CC: paulprincipato@teq.com';
+			$body = sprintf( 'Hey there is a new entry!' . "\n\n");
+			$body .= sprintf( 'See <%s>', get_permalink( $post ));
 
     wp_mail( $to, 'New Network-Enabled Device Management Survey', $body, $headers );
 }

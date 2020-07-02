@@ -12,7 +12,6 @@ get_header();
 		<main id="main" class="site-main section-container">
 
 			<section class="full-section upcoming-events block padding-bottom">
-				<div id="blue-wave-cover"></div>
 
 				<div class="page-content">
 					<div class="container">
@@ -38,7 +37,7 @@ get_header();
 									'post_status' => 'publish',
 	            		'category_name' => 'events',
 	            		'order' => 'DESC',
-									'posts_per_page' => 10, 
+									'posts_per_page' => 10,
 	            		'date_query' => array(
 	            			'after' => date('Y-m-d', strtotime('-6 months'))
 	              	)

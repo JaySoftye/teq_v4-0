@@ -160,6 +160,10 @@ p {
   opacity: 0;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .opacity-zero {
   opacity: 0;
 }
@@ -1022,6 +1026,32 @@ svg#theCompleteThought .active-learning-spaces {
   57%  { transform: scale(1,1)      translateY(-6px); }
   64%  { transform: scale(1,1)      translateY(0); }
   100% { transform: scale(1,1)      translateY(0); }
+}
+
+/*
+NEDM
+*/
+
+#nedm-survey .field.columns {
+  margin-left: 0rem;
+}
+
+#nedm-survey .field.columns .column:first-child {
+  padding-left: 0;
+}
+
+#nedm-survey input, #nedm-survey select {
+  border: 1px solid rgba(0,0,0,.48);
+  border-radius: 0;
+}
+
+#nedm-survey label.form-check-label {
+  display: block;
+  padding: 0 12px;
+}
+
+#nedm-survey label.form-check-label input {
+  margin-right: 6px;
 }
 
 /*

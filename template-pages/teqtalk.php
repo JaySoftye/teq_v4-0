@@ -12,7 +12,6 @@ get_header();
 	<main id="main" class="site-main section-container">
 
 		<section class="full-section teq-talk block padding-bottom">
-			<div id="blue-wave-cover"></div>
 
 			<div class="page-content">
 				<div class="container">
