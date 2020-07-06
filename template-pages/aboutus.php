@@ -298,7 +298,7 @@ get_header();
 											<figure>
 												<img src="https://www.teq.com/images/headshots_circles/DawnCastillo.png" />
 											</figure>
-											<h5><strong class="blue-text">Dawn Castillo</strong><em class="block caption">Vice President</em></h5>
+											<h5><strong class="blue-text">Dawn Castillo</strong><em class="block caption">President of Teq</em></h5>
 										</article>
 									</div>
 								</div>

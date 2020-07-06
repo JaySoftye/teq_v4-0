@@ -356,7 +356,7 @@ function custom_post_type_product_and_service() {
 	$labels = array(
 		'name'                => _x( 'Product-and-Service', 'Post Type General Name', 'teq_v4-0' ),
 		'singular_name'       => _x( 'Product-and-Service', 'Post Type Singular Name', 'teq_v4-0' ),
-		'menu_name'           => __( 'Product-and-Service', 'teq_v4-0' ),
+		'menu_name'           => __( 'Products and Services', 'teq_v4-0' ),
 		'parent_item_colon'   => __( 'Parent Product-and-Service', 'teq_v4-0' ),
 		'all_items'           => __( 'All Product-and-Service', 'teq_v4-0' ),
 		'view_item'           => __( 'View Product-and-Service', 'teq_v4-0' ),
@@ -445,11 +445,59 @@ function custom_post_type_nedm_survey() {
 	register_post_type( 'NEDM-Surveys', $args );
 }
 
+function custom_post_type_pathway() {
+// Set UI labels for Custom Post Type
+	$labels = array(
+		'name'                => _x( 'Pathway', 'Post Type General Name', 'teq_v4-0' ),
+		'singular_name'       => _x( 'Pathway', 'Post Type Singular Name', 'teq_v4-0' ),
+		'menu_name'           => __( 'Pathways', 'teq_v4-0' ),
+		'parent_item_colon'   => __( 'Parent Pathway', 'teq_v4-0' ),
+		'all_items'           => __( 'All Pathways', 'teq_v4-0' ),
+		'view_item'           => __( 'View Pathway', 'teq_v4-0' ),
+		'add_new_item'        => __( 'Add New Pathway', 'teq_v4-0' ),
+		'add_new'             => __( 'Add New', 'teq_v4-0' ),
+		'edit_item'           => __( 'Edit Pathway', 'teq_v4-0' ),
+		'update_item'         => __( 'Update Pathway', 'teq_v4-0' ),
+		'search_items'        => __( 'Search Pathway', 'teq_v4-0' ),
+		'not_found'           => __( 'Not Found', 'teq_v4-0' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'teq_v4-0' ),
+	);
+// Set other options for Custom Post Type
+	$args = array(
+		'label'               => __( 'Pathways', 'teq_v4-0' ),
+		'description'         => __( 'Pathways', 'teq_v4-0' ),
+		'labels'              => $labels,
+		// Features this CPT supports in Post Editor
+		'supports'            => array( 'title', 'editor', 'author', 'custom-fields', 'revisions' ),
+		/* A hierarchical CPT is like Pages and can have
+		* Parent and child items. A non-hierarchical CPT
+		* is like Posts.
+		*/
+		'hierarchical'        => false,
+		'public'              => false,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 7,
+    'menu_icon'           => 'dashicons-buddicons-activity',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'post',
+    'taxonomies'          => array('post_tag')
+	);
+	// Registering your Custom Post Type
+	register_post_type( 'Pathways', $args );
+}
+
 /* Hook into the 'init' action so that the function
 * Containing our post type registration is not
 * unnecessarily executed.
 */
 add_action( 'init', 'custom_post_type_product_and_service', 0 );
+add_action( 'init', 'custom_post_type_pathway', 0 );
 add_action( 'init', 'custom_post_type_nedm_survey', 0 );
 
 /* add action for email notification
@@ -468,7 +516,6 @@ function send_mails_on_publish( $new_status, $old_status, $post ) {
 
     wp_mail( $to, 'New Network-Enabled Device Management Survey', $body, $headers );
 }
-
 
 /* CUSTOM TAXONOMY CREATED FOR PRODUCT AND SERVICE CUSTOM POST TYPE
 * hook into the init action and call create_book_taxonomies when it fires
@@ -492,7 +539,7 @@ function create_topics_hierarchical_taxonomy() {
     'menu_name' => __( 'Topics' ),
   );
 // Now register the taxonomy
-  register_taxonomy('topics',array('product-and-service'), array(
+  register_taxonomy('topics',array('product-and-service', 'pathways'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,
@@ -501,8 +548,6 @@ function create_topics_hierarchical_taxonomy() {
     'rewrite' => array( 'slug' => 'topic' ),
   ));
 }
-
-
 
 /**
  * CUSTOM META BOXES FOR PRODUCT AND SERVICE CUSTOM POST TYPE ONLY
@@ -588,3 +633,49 @@ function custom_product_service_meta_html( $post) {
 
 	}
 	add_action( 'save_post', 'custom_product_service_meta_save' );
+
+	/**
+	 * CUSTOM META BOXES FOR PATHWAYS CUSTOM POST TYPE ONLY
+	 * CUSTOM PD COURSE FOR PATHWAY
+	 */
+	function custom_pathway_add_meta_box() {
+		add_meta_box(
+			'custom-meta',
+			__( 'PD Course for Pathway', 'text-domain' ),
+			'custom_pathway_meta_html',
+			'pathways', //Post Type
+			'high' //Location
+		);
+	}
+	add_action( 'add_meta_boxes', 'custom_pathway_add_meta_box', 1 );
+
+	// ADD CUSTOM BOX
+	function custom_pathway_meta_html( $post) {
+		wp_nonce_field( '_custom_meta_nonce', 'custom_meta_nonce' ); ?>
+			<br />
+			<p class="wp-block-html">
+				<textarea name="custom_pathway_meta_html" id="custom_pathway_meta_html" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="width:100%; overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'sub_header_meta_content' ); ?></textarea>
+			</p>
+			<br />
+		<?php } //endfunction
+
+		// CALLBACK TO RETRIVE VALUE
+		function custom_pathway_get_meta( $value ) {
+			global $post;
+			$field = get_post_meta( $post->ID, $value, true );
+				if ( ! empty( $field ) ) {
+					return is_array( $field ) ? stripslashes_deep( $field ) : stripslashes( wp_kses_decode_entities( $field ) );
+				} else {
+					return false;
+				}
+		}
+
+		// SAVE META VALUE IF PERMISSIONS PASS
+		function custom_pathway_meta_save( $post_id ) {
+
+			if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+				if ( ! isset( $_POST['custom_meta_nonce'] ) || ! wp_verify_nonce( $_POST['custom_meta_nonce'], '_custom_meta_nonce' ) ) return;
+					if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+
+		}
+		add_action( 'save_post', 'custom_pathway_meta_save' );

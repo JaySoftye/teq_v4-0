@@ -1,20 +1,68 @@
 @charset "UTF-8";
 
-.create-your-solution-container .pre-content-container div.column h1 {
+.professional-development-color {
+  color: #1A6AE2;
+}
+.content-creation-color {
+  color: #A834D3;
+}
+.stem-solutions-color {
+  color: #1A9F84;
+}
+.classroom-transformation-color {
+  color: #CD6500;
+}
+.grade-band-color {
+  color: #20A3B7;
+}
+.subject-matter-color {
+  color: #691BCA;
+}
+.technology-proficiency-color {
+  color: #E21A82;
+}
+
+.create-your-solution-container .welcome {
+  min-height: 75%;
+}
+
+.create-your-solution-container .create {
+  margin-top: 10%;
+}
+
+.create-your-solution-container  div.column h1, .create-your-solution-container  div.column h2 {
   width: 100%;
   display: block;
   margin: 0 0;
-  font-weight: 700;
+}
+
+.create-your-solution-container  div.column h1 {
+  font-weight: 300;
   letter-spacing: -.18rem;
   font-size: 5.4rem;
 }
 
-.pre-content-container div.column > * {
-  position: relative;
+.create-your-solution-container  div.column h2 {
+  font-weight: 700;
+  font-size: 2.1rem;
 }
 
-.pre-content-container div.column {
-  min-height: 75vh;
+.create-your-solution-container .welcome > .image-cover {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 5;
+	background: rgba(255,255,255,0.6);
+	background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 75%);
+}
+
+.create-your-solution-container .welcome > .image-cover img {
+	width: calc(100% - 39vw);
+	height: auto;
+	display: block;
+	margin: 0 auto;
 }
 
 form.school-name-control {
@@ -67,4 +115,135 @@ div.button-control button.submit-button {
   text-align: center;
   font-weight: 700;
   color: rgb(255,255,255);
+}
+
+.create-your-solution-container  .dial-ui-container {
+  min-height: 600px;
+  width: 100%;
+}
+
+.dial-ui-container .outer {
+  box-shadow: 20px 20px 60px #c9cacb, -20px -20px 60px #ffffff;
+}
+
+.dial-ui-container .outer.hard {
+  box-shadow: 6px -6px 12px #9e9fa0, -6px 6px 12px #9e9fa0;
+}
+
+.dial-ui-container .inner {
+  box-shadow: inset 20px 20px 60px #c9cacb, -20px -20px 60px #ffffff;
+}
+
+.dial-ui-container .inner.hard {
+  box-shadow: inset 6px -6px 12px #9e9fa0, inset -6px 6px 12px #9e9fa0;
+}
+
+.circle {
+  margin: 0 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #eceeef;
+}
+
+object.circle.dial {
+  height: 370px;
+  width: 370px;
+  z-index: 25;
+  background: transparent;
+}
+
+.circle.a {
+  height: 400px;
+  width: 400px;
+  z-index: 5;
+}
+
+.circle.b {
+  height: 385px;
+  width: 385px;
+  z-index: 10;
+}
+
+.circle.c {
+  height: 370px;
+  width: 370px;
+  z-index: 15;
+}
+
+.circle.d {
+  height: 320px;
+  width: 320px;
+  z-index: 20;
+  background: linear-gradient(to right, #1A6AE2, #E21A82);
+}
+
+.circle.e {
+  height: 250px;
+  width: 250px;
+  z-index: 25;
+}
+
+.gauge {
+  height: 90%;
+  width: 75px;
+  margin: 0 0;
+  position: absolute;
+  left: 0;
+  z-index: 25;
+  border-radius: 15px;
+  background: #eceeef;
+}
+
+.gauge-reader-shadow, .gauge-reader, .gauge-reader > .fill {
+  height: 85%;
+  width: 36px;
+  margin: 0 0;
+  position: absolute;
+  z-index: 30;
+  left: 37.75px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.gauge-reader > .fill {
+  height: 75%;
+  top: 100%;
+  left: 18px;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: url('../images/gauge-reader-fill-top.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+object.gauge-ticks {
+  height: 85%;
+  width: auto;
+  margin: 0 0;
+  position: absolute;
+  z-index: 40;
+  left: 37.75px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+}
+
+.gauge-labels {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 40;
+  justify-content: space-around;
+  margin-left: 60px;
+}
+
+.gauge-labels h6 {
+  height: 45px;
+  padding: 6.6px;
+  font-weight: 700;
 }
