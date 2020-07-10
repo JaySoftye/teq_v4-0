@@ -438,8 +438,7 @@ function custom_post_type_nedm_survey() {
 		'has_archive'         => true,
 		'exclude_from_search' => true,
 		'publicly_queryable'  => true,
-		'capability_type'     => 'post',
-    'taxonomies'          => array('post_tag')
+		'capability_type'     => 'post'
 	);
 	// Registering your Custom Post Type
 	register_post_type( 'NEDM-Surveys', $args );
@@ -641,7 +640,7 @@ function custom_product_service_meta_html( $post) {
 	function custom_pathway_add_meta_box() {
 		add_meta_box(
 			'custom-meta',
-			__( 'PD Course for Pathway', 'text-domain' ),
+			__( 'PD Course and Product Information', 'text-domain' ),
 			'custom_pathway_meta_html',
 			'pathways', //Post Type
 			'high' //Location
@@ -652,11 +651,18 @@ function custom_product_service_meta_html( $post) {
 	// ADD CUSTOM BOX
 	function custom_pathway_meta_html( $post) {
 		wp_nonce_field( '_custom_meta_nonce', 'custom_meta_nonce' ); ?>
-			<br />
-			<p class="wp-block-html">
-				<textarea name="custom_pathway_meta_html" id="custom_pathway_meta_html" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="width:100%; overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'sub_header_meta_content' ); ?></textarea>
-			</p>
-			<br />
+		<p class="wp-block-html">
+			<label for="custom_pd_meta_html"><?php _e( 'OTIS Course', 'text-domain' ); ?></label>
+			<br>
+			<textarea name="custom_pd_meta_html" id="custom_pd_meta_html" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="width:100%; overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'custom_pd_meta_html' ); ?></textarea>
+		</p>
+		<br />
+		<p class="wp-block-html">
+			<label for="custom_product_meta_html"><?php _e( 'Product(s)', 'text-domain' ); ?></label>
+			<br>
+			<textarea name="custom_product_meta_html" id="custom_product_meta_html" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="width:100%; overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'custom_product_meta_html' ); ?></textarea>
+		</p>
+		<br />
 		<?php } //endfunction
 
 		// CALLBACK TO RETRIVE VALUE
@@ -677,5 +683,10 @@ function custom_product_service_meta_html( $post) {
 				if ( ! isset( $_POST['custom_meta_nonce'] ) || ! wp_verify_nonce( $_POST['custom_meta_nonce'], '_custom_meta_nonce' ) ) return;
 					if ( ! current_user_can( 'edit_post', $post_id ) ) return;
 
+					if ( isset( $_POST['custom_pd_meta_html'] ) )
+						update_post_meta( $post_id, 'custom_pd_meta_html', esc_textarea( $_POST['custom_pd_meta_html'] ) );
+
+					if ( isset( $_POST['custom_product_meta_html'] ) )
+						update_post_meta( $post_id, 'custom_product_meta_html', esc_textarea( $_POST['custom_product_meta_html'] ) );
 		}
 		add_action( 'save_post', 'custom_pathway_meta_save' );

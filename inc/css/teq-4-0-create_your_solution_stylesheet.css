@@ -1,25 +1,40 @@
 @charset "UTF-8";
 
+.white-fill {
+  fill: #FFFFFF;
+}
+
+.grey-fill {
+  fill: #505051;
+}
+
 .professional-development-color {
   color: #1A6AE2;
+  fill: #1A6AE2;
 }
 .content-creation-color {
   color: #A834D3;
+  fill: #A834D3;
 }
 .stem-solutions-color {
   color: #1A9F84;
+  fill: #1A9F84;
 }
 .classroom-transformation-color {
   color: #CD6500;
+  fill: #CD6500;
 }
 .grade-band-color {
   color: #20A3B7;
+  fill: #20A3B7;
 }
 .subject-matter-color {
   color: #691BCA;
+  fill: #691BCA;
 }
 .technology-proficiency-color {
   color: #E21A82;
+  fill: #E21A82;
 }
 
 .create-your-solution-container .welcome {
@@ -117,13 +132,64 @@ div.button-control button.submit-button {
   color: rgb(255,255,255);
 }
 
-.create-your-solution-container  .dial-ui-container {
+.create-your-solution-container .dial-ui-container {
   min-height: 600px;
   width: 100%;
 }
 
+.create-your-solution-container .dial-ui-container.main-dashboard {
+  position: relative;
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+  border-radius: 21px;
+  border: .75px solid #fdffff;
+  background: linear-gradient(145deg, #fdffff, #d4d6d7);
+  box-shadow: 21px 21px 60px #c9cacb, -21px -21px 60px #ffffff;
+}
+
+.create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container {
+  position: absolute;
+  z-index: 50;
+  top: 36%;
+  right: 1rem;
+}
+
+.create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container a, .create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container input[type="reset"] {
+  height: 60px;
+  width: 60px;
+  display: flex;
+  margin-top: 12px;
+  border-radius: 50%;
+  border: 1px solid #eceeef;
+  background: linear-gradient(145deg, #d4d6d7, #fdffff);
+  box-shadow: 6px 6px 12px #d7d9d9;
+  cursor: pointer;
+}
+
+.create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container a.disabled {
+  pointer-events: none;
+  opacity: 0.36;
+}
+
+.create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container a:hover, .create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container input[type="reset"]:hover {
+  background: linear-gradient(145deg, #fdffff, d4d6d7);
+  box-shadow: inset 6px 6px 12px #d7d9d9, inset -6px -6px 12px #ffffff;
+}
+
+.create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container a svg {
+  width: 100%;
+  height: 100%;
+}
+
+.create-your-solution-container form.dial-ui-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .dial-ui-container .outer {
-  box-shadow: 20px 20px 60px #c9cacb, -20px -20px 60px #ffffff;
+  box-shadow: 21px 21px 60px #c9cacb, -21px -21px 60px #ffffff;
 }
 
 .dial-ui-container .outer.hard {
@@ -131,7 +197,7 @@ div.button-control button.submit-button {
 }
 
 .dial-ui-container .inner {
-  box-shadow: inset 20px 20px 60px #c9cacb, -20px -20px 60px #ffffff;
+  box-shadow: inset 21px 21px 60px #c9cacb, -21px -21px 60px #ffffff;
 }
 
 .dial-ui-container .inner.hard {
@@ -152,6 +218,13 @@ object.circle.dial {
   height: 370px;
   width: 370px;
   z-index: 25;
+  background: transparent;
+}
+
+svg.circle.dial.markers {
+  height: 400px;
+  width: 400px;
+  z-index: 45;
   background: transparent;
 }
 
@@ -177,13 +250,21 @@ object.circle.dial {
   height: 320px;
   width: 320px;
   z-index: 20;
-  background: linear-gradient(to right, #1A6AE2, #E21A82);
+  background: radial-gradient(rgb(0,178,227), rgb(55,187,236));
 }
 
 .circle.e {
   height: 250px;
   width: 250px;
   z-index: 25;
+  display: flex;
+  align-items: center;
+}
+
+.circle.e > h4 {
+  margin: 0 auto;
+  padding: 12px;
+  text-align: center;
 }
 
 .gauge {
@@ -191,34 +272,55 @@ object.circle.dial {
   width: 75px;
   margin: 0 0;
   position: absolute;
-  left: 0;
+  left: 30px;
   z-index: 25;
   border-radius: 15px;
   background: #eceeef;
 }
 
-.gauge-reader-shadow, .gauge-reader, .gauge-reader > .fill {
+.gauge-reader-shadow, .gauge-reader-glare, .gauge-reader, .gauge-reader > .fill {
   height: 85%;
   width: 36px;
   margin: 0 0;
   position: absolute;
   z-index: 30;
-  left: 37.75px;
+  left: 67.26px;
   top: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50px;
   overflow: hidden;
 }
 
+.gauge-reader-glare {
+  z-index: 45;
+  box-shadow: inset -5px -5px 10px rgba(236,239,238,0.21), inset 5px 5px 10px rgba(255,255,255,0.36);
+}
+
 .gauge-reader > .fill {
-  height: 75%;
-  top: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
   left: 18px;
   border-radius: 0;
+}
+
+.gauge-reader > .fill span.top-fill {
+  height: 24px;
+  width: auto;
+  display: block;
   background-color: transparent;
   background-image: url('../images/gauge-reader-fill-top.svg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center top;
+}
+
+.gauge-reader > .fill span {
+  height: 66px;
+  width: auto;
+  display: block;
+  background-color: #00b2e3;
 }
 
 object.gauge-ticks {
@@ -227,23 +329,81 @@ object.gauge-ticks {
   margin: 0 0;
   position: absolute;
   z-index: 40;
-  left: 37.75px;
+  left: 67.26px;
   top: 50%;
   transform: translate(-50%, -50%);
   background: transparent;
 }
 
 .gauge-labels {
+  min-height: 462px;
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   z-index: 40;
-  justify-content: space-around;
-  margin-left: 60px;
+  margin-left: 81px;
 }
 
-.gauge-labels h6 {
-  height: 45px;
+.gauge-labels span {
+  height: 66px;
+  display: block;
   padding: 6.6px;
   font-weight: 700;
+}
+
+.gauge-labels span:empty {
+  display: none;
+}
+
+.dial-ui-set-container.slide, .dial-ui-set {
+  width: 100%;
+  position: relative;
+}
+
+.dial-ui-set {
+  margin-top: 21px;
+  margin-bottom: 21px;
+}
+
+.dial-ui-set input[type="radio"] {
+  display: none;
+}
+
+.dial-ui-set .content-dial {
+  width: 45%;
+  position: absolute;
+  top: 50%;
+  right: -27.75%;
+  transform: translate(-50%, -50%);
+}
+
+.dial-ui-set .content-dial p {
+  margin-top: 3px;
+}
+
+.dial-ui-set .radio-dial {
+  height: 200px;
+  width: 200px;
+  display: block;
+  border-radius: 50%;
+  background: #eceeef;
+}
+
+.dial-ui-set h5 {
+  margin: 0 0;
+  font-size: 1rem;
+}
+
+.radio-dial svg, .radio-dial svg g, .radio-dial svg g path {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+  overflow: visible;
+}
+
+.radio-dial svg text {
+  background: black;
+  border-radius: 6px;
+  padding: 3px
 }

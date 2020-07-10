@@ -271,6 +271,11 @@ p {
   padding-bottom: 0 !important;
 }
 
+.noleftrightpadding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 .padding {
   padding: 4.8rem;
 }
