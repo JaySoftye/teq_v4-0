@@ -1,7 +1,8 @@
 <?php
 /**
- * Template Name: Product Page
+ * Template Name: Product Page with Horizontal Slider
  * The template for displaying Products (includes Sub headers, OTIS Course, Pathway meta values)
+ * with Additional Product and Service slider for the product-and-service custom post type
  * @package Teq_v4.0
  */
 
@@ -187,6 +188,57 @@ get_header();
 				}
 				endwhile; // End of the loop.
 			?>
+
+			<section class="relative-position padding-bottom z-index-top white-background-fill">
+				<div class="slider-start columns padding-bottom">
+					<div class="column nopadding">
+
+						<div class="hs-container">
+							<ul class="hs">
+
+							<?php if ( have_posts() ) :
+								$args = array(
+									'post_type' => 'product-and-service',
+									'taxonomy' => 'topic',
+									'posts_per_page' => -1,
+									'orderby' => 'title',
+									'order'   => 'ASC',
+									'tax_query' => array(
+        						array (
+            					'taxonomy' => 'topics',
+            					'field' => 'slug',
+            					'terms' => array( "STEM Technologies", "Educational Technology" )
+        						)
+    							),
+								);
+
+							$the_query = new WP_Query( $args );
+								while ($the_query -> have_posts()) : $the_query -> the_post();
+									$custom_url = get_post_meta( $post->ID, 'custom_url_meta_content', true );
+							?>
+
+								<li class="<?php $terms = get_the_terms( $post->ID, 'topics' ); foreach($terms as $term) { echo $term -> slug . ' '; } ?>item">
+									<article class="box">
+										<div class="image-link">
+											<a href="<?php if(empty( $custom_url)) { the_permalink(); } else { echo get_post_meta( $post->ID, 'custom_url_meta_content', true ); } ?>">
+												<?php echo get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'featured-image' ) ); ?>
+											</a>
+										</div>
+										<h4 class="strong"><?php the_title(); ?></h4>
+										<?php the_excerpt(); ?>
+										<h6>
+											<a class="relative-position block strong" href="<?php if(empty( $custom_url)) { the_permalink(); } else { echo get_post_meta( $post->ID, 'custom_url_meta_content', true ); } ?>"><span class="arrow"></span></a>
+										</h6>
+									<article>
+								</li>
+
+							<?php endwhile; endif; wp_reset_postdata(); // End have_posts() check. ?>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</section>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

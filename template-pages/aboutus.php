@@ -40,13 +40,13 @@ get_header();
 						<div class="column">
 							<a class="delete is-large close-form" href ng-model="demoFormCollapsed" ng-click="demoFormCollapsed=!demoFormCollapsed"></a>
 							<!--[if lte IE 8]>
-							<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+								<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
 							<![endif]-->
 							<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
 							<script>
-								hbspt.forms.create({
+  							hbspt.forms.create({
 									portalId: "182596",
-									formId: "60b40c78-0726-4871-87e4-0f0ca6fe2d7c"
+									formId: "3f0b30e6-e31e-4390-a8ae-d94c51265716"
 								});
 							</script>
 						</div>
@@ -64,8 +64,7 @@ get_header();
 							?>
 						</div>
 						<div class="column is-12">
-							<h1></h1>
-							<h2><strong class="block is-size-1">Mission Statement</strong>Teq supports outcomes by evaluating and delivering products and services for the educational environment. We are dedicated to providing dynamic professional development and instructional support to educators.</h2>
+							<h1 class="has-text-centered title-text">Teq supports outcomes by evaluating and delivering products and services for the educational environment. We are dedicated to <strong>providing dynamic professional development and instructional support</strong> to educators.</h1>
 						</div>
 					</div>
 				</div>
@@ -132,7 +131,7 @@ get_header();
 					</div>
 					<div class="slider-start columns">
 						<div class="container">
-							<div class="column is-offset-1 is-10">
+							<div class="column is-full">
 								<div class="hs-container">
 									<ul class="hs">
 										<li class="item">
@@ -148,6 +147,21 @@ get_header();
 										<li class="item">
 											<figure>
 												<img src="/wp-content/uploads/2020/02/about-us-culture-image3.jpg" />
+											</figure>
+										</li>
+										<li class="item">
+											<figure>
+												<img src="/wp-content/uploads/2020/02/about-us-culture-image4.jpg" />
+											</figure>
+										</li>
+										<li class="item">
+											<figure>
+												<img src="/wp-content/uploads/2020/02/about-us-culture-image5.jpg" />
+											</figure>
+										</li>
+										<li class="item">
+											<figure>
+												<img src="/wp-content/uploads/2020/02/about-us-culture-image6.jpg" />
 											</figure>
 										</li>
 									</ul>

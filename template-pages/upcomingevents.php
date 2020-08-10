@@ -21,7 +21,7 @@ get_header();
 							</div>
 							<div class="column is-4">
 								<p>
-									<a class="button white-fill drop-shadow" href="#">Host an EdTech Day <span class="arrow"></span></a>
+									<a class="button white-fill drop-shadow" href="/edtech-in-focus/">Host an EdTech Day <span class="arrow"></span></a>
 								</p>
 							</div>
 						</div>
@@ -53,7 +53,7 @@ get_header();
   									$thumb_url[0] = get_template_directory_uri() . '/inc/images/default-featured-image.jpg';
 									}
 	        			?>
-	        		<article class="column is-6 post-card">
+	        		<article class="column is-4 post-card">
 	          		<div class="post-card-body featured-image-background" style="background-image: url('<?php echo $thumb_url[0]; ?>');">
 	            		<div class="post-details">
 	              		<h4>
@@ -69,7 +69,7 @@ get_header();
       									</p>
   										</div>
   										<div class="level-right">
-    										<p><?php echo get_the_date( 'F d Y' ); ?></p>
+    										<p class="caption condensed-text upper-case"><?php echo get_the_date( 'F d Y' ); ?></p>
   										</div>
 										</div>
 	            		</div>

@@ -131,21 +131,26 @@
         {id: 'product-item', name: 'All Subject Matters'},
         {id: 'coding', name: 'Coding'},
         {id: 'robotics', name: 'Robotics'},
-        {id: 'hydroponics', name: 'Hydroponics'}
+        {id: 'hydroponics', name: 'Hydroponics'},
+        {id: 'augmented-virtual-reality', name: 'Augmented/Virtual Reality'},
+        {id: '3d-printing', name: '3D Printing'},
+        {id: 'gaming', name: 'Gaming'},
+        {id: 'instructional-software', name: 'Instructional Software'},
+        {id: 'Circuitry', name: 'Circuitry'}
       ];
     });
     app.controller('technologyProficiencyFilter', function($scope) {
       $scope.items = [
         {id: 'product-item', name: 'All Proficiencies'},
-        {id: 'easy-technology-proficiency', name: 'Easy Proficiency'},
-        {id: 'intermediate-technology-proficiency', name: 'Intermediate Proficiency'},
-        {id: 'advanced-technology-proficiency', name: 'Advanced Proficiency'}
+        {id: 'easy-proficiency', name: 'Easy Proficiency'},
+        {id: 'intermediate-proficiency', name: 'Intermediate Proficiency'},
+        {id: 'advanced-proficiency', name: 'Advanced Proficiency'}
       ];
     });
     app.controller('curriculumVersatilityFilter', function($scope) {
   	   $scope.items = [
          {id: 'product-item', name: 'Any Curriculum Level'},
-         {id: 'subject-grade-specific-curriculum-versatility', name: 'Subject Grade Specific'},
+         {id: 'subject-grade-specific', name: 'Subject Grade Specific'},
          {id: 'medium-curriculum-versatility', name: 'Medium Curriculum Versatility'},
          {id: 'high-curriculum-versatility', name: 'High Curriculum Versatility'}
        ];
@@ -181,8 +186,11 @@
       };
     }]);
 
+  /**
+    * TABBED CONTENT FOR CREATE YOUR SOLUTION DIALS
+    */
     app.controller('formTabController', ['$scope', function($scope) {
-      $scope.tab = 1;
+      $scope.tab = 0;
       $scope.setTab = function(newTab){
         $scope.tab = newTab;
       };
@@ -201,17 +209,36 @@
           $scope.tab++;
         }
       }
-
     }]);
 
+
     app.controller("createSolution", function($scope) {
-      /**
+    /**
       * Hamburger Helper Function
       */
       $scope.log = function() {
         console.log("Success");
       };
 
+    /**
+      * START CREATING YOUR SOLUTION
+      */
+      $scope.startCreatingSolution = function() {
+        $scope.startCreating = true;
+      };
+
+    /**
+      * SUBMIT YOUR SOLUTION SET TO RESULTS PAGE
+      */
+      $scope.actionURL = "/create-your-solution/your-solution/";
+      $scope.submitSolutionSet =  function() {
+        location.href = $scope.actionURL;
+      };
+
+
+    /**
+      * TEXT SHOW/HIDE FUNCTIONS FOR DESCRIPTIONS
+      */
       $scope.resetSolutionSet = function() {
         $scope.show = 0;
         $scope.professionalDevelopmentSolutions = false;
@@ -246,6 +273,11 @@
           $scope.show = 3;
           $scope.pdSelected = true;
         };
+      $scope.pdSelectedReset = function() {
+        $scope.pdSelected = false;
+          $scope.professionalDevelopmentSolutions = '';
+          $scope.show = 0;
+      }
 
       $scope.lessonContentSelected = false;
       $scope.projectBasedLearningSelected = function() {
@@ -263,6 +295,11 @@
           $scope.show = 6;
           $scope.lessonContentSelected = true;
         };
+      $scope.lessonContentSelectedReset = function() {
+        $scope.lessonContentSelected  = false;
+          $scope.lessonContentSolutions = '';
+          $scope.show = 0;
+        };
 
       $scope.stemSelected = false;
       $scope.generalStemSelected = function() {
@@ -271,12 +308,12 @@
           $scope.stemSelected = true;
         };
       $scope.stemCodingSelected = function() {
-        $scope.stemSolutions = 'STEM Coding';
+        $scope.stemSolutions = 'Coding';
           $scope.show = 8;
           $scope.stemSelected = true;
         };
       $scope.stemRoboticsSelected = function() {
-        $scope.stemSolutions = 'STEM Robotics';
+        $scope.stemSolutions = 'Robotics';
           $scope.show = 9;
           $scope.stemSelected = true;
         };
@@ -284,6 +321,11 @@
         $scope.stemSolutions = 'Hydroponics';
           $scope.show = 10;
           $scope.stemSelected = true;
+        };
+      $scope.stemSelectedReset = function() {
+        $scope.stemSelected  = false;
+          $scope.stemSolutions = '';
+          $scope.show = 0;
         };
 
       $scope.classroomSelected = false;
@@ -301,6 +343,11 @@
         $scope.classroomTransformationSolutions = 'Evospaces (furniture)';
           $scope.show = 13;
           $scope.classroomSelected = true;
+        };
+      $scope.classroomSelectedReset = function() {
+        $scope.classroomSelected  = false;
+          $scope.classroomTransformationSolutions = '';
+          $scope.show = 0;
         };
 
       $scope.gradeSelected = false;
@@ -323,6 +370,11 @@
         $scope.gradeBand = 'Grades 9-12';
           $scope.show = 17;
           $scope.gradeSelected = true;
+        };
+      $scope.gradeSelectedReset = function() {
+        $scope.gradeSelected  = false;
+          $scope.gradeBand = '';
+          $scope.show = 0;
         };
 
       $scope.subjectSelected = false;
@@ -366,6 +418,11 @@
           $scope.show = 25;
           $scope.subjectSelected = true;
         };
+      $scope.subjectSelectedReset = function() {
+        $scope.subjectSelected  = false;
+          $scope.subjectMatter = '';
+          $scope.show = 0;
+        };
 
       $scope.proficiencySelected = false;
       $scope.easyProficiencySelected = function() {
@@ -383,9 +440,50 @@
           $scope.show = 28;
           $scope.proficiencySelected = true;
         };
+      $scope.proficiencySelectedReset = function() {
+        $scope.proficiencySelected  = false;
+          $scope.technologyProficiency = '';
+          $scope.show = 0;
+        };
 
     });
 
     app.controller("solutionResults", function($scope) {
+    /**
+      * TABBED CONTENT for SOLUTION SET RESULTS
+      */
+
+      $scope.expandAllTabs = function() {
+        $scope.pdOnlineOtisCourse = true;
+        $scope.iblockPathwayTopic = true;
+        $scope.stemProductOptions = true;
+        $scope.classroomTransformationInfo = true;
+      };
+
+      $scope.tab = 0;
+        $scope.setTab = function(newTab){
+          $scope.tab = newTab;
+        };
+        $scope.isSet = function(tabNum){
+          return $scope.tab === tabNum;
+        };
+      $scope.closeTabs = function() {
+          $scope.tab = 0;
+        };
+    });
+
+    /**
+      * EVENT REGISTRATION CONFIRMATION
+      * GRAB URL PARAMETERS From the Hubspot Form Submission via $location method
+      * Set values as HTML elements
+      */
+    app.controller("eventRegistrationConfirmation", function($scope) {
+
+      const urlParams = new URLSearchParams(window.location.search);
+        const eventName = urlParams.get('event');
+          const firstName = urlParams.get('firstname');
+
+      $scope.eventName = eventName;
+      $scope.firstName = firstName;
 
     });

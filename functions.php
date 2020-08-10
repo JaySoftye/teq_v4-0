@@ -177,21 +177,23 @@ function teq_v4_0_scripts() {
 	}
 
 	// STYLESHEET FOR CREATE YOUR SOLUTION
-	if ( is_page_template( 'template-pages/createyoursolution.php' ) ) {
+	if ( is_page_template( array( 'template-pages/createyoursolution.php', 'template-pages/createyoursolutionResult.php', 'template-pages/createyoursolutionquoterequest.php', 'template-pages/test.php' ) ) ) {
 		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-create_your_solution_stylesheet.css' );
 	}
 
 	// Additional CSS for Specific Channel Partners
-	if ( is_page_template( 'template-pages/nycdoe.php' ) ) {
+	if ( is_page_template( array( 'template-pages/nycdoe.php', 'template-pages/cdwgstemproducts.php', 'template-pages/cdwgprofessionaldevelopmentproducts.php', 'template-pages/landingpageadditionalstyling.php') ) ) {
 		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-additional_stylesheet.css' );
-	} elseif ( is_page_template( 'template-pages/cdwgstemproducts.php' ) ) {
+	}
+
+	// Additional CSS for SPECIFIC CUSTOM POST TYPES
+	if ( is_singular( array( 'product-and-service', 'nedm-surveys', 'pathways') ) ) {
 		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-additional_stylesheet.css' );
-	} elseif ( is_page_template( 'template-pages/cdwgprofessionaldevelopmentproducts.php' ) ) {
-		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-additional_stylesheet.css' );
-	} elseif ( is_singular('product-and-service') ) {
-		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-additional_stylesheet.css' );
-	} elseif ( is_page_template( 'template-pages/landingpageadditionalstyling.php' ) ) {
-		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-additional_stylesheet.css' );
+	}
+
+	// LEGACY CSS for BOOTSTRAP THEME
+	if ( is_page_template( array( 'template-pages/Legacy-Boostrap_Page-Template.php') ) ) {
+		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/legacy_boostrap-teq-theme.css' );
 	}
 
 }
@@ -389,7 +391,7 @@ function custom_post_type_product_and_service() {
     'menu_icon'           => 'dashicons-buddicons-community',
 		'can_export'          => true,
 		'has_archive'         => true,
-		'exclude_from_search' => false,
+		'exclude_from_search' => true,
 		'publicly_queryable'  => true,
 		'capability_type'     => 'post',
     'taxonomies'          => array('category', 'topic')
@@ -485,7 +487,7 @@ function custom_post_type_pathway() {
 		'exclude_from_search' => true,
 		'publicly_queryable'  => true,
 		'capability_type'     => 'post',
-    'taxonomies'          => array('post_tag')
+    'taxonomies'          => array('category', 'topic', 'product')
 	);
 	// Registering your Custom Post Type
 	register_post_type( 'Pathways', $args );
@@ -498,6 +500,15 @@ function custom_post_type_pathway() {
 add_action( 'init', 'custom_post_type_product_and_service', 0 );
 add_action( 'init', 'custom_post_type_pathway', 0 );
 add_action( 'init', 'custom_post_type_nedm_survey', 0 );
+
+// FUNCTION AND ACTION TO SORT CUSTOM POST TYPES 'PRODUCT AND SERVICE' OR 'PATHWAY' BY TITLE
+function alpha_order_classes( $query ) {
+  if ( $query->is_post_type_archive('product-and-service' or 'pathway') && $query->is_main_query() ) {
+    $query->set( 'orderby', 'title' );
+    $query->set( 'order', 'ASC' );
+  }
+}
+add_action( 'pre_get_posts', 'alpha_order_classes' );
 
 /* add action for email notification
 * anytime a CPT NEDM Survey is published or changed
@@ -545,6 +556,38 @@ function create_topics_hierarchical_taxonomy() {
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array( 'slug' => 'topic' ),
+  ));
+}
+
+/* CUSTOM TAXONOMY CREATED FOR PATHWAY CUSTOM POST TYPE
+* hook into the init action and call create_book_taxonomies when it fires
+*/
+add_action( 'init', 'create_product_hierarchical_taxonomy', 0 );
+//create a custom taxonomy name it topics for your posts
+function create_product_hierarchical_taxonomy() {
+// Add new taxonomy, make it hierarchical like categories
+//first do the translations part for GUI
+  $labels = array(
+    'name' => _x( 'Products', 'taxonomy general name' ),
+    'singular_name' => _x( 'Product', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Productss' ),
+    'all_items' => __( 'All Products' ),
+    'parent_item' => __( 'Parent Product' ),
+    'parent_item_colon' => __( 'Parent Product:' ),
+    'edit_item' => __( 'Edit Product' ),
+    'update_item' => __( 'Update Product' ),
+    'add_new_item' => __( 'Add New Product' ),
+    'new_item_name' => __( 'New Product Name' ),
+    'menu_name' => __( 'Products' ),
+  );
+// Now register the taxonomy
+  register_taxonomy('products',array('pathways'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'product' ),
   ));
 }
 
@@ -690,3 +733,47 @@ function custom_product_service_meta_html( $post) {
 						update_post_meta( $post_id, 'custom_product_meta_html', esc_textarea( $_POST['custom_product_meta_html'] ) );
 		}
 		add_action( 'save_post', 'custom_pathway_meta_save' );
+
+
+
+	/**
+		* ADD EXTRA USER FIELDS FOR PROFILE INFO
+		* WILL USE AUTHOR INFO FOR PD BIOS
+		*/
+
+		add_action( 'show_user_profile', 'extra_user_profile_fields' );
+		add_action( 'edit_user_profile', 'extra_user_profile_fields' );
+
+		function extra_user_profile_fields( $user ) { ?>
+
+			<h3><?php _e("Extra profile information", "blank"); ?></h3>
+  		<table class="form-table">
+    		<tr>
+      		<th><label for="certification"><?php _e("certification"); ?></label></th>
+      		<td>
+        		<input type="text" name="certification" id="certification" class="regular-text" value="<?php echo esc_attr( get_the_author_meta( 'certification', $user->ID ) ); ?>" /><br />
+        		<span class="description"><?php _e("Please enter your certification."); ?></span>
+      		</td>
+    		</tr>
+    		<tr>
+      		<th><label for="background"><?php _e("background"); ?></label></th>
+      			<td>
+        			<input type="text" name="background" id="background" class="regular-text" value="<?php echo esc_attr( get_the_author_meta( 'background', $user->ID ) ); ?>" /><br />
+        			<span class="description"><?php _e("Please enter your background"); ?></span>
+      			</td>
+    			</tr>
+  		</table>
+		<?php }
+			// SAVE THE UPDATED META INFO THE USER
+
+			add_action( 'personal_options_update', 'save_extra_user_profile_fields' );
+			add_action( 'edit_user_profile_update', 'save_extra_user_profile_fields' );
+				function save_extra_user_profile_fields( $user_id ) {
+  				$saved = false;
+  					if ( current_user_can( 'edit_user', $user_id ) ) {
+    					update_user_meta( $user_id, 'certification', $_POST['certification'] );
+    					update_user_meta( $user_id, 'background', $_POST['background'] );
+    						$saved = true;
+  					}
+  				return true;
+				}

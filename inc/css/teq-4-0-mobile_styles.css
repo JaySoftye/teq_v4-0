@@ -292,6 +292,9 @@
   .post-card-container .post-card .post-card-body.featured-image-background {
     height: calc(21rem + 90px);
   }
+  header.site-header div.main-dropdown-menu-container .main-dropdown-menu.cols {
+    column-count: 1;
+  }
 }
 
 @media (max-height: 600px) {

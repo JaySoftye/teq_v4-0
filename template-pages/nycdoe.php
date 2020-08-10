@@ -45,21 +45,25 @@ get_header();
 					</div>
 				</div>
 			</section>
+
 			<section class="container-fluid padding-top element-on-top" style="background-color: rgb(64, 85, 117);">
 				<div class="columns is-desktop is-multiline nopadding">
 					<div class="column is-2 hide-mobile nopadding hide-mobile">
 						<img class="full-width" src="/wp-content/uploads/2020/02/nyc-doe-free-otis-account-compare-image.jpg" />
 					</div>
 					<div class="column is-8 padding-bottom">
-						<h3 class="has-text-centered white-text strong">Comparison Documents</h3>
-						<nav class="columns is-vcentered">
-  						<div class="column is-half">
+						<h3 class="has-text-centered white-text strong">Comparison Documents, Guides, and FAQs</h3>
+						<nav class="columns is-vcentered is-centered">
+  						<div class="column">
 								<a class="btn smart-blue" href="https://www.teq.com/wp-content/themes/BootstrapFour/_img/Notebook_vs_ClassFlow_ActivInspire-Datasheet-2018.pdf">Compare SMART Notebook to a Classflow or ActivInspire Subscription</a>
   						</div>
-  						<div class="column is-half">
+  						<div class="column">
 								<a class="btn smart-purple" href="https://www.teq.com/wp-content/themes/BootstrapFour/_img/teq_sls_unlimited_comparison.pdf">Compare a SMART Notebook Account to a SLS or Teq Essentials Subscription</a>
-  					</div>
-					</nav>
+  						</div>
+							<div class="column">
+								<a class="btn smart-green" href="#guidesFAQ">Product Guides, Troubleshooting Tips, and Frequently Asked Questions Docs</a>
+  						</div>
+						</nav>
 					</div>
 					<div class="column is-2 nopadding hide-mobile">
 						<img class="full-width" src="/wp-content/uploads/2020/02/nyc-doe-smart-notebook-compare-image.jpg" />
@@ -134,12 +138,103 @@ get_header();
 								<h4 class="padding-sm-left-right">
 									<a class="block strong" href="<?php the_permalink(); ?>?famis"><?php the_title(); ?></a>
 								</h4>
+								<?php if (has_excerpt()) { ?>
+									<div class="padding-sm-left-right">
+										<?php echo the_excerpt(); ?>
+									</div>
+								<?php } ?>
 								<p class="has-text-centered padding-sm-bottom">
 									<a class="inline-block relative-position btn rounded blue-button-background " href="<?php the_permalink(); ?>?famis">Discover more <span class="arrow light"></span></a>
 								</p>
 							</div>
 						</article>
 						<?php endwhile; wp_reset_postdata(); endif; ?>
+					</div>
+
+				</div>
+			</section>
+
+			<section id="guidesFAQ" class="container padding-top padding-bottom">
+				<h3 class="has-text-centered strong">Guides and FAQs</h3>
+				<div class="columns is-desktop is-centered is-multiline padding">
+
+					<div class="column is-4-desktop is-5-tablet is-half-mobile">
+						<div class="panel">
+    					<a class="panel-block" href="https://www.teq.com/pdf/SMART-Sound-AM-40-IQ-Swap_web.pdf">
+      					<img src="/wp-content/uploads/2020/02/diit-nycdoe-audio-AM40-troubleshoot-1.jpg" />
+    					</a>
+  						<div class="panel-block">
+      					<a class="is-size-4" href="https://www.teq.com/pdf/SMART-Sound-AM-40-IQ-Swap_web.pdf">Audio Troubleshooting for 6000 Series and AM-40 iQ Module.</a>
+  						</div>
+							<div class="panel-block column">
+    						<a href="https://www.teq.com/pdf/SMART-Sound-AM-40-IQ-Swap_web.pdf" class="button block auto-margin purple">VIEW</a>
+  						</div>
+						</div>
+					</div>
+					<div class="column is-4-desktop is-5-tablet is-half-mobile">
+						<div class="panel">
+    					<a class="panel-block" href="https://www.teq.com/pdf/SMART-Teq-General-Screen-sharing-troubleshooting_web.pdf">
+      					<img src="/wp-content/uploads/2020/02/diit-nycdoe-screen-share-troubleshoot.jpg" />
+    					</a>
+  						<div class="panel-block">
+      					<a class="is-size-4" href="https://www.teq.com/pdf/SMART-Teq-General-Screen-sharing-troubleshooting_web.pdf">General Screen Sharing Troubleshooting, Tips, and Tricks</a>
+  						</div>
+							<div class="panel-block column">
+    						<a href="https://www.teq.com/pdf/SMART-Teq-General-Screen-sharing-troubleshooting_web.pdf" class="button block auto-margin purple">VIEW</a>
+  						</div>
+						</div>
+					</div>
+					<div class="column is-4-desktop is-5-tablet is-half-mobile">
+						<div class="panel">
+    					<a class="panel-block" href="https://www.teq.com/pdf/SMART-Android-Devices-Screenshare-Board-Sheet_web.pdf">
+      					<img src="/wp-content/uploads/2020/02/diit-nycdoe-android-screen-share-troubleshoot.jpg" />
+    					</a>
+  						<div class="panel-block">
+      					<a class="is-size-4" href="https://www.teq.com/pdf/SMART-Android-Devices-Screenshare-Board-Sheet_web.pdf">Screen Sharing Troubleshooting for Android Devices.</a>
+  						</div>
+							<div class="panel-block column">
+    						<a href="https://www.teq.com/pdf/SMART-Android-Devices-Screenshare-Board-Sheet_web.pdf" class="button block auto-margin purple">VIEW</a>
+  						</div>
+						</div>
+					</div>
+					<div class="column is-4-desktop is-5-tablet is-half-mobile">
+						<div class="panel">
+    					<a class="panel-block" href="https://www.teq.com/pdf/SMART-Apple-Devices-Screenshare-Board-Sheet_web.pdf">
+      					<img src="/wp-content/uploads/2020/02/diit-nycdoe-apple-screen-share-troubleshoot.jpg" />
+    					</a>
+  						<div class="panel-block">
+      					<a class="is-size-4" href="https://www.teq.com/pdf/SMART-Apple-Devices-Screenshare-Board-Sheet_web.pdf">Screen Sharing Troubleshooting for Apple Devices.</a>
+  						</div>
+							<div class="panel-block column">
+    						<a href="https://www.teq.com/pdf/SMART-Apple-Devices-Screenshare-Board-Sheet_web.pdf" class="button block auto-margin purple">VIEW</a>
+  						</div>
+						</div>
+					</div>
+					<div class="column is-4-desktop is-5-tablet is-half-mobile">
+						<div class="panel">
+    					<a class="panel-block" href="https://www.teq.com/pdf/SMART-Chromebooks-Screenshare-Board-Sheet_web.pdf">
+      					<img src="/wp-content/uploads/2020/02/diit-nycdoe-chromebooks-screen-share-troubleshoot.jpg" />
+    					</a>
+  						<div class="panel-block">
+      					<a class="is-size-4" href="https://www.teq.com/pdf/SMART-Chromebooks-Screenshare-Board-Sheet_web.pdf">Screen Sharing Troubleshooting for Chromebooks.</a>
+  						</div>
+							<div class="panel-block column">
+    						<a href="https://www.teq.com/pdf/SMART-Chromebooks-Screenshare-Board-Sheet_web.pdf" class="button block auto-margin purple">VIEW</a>
+  						</div>
+						</div>
+					</div>
+					<div class="column is-4-desktop is-5-tablet is-half-mobile">
+						<div class="panel">
+							<a class="panel-block" href="https://www.teq.com/pdf/SMART-Windows-Screenshare-Board-Sheet_web.pdf">
+								<img src="/wp-content/uploads/2020/02/diit-nycdoe-windows-screen-share-troubleshoot.jpg" />
+							</a>
+							<div class="panel-block">
+								<a class="is-size-4" href="https://www.teq.com/pdf/SMART-Windows-Screenshare-Board-Sheet_web.pdf">Screen Sharing Troubleshooting for Windows Devices.</a>
+							</div>
+							<div class="panel-block column">
+								<a href="https://www.teq.com/pdf/SMART-Windows-Screenshare-Board-Sheet_web.pdf" class="button block auto-margin purple">VIEW</a>
+							</div>
+						</div>
 					</div>
 
 				</div>

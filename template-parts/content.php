@@ -11,8 +11,8 @@
 
 <article id="post-<?php the_ID(); ?>" class="container content-container padding-bottom">
 
-	<div class="columns is-desktop">
-		<div class="column is-10 is-offset-1">
+	<div class="columns is-desktop is-centered">
+		<div class="column is-10">
 			<?php if ( is_singular() ) :
 				the_title( '<h1 class="page-titles strong">', '</h1>' );
 			else :
@@ -25,15 +25,13 @@
 		</div>
 	</div>
 
-	<div class="columns is-desktop">
-		<div class="column is-2 is-offset-1">
-			<br />
+	<div class="columns is-desktop is-centered">
+		<div class="column is-3 padding-right">
 			<?php
-				$full_name = get_the_author_meta('first_name') . get_the_author_meta('last_name');
+				$full_name = get_the_author_meta('first_name') . ' ' . get_the_author_meta('last_name');
 				$authorname = get_the_author_meta('nickname');
 			?>
 			<h6><strong><?php echo $full_name; ?></strong><br /><?php echo $authorname; ?></h6>
-			<br />
 			<h6 class="caption">
 				<?php
 					$categories = get_the_category();
@@ -44,6 +42,38 @@
 				on
 				<?php echo get_the_date( 'F d Y' ); ?>
 			</h6>
+			<br />
+			<?php if ( in_category('registered-event') ) { ?>
+				<section class="register-form">
+					<h4 class="strong">Interested in this event? Register using the form below:</h4>
+					<!--[if lte IE 8]>
+					<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+					<![endif]-->
+					<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+					<script>
+						hbspt.forms.create({
+							portalId: "182596",
+							formId: "22436275-3a7a-4670-bdab-188d25e49b55",
+							submitButtonClass: '',
+    					inlineMessage: 'Thanks for your interest.',
+    						onFormSubmit: function($form){
+
+									// GRAB THE PAGE TITLE AND SET EVENT INPUT FIELD AS TITLE
+									var title = $(document).find("title").text();
+									var titleURL = title.toLowerCase().replace(/–|teq| /g, "-").replace(/----/g, "-");
+									$('input[name="event"]').val(title)
+
+									// SET REDIRECT WITH FORM DATA IN URL
+        					setTimeout( function() {
+            				var formData = $form.serialize();
+            				window.location = "/upcoming-events/"+titleURL+"registrated?" + formData;
+        					}, 250 ); // Redirects to url with query string data from form fields after 250 milliseconds.
+    						}
+						});
+					</script>
+				</section>
+			<?php } ?>
+
 		</div>
 		<div class="column is-7 entry-content">
 			<?php

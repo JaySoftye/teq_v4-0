@@ -80,7 +80,7 @@ get_header();
 		<?php } ?>
 
 		<section class="full-section padding-bottom">
-			<div>
+
 
 				<?php
 					while ( have_posts() ) :
@@ -99,7 +99,7 @@ get_header();
 					endwhile; // End of the loop.
 				?>
 
-			</div>
+
 		</section>
 
 	</main><!-- #main -->

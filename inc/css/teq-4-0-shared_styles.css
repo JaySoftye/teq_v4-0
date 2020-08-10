@@ -45,7 +45,6 @@ h5 {
   font-size: 1.25rem;
 }
 h6 {
-  margin-bottom: .75rem;
   font-size: 1rem;
 }
 
@@ -63,7 +62,7 @@ p {
    outline: 0;
  }
 
- .condensed-text {
+.condensed-text {
    font-family: 'Roboto Condensed','Roboto',Helvetica,Arial,san-serif !important;
  }
 
@@ -80,6 +79,11 @@ p {
   vertical-align: middle;
 }
 
+.two-lines span::before {
+  content: "\A";
+  white-space: pre;
+}
+
 .float-left {
   float: left;
 }
@@ -90,6 +94,14 @@ p {
 
 .relative-position {
   position: relative;
+}
+
+.z-index-top {
+  z-index: 100;
+}
+
+.z-index-bottom {
+  z-index: -1;
 }
 
 .modal {
@@ -130,6 +142,10 @@ p {
 
 .is-vend {
   align-items: flex-end;
+}
+
+.has-align-self-center {
+  align-self: center;
 }
 
 .columns.has-step-layout > div.column + div.column {
@@ -381,6 +397,10 @@ p {
   font-size: .75em !important;
 }
 
+.upper-case {
+  text-transform: uppercase;
+}
+
 .inner-shadow {
   box-shadow: 0 0 21px rgba(0, 0, 0, 0.4) inset;
 }
@@ -547,6 +567,10 @@ p {
   color: #FFFFFF;
 }
 
+.delete {
+  background-color: rgb(0,0,0) !important;
+}
+
 em.check {
   display: inline-block;
   transform: rotate(45deg);
@@ -611,6 +635,13 @@ span.arrow.left {
 
 .button.lavender {
   color: rgb(131,147,202);
+}
+
+.button.add-to-calendar {
+  padding-left: calc(1.24em + 3%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 24.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 60 60' style='enable-background:new 0 0 60 60;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23FFFFFF;%7D%0A%3C/style%3E%3Cg id='GY2uYl.tif'%3E%3Cg%3E%3Cpath class='st0' d='M18.617,38.442c0-5.227,0-10.454,0-15.682c0.506-1.868,2.004-1.881,3.61-1.791 c0-0.548-0.007-1.008,0.002-1.467c0.006-0.294-0.002-0.596,0.063-0.88c0.147-0.646,0.587-0.952,1.241-0.9 c0.714,0.056,1.04,0.529,1.081,1.184c0.042,0.673,0.009,1.351,0.009,2.017c3.055,0,5.971,0,8.937,0 c0-0.665-0.01-1.278,0.002-1.891c0.016-0.822,0.458-1.311,1.172-1.319c0.728-0.008,1.169,0.464,1.184,1.291 c0.011,0.632,0.002,1.264,0.002,1.951c0.457,0,0.82-0.004,1.184,0.001c0.369,0.006,0.739,0.006,1.107,0.034 c1.011,0.077,1.639,0.61,1.844,1.598c0.085,0.406,0.132,0.828,0.133,1.243c0.01,4.533,0.016,9.066,0.004,13.599 c-0.007,2.592-1.291,3.928-3.908,3.955c-4.455,0.045-8.911,0.021-13.367,0.02C20.809,41.405,19.159,40.724,18.617,38.442z M20.524,27.783c0,0.247,0,0.439,0,0.63c0.001,2.983-0.004,5.966,0.004,8.949c0.004,1.586,0.482,2.116,2.056,2.125 c4.558,0.024,9.115,0.023,13.673-0.001c1.533-0.008,2.028-0.55,2.033-2.074c0.009-3.008,0.005-6.015,0.003-9.023 c0-0.191-0.026-0.381-0.042-0.606C32.353,27.783,26.497,27.783,20.524,27.783z M38.29,25.697c0-0.59,0.003-1.105-0.001-1.62 c-0.007-1.218-0.008-1.214-1.196-1.212c-4.626,0.007-9.252,0.012-13.877,0.017c-0.713,0.001-1.429-0.036-2.139,0.012 c-0.188,0.013-0.502,0.266-0.513,0.425c-0.054,0.777-0.024,1.56-0.024,2.379C26.467,25.697,32.335,25.697,38.29,25.697z'/%3E%3Cpath class='st0' d='M28.155,34.505c1.031-1.42,2.038-2.808,3.044-4.196c0.655-0.903,1.175-1.114,1.714-0.692 c0.506,0.396,0.456,0.944-0.168,1.805c-1.139,1.572-2.277,3.145-3.42,4.714c-0.581,0.797-0.966,0.857-1.777,0.281 c-0.641-0.455-1.28-0.913-1.909-1.385c-0.586-0.439-0.723-0.976-0.394-1.448c0.331-0.476,0.888-0.519,1.488-0.102 C27.194,33.804,27.646,34.139,28.155,34.505z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
 }
 
 .transition-one-thirds {
@@ -899,6 +930,39 @@ form.teq-blog-search .control button.search-submit.search-button {
 }
 
 /*
+TOOLTIPS
+*/
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+.tooltip .navbar-burger {
+  display: block;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 93%;
+  position: absolute;
+  z-index: 45;
+  bottom: 100%;
+  left: 0;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 21px 21px 42px #c9cacb, -21px -21px 42px #ffffff;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.tooltip .tooltiptext > .tooltip-inner {
+  display: block;
+  padding: 12px 21px;
+  text-transform: none;
+  font-family: 'Roboto Condensed','Roboto',Helvetica,Arial,san-serif !important;
+  font-size: .81rem;
+  color: #000000;
+}
+
+/*
 MODALS
 */
 
@@ -928,6 +992,7 @@ div.hbspot-form form > div {
 }
 div.hbspt-form form div.input {
 	padding: 0 0;
+  background: transparent;
 	border: none !important;
 }
 div.hbspt-form div.hs-form-field > label {
@@ -946,6 +1011,7 @@ div.hbspt-form form div.input input, div.hbspt-form form div.input select, div.h
 }
 div.hbspt-form form div.input select {
 	width: 96% !important;
+  background: transparent;
 }
 form ul.hs-error-msgs li > label.hs-error-msg {
 	padding: .48rem;
@@ -1014,7 +1080,8 @@ svg#theCompleteThought .active-learning-spaces {
   height: 24px;
   width: 24px;
   align-self: flex-end;
-  margin: -4.2rem auto 0 auto;
+  margin-top: -4.8rem;
+  margin-left: 4.8rem;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   transform-origin: bottom;

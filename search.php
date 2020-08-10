@@ -16,7 +16,6 @@ get_header();
 		<?php if ( have_posts() ) : ?>
 
 			<section class="full-section teq-talk block padding-bottom">
-				<div id="blue-wave-cover"></div>
 
 				<div class="page-content">
 					<div class="container">
@@ -51,8 +50,8 @@ get_header();
 
 				<div class="page-content padding-bottom">
 					<div class="container">
-						<div class="columns is-vcentered is-desktop is-multiline post-card-container">
 
+						<div class="columns is-vcentered is-desktop is-multiline post-card-container">
 							<?php
 							/* Start the Loop */
 								while ( have_posts() ) :
@@ -64,15 +63,25 @@ get_header();
 				 					*/
 									get_template_part( 'template-parts/content', 'search' );
 
-									endwhile;
-										the_posts_navigation();
-									else :
-										get_template_part( 'template-parts/content', 'none' );
-									endif;
+								endwhile;
 							?>
 						</div>
+
+						<div class="columns">
+							<div class="column is-full has-text-centered strong">
+								<?php posts_nav_link(); ?>
+							</div>
+						</div>
+
+						<?php
+							else :
+								get_template_part( 'template-parts/content', 'none' );
+							endif;
+						?>
+
 					</div>
 				</div>
+
 			</section>
 
 		</main><!-- #main -->

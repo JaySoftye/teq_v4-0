@@ -109,20 +109,7 @@
 			</p>
 		</div>
 		<div class="column is-7 entry-content">
-			<?php
-			the_content( sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'teq_v4-0' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			) );
-			?>
+			<?php the_content(); ?>
 			<?php
 				// CHECK IF THIS IS AN CDW EDC OR FAMIS  PRODUCT
 				// SHOW THE EDC META INFO

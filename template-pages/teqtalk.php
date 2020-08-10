@@ -84,7 +84,7 @@ get_header();
 											</p>
 										</div>
 										<div class="level-right">
-											<p><small><?php echo get_the_date( 'M Y' ); ?></small></p>
+											<p class="caption condensed-text upper-case"><?php echo get_the_date( 'M Y' ); ?></p>
 										</div>
 									</div>
 								</div>

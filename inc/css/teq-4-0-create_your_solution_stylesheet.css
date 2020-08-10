@@ -3,11 +3,9 @@
 .white-fill {
   fill: #FFFFFF;
 }
-
 .grey-fill {
   fill: #505051;
 }
-
 .professional-development-color {
   color: #1A6AE2;
   fill: #1A6AE2;
@@ -52,14 +50,17 @@
 }
 
 .create-your-solution-container  div.column h1 {
-  font-weight: 300;
+  margin-bottom: 0;
+  font-weight: 900;
   letter-spacing: -.18rem;
+  line-height: 1.1;
   font-size: 5.4rem;
 }
 
 .create-your-solution-container  div.column h2 {
-  font-weight: 700;
-  font-size: 2.1rem;
+  margin-bottom: 27px;
+  font-weight: 300;
+  font-size: 1.8rem;
 }
 
 .create-your-solution-container .welcome > .image-cover {
@@ -80,7 +81,7 @@
 	margin: 0 auto;
 }
 
-form.school-name-control {
+div.school-name-control {
   position: relative;
   z-index: 10;
   display: flex;
@@ -88,12 +89,12 @@ form.school-name-control {
   justify-content: center;
 }
 
-form.school-name-control div.input-control {
+div.school-name-control div.input-control {
   height: 4.8rem;
-  width: 76%;
+  width: 100%;
 }
 
-form.school-name-control input.school-name {
+div.school-name-control input.school-name {
   height: 100%;
   width: 100%;
   padding: 12px 21px;
@@ -104,24 +105,25 @@ form.school-name-control input.school-name {
   border-radius: 0;
   font-size: 1.23rem;
   font-weight: 300;
+  cursor: pointer;
 }
 
-form.school-name-control div.button-control {
+div.school-name-control div.button-control {
   height: 4.8rem;
-  width: 24%;
+  width: 12%;
   position: relative;
   display: flex;
   align-items: center;
-  background-color: rgba(0,0,0);
+  background-color: rgb(0,0,0);
   cursor: pointer;
   transition: all ease .6s;
 }
 
-form.school-name-control div.button-control:hover {
+div.school-name-control div.button-control:hover {
   box-shadow: -21px -21px 66px #8b8c8d, 21px 21px 66px #ffffff;
 }
 
-div.button-control button.submit-button {
+div.button-control button.submit-button, div.button-control button.submit-button svg {
   height: 100%;
   width: 100%;
   display: block;
@@ -130,11 +132,13 @@ div.button-control button.submit-button {
   text-align: center;
   font-weight: 700;
   color: rgb(255,255,255);
+  cursor: pointer;
 }
 
 .create-your-solution-container .dial-ui-container {
-  min-height: 600px;
   width: 100%;
+  padding-top: 21px;
+  padding-bottom: 21px;
 }
 
 .create-your-solution-container .dial-ui-container.main-dashboard {
@@ -150,11 +154,11 @@ div.button-control button.submit-button {
 .create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container {
   position: absolute;
   z-index: 50;
-  top: 36%;
+  top: 12%;
   right: 1rem;
 }
 
-.create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container a, .create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container input[type="reset"] {
+.create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container a, .create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container input[type="reset"], .create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container input[type="submit"] {
   height: 60px;
   width: 60px;
   display: flex;
@@ -166,12 +170,28 @@ div.button-control button.submit-button {
   cursor: pointer;
 }
 
+.create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container input[type="reset"] {
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 24.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 60 60' style='enable-background:new 0 0 60 60;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23505050;%7D%0A%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M20.982,28.435c-1.083,0-2.116-0.012-3.149,0.006c-0.41,0.007-0.711-0.127-0.889-0.494 c-0.18-0.372-0.141-0.736,0.128-1.05c0.688-0.802,1.374-1.607,2.085-2.389c0.803-0.884,1.628-1.747,2.45-2.612 c0.685-0.721,1.42-0.73,2.087-0.004c1.5,1.632,2.986,3.276,4.476,4.916c0.282,0.311,0.387,0.662,0.23,1.068 c-0.141,0.365-0.412,0.557-0.809,0.559c-0.944,0.003-1.887,0.001-2.831,0.001c-0.134,0-0.268,0-0.437,0 c0,0.826-0.026,1.619,0.005,2.41c0.076,1.91,0.745,3.588,2.062,4.985c1.546,1.639,3.449,2.48,5.708,2.444 c3.758-0.06,6.851-2.733,7.484-6.441c0.72-4.217-2.292-8.33-6.518-8.859c-0.785-0.098-1.587-0.063-2.382-0.084 c-1.063-0.029-1.789-0.784-1.733-1.811c0.04-0.728,0.671-1.456,1.397-1.499c2.283-0.135,4.522,0.049,6.591,1.149 c3.33,1.769,5.352,4.503,5.932,8.24c0.862,5.551-2.705,10.924-8.121,12.297c-6.139,1.556-12.261-2.276-13.546-8.479 c-0.256-1.234-0.227-2.485-0.224-3.735C20.982,28.861,20.982,28.669,20.982,28.435z'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container input[type="submit"] {
+  display: block;
+  font-weight: 900;
+  color: #00b2e3;
+}
+
+.create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container input[type="submit"]::after {
+  content: 'Create Your Solution';
+  position: absolute;
+  z-index: 75;
+}
+
 .create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container a.disabled {
   pointer-events: none;
   opacity: 0.36;
 }
 
-.create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container a:hover, .create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container input[type="reset"]:hover {
+.create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container a:hover, .create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container input[type="reset"]:hover, .create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container input[type="submit"]:hover {
   background: linear-gradient(145deg, #fdffff, d4d6d7);
   box-shadow: inset 6px 6px 12px #d7d9d9, inset -6px -6px 12px #ffffff;
 }
@@ -186,6 +206,11 @@ div.button-control button.submit-button {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  margin: 0 0;
+}
+
+.create-your-solution-container form.dial-ui-container > .column {
+  min-height: 510px;
 }
 
 .dial-ui-container .outer {
@@ -193,7 +218,7 @@ div.button-control button.submit-button {
 }
 
 .dial-ui-container .outer.hard {
-  box-shadow: 6px -6px 12px #9e9fa0, -6px 6px 12px #9e9fa0;
+  box-shadow: 27px -27px 60px #aaabac, -27px 27px 60px #ffffff;
 }
 
 .dial-ui-container .inner {
@@ -204,7 +229,25 @@ div.button-control button.submit-button {
   box-shadow: inset 6px -6px 12px #9e9fa0, inset -6px 6px 12px #9e9fa0;
 }
 
-.circle {
+.dial-display-sub {
+  background-color: rgba(255,255,255,0.36);
+}
+
+.rounded-corners {
+  border-radius: 18px;
+}
+
+.dial-display-main > .title-field, .gauge-display-main > .title-field {
+  position: relative;
+  z-index: 50;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2.1px;
+  font-weight: 300;
+  font-size: 75%;
+}
+
+.circle, .dial-display-main input[type="submit"] {
   margin: 0 0;
   position: absolute;
   top: 50%;
@@ -250,7 +293,7 @@ svg.circle.dial.markers {
   height: 320px;
   width: 320px;
   z-index: 20;
-  background: radial-gradient(rgb(0,178,227), rgb(55,187,236));
+  background: rgba(0,178,227,1);
 }
 
 .circle.e {
@@ -261,6 +304,25 @@ svg.circle.dial.markers {
   align-items: center;
 }
 
+.dial-display-main input[type="submit"] {
+  height: 250px;
+  width: 250px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  border: none;
+  background-image: url('../ui/submit_button_logo.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  box-shadow:  9px 9px 18px #009dc8, -9px -9px 18px #00c7fe;
+  cursor: pointer;
+}
+
+.dial-display-main input[type="submit"]:hover {
+  box-shadow: inset 6px 6px 12px #afb0b1, inset -6px -6px 12px #ffffff;
+}
+
 .circle.e > h4 {
   margin: 0 auto;
   padding: 12px;
@@ -268,27 +330,32 @@ svg.circle.dial.markers {
 }
 
 .gauge {
-  height: 90%;
-  width: 75px;
-  margin: 0 0;
+  height: 400px;
   position: absolute;
-  left: 30px;
+  top: 50%;
+  left: 18.25%;
+  transform: translate(-50%, -50%);
+  margin: 0 0;
   z-index: 25;
-  border-radius: 15px;
-  background: #eceeef;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.85);
 }
 
 .gauge-reader-shadow, .gauge-reader-glare, .gauge-reader, .gauge-reader > .fill {
-  height: 85%;
-  width: 36px;
+  height: 397px;
+  width: 57px;
   margin: 0 0;
   position: absolute;
   z-index: 30;
-  left: 67.26px;
+  left: 62.1px;
   top: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50px;
   overflow: hidden;
+}
+
+.gauge-reader-shadow {
+  border: 2.1px solid #ffffff;
 }
 
 .gauge-reader-glare {
@@ -298,10 +365,11 @@ svg.circle.dial.markers {
 
 .gauge-reader > .fill {
   height: 100%;
+  width: 60px;
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-  left: 18px;
+  left: 30px;
   border-radius: 0;
 }
 
@@ -317,37 +385,40 @@ svg.circle.dial.markers {
 }
 
 .gauge-reader > .fill span {
-  height: 66px;
+  height: 54px;
   width: auto;
   display: block;
   background-color: #00b2e3;
 }
 
 object.gauge-ticks {
-  height: 85%;
+  height: 380px;
   width: auto;
   margin: 0 0;
   position: absolute;
   z-index: 40;
-  left: 67.26px;
+  left: 63px;
   top: 50%;
   transform: translate(-50%, -50%);
   background: transparent;
 }
 
 .gauge-labels {
-  min-height: 462px;
+  min-height: 380px;
   position: relative;
   display: flex;
   flex-direction: column-reverse;
   z-index: 40;
-  margin-left: 81px;
+  margin-left: 63px;
 }
 
 .gauge-labels span {
-  height: 66px;
-  display: block;
-  padding: 6.6px;
+  height: 57px;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 12px;
+  line-height: 1.2;
   font-weight: 700;
 }
 
@@ -361,8 +432,20 @@ object.gauge-ticks {
 }
 
 .dial-ui-set {
-  margin-top: 21px;
-  margin-bottom: 21px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.dial-ui-set.instructions {
+  display: block;
+  padding-left: 24px;
+  padding-right: 75px;
+}
+
+.dial-ui-set-container > .dial-ui-set:first-child {
+  margin-bottom: 30px;
 }
 
 .dial-ui-set input[type="radio"] {
@@ -370,22 +453,32 @@ object.gauge-ticks {
 }
 
 .dial-ui-set .content-dial {
-  width: 45%;
-  position: absolute;
-  top: 50%;
-  right: -27.75%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  z-index: 30;
+  margin-left: 210px;
+  margin-right: 90px;
 }
 
-.dial-ui-set .content-dial p {
+.dial-ui-set .content-dial h5, .dial-ui-set .content-dial p {
   margin-top: 3px;
+  line-height: 1.2em;
+}
+
+.dial-ui-set .content-dial.demo svg {
+  width: 50px;
+  position: absolute;
+  z-index: 40;
+  top: 25px;
+  left: -75px;
 }
 
 .dial-ui-set .radio-dial {
   height: 200px;
   width: 200px;
+  position: absolute;
   display: block;
   border-radius: 50%;
+  border: 1px solid #c9cacb;
   background: #eceeef;
 }
 
@@ -400,10 +493,461 @@ object.gauge-ticks {
   cursor: pointer;
   text-align: center;
   overflow: visible;
+  transition: all ease .18s;
 }
 
 .radio-dial svg text {
   background: black;
   border-radius: 6px;
   padding: 3px
+}
+
+.radio-dial svg g:hover .white-fill {
+  fill: #dbdedf;
+  transform:translate(2.1px, 3px);
+}
+
+.solution-set {
+  padding-top: 4.8rem;
+  padding-bottom: 6rem;
+}
+
+.solution-set-column.title {
+  margin-top: calc(21vw - 9vh);
+}
+
+.solution-set-column:first-child {
+  padding-bottom: 0;
+  border: none;
+}
+
+.solution-set-column {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.solution-set-column > .column {
+  padding-top: 0;
+  padding-bottom: .54rem;
+  padding-left: .54rem;
+  padding-right: .54rem;
+}
+
+.solution-set-column > .column:last-child {
+  padding-bottom: 3rem;
+}
+
+.solution-set-column.product-demo-form {
+  background-color: transparent;
+}
+
+.solution-set-summary div.hbspt-form form {
+  width: 100%;
+  padding-top: 21px;
+  padding-bottom: 0;
+}
+
+.solution-set #sticky-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.solution-set-column.columns.sticking .navbar-menu.container {
+  position: absolute;
+  top: 9vh;
+  left: -4.8rem;
+  flex-direction: column;
+}
+
+.solution-set-column.columns.sticking .navbar-menu.container a.navbar-item {
+  width: 66px;
+  height: 66px;
+  margin-bottom: 18px;
+  padding: 0 0;
+}
+
+.solution-set-column.columns.sticking .navbar-menu > a.navbar-item > svg {
+  height: 60px;
+  width: auto;
+}
+
+.solution-set-column.columns.sticking .navbar-menu.container a.navbar-item span {
+  display: none;
+}
+
+.solution-set-column .navbar-menu {
+  margin-top: 30px;
+}
+
+.solution-set-column .navbar-menu > a.navbar-item {
+  margin-right: 18px;
+  padding: 3px 21px;
+  background: #eceeef;
+  border: 1px solid #eceeef;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #505051;
+  box-shadow: 21px 21px 42px #c9cacb, -21px -21px 42px #ffffff;
+}
+
+.solution-set-column .navbar-menu > a.navbar-item:hover {
+  color: #505051;
+  box-shadow: inset 3px 3px 6px #cdcfd0, inset -3px -3px 6px #ffffff;
+}
+
+.solution-set-column .navbar-menu > a.navbar-item > svg {
+  height: 36px;
+  width: auto;
+}
+
+section.solution-set-container, section.solution-set-container.columns {
+  margin-bottom: 4.8rem;
+  background: #eceeef;
+  border-radius: 6px;
+  box-shadow: 21px 21px 42px #c9cacb, -21px -21px 42px #ffffff;
+}
+
+.solution-set-details, .solution-set-title, .expanded-product > .columns {
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.solution-set-details.columns, .solution-set-title.columns {
+  margin-bottom: 0;
+}
+
+.solution-set-title.columns .column {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.solution-set-details:last-child, .solution-set-title.columns, .expandable-content.columns {
+  border: none;
+}
+
+.solution-set-details .column h5, .solution-set-details h4, .solution-set-title .column h3 {
+  margin-top: 0;
+  margin-bottom: 12px
+}
+
+.solution-set-details .column h5, .solution-set-details .column h5 > a {
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.solution-set-details .column h6.strong {
+  margin-top: .9rem;
+}
+
+.solution-set-details h4 {
+  font-size: 1.62rem;
+}
+
+.solution-set-details p {
+  margin-top: 6px;
+  margin-bottom: 21px;
+}
+
+.solution-set-details.expandable-content {
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255,255,255,.30) 0%, rgba(255,255,255,0) 60%);
+}
+
+.solution-set-details > figure.column {
+  position: relative;
+  padding-bottom: 0
+}
+
+.solution-set-details > figure img {
+ width: 100%;
+ vertical-align: bottom;
+}
+
+.solution-set-details button.expand-button {
+  height: 18px;
+  width: 100%;
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background-image: url('../ui/expand-button-background.svg');
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: all ease .36s;
+}
+
+.solution-set-details button.expand-button.active {
+  transform: rotate(180deg);
+}
+
+.solution-set-details a.expandable-content-button {
+  display: block;
+  margin: 0 auto;
+  padding: 9px 30px;
+  background: #FFFFFF;
+  border-radius: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #000000;
+  box-shadow: 21px 21px 42px #c9cacb, -21px -21px 42px #ffffff;
+}
+
+.solution-set-details a.expandable-content-button.absolute {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  left: 33%;
+  top: 48%;
+  margin: 0 auto;
+  padding: 0 0;
+  background-size: 21px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 99 99' style='enable-background:new 0 0 99 99;' xml:space='preserve'%3E%3Cpath d='M80.352,53.617c0.056-0.068,0.105-0.141,0.157-0.211c0.075-0.099,0.151-0.197,0.221-0.3c0.06-0.09,0.112-0.183,0.167-0.274 c0.054-0.09,0.11-0.178,0.16-0.27c0.051-0.096,0.095-0.195,0.141-0.293c0.044-0.094,0.091-0.187,0.131-0.283 c0.04-0.096,0.072-0.194,0.107-0.292c0.037-0.102,0.076-0.203,0.108-0.308c0.03-0.099,0.052-0.199,0.077-0.298 c0.027-0.106,0.056-0.21,0.078-0.318c0.023-0.118,0.038-0.238,0.054-0.357c0.013-0.091,0.03-0.18,0.039-0.271 c0.042-0.428,0.042-0.858,0-1.286c-0.009-0.09-0.026-0.177-0.038-0.266c-0.017-0.121-0.031-0.242-0.055-0.362 c-0.021-0.105-0.05-0.207-0.076-0.311c-0.026-0.102-0.048-0.205-0.079-0.306c-0.031-0.101-0.069-0.199-0.104-0.298 c-0.036-0.101-0.07-0.203-0.111-0.303c-0.038-0.091-0.082-0.179-0.124-0.268c-0.049-0.104-0.095-0.208-0.149-0.309 c-0.045-0.084-0.097-0.164-0.145-0.246c-0.059-0.1-0.116-0.201-0.182-0.299c-0.059-0.088-0.124-0.17-0.187-0.255 c-0.064-0.086-0.123-0.173-0.192-0.257c-0.11-0.134-0.229-0.261-0.349-0.387c-0.028-0.029-0.051-0.06-0.079-0.088L58.758,23.741 c-2.538-2.538-6.654-2.538-9.192,0c-2.539,2.539-2.539,6.654,0,9.192L59.632,43H23.677c-3.59,0-6.5,2.91-6.5,6.5s2.91,6.5,6.5,6.5 h35.956L49.565,66.067c-2.539,2.538-2.539,6.653,0,9.192c1.269,1.269,2.933,1.903,4.596,1.903s3.327-0.635,4.596-1.904 l21.157-21.158C80.069,53.947,80.214,53.786,80.352,53.617z'/%3E%3C/svg%3E");
+}
+
+.solution-set-details > .expanded-product > .columns {
+  justify-content: center;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.solution-set-quote-request table.table {
+  width: 100%;
+  margin-top: 24px;
+  background-color: transparent;
+}
+
+.solution-set-quote-request table.table tr td {
+  vertical-align: middle;
+}
+
+.solution-set-quote-request table.table tr td label {
+  width: 93%;
+  position: relative;
+  display: inline-block;
+  margin-left: 3px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.solution-set-quote-request table.table td.control input {
+  background: transparent;
+}
+
+.solution-set-quote-request table.table td.control input[type="checkbox"] {
+  height: 15px;
+  width: 3.6%;
+  position: relative;
+  top: 2.1px;
+  display: inline-block;
+}
+
+@media (max-width: 980px) {
+  .gauge-display-main, .dial-ui-set .content-dial p, a.navbar-item.print {
+    display: none;
+  }
+  .create-your-solution-container .welcome, .create-your-solution-container .dial-ui-container.main-dashboard, .create-your-solution-container form.dial-ui-container {
+    height: auto;
+    margin-left: .75rem;
+    margin-right: .75rem;
+  }
+  .create-your-solution-container form.dial-ui-container {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .dial-display-main {
+    min-height: 400px;
+  }
+  .dial-display-sub {
+    box-shadow: none !important;
+  }
+  .create-your-solution-container div.column h1 {
+    font-size: 3.3rem;
+  }
+  .create-your-solution-container .dial-ui-container {
+    width: auto;
+  }
+  .solution-set-column .navbar-menu {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .solution-set-column .navbar-menu > a.navbar-item.option {
+    height: 117px;
+    width:117px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 18px;
+    text-align: center;
+    line-height: 1;
+  }
+  .solution-set-column .navbar-menu > a.navbar-item > svg {
+    height: 60px;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .padding-top {
+    padding-top: 27px;
+  }
+  .padding-bottom {
+    padding-bottom: 27px;
+  }
+  .padding-left {
+    padding-left: 27px;
+  }
+  .padding-right {
+    padding-right: 27px;
+  }
+  .padding {
+    padding: 30px;
+  }
+  .create-your-solution-container div.column h2 {
+    font-size: 21px;
+  }
+  .create-your-solution-container .welcome > .image-cover img, div.school-name-control div.button-control {
+    width: 100%;
+  }
+  div.school-name-control {
+    flex-direction: column;
+  }
+  .dial-ui-set .content-dial p {
+    display: block;
+  }
+  .dial-display-main .circle, .dial-display-main input[type="submit"] {
+    left: 36%;
+  }
+  .circle.a {
+    height: 370px;
+    width: 370px;
+  }
+  .circle.b, svg.circle.dial.markers {
+    height: 355px;
+    width: 355px;
+  }
+  .circle.c, object.circle.dial {
+    height: 330px;
+    width: 330px;
+  }
+  .circle.d {
+    height: 290px;
+    width: 290px;
+  }
+  .circle.e, .dial-display-main input[type="submit"] {
+    height: 230px;
+    width: 230px;
+  }
+  .gauge-display-main {
+    padding-left: 0;
+  }
+  .gauge-display-main .gauge {
+    left: 0;
+  }
+  .gauge-display-main .gauge-reader-glare, .gauge-display-main object.gauge-ticks, .gauge-display-main .gauge-reader-shadow, .gauge-display-main .gauge-reader {
+    left: 36px;
+  }
+  .create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container {
+    top: 12%;
+  }
+}
+
+@media (max-width: 375px) {
+  .create-your-solution-container .dial-ui-container.main-dashboard .prev-next-button-container {
+    right: 0;
+  }
+  .dial-ui-set {
+    min-height: 200px;
+    height: auto;
+  }
+  .dial-ui-set .radio-dial {
+    z-index: 50;
+  }
+  .dial-ui-set .content-dial {
+    margin-left: 0;
+    padding-top: 312px;
+  }
+  .dial-display-main .circle {
+    left: 25%;
+  }
+  .circle.a {
+    height: 370px;
+    width: 370px;
+  }
+  .circle.b, svg.circle.dial.markers {
+    height: 355px;
+    width: 355px;
+  }
+  .circle.c, object.circle.dial {
+    height: 330px;
+    width: 330px;
+  }
+  .circle.d {
+    height: 290px;
+    width: 290px;
+  }
+  .circle.e {
+    height: 230px;
+    width: 230px;
+  }
+}
+
+@media print {
+  h1 { font-size: 24px; }
+  h2 { font-size: 21px; }
+  h3 { font-size: 18px }
+  h4 { font-size: 16px; }
+  h5 { font-size: 14px; }
+  h6, p, a { font-size: 12px; }
+  button, .navbar-menu, footer.site-footer > .site-info > .columns:first-child, a.delete, .solution-set-details a.expandable-content-button, form.solution-set-quote-request {
+    display: none !important;
+  }
+  form.solution-set-quote-request, form.solution-set-quote-request .column {
+    display: none !important;
+  }
+  [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate), .ng-hide {
+     display: block !important;
+  }
+  .padding-top {
+    padding-top: 21px;
+  }
+  .padding-bottom {
+    padding-bottom: 21px;
+  }
+  .padding-left {
+    padding-left: 21px;
+  }
+  .padding-right {
+    padding-right: 21px;
+  }
+  .solution-set {
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
+  .solution-set-column.title {
+    min-height: 1px !important;
+  }
+  .create-your-solution-container div.column h1 {
+    font-size: 54px;
+  }
+  header.site-header, footer.site-footer {
+    background-color: rgb(236,239,238);
+    box-shadow: none;
+  }
+  footer.site-footer div.site-info {
+    padding: 0 0;
+  }
 }

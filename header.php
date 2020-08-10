@@ -161,42 +161,56 @@
 				</div>
 			</div>
 			<div class="menu-list stem-menu columns is-multiline">
-				<div class="column is-11 is-offset-1 notopbottompadding">
-					<h5 class="nomargin">
-						<a class="strong nopadding" href="/stem-technologies/">Browse all STEM Products</a>
+				<div class="column has-align-self-center">
+					<h5 class="nomargin has-text-centered">
+						<a class="strong nopadding" href="/stem-technologies/">Browse all<br />STEM Products <br /><span class="arrow"></span></a>
 					</h5>
 				</div>
-				<div class="column is-offset-1">
-					<h6 class="strong">Coding</h6>
+				<div class="column">
+					<h6>Coding</h6>
 					<?php wp_nav_menu(array(
-						'menu'       => 'Coding STEM Dropdown Menu', // specify the menu name
+						'menu'       => 'Coding', // specify the menu name
 						'menu_class' => '',
 						'container'  => '',
 						'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
 					));?>
 				</div>
 				<div class="column">
-					<h6 class="strong">Robotics</h6>
+					<h6>Robotics</h6>
 					<?php wp_nav_menu(array(
-						'menu'       => 'Robotics STEM Dropdown Menu', // specify the menu name
+						'menu'       => 'Robotics', // specify the menu name
 						'menu_class' => '',
 						'container'  => '',
 						'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
 					));?>
 				</div>
 				<div class="column">
-					<h6 class="strong">AR/VR and 3D Printing</h6>
+					<h6>3D Printing</h6>
 					<?php wp_nav_menu(array(
-						'menu'       => 'AR/VR STEM Dropdown Menu', // specify the menu name
+						'menu'       => '3D Printing', // specify the menu name
+						'menu_class' => '',
+						'container'  => '',
+						'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
+					));?>
+					<h6>Hydroponics</h6>
+					<?php wp_nav_menu(array(
+						'menu'       => 'Hydroponics', // specify the menu name
 						'menu_class' => '',
 						'container'  => '',
 						'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
 					));?>
 				</div>
 				<div class="column">
-					<h6 class="strong">Hydroponics</h6>
+					<h6>AR/VR</h6>
 					<?php wp_nav_menu(array(
-						'menu'       => 'Hydroponics STEM Dropdown Menu', // specify the menu name
+						'menu'       => 'AR/VR', // specify the menu name
+						'menu_class' => '',
+						'container'  => '',
+						'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
+					));?>
+					<h6>Instructional Software</h6>
+					<?php wp_nav_menu(array(
+						'menu'       => 'Instructional Software', // specify the menu name
 						'menu_class' => '',
 						'container'  => '',
 						'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'

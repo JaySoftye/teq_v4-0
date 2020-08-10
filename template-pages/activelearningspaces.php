@@ -40,10 +40,12 @@ get_header();
 		<section class="full-section grey-background">
 			<div class="columns is-multiline">
 
-				<div class="filter-container">
+				<div class="filter-container showHideElement">
 					<form class="list-filters">
 						<div class="filter-item non-filter">
-							<label>Product Filters</label>
+							<label>
+								Product Filters <strong class="show-hide-element-trigger letter-spacing">[?]</strong>
+							</label>
 						</div>
 						<div class="filter-item" ng-controller="gradeLevelFilter">
 							<select id="selectedGradeLevel" ng-model="selectedGradeLevel" ng-options="item.id as item.name for item in items track by item.id">
@@ -61,6 +63,7 @@ get_header();
 							<input id="reset-filters" type="reset" value="Reset Filters">
 						</div>
 					</form>
+					<p class="show-hide-element-content">Technology proficiency ranks the complexity level for teachers as they implement the product into their instruction.</p>
 				</div>
 
 				<div class="no-products-found column is-full" style="display: none;">
@@ -101,19 +104,17 @@ get_header();
 									<div class="image-link">
 										<?php echo get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'featured-image' ) ); ?>
 									</div>
-									<div class="product-content toggle-content">
+									<div class="product-content">
 										<?php the_excerpt(); ?>
-									</div>
-									<div class="product-content toggle-content" style="display:none;">
-										<ul>
-											<li class="strong caption">PRODUCT FILTERS</li>
+										<p class="product-filter-list toggle-content" style="display:none;">
+											<strong>PRODUCT FILTERS:</strong><br />
 											<?php
 												$terms = get_the_terms( $post->ID, 'topics' );
 												foreach($terms as $term) {
-													echo '<li>' . $term -> name . '</li>';
+													echo '<span>' . $term -> name . '  /  </span>';
 												}
 											?>
-										</ul>
+										</p>
 									</div>
 								</a>
 								<a role="button" class="navbar-burger">

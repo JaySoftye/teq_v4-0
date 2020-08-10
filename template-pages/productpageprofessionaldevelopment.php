@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: Product Page
- * The template for displaying Products (includes Sub headers, OTIS Course, Pathway meta values)
+ * Template Name: Professional Development Product Page
+ * The template for displaying OTIS and Onsite PD
  * @package Teq_v4.0
  */
 
@@ -179,6 +179,41 @@ get_header();
 				</div>
 			</section>
 			<?php } ?>
+
+			<section ng-show="isSet(2)">
+				<div class="content-container container padding-bottom">
+					<div class="columns is-centered">
+						<div class="column is-full">
+							<h4 class="margin-bottom">We provide you with access to a dedicated team of State Certified Educators with skills and expertise in every subject and content area – English, Math, Science, Social Studies, STEM, ENL and Special Education. Teq’s PD Specialists and Curriculum Specialists who facilitate both our Onsite PD and Online PD sessions are all SMART Certified Trainers, Google Certified Educators, and possess various certifications including, but not limited to: <strong>Microsoft Office 365; Adobe Acrobat; STEM, Robotics and Coding; and Apple.</strong></h4>
+						</div>
+					</div>
+					<div class="columns is-centered is-multiline">
+
+						<?php $blogusers = get_users( [ 'role__in' => [ 'author' ] ] );
+							// Array of WP_User objects.
+							foreach ( $blogusers as $user ) {
+								echo '<div class="column is-4"><div class="card"><div class="card-content">';
+								echo '<div class="media">';
+								echo '<div class="media-left">';
+								echo '<figure class="image is-96x96"><img src="https://www.teq.com/images/headshots_circles/' . esc_html( $user->first_name ) . esc_html( $user->last_name ) . '.png" /></figure>';
+								echo '</div>';
+								echo '<div class="media-content"><p class="title is-5">' . esc_html( $user->first_name ) . ' ' . esc_html( $user->last_name ) . '<br />';
+								echo '<small><em>' . esc_html( $user->nickname ) . '</em><br /><a href="mailto:' . esc_html( $user->user_email ) . '">' . esc_html( $user->user_email ) . '</a></small></p></div>';
+								echo '</div>';
+								echo '<div class="content">';
+								echo '<p>' . $user->background . '</p>';
+									if ( !empty( $user->certification) ) {
+										echo '<p><strong class="caption">CERTIFICATIONS:</strong><br />' . $user->certification . '</p>';
+									}
+								echo '<div class="tooltip"><a class="navbar-burger"><span></span><spaN></span><span></span></a><div class="tooltiptext"><span class="tooltip-inner">' . $user->description . '</span></div></div>';
+								echo '</div>';
+								echo '</div></div></div>';
+							}
+						?>
+					</div>
+				</div>
+			</section>
+
 			<?php
 				// Grab the other tabs content if it exists
 				if ( !empty( $tabs_content) ) {

@@ -40,10 +40,12 @@ get_header();
 		<section class="full-section grey-background">
 			<div class="columns is-multiline">
 
-				<div class="filter-container">
+				<div class="filter-container showHideElement">
 					<form class="list-filters">
 						<div class="filter-item non-filter">
-							<label>Product Filters</label>
+							<label>
+								Product Filters <strong class="show-hide-element-trigger letter-spacing">[?]</strong>
+							</label>
 						</div>
 						<div class="filter-item" ng-controller="edTechFilter">
 							<select id="selectedEdTechLevel" ng-model="selectedEdTech" ng-options="item.id as item.name for item in items track by item.id">
@@ -67,6 +69,7 @@ get_header();
 							<input id="reset-filters" type="reset" value="Reset Filters">
 						</div>
 					</form>
+					<p class="show-hide-element-content">Technology proficiency ranks the complexity level for teachers as they implement the product into their instruction.</p>
 				</div>
 
 				<div class="no-products-found column is-full" style="display: none;">
@@ -79,6 +82,7 @@ get_header();
 						<?php if ( have_posts() ) :
 							$args = array(
 								'post_type' => 'product-and-service',
+								'category_name' => 'teq-product',
 								'taxonomy' => 'topic',
 								'posts_per_page' => -1,
 								'orderby' => 'title',

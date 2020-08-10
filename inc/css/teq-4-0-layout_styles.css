@@ -6,7 +6,7 @@ header.site-header {
 	top: 0;
 	z-index: 500;
 }
-body.page-template-stemtechnology header.site-header, body.page-template-educationaltechnology header.site-header, body.page-template-professionaldevelopment header.site-header, body.page-template-smartproducts header.site-header, body.page-template-productpage header.site-header, body.page-template-aboutus header.site-header {
+body.page-template-stemtechnology header.site-header, body.page-template-educationaltechnology header.site-header, body.page-template-professionaldevelopment header.site-header, body.page-template-smartproducts header.site-header, body.page-template-activelearningspaces header.site-header, body.page-template-productpage header.site-header, body.page-template-productpageprofessionaldevelopment header.site-header, body.page-template-aboutus header.site-header {
 	position: relative;
 }
 header.site-header {
@@ -42,7 +42,7 @@ div.navbar-menu ul.main-menu li {
 	padding: 0 0;
 }
 div.navbar-menu ul.main-menu li > a, ul.main-menu li .dropdown > .dropdown-trigger > a {
-	padding: .75rem 27px .75rem 0;
+	padding: .75rem 24px .75rem 0;
 	background-size: contain;
  	background-repeat: no-repeat;
 	background-position: center right;
@@ -55,6 +55,7 @@ div.navbar-menu ul.main-menu li > a, ul.main-menu li .dropdown > .dropdown-trigg
 }
 ul.main-menu li .dropdown > .dropdown-trigger > a.active.stem {
 	background-image: url('../images/teq-brand-close-icon.svg');
+	font-weight: 700;
 	color: rgb(0,178,227);
 }
 div.navbar-menu ul.main-menu li > a:hover, ul.main-menu li .dropdown > .dropdown-trigger > a:hover {
@@ -140,8 +141,11 @@ header.site-header div.main-dropdown-menu-container.ng-hide-add, header.site-hea
 }
 header.site-header div.main-dropdown-menu-container .main-dropdown-menu.cols {
 	width: 100%;
-	column-count: 4;
-  column-gap: 21px;
+  columns: 300px;
+  column-gap: 2em;
+}
+header.site-header div.main-dropdown-menu-container .main-dropdown-menu.cols li {
+	break-inside: avoid-column;
 }
 header.site-header div.main-dropdown-menu-container .menu-list {
 	display: none;
@@ -153,13 +157,21 @@ header.site-header div.main-dropdown-menu-container.active.main .menu-list.prima
 	opacity: 1;
 	margin: 0 0;
 }
+div.main-dropdown-menu-container.active.stem .column {
+	padding: .75rem;
+}
+div.main-dropdown-menu-container.active.stem .column h6 {
+	margin: 0 0;
+	padding: 15px 3px 3px 3px;
+	font-weight: 900;
+}
 div.main-dropdown-menu-container ul.main-dropdown-menu li {
 	width: 100%;
 	position: relative;
 }
 ul.main-dropdown-menu li > a, .main-dropdown-menu .column a {
 	display: block;
-	padding: 9px 3px 9px 0;
+	padding: 6px 18px;
 	font-weight: 300;
 	font-size: calc(75% + 3px);
 	color: black;
@@ -167,9 +179,29 @@ ul.main-dropdown-menu li > a, .main-dropdown-menu .column a {
 	transition: all .36s;
 }
 ul.main-dropdown-menu li > a:hover, .main-dropdown-menu .column a:hover {
-	background-color: transparent;
+	background-color: rgba(0,0,0,0.05);
 	font-weight: 700;
 	color: rgb(0,178,227);
+}
+ul.main-dropdown-menu li.otis-button {
+	margin-top: 12px;
+}
+ul.main-dropdown-menu li.otis-button::before {
+	content: '';
+  height: 42px;
+  width: 60px;
+  position: absolute;
+  top: -9px;
+  left: -60px;
+	background-size: cover;
+ 	background-repeat: no-repeat;
+	background-position: center center;
+	background-image: url('../images/OTIS-pd-character_logo.svg');
+}
+ul.main-dropdown-menu li.otis-button > a {
+	font-family: 'Roboto Condensed','Roboto',Helvetica,Arial,san-serif !important;
+	font-weight: 900;
+  font-size: calc(90% + 3px);
 }
 ul.main-dropdown-menu li > ul.sub-menu {
 	display: block;
@@ -192,6 +224,57 @@ ul.main-dropdown-menu li > ul.sub-menu > li > a.active + ul.sub-menu {
 }
 ul.main-dropdown-menu li > ul.sub-menu > li > a + ul.sub-menu > li > a {
 	padding: 6px 12px;
+}
+
+/*
+EVENT register form and confirmation
+*/
+
+section.register-form div.hbspt-form form {
+	width: 100%;
+	padding-top: 18px;
+}
+
+section.register-form div.hbspt-form form div.input input, section.register-form div.hbspt-form form div.input select, section.register-form div.hbspt-form form div.hs-submit input[type=submit].hs-button {
+  height: 1.5rem;
+  width: 90%;
+  padding-bottom: calc(0.5em - 1px);
+  padding-left: calc(0.75em - 1px);
+  padding-right: calc(0.75em - 1px);
+  padding-top: calc(0.5em - 1px);
+  background-color: rgb(236,239,238);
+  border-radius: 3px;
+  border: none;
+}
+
+section.register-form div.hbspt-form form div.input select {
+	height: 2.22rem;
+}
+
+section.register-form div.hbspt-form form div.hs-submit input[type=submit].hs-button {
+	margin-top: 0;
+	background-color: #505051;
+	background-image: none;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+section.register-form div.hbspt-form form div.hs-submit .actions {
+	margin: 0 0;
+	padding: 0 0;
+}
+
+section.register-form div.hbspt-form div.hs-form-field > label > .hs-form-required {
+	display: none !important;
+}
+
+section.block.registration {
+	padding-top: 12rem;
+	padding-bottom: 1.2rem;
+	background-size: cover;
+ 	background-repeat: no-repeat;
+	background-position: center center;
+	background-image: url('../images/section-full-first-full-section_bg_1920w.jpg');
 }
 
 /*
@@ -418,10 +501,11 @@ h1.page-titles, h1.page-titles a {
   font-style: normal;
   font-weight: 900;
   font-size: calc(7.2vw - 24px);
+	transition: all ease .36s;
 }
 
  h1.page-titles a:hover {
-	 opacity: 0.75;
+	 color: rgb(79,197,221);
  }
 
 .section-container .full-section {
@@ -632,7 +716,7 @@ form.list-filters .filter-item {
 	align-items: center;
 	margin-top: .5rem;
 	margin-bottom: .5rem;
-	margin-right: .75rem;
+	margin-right: .5rem;
 	background-color: rgb(255,255,255);
 	box-shadow: 3px 6px 12px 0px rgba(0,0,0,0.12);
 }
@@ -788,6 +872,7 @@ Horizontal Slider
 
 .slider-start.columns {
 	display: flex;
+	align-items: center;
 	margin: 0 0;
 }
 
@@ -801,7 +886,7 @@ Horizontal Slider
 .hs-container ul.hs {
   display: grid;
   grid-gap: 0;
-  grid-template-columns: repeat(99, calc(48% - 24px * 3));
+  grid-template-columns: repeat(99, calc(36% - 24px * 3));
   overflow-x: scroll;
   scroll-snap-type: x proximity;
 	-webkit-overflow-scrolling: touch;
@@ -817,28 +902,28 @@ ul.hs > li, .item {
   flex-direction: column;
   justify-content: start;
   align-items: flex-start;
-	padding: 30px 15px 0 0
+	padding: 30px 15px;
 }
 
 ul.hs::-webkit-scrollbar-track {
-  border-radius: 9px;
-  border-right: 60px solid rgba(0,0,0,0);
-  border-left: 60px solid rgba(0,0,0,0);
+  border-radius: 15px;
+  border-right: 24px solid rgba(0,0,0,0);
+  border-left: 24px solid rgba(0,0,0,0);
 }
 ul.hs::-webkit-scrollbar {
-  height: 9px;
+  height: 15px;
 }
 ul.hs::-webkit-scrollbar-thumb {
-  height: 9px;
-  border-right: 60px solid rgba(0,0,0,0);
-  border-left: 60px solid rgba(0,0,0,0);
+  height: 15px;
+  border-right: 24px solid rgba(0,0,0,0);
+  border-left: 24px solid rgba(0,0,0,0);
   background: #888;
   background-clip: padding-box;
 }
 ul.hs::-webkit-scrollbar-thumb:hover {
-  height: 9px;
-  border-right: 60px solid rgba(0,0,0,0);
-  border-left: 60px solid rgba(0,0,0,0);
+  height: 15px;
+  border-right: 24px solid rgba(0,0,0,0);
+  border-left: 24px solid rgba(0,0,0,0);
   background: #000000;
   background-clip: padding-box;
 }
@@ -871,10 +956,11 @@ Demo Form from Hubspot
 	margin-bottom: 24px;
 }
 .product-demo-form .hbspt-form form div.field.hs-fieldtype-text > div.input {
-	width: 96%;
+	width: 100%;
+	background: transparent;
 }
 .product-demo-form .hbspt-form form div.field.hs-fieldtype-text > div.input > input {
-	height: calc(1.7rem + 3px);
+	height: calc(2.4rem + 3px);
 }
 .product-demo-form .hbspt-form form div.field > ul.no-list.hs-error-msgs.inputs-list {
 	position: absolute;
@@ -884,14 +970,15 @@ Demo Form from Hubspot
 	color: red;
 }
 .product-demo-form .hbspt-form form div.hs-submit input[type=submit].hs-button {
-	width: auto;
-  margin: 0 auto 0 0;
+	width: 98.1%;
+  margin: 18px auto 0 0;
 	padding-left: calc(1.5em - 1px);
   padding-right: calc(1.5em - 1px);
 	background-image: none;
 	box-shadow: none;
 	font-weight: 900;
 	font-size: 1rem;
+	cursor: pointer;
 }
 
 /*
@@ -907,6 +994,10 @@ Heada rhymes with chedda for submenu
 
 .navbar.product-site-header .navbar-menu {
 	margin: 0 auto;
+}
+
+.navbar.product-site-header .navbar-menu .navbar-start figure {
+  min-width: 11.1rem;
 }
 
 .navbar.product-site-header .navbar-menu .navbar-start figure img {
@@ -970,7 +1061,7 @@ Heada rhymes with chedda for submenu
 }
 
 .pre-content-container div.column {
-	min-height: 120vh;
+	min-height: 90vh;
 }
 
 .pre-content-container + div.column {
@@ -983,7 +1074,7 @@ Heada rhymes with chedda for submenu
 }
 
 .pre-content-container div.column h1, .pre-content-container div.column h2 {
-	width: 75%;
+	width: calc(100vw - 20vw);
 	display: block;
 	margin: 0 auto;
 }

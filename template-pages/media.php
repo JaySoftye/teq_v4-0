@@ -60,7 +60,7 @@ get_header();
 							$the_query = new WP_Query($args);
 
 							//set our query's parameters and then set pagination to $paged
- 							$the_query -> query('post_type=post&posts_per_page=20&category_name=media'.'&paged='.$paged);
+ 							$the_query -> query('post_type=post&posts_per_page=20&category_name=resources'.'&paged='.$paged);
 
 							if ( $wp_query->have_posts() ) :
 								while ($the_query -> have_posts()) :

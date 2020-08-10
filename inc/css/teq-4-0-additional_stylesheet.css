@@ -72,6 +72,14 @@ a.btn.smart-purple {
   background-color: rgb(72, 27, 111);
 }
 
+a.btn.smart-purple {
+  background-color: rgb(72, 27, 111);
+}
+
+a.btn.smart-green{
+  background-color: rgb(130, 188, 65);
+}
+
 a.blue-button-background {
   background-color: rgb(0,178,227);
 }
@@ -132,11 +140,22 @@ form.filterform input[type=submit] {
 .entry-content table.table {
   width: 100%;
   margin-top: 54px;
+  background: #eceeef;
+  box-shadow: 21px 21px 42px #dee0e1, -21px -21px 42px #fafcfd;
 }
 
 .entry-content table.table thead {
   background-color: #dbdbdb;
   font-size: 87%;
+}
+
+.entry-content h5, .entry-content p, .entry-content ul, .entry-content .title-block {
+  margin-bottom: 2.75rem;
+}
+
+.entry-content ul {
+  padding-left: 42px;
+  list-style: circle;
 }
 
 /*

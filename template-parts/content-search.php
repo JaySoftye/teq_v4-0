@@ -21,11 +21,20 @@
 			<div class="level padding-top">
 				<div class="level-left">
 					<p>
-						<a class="relative-position strong" href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>">Read Article <span class="arrow"></span></a>
+						<a class="relative-position strong" href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>">
+							<?php
+								if (get_post_type() === 'post') {
+									echo 'Read Article';
+								} else if (get_post_type() === 'page') {
+	    						echo 'View the Page';
+								}
+							?>
+							<span class="arrow"></span>
+						</a>
 					</p>
 				</div>
 				<div class="level-right">
-					<p><?php echo get_the_date( 'F d Y' ); ?></p>
+					<p class="caption condensed-text upper-case"><?php echo get_the_date( 'M Y' ); ?></p>
 				</div>
 			</div>
 		</div>
