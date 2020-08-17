@@ -565,6 +565,14 @@ h1.page-titles, h1.page-titles a {
 	background-image: url('../images/active-learning-spaces_Full-Background-Image.jpg');
 }
 
+.section-container section.smartdeals {
+	background-image: url('../images/smart-deals-category-page-bg.jpg');
+}
+
+.section-container section.smartdeals:nth-child(2) {
+	background-image: url('../images/smart-deals-category-page-posts-bg.jpg');
+}
+
 .section-container > .full-section > .fluid-width.columns .half-background {
 	height: 100vh;
 	width: 42.75%;
