@@ -285,7 +285,7 @@ footer.site-footer {
 	position: relative;
 	z-index: 300;
 	margin-top: -1rem;
-	background-color: white;
+	background-color: rgb(250,250,250);
 	box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.48);
 }
 footer.site-footer div.site-info {
@@ -304,15 +304,17 @@ footer.site-footer div.site-info p, footer.site-footer div.site-info li {
 footer.site-footer div.site-info p {
 	margin-left: .48rem;
 }
-footer.site-footer div.site-info p small {
-	padding-top: 1.2rem;
+footer.site-footer div.site-info p span  {
 	opacity: 0.48;
 }
 footer.site-footer div.site-info ul.footer-menu {
 	column-count: 2;
 }
+ul.footer-menu li > a {
+	margin-right: 12px;
+}
 ul.footer-menu li > a:hover {
-	font-weight: 600;
+	font-weight: 500;
 }
 footer.site-footer div.hbspt-form form {
 	width: 100%;
@@ -799,6 +801,7 @@ form.list-filters .filter-item > input[type="reset"] {
 .filter-results .product-item > a.product-container div.image-link {
 	display: block;
 	overflow: hidden;
+	padding-top: 12px;
 	background: transparent;
 }
 
@@ -1062,7 +1065,7 @@ Heada rhymes with chedda for submenu
 }
 
 .pre-content-container .image-cover img {
-	width: auto;
+	width: calc(800px + 15vw);
 	height: auto;
 	display: block;
 	margin: 0 auto;
@@ -1082,7 +1085,6 @@ Heada rhymes with chedda for submenu
 }
 
 .pre-content-container div.column h1, .pre-content-container div.column h2 {
-	width: calc(100vw - 20vw);
 	display: block;
 	margin: 0 auto;
 }
@@ -1194,7 +1196,7 @@ div.main-page-content-container div.targetScrollContent a.video-link::before{
 }
 
 .otis-pd-course-container > .course-content .columns {
-	height: 100vh;
+	height: 200vh;
 	position: relative;
   z-index: 100;
 	background: rgb(255,255,255);

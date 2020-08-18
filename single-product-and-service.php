@@ -65,7 +65,7 @@ get_header();
 		<div class="container">
 			<nav class="navbar padding-sm-top" role="navigation" aria-label="main navigation">
 				<div class="navbar-brand">
-					<a href>
+					<a href="/nycdoe/">
 						<img src="/wp-content/uploads/2020/02/teq-cdw-g-contract-no-B220901.svg" width="270"  alt="Teq CDW-G" />
 					</a>
 				</div>

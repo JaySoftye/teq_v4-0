@@ -16,13 +16,6 @@
 			<div class="columns">
 				<div class="column">
 					<h2> It's all about learning.</h2>
-					<object type="image/svg+xml" data="<?php echo get_template_directory_uri() . '/inc/images/Teq-Inc_Brands.svg'; ?>">
-  					Teq, OTIS for educators, Onsite Professional Development, iBlocks for project-based learning, STEM, evoSpaces
-					</object>
-					<p>7 Norden Lane<br />Huntington Station, NY 11746 (US)<br />877.455.9369 | info@teq.com</p>
-				</div>
-				<div class="column">
-					<h2> Discover Teq</h2>
 					<?php wp_nav_menu(array(
 	          'menu'       => 'Main Menu', // specify the menu name
 	          'menu_class' => '',
@@ -113,7 +106,39 @@
 					</svg>
 				</div>
 				<div class="column">
-					<h2> And stay connected</h2>
+					<h2>Teq Talk.</h2>
+
+						<?php
+							$args = array(
+								'category_name' => 'news',
+								'post_status' => 'publish',
+								'order' => 'DESC',
+								'posts_per_page' => 2,
+								'date_query' => array(
+									'after' => date('Y-m-d', strtotime('-6 months'))
+								)
+							);
+
+							$the_query = new WP_Query( $args );
+								if ( $the_query->have_posts() ) :
+									while ( $the_query->have_posts() ) :
+										$the_query->the_post();
+						?>
+						<div class="columns is-vcentered">
+						<figure class="column is-2 nopadding">
+							<?php if ( has_post_thumbnail() ) {  the_post_thumbnail( 'full', array( 'class'  => 'drop-shadow' ) ); } ?>
+						</figure>
+						<article class="column">
+							<a class="strong" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+							<br />
+							<small class="condensed-text upper-case"><?php echo get_the_date( 'F d Y' ); ?></small>
+						</article>
+						</div>
+						<?php endwhile; wp_reset_postdata(); endif; ?>
+
+				</div>
+				<div class="column">
+					<h2> And stay connected.</h2>
 					<!--[if lte IE 8]>
 		      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
 		      <![endif]-->
@@ -128,11 +153,24 @@
 		      </script>
 				</div>
 			</div>
-			<div class="columns padding-top">
-				<div class="column">
-					<p><small><sup>	&copy;</sup>2020 - Teq<sup>&reg;</sup>, It’s all about learning.<sup>&trade;</sup>, iBlocks<sup>&trade;</sup>, evoSpaces<sup>&trade;</sup>, pBlocks<sup>&trade;</sup>, Teq Essentials<sup>&reg;</sup>, nOw Instructional Support<sup>&reg;</sup>, OPD Online Professional Development<sup>&reg;</sup>, Onsite Professional Development<sup>&reg;</sup>, and Powered by Teq<sup>&reg;</sup> are trademarks or registered trademarks of Tequipment, Inc. in the US. Other company names and product names appearing here are the trademarks and registered trademarks of their respective companies.</small></p>
-				</p>
+
+			<div class="columns is-multiline">
+				<figure class="column is-8">
+					<object type="image/svg+xml" data="<?php echo get_template_directory_uri() . '/inc/images/Teq-Inc_Brands.svg'; ?>">
+	  				Teq, OTIS for educators, Onsite Professional Development, iBlocks for project-based learning, STEM, evoSpaces
+					</object>
+				</figure>
+				<div class="column is-full border-top">
+					<p>
+						<small>7 Norden Lane Huntington Station, NY 11746 (US)  |  877.455.9369 |  info@teq.com</small>
+						<br />
+						<span>
+							<small><sup>	&copy;</sup>2020 - Teq<sup>&reg;</sup>, It’s all about learning.<sup>&trade;</sup>, iBlocks<sup>&trade;</sup>, evoSpaces<sup>&trade;</sup>, pBlocks<sup>&trade;</sup>, Teq Essentials<sup>&reg;</sup>, nOw Instructional Support<sup>&reg;</sup>, OPD Online Professional Development<sup>&reg;</sup>, Onsite Professional Development<sup>&reg;</sup>, and Powered by Teq<sup>&reg;</sup> are trademarks or registered trademarks of Tequipment, Inc. in the US. Other company names and product names appearing here are the trademarks and registered trademarks of their respective companies.</small>
+						</span>
+					</p>
+				</div>
 			</div>
+
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 

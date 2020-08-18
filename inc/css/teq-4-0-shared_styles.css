@@ -1020,7 +1020,6 @@ form ul.hs-error-msgs li > label.hs-error-msg {
 	font-size: .75rem;
 }
 div.hbspt-form form div.hs-submit input[type=submit].hs-button {
-	width: 41.66%;
 	margin-top: 12px;
 	border: 2.1px solid black;
 	background-color: black;
