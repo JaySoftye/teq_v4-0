@@ -181,6 +181,14 @@ function teq_v4_0_scripts() {
 		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-create_your_solution_stylesheet.css' );
 	}
 
+	// STYLESHEET AND JAVASCRIPT FUNCTIONS FOR EVOLVE
+	if ( is_page_template( array( 'template-pages/evolve.php' ) ) ) {
+		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-evolve_stylesheet.css' );
+
+		wp_deregister_script( 'evolve-js-functions' );
+		wp_enqueue_script( 'evolve-js-functions', get_template_directory_uri() . '/js/evolve-functions.js', '', '', true );
+	}
+
 	// Additional CSS for Specific Channel Partners
 	if ( is_page_template( array( 'template-pages/nycdoe.php', 'template-pages/cdwgstemproducts.php', 'template-pages/cdwgprofessionaldevelopmentproducts.php', 'template-pages/landingpageadditionalstyling.php') ) ) {
 		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-additional_stylesheet.css' );

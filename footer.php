@@ -124,7 +124,7 @@
 									while ( $the_query->have_posts() ) :
 										$the_query->the_post();
 						?>
-						<div class="columns is-vcentered">
+						<div class="columns is-vcentered is-mobile">
 						<figure class="column is-2 nopadding">
 							<?php if ( has_post_thumbnail() ) {  the_post_thumbnail( 'full', array( 'class'  => 'drop-shadow' ) ); } ?>
 						</figure>

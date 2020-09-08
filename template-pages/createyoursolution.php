@@ -188,7 +188,7 @@ get_header();
 								<path ng-show="stemSolutions=='General STEM' || stemSolutions=='Coding' || stemSolutions=='Robotics' || stemSolutions=='Hydroponics'" class="stem-solutions-color" d="M387.318,199.674c-0.006,5.228-0.218,10.495-0.67,15.798c-3.88,45.532-23.855,85.823-53.836,115.774 l4.743,4.743c34.886-34.886,56.464-83.081,56.464-136.316H387.318z"/>
 								<path ng-show="classroomTransformationSolutions=='SMART Board/SMART Learning Suite' || classroomTransformationSolutions=='Active Learning Spaces' || classroomTransformationSolutions=='Evospaces (furniture)'" class="classroom-transformation-color" d="M201.24,385.753v6.701c53.235,0,101.43-21.578,136.316-56.464l-4.743-4.743 C298.859,365.166,252.068,385.81,201.24,385.753z"/>
 								<path ng-show="gradeBand=='Grades K-2' || gradeBand=='Grades 3-5' || gradeBand=='Grades 6-8' || gradeBand=='Grades 9-12'" class="grade-band-color" d="M185.441,385.084c-45.532-3.88-85.823-23.855-115.774-53.836l-4.743,4.743 c34.886,34.886,83.081,56.464,136.316,56.464v-6.701C196.012,385.747,190.744,385.536,185.441,385.084z"/>
-								<path ng-show="subjectMatter=='ELA' || subjectMatter=='Engineering' || subjectMatter=='English' || subjectMatter=='Math' || subjectMatter=='Science' || subjectMatter=='Social Studies'  || subjectMatter=='Special Education' || subjectMatter=='STEM'" class="subject-matter-color" d="M15.161,199.674H8.46c0,53.235,21.578,101.43,56.464,136.316l4.743-4.743 C35.748,297.294,15.105,250.502,15.161,199.674z"/>
+								<path ng-show="subjectMatterEla == true || subjectMatterEngineering == true || subjectMatterEnglish == true || subjectMatterMath == true || subjectMatterScience == true || subjectMatterSocialStudies == true  || subjectMatterSpecialEducation == true || subjectMatterStem == true" class="subject-matter-color" d="M15.161,199.674H8.46c0,53.235,21.578,101.43,56.464,136.316l4.743-4.743 C35.748,297.294,15.105,250.502,15.161,199.674z"/>
 								<path ng-show="technologyProficiency=='Easy Proficiency' || technologyProficiency=='Intermediate Proficiency' || technologyProficiency=='Advanced Proficiency'" class="technology-proficiency-color" d="M15.831,183.876c3.88-45.532,23.855-85.823,53.836-115.774l-4.743-4.743 C30.037,98.245,8.46,146.44,8.46,199.674h6.701C15.167,194.447,15.379,189.179,15.831,183.876z"/>
 								<path class="hidden" d="M201.24,13.596V6.894c-53.235,0-101.43,21.578-136.316,56.464l4.743,4.743 C103.62,34.183,150.412,13.539,201.24,13.596z"/>
 							</g>
@@ -241,7 +241,7 @@ get_header();
 									</svg>
 								</a>
 								<input type="reset" value="" ng-click="resetSolutionSet()">
-								<input type="submit" value="GO!" ng-if="pdSelected==true && lessonContentSelected==true && classroomSelected==true && stemSelected==true && gradeSelected==true && subjectSelected==true && proficiencySelected==true" />
+								<input type="submit" value="GO!" ng-if="pdSelected==true && lessonContentSelected==true && classroomSelected==true && stemSelected==true && gradeSelected==true && proficiencySelected==true" />
 							</div>
 
 							<div class="dial-ui-set-container slide" ng-show="isSet(0)">
@@ -348,22 +348,15 @@ get_header();
 								<div class="dial-ui-set">
 									<div class="content-dial">
 										<h5 ng-hide="subjectSelected==true"><strong>Choose the subject</strong> that's most relevant for you.</h5>
-										<p class="subject-matter-color" ng-show="subjectMatter == 'ELA'">I want to explore <strong>ELA</strong> solutions.</p>
-										<p class="subject-matter-color" ng-show="subjectMatter == 'Engineering'"><strong>Engineering</strong> is my middle name — what solutions do you have for me?</p>
-										<p class="subject-matter-color" ng-show="subjectMatter == 'English'">I want to explore what you have for <strong>English</strong>.</p>
-										<p class="subject-matter-color" ng-show="subjectMatter == 'Math'"><strong>Math solutions</strong>, here I come!</p>
-										<p class="subject-matter-color" ng-show="subjectMatter == 'Science'">What do you have for <strong>Science-related</strong> solutions?</p>
-										<p class="subject-matter-color" ng-show="subjectMatter == 'Social Studies'">Show me your solutions for <strong>Social Studies</strong>.</p>
-										<p class="subject-matter-color" ng-show="subjectMatter == 'Special Education'">I'm specifically interested in <strong>Special Education</strong>.</p>
-										<p class="subject-matter-color" ng-show="subjectMatter == 'STEM'">I want to take a deep dive into <strong>STEM solutions</strong>.</p>
-										<input type="radio" name="subject-matter" ng-model="subjectMatter" ng-value='"ELA"' value="ela">
-										<input type="radio" name="subject-matter" ng-model="subjectMatter" ng-value='"Engineering"' value="engineering">
-										<input type="radio" name="subject-matter" ng-model="subjectMatter" ng-value='"English"' value="english">
-										<input type="radio" name="subject-matter" ng-model="subjectMatter" ng-value='"Math"' value="math">
-										<input type="radio" name="subject-matter" ng-model="subjectMatter" ng-value='"Science"' value="science">
-										<input type="radio" name="subject-matter" ng-model="subjectMatter" ng-value='"Social Studies"' value="social-studies">
-										<input type="radio" name="subject-matter" ng-model="subjectMatter" ng-value='"Special Education"' value="special-education">
-										<input type="radio" name="subject-matter" ng-model="subjectMatter" ng-value='"STEM"' value="stem">
+										<p class="subject-matter-color" ng-bind-html="subjectTitle"></p>
+										<input type="checkbox" name="subject[ela]" ng-model="subjectMatterEla" ng-value='"ELA"' value="ela">
+										<input type="checkbox" name="subject[engineering]" ng-model="subjectMatterEngineering" ng-value='"Engineering"' value="engineering">
+										<input type="checkbox" name="subject[english]" ng-model="subjectMatterEnglish" ng-value='"English"' value="english">
+										<input type="checkbox" name="subject[math]" ng-model="subjectMatterMath" ng-value='"Math"' value="math">
+										<input type="checkbox" name="subject[science]" ng-model="subjectMatterScience" ng-value='"Science"' value="science">
+										<input type="checkbox" name="subject[socialStudies]" ng-model="subjectMatterSocialStudies" ng-value='"Social Studies"' value="social-studies">
+										<input type="checkbox" name="subject[specialEducation]" ng-model="subjectMatterSpecialEducation" ng-value='"Special Education"' value="special-education">
+										<input type="checkbox" name="subject[stem]" ng-model="subjectMatterStem" ng-value='"STEM"' value="stem">
 									</div>
 									<div class="radio-dial outer">
 										<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/subject_matter_eight_option_dial.svg'); ?>
@@ -387,7 +380,7 @@ get_header();
 										<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/technology-proficiency-three_option_dial.svg'); ?>
 									</div>
 								</div>
-								<div class="dial-ui-set instructions" ng-if="pdSelected==true && lessonContentSelected==true && classroomSelected==true && stemSelected==true && gradeSelected==true && subjectSelected==true && proficiencySelected==true">
+								<div class="dial-ui-set instructions" ng-if="pdSelected==true && lessonContentSelected==true && classroomSelected==true && stemSelected==true && gradeSelected==true &&  proficiencySelected==true">
 									<h4 class="padding-sm strong">Let's create your solution now <span class="arrow"></span></h4>
 								</div>
 							</div>
@@ -403,7 +396,7 @@ get_header();
 							<div class="gauge-reader inner">
 								<div class="fill">
 									<span ng-if="technologyProficiency==='Easy Proficiency' || technologyProficiency==='Intermediate Proficiency' || technologyProficiency==='Advanced Proficiency'"></span>
-									<span ng-if="subjectMatter==='ELA' || subjectMatter==='Engineering' || subjectMatter==='English' || subjectMatter==='Math' || subjectMatter==='Science' || subjectMatter==='Social Studies'  || subjectMatter==='Special Education' || subjectMatter==='STEM'"></span>
+									<span ng-if="subjectTitle"></span>
 									<span ng-if="gradeBand==='Grades K-2' || gradeBand==='Grades 3-5' || gradeBand==='Grades 6-8' || gradeBand==='Grades 9-12'"></span>
 									<span ng-if="classroomTransformationSolutions==='SMART Board/SMART Learning Suite' || classroomTransformationSolutions==='Active Learning Spaces' || classroomTransformationSolutions==='Evospaces (furniture)'"></span>
 									<span ng-if="stemSolutions==='General STEM' || stemSolutions==='Coding' || stemSolutions==='Robotics' || stemSolutions==='Hydroponics'"></span>
@@ -414,7 +407,7 @@ get_header();
 							</div>
 							<h6 class="gauge-labels">
 								<span class="technology-proficiency-color" ng-if="technologyProficiency==='Easy Proficiency' || technologyProficiency==='Intermediate Proficiency' || technologyProficiency==='Advanced Proficiency'">{{technologyProficiency}}</span>
-								<span class="subject-matter-color" ng-if="subjectMatter==='ELA' || subjectMatter==='Engineering' || subjectMatter==='English' || subjectMatter==='Math' || subjectMatter==='Science' || subjectMatter==='Social Studies'  || subjectMatter==='Special Education' || subjectMatter==='STEM'">{{subjectMatter}}</span>
+								<span class="subject-matter-color" ng-bind-html="subjectLabel"></span>
 								<span class="grade-band-color" ng-if="gradeBand==='Grades K-2' || gradeBand==='Grades 3-5' || gradeBand==='Grades 6-8' || gradeBand==='Grades 9-12'">{{gradeBand}}</span>
 								<span class="classroom-transformation-color" ng-if="classroomTransformationSolutions==='SMART Board/SMART Learning Suite' || classroomTransformationSolutions==='Active Learning Spaces' || classroomTransformationSolutions==='Evospaces (furniture)'">{{classroomTransformationSolutions}}</span>
 								<span class="stem-solutions-color" ng-if="stemSolutions==='General STEM' || stemSolutions==='Coding' || stemSolutions==='Robotics' || stemSolutions==='Hydroponics'">{{stemSolutions}}</span>

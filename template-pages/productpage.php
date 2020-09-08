@@ -67,14 +67,6 @@ get_header();
 			<section ng-show="isSet(1)">
 				<div class="container padding-top">
 
-					<?php if( !empty( $sub_header) ) { ?>
-						<div class="scroll-down bounce">
-							<svg version="1.1" viewBox="0 0 99 99">
-								<path d="M45.383,80.352c0.068,0.056,0.141,0.105,0.211,0.157c0.099,0.075,0.197,0.151,0.3,0.221c0.09,0.06,0.183,0.112,0.274,0.167 c0.09,0.054,0.178,0.11,0.27,0.16c0.096,0.051,0.195,0.095,0.293,0.141c0.094,0.044,0.187,0.091,0.283,0.131 c0.096,0.04,0.194,0.072,0.292,0.107c0.102,0.037,0.203,0.076,0.308,0.108c0.099,0.03,0.199,0.052,0.298,0.077 c0.106,0.027,0.21,0.056,0.318,0.078c0.118,0.023,0.238,0.038,0.357,0.054c0.091,0.013,0.18,0.03,0.271,0.039 c0.428,0.042,0.858,0.042,1.286,0c0.09-0.009,0.177-0.026,0.266-0.038c0.121-0.017,0.242-0.031,0.362-0.055 c0.105-0.021,0.207-0.05,0.311-0.076c0.102-0.026,0.205-0.048,0.306-0.079c0.101-0.031,0.199-0.069,0.298-0.104 c0.101-0.036,0.203-0.07,0.303-0.111c0.091-0.038,0.179-0.082,0.268-0.124c0.104-0.049,0.208-0.095,0.309-0.149 c0.084-0.045,0.164-0.097,0.246-0.145c0.1-0.059,0.201-0.116,0.299-0.182c0.088-0.059,0.17-0.124,0.255-0.187 c0.086-0.064,0.173-0.123,0.257-0.192c0.134-0.11,0.261-0.229,0.387-0.349c0.029-0.028,0.06-0.051,0.088-0.079l21.162-21.163 c2.538-2.538,2.538-6.654,0-9.192c-2.539-2.539-6.654-2.539-9.192,0L56,59.632V23.677c0-3.59-2.91-6.5-6.5-6.5s-6.5,2.91-6.5,6.5 v35.956L32.933,49.565c-2.538-2.539-6.653-2.539-9.192,0c-1.269,1.269-1.903,2.933-1.903,4.596s0.635,3.327,1.904,4.596 l21.158,21.157C45.053,80.069,45.214,80.214,45.383,80.352z"/>
-							</svg>
-						</div>
-					<?php } ?>
-
 					<div class="pre-content-container columns is-multiline is-desktop">
 						<div class="image-cover">
 							<?php
@@ -123,8 +115,9 @@ get_header();
 						<div class="container">
 							<div class="columns">
 								<div class="column is-6 is-offset-3">
-									<h1><strong>We Help Educators Succeed!</strong></h1>
+									<h1><strong>We HelpEducators Succeed!</strong></h1>
 									<h5><strong>Boost your classroom technology skills to engage your students and improve instruction with Teq’s Online Professional Development platform, now known as OTIS.</strong></h5>
+									<h6><u>SCROLL DOWN</u> for a sample course.</h6>
 								</div>
 							</div>
 						</div>
@@ -146,7 +139,7 @@ get_header();
 						<div class="container">
 							<div class="columns">
 								<div class="column is-6 is-offset-3">
-									<h1><strong>We Help Educators Succeed!</strong></h1>
+									<h1><strong>We HelpEducators Succeed!</strong></h1>
 									<h5><strong>Boost your classroom technology skills to engage your students and improve instruction with Teq’s Online Professional Development platform, now known as OTIS.</strong></h5>
 								</div>
 							</div>

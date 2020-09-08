@@ -857,7 +857,7 @@ test.onclick = function() {
 							</a>
 						</div>
 						<div class="column reveal-mask evolve" ng-class="{'choice-option-open':hoverEvolve}">
-							<a class="transition-one-thirds" href="/browse" ng-mouseenter="hoverEvolve=true" ng-mouseleave="hoverEvolve=false">
+							<a class="transition-one-thirds" href="/evolve" ng-mouseenter="hoverEvolve=true" ng-mouseleave="hoverEvolve=false">
 								<i>Evolve Your<br />Classroom</i>
 								<span></span>
 							</a>

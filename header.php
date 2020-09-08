@@ -102,13 +102,13 @@
 					<li>
 						<div class="dropdown is-hoverable">
 							<div class="dropdown-trigger">
-								<a aria-controls="pd-dropdown" href="/professional-development/">Professional Development</a>
+								<a aria-controls="pd-dropdown" href="/active-learning-spaces/">TRAC</a>
 							</div>
 							<div class="dropdown-menu" id="pd-dropdown" role="menu">
 								<div class="dropdown-content">
-									<div class="dropdown-item columns">
+									<div class="dropdown-item">
 										<?php wp_nav_menu(array(
-											'menu'       => 'Professional Development Dropdown Menu', // specify the menu name
+											'menu'       => 'TRAC Dropdown Menu', // specify the menu name
 											'menu_class' => '',
 											'container'  => '',
 											'items_wrap' => '<ul role="menu" >%3$s</ul>'
@@ -121,13 +121,13 @@
 					<li>
 						<div class="dropdown is-hoverable">
 							<div class="dropdown-trigger">
-								<a aria-controls="pd-dropdown" href="/active-learning-spaces/">Active Learning Spaces</a>
+								<a aria-controls="pd-dropdown" href="/professional-development/">Professional Development</a>
 							</div>
 							<div class="dropdown-menu" id="pd-dropdown" role="menu">
 								<div class="dropdown-content">
 									<div class="dropdown-item columns">
 										<?php wp_nav_menu(array(
-											'menu'       => 'Active Learning Spaces Dropdown Menu', // specify the menu name
+											'menu'       => 'Professional Development Dropdown Menu', // specify the menu name
 											'menu_class' => '',
 											'container'  => '',
 											'items_wrap' => '<ul role="menu" >%3$s</ul>'

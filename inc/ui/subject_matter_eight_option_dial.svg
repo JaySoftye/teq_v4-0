@@ -267,7 +267,7 @@
 			c-0.007-0.924,0.756-1.684,1.679-1.671c0.903,0.012,1.637,0.761,1.632,1.666C131.104,76.793,130.365,77.528,129.457,77.531z"/>
 	</g>
 
-	<g ng-show="subjectMatter == 'ELA'">
+	<g ng-show="subjectMatterEla == true" ng-click="elaSubjectSelected()" ng-mouseover="showElaPopover=true;" ng-mouseleave="showElaPopover=false;">
 	  <path class="subject-matter-color" d="M253.855,74.037c8.133-2.373,16.241-4.828,24.349-7.286c0.874-0.265,1.747-0.663,2.496-1.179
 	    c1.735-1.195,1.76-3.395,0.047-4.621c-0.736-0.527-1.615-0.919-2.487-1.183c-8.064-2.448-16.138-4.868-24.217-7.267
 	    c-3.793-1.127-7.652-1.241-11.444-0.142c-8.412,2.439-16.788,5-25.177,7.518c-1.461,0.438-2.698,1.176-3.335,2.657
@@ -287,7 +287,7 @@
 	    c2.062-1.278,3.312-3.002,3.119-5.563C269.163,77.314,269.222,76.36,269.222,75.41z"/>
 	</g>
 
-	<g ng-show="subjectMatter == 'Engineering'">
+	<g ng-show="subjectMatterEngineering == true" ng-click="engineeringSubjectSelected()" ng-mouseover="showEngineeringPopover=true;" ng-mouseleave="showEngineeringPopover=false;">
 	  <path class="subject-matter-color" d="M292.452,159.323c0.127-0.722,0.62-0.99,1.289-1.08c0.683-0.092,1.36-0.233,2.043-0.333
 	    c0.385-0.057,0.611-0.259,0.749-0.618c0.293-0.762,0.598-1.52,0.921-2.271c0.153-0.355,0.127-0.655-0.104-0.966
 	    c-0.441-0.594-0.871-1.196-1.292-1.804c-0.52-0.753-0.487-1.154,0.146-1.8c0.587-0.599,1.18-1.193,1.779-1.779
@@ -339,7 +339,7 @@
 	    c4.795,0.017,8.666,3.915,8.647,8.708C336.844,145.502,332.933,149.4,328.164,149.381z"/>
 	</g>
 
-	<g ng-show="subjectMatter == 'English'">
+	<g ng-show="subjectMatterEnglish == true" ng-click="englishSubjectSelected()" ng-mouseover="showEnglishPopover=true;" ng-mouseleave="showEnglishPopover=false;">
 	  <path class="subject-matter-color" d="M336.136,249.094h-4.761v1.343h4.761c0.337,0,0.611-0.301,0.611-0.672
 	    C336.747,249.396,336.473,249.094,336.136,249.094z"/>
 	  <path class="subject-matter-color" d="M336.136,244.519h-4.761v1.343h4.761c0.337,0,0.611-0.302,0.611-0.672
@@ -359,7 +359,7 @@
 	    C307.226,220.192,305.809,221.751,305.809,223.666z"/>
 	</g>
 
-	<g ng-show="subjectMatter == 'Math'">
+	<g ng-show="subjectMatterMath == true" ng-click="mathSubjectSelected()" ng-mouseover="showMathPopover=true;" ng-mouseleave="showMathPopover=false;">
 	  <path class="subject-matter-color" d="M249.307,348.646c-5.382,0-10.765-0.051-16.146,0.017c-4.129,0.052-7.613-2.799-8.325-6.715
 	    c-0.097-0.535-0.15-1.086-0.15-1.63c-0.009-10.876-0.013-21.752-0.003-32.628c0.004-4.71,3.628-8.314,8.33-8.315
 	    c10.874-0.003,21.747-0.003,32.621,0c4.093,0.001,7.365,2.665,8.182,6.675c0.119,0.585,0.158,1.195,0.158,1.794
@@ -389,7 +389,7 @@
 	    C264.094,337.321,262.488,337.326,260.883,337.325z"/>
 	</g>
 
-	<g ng-show="subjectMatter == 'Science'">
+	<g ng-show="subjectMatterScience == true" ng-click="scienceSubjectSelected()" ng-mouseover="showSciencePopover=true;" ng-mouseleave="showSciencePopover=false;">
 	  <path class="subject-matter-color" d="M137.912,290.274c0.704,0,1.408,0,2.112,0c0.097,0.032,0.192,0.081,0.291,0.095
 	    c1.933,0.265,3.635,1.037,5.136,2.28c0.287,0.237,0.39,0.482,0.389,0.85c-0.011,5.016-0.005,10.032-0.006,15.048
 	    c0,10.877-0.003,21.754,0.005,32.631c0,0.331-0.094,0.551-0.349,0.763c-1.138,0.949-2.406,1.648-3.836,2.037
@@ -428,7 +428,7 @@
 	    c0.854,0.018,1.56,0.75,1.548,1.606C158.494,328.751,157.77,329.462,156.914,329.457z"/>
 	</g>
 
-	<g ng-show="subjectMatter == 'Social Studies'">
+	<g ng-show="subjectMatterSocialStudies == true" ng-click="socialStudiesSubjectSelected()" ng-mouseover="showSocialStudiesPopover=true;" ng-mouseleave="showSocialStudiesPopover=false;">
 	  <path class="subject-matter-color" d="M84.817,230.825c0,0.522,0.203,1.013,0.573,1.383c0.433,0.433,1.054,0.64,1.659,0.553
 	    c1.362-0.195,2.724,0.146,3.835,0.959c1.111,0.813,1.847,2.008,2.073,3.366c0.161,0.967,0.708,1.787,1.538,2.307
 	    c0.831,0.521,1.806,0.655,2.747,0.378l3.619-1.064c-0.819-6.343-4.506-11.798-9.715-15.021l-5.757,5.757
@@ -456,7 +456,7 @@
 	    s0.819-0.156,1.131-0.469C101.6,261.497,101.6,260.484,100.976,259.859L100.976,259.859z"/>
 	</g>
 
-	<g ng-show="subjectMatter == 'Special Education'">
+	<g ng-show="subjectMatterSpecialEducation == true" ng-click="specialEducationSubjectSelected()" ng-mouseover="showSpecialEdPopover=true;" ng-mouseleave="showSpecialEdPopover=false;">
 	  <path class="subject-matter-color" d="M51.046,136.984h-3.139c-0.868,0-1.57,0.702-1.57,1.57s0.702,1.57,1.57,1.57h3.139
 	    c0.868,0,1.57-0.702,1.57-1.57S51.914,136.984,51.046,136.984z"/>
 	  <path class="subject-matter-color" d="M49.581,131.355c0.613,0.613,1.606,0.613,2.219,0c0.613-0.613,0.613-1.606,0-2.219l-2.219-2.219
@@ -481,7 +481,7 @@
 	  <path class="subject-matter-color" d="M69.985,171.619h6.278c2.044,0,3.769-1.421,4.42-3.244H65.566C66.216,170.198,67.942,171.619,69.985,171.619z"/>
 	</g>
 
-	<g ng-show="subjectMatter == 'STEM'">
+	<g ng-show="subjectMatterStem == true" ng-click="stemSubjectSelected()" ng-mouseover="showStemPopover=true;" ng-mouseleave="showStemPopover=false;">
 	  <path class="subject-matter-color" d="M174.489,92.355c-5.535-6.327-11.072-12.653-16.604-18.982c-0.108-0.124-0.243-0.285-0.246-0.431
 	    c-0.022-0.942-0.011-1.886-0.011-2.823c0.112-0.022,0.161-0.04,0.21-0.04c2.486-0.002,4.971-0.008,7.456,0.007
 	    c0.176,0.001,0.389,0.122,0.521,0.252c1.206,1.186,2.394,2.391,3.6,3.577c0.205,0.202,0.234,0.352,0.116,0.62

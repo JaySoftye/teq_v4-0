@@ -23,7 +23,7 @@ get_header();
 					$stem_solution = $_POST['stem-solutions'];
 					$classroom_transformation_solution = $_POST['classroom-transformation-solutions'];
 					$grade_band_level = $_POST['grade-band-level'];
-					$subject_matter = $_POST['subject-matter'];
+					$subject_matter = $_POST['subject'];
 					$technology_proficiency = $_POST['technology-proficiency'];
 
 
@@ -285,26 +285,16 @@ get_header();
 							if (isset($subject_matter)) {
 						?>
 						<div class="column is-2">
-							<p class="strong"><?php echo $subject_matter; ?></p>
+							<p class="strong">Subject Matter</p>
 						</div>
 						<div class="column is-10">
-							<?php if ($subject_matter == "ELA") { ?>
-								<p>Subject Matter</p>
-							<?php } elseif ($subject_matter == "Engineering") { ?>
-								<p>Subject Matter</p>
-							<?php } elseif ($subject_matter == "English") { ?>
-								<p>Subject Matter</p>
-							<?php } elseif ($subject_matter == "Math") { ?>
-								<p>Subject Matter</p>
-							<?php } elseif ($subject_matter == "Science") { ?>
-								<p>Subject Matter</p>
-							<?php } elseif ($subject_matter == "Social Studies") { ?>
-								<p>Subject Matter</p>
-							<?php } elseif ($subject_matter == "Special Education") { ?>
-								<p>Subject Matter</p>
-							<?php } elseif ($subject_matter == "STEM") { ?>
-								<p>Subject Matter</p>
-							<?php } ?>
+							<p>
+							<?php if ( !empty($subject_matter) ) {
+								foreach($subject_matter as $value){
+    							echo $value . ", ";
+								}
+							} ?>
+							</p>
 						</div>
 						<?php }
 							if (isset($technology_proficiency)) {

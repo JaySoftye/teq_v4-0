@@ -9,7 +9,6 @@ body {
   position: relative;
   margin: 0 auto;
   padding: 0 0 ;
-  font-family: 'Roboto',Helvetica,Arial,san-serif;
   color: black !important;
 }
 
@@ -64,6 +63,10 @@ p {
 
 .condensed-text {
    font-family: 'Roboto Condensed','Roboto',Helvetica,Arial,san-serif !important;
+ }
+
+ .serif-text {
+   font-family: "Lucida Console", Monaco, monospace, serfif !important;
  }
 
 .inline-content {

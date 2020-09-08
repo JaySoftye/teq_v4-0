@@ -448,7 +448,7 @@ object.gauge-ticks {
   margin-bottom: 30px;
 }
 
-.dial-ui-set input[type="radio"] {
+.dial-ui-set input[type="radio"], .dial-ui-set input[type="checkbox"], .dial-ui-set input {
   display: none;
 }
 

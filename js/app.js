@@ -255,6 +255,16 @@
         $scope.subjectSelected = false;
         $scope.technologyProficiency = false;
         $scope.proficiencySelected = false;
+        $scope.subjectMatterEla = false;
+        $scope.subjectMatterEngineering = false;
+        $scope.subjectMatterEnglish = false;
+        $scope.subjectMatterMath = false;
+        $scope.subjectMatterScience = false;
+        $scope.subjectMatterSocialStudies = false;
+        $scope.subjectMatterStem = false;
+        $scope.subjectMatterSpecialEducation = false;
+        $scope.subjectTitle = '';
+        $scope.subjectLabel = '';
       };
 
       $scope.pdSelected = false;
@@ -377,50 +387,74 @@
           $scope.show = 0;
         };
 
-      $scope.subjectSelected = false;
       $scope.elaSubjectSelected = function() {
-        $scope.subjectMatter = 'ELA';
+        $scope.subjectSelected = true;
           $scope.show = 18;
-          $scope.subjectSelected = true;
+          $scope.subjectMatterEla = true;
+          $scope.subjectTitle = 'I want to explore <strong>ELA</strong> solutions.';
+          $scope.subjectLabel = 'ELA';
         };
       $scope.engineeringSubjectSelected = function() {
-        $scope.subjectMatter = 'Engineering';
+        $scope.subjectSelected = true;
           $scope.show = 19;
-          $scope.subjectSelected = true;
+          $scope.subjectMatterEngineering = true;
+          $scope.subjectTitle = '<strong>Engineering</strong> is my middle name — what solutions do you have for me?';
+          $scope.subjectLabel = 'Engineering';
         };
       $scope.englishSubjectSelected = function() {
-        $scope.subjectMatter = 'English';
+        $scope.subjectSelected = true;
           $scope.show = 20;
-          $scope.subjectSelected = true;
+          $scope.subjectMatterEnglish = true;
+          $scope.subjectTitle = 'I want to explore what you have for <strong>English</strong>.';
+          $scope.subjectLabel = 'English';
         };
       $scope.mathSubjectSelected = function() {
-        $scope.subjectMatter = 'Math';
+        $scope.subjectSelected = true;
           $scope.show = 21;
-          $scope.subjectSelected = true;
+          $scope.subjectMatterMath = true;
+          $scope.subjectTitle = '<strong>Math solutions</strong>, here I come!';
+          $scope.subjectLabel = 'Math';
         };
       $scope.scienceSubjectSelected = function() {
-        $scope.subjectMatter = 'Science';
+        $scope.subjectSelected = true;
           $scope.show = 22;
-          $scope.subjectSelected = true;
+          $scope.subjectMatterScience = true;
+          $scope.subjectTitle = 'What do you have for <strong>Science-related</strong> solutions?';
+          $scope.subjectLabel = 'Science';
         };
       $scope.socialStudiesSubjectSelected = function() {
-        $scope.subjectMatter = 'Social Studies';
+        $scope.subjectSelected = true;
           $scope.show = 23;
-          $scope.subjectSelected = true;
+          $scope.subjectMatterSocialStudies = true;
+          $scope.subjectTitle = 'Show me your solutions for <strong>Social Studies</strong>.';
+          $scope.subjectLabel = 'Social Studies';
         };
       $scope.specialEducationSubjectSelected = function() {
-        $scope.subjectMatter = 'Special Education';
+        $scope.subjectSelected = true;
           $scope.show = 24;
-          $scope.subjectSelected = true;
+          $scope.subjectMatterSpecialEducation = true;
+          $scope.subjectTitle = 'I am specifically interested in <strong>Special Education</strong>.';
+          $scope.subjectLabel = 'Spacial Education';
         };
       $scope.stemSubjectSelected = function() {
-        $scope.subjectMatter = 'STEM';
+        $scope.subjectSelected = true;
           $scope.show = 25;
-          $scope.subjectSelected = true;
+          $scope.subjectMatterStem = true;
+          $scope.subjectTitle = 'I want to take a deep dive into <strong>STEM solutions</strong>.';
+          $scope.subjectLabel = 'STEM';
         };
       $scope.subjectSelectedReset = function() {
-        $scope.subjectSelected  = false;
-          $scope.subjectMatter = '';
+        $scope.subjectSelected = false;
+        $scope.subjectMatterEla = false;
+        $scope.subjectMatterEngineering = false;
+        $scope.subjectMatterEnglish = false;
+        $scope.subjectMatterMath = false;
+        $scope.subjectMatterScience = false;
+        $scope.subjectMatterSocialStudies = false;
+        $scope.subjectMatterStem = false;
+        $scope.subjectMatterSpecialEducation = false;
+          $scope.subjectTitle = '';
+          $scope.subjectLabel = '';
           $scope.show = 0;
         };
 
