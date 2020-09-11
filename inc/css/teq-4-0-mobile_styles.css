@@ -65,7 +65,7 @@
     right: -36px;
     margin: 0 auto;
   }
-  .main-menu.navbar-end, .menu-button.search-button, nav.navbar div.navbar-brand a.navbar-item, nav.navbar div.navbar-brand a.navbar-item svg, div.navbar-menu button.menu-button.hamburger-button {
+  .main-menu.navbar-end, .menu-button.search-button, nav.navbar div.navbar-brand a.navbar-item, nav.navbar div.navbar-brand a.navbar-item svg, div.navbar-menu button.menu-button.hamburger-button, div.navbar-menu ul.primary-menu, div.navbar-menu.secondary-browse-menu {
     display: none;
   }
   header.site-header {

@@ -18,7 +18,7 @@
     });
 
     // Product Filter Function to hide unselected items
-    $('select').on('change', function() {
+    $('select.product-filter').on('change', function() {
       var value = '.' + $(this).val();
       $('div.filter-results .columns.is-multiline article.product-item').show().not(value).hide();
 

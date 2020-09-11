@@ -48,22 +48,22 @@ get_header();
 							</label>
 						</div>
 						<div class="filter-item" ng-controller="gradeLevelFilter">
-							<select id="selectedGradeLevel" name="selectedGradeLevel" ng-model="selectedGradeLevel" ng-options="item.id as item.name for item in items track by item.id">
+							<select class="product-filter"  class="product-filter"  id="selectedGradeLevel" name="selectedGradeLevel" ng-model="selectedGradeLevel" ng-options="item.id as item.name for item in items track by item.id">
 								<option value="" selected disabled>Grade Level</option>
 							</select>
 						</div>
 						<div class="filter-item" ng-controller="stemSubjectMatterFilter">
-							<select id="selectedStemSubjectMatter" ng-model="selectedStemSubjectMatter" ng-options="item.id as item.name for item in items track by item.id">
+							<select class="product-filter"  class="product-filter"  id="selectedStemSubjectMatter" ng-model="selectedStemSubjectMatter" ng-options="item.id as item.name for item in items track by item.id">
 								<option value="" selected disabled>Subject Matter</option>
 							</select>
 						</div>
 						<div class="filter-item" ng-controller="technologyProficiencyFilter">
-							<select id="selectedtechnologyProficiencyLevel" ng-model="selectedtechnologyProficiencyLevel" ng-options="item.id as item.name for item in items track by item.id">
+							<select class="product-filter"  class="product-filter"  id="selectedtechnologyProficiencyLevel" ng-model="selectedtechnologyProficiencyLevel" ng-options="item.id as item.name for item in items track by item.id">
 								<option value="" selected disabled>Technology Proficiency</option>
 							</select>
 						</div>
 						<div class="filter-item" ng-controller="curriculumVersatilityFilter">
-							<select id="selectedCurriculumVersatilityLevel" ng-model="selectedCurriculumVersatilityLevel" ng-options="item.id as item.name for item in items track by item.id">
+							<select class="product-filter"  class="product-filter"  id="selectedCurriculumVersatilityLevel" ng-model="selectedCurriculumVersatilityLevel" ng-options="item.id as item.name for item in items track by item.id">
 								<option value="" selected disabled>Curriculum Versatility</option>
 							</select>
 						</div>

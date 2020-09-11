@@ -8,7 +8,7 @@
  *
  * @package Teq_v4.0
  */
-
+	global $post
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -52,88 +52,33 @@
 				</svg>
   		</div>
 
-  		<div class="navbar-menu">
+			<div class="navbar-menu">
+				<ul class="main-menu navbar-start primary-menu" role="menu">
+					<li class="navbar-item browse-nav-item">
+						<a href="/browse">Browse<span>our products</span></a>
+					</li>
+					<li class="navbar-item create-nav-item">
+						<a href="/create">Create<span>your solution</span></a>
+					</li>
+					<li class="navbar-item evolve-nav-item">
+						<a href="/evolve">Evolve<span>your classroom</span></a>
+					</li>
+				</ul>
+			</div>
+
+  		<div class="navbar-menu secondary-browse-menu">
 				<ul class="main-menu navbar-end" role="menu">
 					<li>
 						<div class="dropdown is-hoverable">
 							<div class="dropdown-trigger">
-								<a aria-controls="pd-dropdown" href="/teq-blocks/">Teq Blocks</a>
-							</div>
-							<div class="dropdown-menu" id="pd-dropdown" role="menu">
-								<div class="dropdown-content">
-									<div class="dropdown-item columns">
-										<?php wp_nav_menu(array(
-											'menu'       => 'Teq Blocks Dropdown Menu', // specify the menu name
-											'menu_class' => '',
-											'container'  => '',
-											'items_wrap' => '<ul role="menu" >%3$s</ul>'
-										));?>
-									</div>
-								</div>
+								<button class="ng-class: stemMenuActive" ng-click="stemMenu()">ALL PRODUCTS</button>
 							</div>
 						</div>
 					</li>
 					<li>
 						<div class="dropdown is-hoverable">
 							<div class="dropdown-trigger">
-								<a ng-click="stemMenu()" ng-class="class" href>STEM Technology</a>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="dropdown is-hoverable">
-							<div class="dropdown-trigger">
-								<a aria-controls="pd-dropdown" href="/educational-technology/">Educational Technology</a>
-							</div>
-							<div class="dropdown-menu" id="pd-dropdown" role="menu">
-								<div class="dropdown-content">
-									<div class="dropdown-item columns">
-										<?php wp_nav_menu(array(
-											'menu'       => 'Educational Technology Dropdown Menu', // specify the menu name
-											'menu_class' => '',
-											'container'  => '',
-											'items_wrap' => '<ul role="menu" >%3$s</ul>'
-										));?>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="dropdown is-hoverable">
-							<div class="dropdown-trigger">
-								<a aria-controls="pd-dropdown" href="/active-learning-spaces/">TRAC</a>
-							</div>
-							<div class="dropdown-menu" id="pd-dropdown" role="menu">
-								<div class="dropdown-content">
-									<div class="dropdown-item">
-										<?php wp_nav_menu(array(
-											'menu'       => 'TRAC Dropdown Menu', // specify the menu name
-											'menu_class' => '',
-											'container'  => '',
-											'items_wrap' => '<ul role="menu" >%3$s</ul>'
-										));?>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="dropdown is-hoverable">
-							<div class="dropdown-trigger">
-								<a aria-controls="pd-dropdown" href="/professional-development/">Professional Development</a>
-							</div>
-							<div class="dropdown-menu" id="pd-dropdown" role="menu">
-								<div class="dropdown-content">
-									<div class="dropdown-item columns">
-										<?php wp_nav_menu(array(
-											'menu'       => 'Professional Development Dropdown Menu', // specify the menu name
-											'menu_class' => '',
-											'container'  => '',
-											'items_wrap' => '<ul role="menu" >%3$s</ul>'
-										));?>
-									</div>
-								</div>
+								<button class="ng-class: filtersMenuActive" ng-click="filtersMenu()">PRODUCT FILTERS</button>
 							</div>
 						</div>
 					</li>
@@ -146,75 +91,277 @@
 						</label>
 					</form>
 				</div>
-				<button class="menu-button hamburger-button" ng-click="mainMenu()" ng-class="class">Menu</button>
+				<button class="menu-button hamburger-button ng-class: mainMenuActive" ng-click="mainMenu()">Menu</button>
   		</div>
 		</nav>
-		<div class="main-dropdown-menu-container" ng-class="class">
-			<div class="menu-list primary-menu columns">
-				<div class="column is-offset-1">
-				<?php wp_nav_menu(array(
-					'menu'       => 'Main Menu', // specify the menu name
-					'menu_class' => '',
-					'container'  => '',
-					'items_wrap' => '<ul class="main-dropdown-menu cols" role="menu" >%3$s</ul>'
-				));?>
+		<div class="main-dropdown-menu-container ng-class: menuActive">
+			<div class="container">
+				<div class="menu-list primary-menu columns">
+					<?php if(is_page('Browse')) { ?>
+						<div class="column">
+							<?php wp_nav_menu(array(
+								'menu'       => 'Main Menu', // specify the menu name
+								'menu_class' => '',
+								'container'  => '',
+								'items_wrap' => '<ul class="main-dropdown-menu center" role="menu" >%3$s</ul>'
+							));?>
+						</div>
+					<?php } elseif($post->post_parent != 0) { ?>
+						<div class="column">
+							<?php wp_nav_menu(array(
+								'menu'       => 'Main Menu', // specify the menu name
+								'menu_class' => '',
+								'container'  => '',
+								'items_wrap' => '<ul class="main-dropdown-menu center" role="menu" >%3$s</ul>'
+							));?>
+						</div>
+					<?php } else { ?>
+						<div class="column">
+							<h6><a href="/browse/stem-technologies">STEM Technologies</a></h6>
+							<div class="has-dropdown-menu menu-closed">
+								<h6 class="dropdown-target">Coding</h6>
+								<?php wp_nav_menu(array(
+									'menu'       => 'Coding', // specify the menu name
+									'menu_class' => '',
+									'container'  => '',
+									'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+								));?>
+							</div>
+							<div class="has-dropdown-menu menu-closed">
+								<h6 class="dropdown-target">Robotics</h6>
+								<?php wp_nav_menu(array(
+									'menu'       => 'Robotics', // specify the menu name
+									'menu_class' => '',
+									'container'  => '',
+									'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+								));?>
+							</div>
+							<div class="has-dropdown-menu menu-closed">
+								<h6 class="dropdown-target">3D Printing</h6>
+								<?php wp_nav_menu(array(
+									'menu'       => '3D Printing', // specify the menu name
+									'menu_class' => '',
+									'container'  => '',
+									'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+								));?>
+							</div>
+							<div class="has-dropdown-menu menu-closed">
+								<h6 class="dropdown-target">Hydroponics</h6>
+								<?php wp_nav_menu(array(
+									'menu'       => 'Hydroponics', // specify the menu name
+									'menu_class' => '',
+									'container'  => '',
+									'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+								));?>
+							</div>
+							<div class="has-dropdown-menu menu-closed">
+								<h6 class="dropdown-target">AR/VR</h6>
+								<?php wp_nav_menu(array(
+									'menu'       => 'AR/VR', // specify the menu name
+									'menu_class' => '',
+									'container'  => '',
+									'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+								));?>
+							</div>
+							<div class="has-dropdown-menu menu-closed">
+								<h6 class="dropdown-target">Instructional Software</h6>
+								<?php wp_nav_menu(array(
+									'menu'       => 'Instructional Software', // specify the menu name
+									'menu_class' => '',
+									'container'  => '',
+									'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+								));?>
+							</div>
+						</div>
+						<div class="column">
+							<h6><a href="/teq-blocks">Teq Blocks</a></h6>
+							<?php wp_nav_menu(array(
+								'menu'       => 'Teq Blocks Dropdown Menu', // specify the menu name
+								'menu_class' => '',
+								'container'  => '',
+								'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+							));?>
+
+						</div>
+						<div class="column">
+							<h6><a href="/browse/professional-development">Professional Development</a></h6>
+							<?php wp_nav_menu(array(
+								'menu'       => 'Professional Development Dropdown Menu', // specify the menu name
+								'menu_class' => '',
+								'container'  => '',
+								'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
+							));?>
+						</div>
+						<div class="column">
+							<h6><a href="/browse/educational-technology">Educational Technology</a></h6>
+							<div class="has-dropdown-menu menu-closed">
+								<h6 class="dropdown-target">SMART Boards</h6>
+								<?php wp_nav_menu(array(
+									'menu'       => 'SMART Boards', // specify the menu name
+									'menu_class' => '',
+									'container'  => '',
+									'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+								));?>
+							</div>
+							<?php wp_nav_menu(array(
+								'menu'       => 'Educational Technology Dropdown Menu', // specify the menu name
+								'menu_class' => '',
+								'container'  => '',
+								'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
+							));?>
+						</div>
+						<div class="column">
+							<h6></h6>
+							<?php wp_nav_menu(array(
+								'menu'       => 'Main Menu', // specify the menu name
+								'menu_class' => '',
+								'container'  => '',
+								'items_wrap' => '<ul class="main-dropdown-menu right" role="menu" >%3$s</ul>'
+							));?>
+						</div>
+					<?php } ?>
 				</div>
-			</div>
-			<div class="menu-list stem-menu columns is-multiline">
-				<div class="column has-align-self-center">
-					<h5 class="nomargin has-text-centered">
-						<a class="strong nopadding" href="/stem-technologies/">Browse all<br />STEM Products <br /><span class="arrow"></span></a>
-					</h5>
+				<div class="menu-list stem-menu columns is-multiline">
+					<div class="column">
+						<h6><a href="/browse/stem-technologies">STEM Technologies</a></h6>
+						<div class="has-dropdown-menu menu-closed">
+							<h6 class="dropdown-target">Coding</h6>
+							<?php wp_nav_menu(array(
+								'menu'       => 'Coding', // specify the menu name
+								'menu_class' => '',
+								'container'  => '',
+								'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+							));?>
+						</div>
+						<div class="has-dropdown-menu menu-closed">
+							<h6 class="dropdown-target">Robotics</h6>
+							<?php wp_nav_menu(array(
+								'menu'       => 'Robotics', // specify the menu name
+								'menu_class' => '',
+								'container'  => '',
+								'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+							));?>
+						</div>
+						<div class="has-dropdown-menu menu-closed">
+							<h6 class="dropdown-target">3D Printing</h6>
+							<?php wp_nav_menu(array(
+								'menu'       => '3D Printing', // specify the menu name
+								'menu_class' => '',
+								'container'  => '',
+								'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+							));?>
+						</div>
+						<div class="has-dropdown-menu menu-closed">
+							<h6 class="dropdown-target">Hydroponics</h6>
+							<?php wp_nav_menu(array(
+								'menu'       => 'Hydroponics', // specify the menu name
+								'menu_class' => '',
+								'container'  => '',
+								'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+							));?>
+						</div>
+						<div class="has-dropdown-menu menu-closed">
+							<h6 class="dropdown-target">AR/VR</h6>
+							<?php wp_nav_menu(array(
+								'menu'       => 'AR/VR', // specify the menu name
+								'menu_class' => '',
+								'container'  => '',
+								'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+							));?>
+						</div>
+						<div class="has-dropdown-menu menu-closed">
+							<h6 class="dropdown-target">Instructional Software</h6>
+							<?php wp_nav_menu(array(
+								'menu'       => 'Instructional Software', // specify the menu name
+								'menu_class' => '',
+								'container'  => '',
+								'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+							));?>
+						</div>
+					</div>
+					<div class="column">
+						<h6><a href="/teq-blocks">Teq Blocks</a></h6>
+						<?php wp_nav_menu(array(
+							'menu'       => 'Teq Blocks Dropdown Menu', // specify the menu name
+							'menu_class' => '',
+							'container'  => '',
+							'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+						));?>
+
+					</div>
+					<div class="column">
+						<h6><a href="/browse/professional-development">Professional Development</a></h6>
+						<?php wp_nav_menu(array(
+							'menu'       => 'Professional Development Dropdown Menu', // specify the menu name
+							'menu_class' => '',
+							'container'  => '',
+							'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
+						));?>
+					</div>
+					<div class="column">
+						<h6><a href="/browse/educational-technology">Educational Technology</a></h6>
+						<div class="has-dropdown-menu menu-closed">
+							<h6 class="dropdown-target">SMART Boards</h6>
+							<?php wp_nav_menu(array(
+								'menu'       => 'SMART Boards', // specify the menu name
+								'menu_class' => '',
+								'container'  => '',
+								'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+							));?>
+						</div>
+						<?php wp_nav_menu(array(
+							'menu'       => 'Educational Technology Dropdown Menu', // specify the menu name
+							'menu_class' => '',
+							'container'  => '',
+							'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
+						));?>
+					</div>
+					<div class="column">
+						<h6><a href="/browse/active-learning-spaces">Active Learning Spaces</a></h6>
+						<?php wp_nav_menu(array(
+							'menu'       => 'Active learning Spaces Dropdown Menu', // specify the menu name
+							'menu_class' => '',
+							'container'  => '',
+							'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
+						));?>
+					</div>
 				</div>
-				<div class="column">
-					<h6>Coding</h6>
-					<?php wp_nav_menu(array(
-						'menu'       => 'Coding', // specify the menu name
-						'menu_class' => '',
-						'container'  => '',
-						'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
-					));?>
-				</div>
-				<div class="column">
-					<h6>Robotics</h6>
-					<?php wp_nav_menu(array(
-						'menu'       => 'Robotics', // specify the menu name
-						'menu_class' => '',
-						'container'  => '',
-						'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
-					));?>
-				</div>
-				<div class="column">
-					<h6>3D Printing</h6>
-					<?php wp_nav_menu(array(
-						'menu'       => '3D Printing', // specify the menu name
-						'menu_class' => '',
-						'container'  => '',
-						'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
-					));?>
-					<h6>Hydroponics</h6>
-					<?php wp_nav_menu(array(
-						'menu'       => 'Hydroponics', // specify the menu name
-						'menu_class' => '',
-						'container'  => '',
-						'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
-					));?>
-				</div>
-				<div class="column">
-					<h6>AR/VR</h6>
-					<?php wp_nav_menu(array(
-						'menu'       => 'AR/VR', // specify the menu name
-						'menu_class' => '',
-						'container'  => '',
-						'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
-					));?>
-					<h6>Instructional Software</h6>
-					<?php wp_nav_menu(array(
-						'menu'       => 'Instructional Software', // specify the menu name
-						'menu_class' => '',
-						'container'  => '',
-						'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
-					));?>
+				<div class="menu-list filters-menu columns">
+					<div class="column is-offset-1">
+
+						<div class="filter-container showHideElement">
+
+							<h4>We’re here to help you every step of the way.<br />Find exactly what you need to meet the demands of your school or district using our <strong>product filters.</strong></h4>
+							<p>All Teq products and services can categorized using the filters below. <strong>Use the dropdown menus below</strong> to create a customized search for more specific solution.</p>
+							<form class="list-filters padding-sm-top-bottom" role="search" method="get" action="<?php echo home_url(); ?>/filter-search-page/?">
+								<div class="filter-item" ng-controller="productTypeFilter">
+									<select id="selectedProductType" name="selectedProductType" ng-model="selectedProductType" ng-options="item.id as item.name for item in items track by item.id">
+										<option value="" selected disabled>Product Type</option>
+									</select>
+									<span class="down-arrow"></span>
+								</div>
+								<div class="filter-item" ng-controller="gradeLevelFilter">
+									<select id="selectedGradeLevel" name="selectedGradeLevel" ng-model="selectedGradeLevel" ng-options="item.id as item.name for item in items track by item.id">
+										<option value="" selected disabled>Grade Level</option>
+									</select>
+								</div>
+								<div class="filter-item" ng-controller="stemSubjectMatterFilter">
+									<select id="selectedStemSubjectMatter" name="selectedStemSubjectMatter" ng-model="selectedStemSubjectMatter" ng-options="item.id as item.name for item in items track by item.id">
+										<option value="" selected disabled>Subject Matter</option>
+									</select>
+								</div>
+								<div class="filter-item" ng-controller="technologyProficiencyFilter">
+									<select id="selectedtechnologyProficiencyLevel" name="selectedtechnologyProficiencyLevel" ng-model="selectedtechnologyProficiencyLevel" ng-options="item.id as item.name for item in items track by item.id">
+										<option value="" selected disabled>Technology Proficiency</option>
+									</select>
+								</div>
+								<div class="filter-item">
+									<input type="submit" value="View Product(s)" />
+								</div>
+							</form>
+						</div>
+
+					</div>
 				</div>
 			</div>
 		</div>

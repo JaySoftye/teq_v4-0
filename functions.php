@@ -785,3 +785,53 @@ function custom_product_service_meta_html( $post) {
   					}
   				return true;
 				}
+
+
+	/**
+		* ADD PARENT PAGE SLUG TO THE BODY CLASS
+		* GRAB THE PAGE ID FROM CURRENT item
+		* SET CLASS NAME VARIABLE WITH THE PARENT OF CURRENT ID
+		*/
+
+		function wpc_body_class_section($classes) {
+			global $wpdb, $post;
+				if (is_page()) {
+					if ($post->post_parent) {
+						$parent  = end(get_post_ancestors($current_page_id));
+				  } else {
+						$parent = $post->ID;
+				  }
+				  	$post_data = get_post($parent, ARRAY_A);
+				    $classes[] = $post_data['post_name'];
+				 }
+			return $classes;
+		}
+		add_filter('body_class','wpc_body_class_section');
+
+
+
+	/**
+		* REGISTERING PARAMETERS AS SEPARATE ARGUMENTS
+		* CUSTOM SEARCH PARAMETERS FOR PRODUCT AND SERVICES CUSTOM POST TYPE
+		* ALLOW FOR SEARCH PARAMETERS IN URL QUERIES
+		*/
+		add_action('init','wpse_register_product_param');
+		function wpse_register_product_param() {
+    	global $wp;
+    		$wp->add_query_var('selectedProductType');
+		}
+		add_action('init','wpse_register_grade_param');
+		function wpse_register_grade_param() {
+    	global $wp;
+    		$wp->add_query_var('selectedGradeLevel');
+		}
+		add_action('init','wpse_register_subject_param');
+		function wpse_register_subject_param() {
+    	global $wp;
+    		$wp->add_query_var('selectedStemSubjectMatter');
+		}
+		add_action('init','wpse_register_techlevel_param');
+		function wpse_register_techlevel_param() {
+    	global $wp;
+    		$wp->add_query_var('selectedtechnologyProficiencyLevel');
+		}

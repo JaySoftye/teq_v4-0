@@ -17,26 +17,103 @@
      $scope.isActive = !$scope.isActive;
    };
  });
+
 /**
   * Menu Buttons for Main Dropdown
   * Show Main menu for scope.mainMenu
   * Show STEM menu for scope.stemMenu
+  * Show Product Filters menu for scope.filtersMenu
   */
  app.controller("dropdownCtrl",function($scope){
-   $scope.class = "";
+   // MAIN DROPDOWN
    $scope.mainMenu = function(){
-     if ($scope.class === "active main")
-       $scope.class = "";
-     else
-       $scope.class = "active main";
+
+    // IF MAIN MENU CONTAINER IS NOT ACTIVE MAKE ACTIVE
+    if ($scope.menuActive === "active main")
+      $scope.menuActive = "";
+    else
+      $scope.menuActive = "active main";
+
+    // MAKE MENU ICON ACTIVE AND/OR NON ACTIVE
+    if ($scope.mainMenuActive === "active")
+      $scope.mainMenuActive = "";
+    else
+      $scope.mainMenuActive = "active";
+      $scope.stemMenuActive = "";
+      $scope.filtersMenuActive = "";
    };
+
    $scope.stemMenu = function(){
-     if ($scope.class === "active stem")
-       $scope.class = "";
+     if ($scope.menuActive === "active stem")
+       $scope.menuActive = "";
      else
-       $scope.class = "active stem";
+       $scope.menuActive = "active stem";
+
+     if ($scope.stemMenuActive === "active")
+       $scope.stemMenuActive = "";
+     else
+       $scope.stemMenuActive = "active";
+       $scope.mainMenuActive = "";
+       $scope.filtersMenuActive = "";
    };
+
+   $scope.filtersMenu = function(){
+     if ($scope.menuActive === "active product-filters")
+       $scope.menuActive = "";
+     else
+       $scope.menuActive = "active product-filters";
+
+     if ($scope.filtersmMenuActive === "active")
+      $scope.filtersMenuActive = "";
+     else
+      $scope.filtersMenuActive = "active";
+      $scope.mainMenuActive = "";
+      $scope.stemMenuActive = "";
+     };
  });
+
+ /**
+   * Menu Buttons for Main Dropdown
+   * Show Main menu for scope.mainMenu
+   * Show STEM menu for scope.stemMenu
+   * Show Product Filters menu for scope.filtersMenu
+   */
+  app.controller("navCtrl",function($scope){
+    $scope.openFiltersMenu = function(){
+      if ($scope.menuActive === "active product-filters")
+        $scope.menuActive = "";
+      else
+        $scope.menuActive = "active product-filters";
+
+      if ($scope.filtersmMenuActive === "active")
+       $scope.filtersMenuActive = "";
+      else
+       $scope.filtersMenuActive = "active";
+       $scope.mainMenuActive = "";
+       $scope.stemMenuActive = "";
+      };
+  });
+
+ /**
+   * DROP DOWN menu
+   * GRAB ALL DROPDOWN TRIGGER elements
+   * LOOP THROUGH ALL ELEMENTS AND TOGGLE class
+   * 'menu-closed' is default
+   */
+   var dropdownItem = document.getElementsByClassName('has-dropdown-menu');
+
+    for (i = 0; i < dropdownItem.length; i++) {
+        dropdownItem[i].addEventListener('click', toggleItem, false);
+    }
+    function toggleItem() {
+        var itemClass = this.className;
+        for (i = 0; i < dropdownItem.length; i++) {
+            dropdownItem[i].className = 'has-dropdown-menu menu-closed';
+        }
+        if (itemClass == 'has-dropdown-menu menu-closed') {
+            this.className = 'has-dropdown-menu menu-open';
+        }
+    }
 
 /**
   * Home page create, browse, evolve options
@@ -163,6 +240,14 @@
          {id: 'active-learning-spaces', name: 'Active Learning Spaces'},
          {id: 'audio-enhancement', name: 'Audio Enhancement'},
          {id: 'storage-and-carts', name: 'Storage & Carts'}
+       ];
+    });
+    app.controller('productTypeFilter', function($scope) {
+  	   $scope.items = [
+         {id: 'product-item', name: 'All Products'},
+         {id: 'STEM Technologies', name: 'STEM Technology'},
+         {id: 'Eductional Technology', name: 'Educational Technology'},
+         {id: 'Professional Development', name: 'Professional Development'},
        ];
     });
 
