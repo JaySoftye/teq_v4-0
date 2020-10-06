@@ -9,16 +9,16 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="column is-4 post-card">
-	<div class="post-card-body">
-		<div class="post-details">
-			<h4>
+<article id="post-<?php the_ID(); ?>" class="column is-8">
+	<div class="card">
+		<div class="post-details padding-sm">
+			<h3>
 				<a class="strong" href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>"><?php the_title(); ?></a>
-			</h4>
+			</h3>
 			<?php if(has_excerpt( $some_post_id )) { ?>
-				<p class="medium"><?php echo get_the_excerpt(); ?> <a href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>" rel="bookmark">[...]</a></p>
+				<p class="medium"><?php echo get_the_excerpt(); ?></p>
 			<?php } ?>
-			<div class="level padding-top">
+			<div class="level">
 				<div class="level-left">
 					<p>
 						<a class="relative-position strong" href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>">

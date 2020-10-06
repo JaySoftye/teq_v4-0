@@ -55,13 +55,13 @@
 			<div class="navbar-menu">
 				<ul class="main-menu navbar-start primary-menu" role="menu">
 					<li class="navbar-item browse-nav-item">
-						<a href="/browse">Browse<span>our products</span></a>
+						<a href="/browse">Browse<span class="condensed-text">our products</span></a>
 					</li>
 					<li class="navbar-item create-nav-item">
-						<a href="/create">Create<span>your solution</span></a>
+						<a href="/create-your-solution">Create<span class="condensed-text">your solution</span></a>
 					</li>
 					<li class="navbar-item evolve-nav-item">
-						<a href="/evolve">Evolve<span>your classroom</span></a>
+						<a href="/evolve">Evolve<span class="condensed-text"></span></a>
 					</li>
 				</ul>
 			</div>
@@ -216,7 +216,7 @@
 								'menu'       => 'Main Menu', // specify the menu name
 								'menu_class' => '',
 								'container'  => '',
-								'items_wrap' => '<ul class="main-dropdown-menu right" role="menu" >%3$s</ul>'
+								'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
 							));?>
 						</div>
 					<?php } ?>

@@ -16,13 +16,10 @@ get_header();
 				<div class="page-content">
 					<div class="container">
 						<div class="columns is-vcentered is-desktop">
-							<div class="column is-8">
-								<h1 class="page-titles has-text-centered">Upcoming Events</h1>
-							</div>
-							<div class="column is-4">
-								<p>
-									<a class="button white-fill drop-shadow" href="/edtech-in-focus/">Host an EdTech Day <span class="arrow"></span></a>
-								</p>
+							<div class="column is-9">
+								<h1 class="page-titles">Upcoming Teq Events</h1>
+								<h5>Here at Teq we strive to continually educate ourselves and others on the latest improvements in education. Below you can find a list of upcoming Events, Webinars, Professional Development Sessions, etc. Please feel free to engage with the Teq team here or through any one of our social channels. We look forward to your feedback and invite you to be part of our learning community.</h5>
+								<h6><a class="button white-fill drop-shadow" href="/edtech-in-focus/">Host an EdTech Day <span class="arrow"></span></a> <a class="margin-left button blue-fill drop-shadow" href="/request-teq-squad">Request Teq Squad <span class="arrow light"></span></a> </h6>
 							</div>
 						</div>
 					</div>

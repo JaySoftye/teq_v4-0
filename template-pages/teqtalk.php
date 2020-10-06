@@ -63,13 +63,20 @@ get_header();
 							if ( $wp_query->have_posts() ) :
 								while ($the_query -> have_posts()) :
 									$the_query -> the_post();
-
-							$thumb_id = get_post_thumbnail_id();
-							$thumb_url = wp_get_attachment_image_src($thumb_id,'full', true);
+									$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+									$blog_title = esc_html( get_the_title() );
 						?>
 						<article class="column is-4 post-card">
-							<div class="post-card-body featured-image-background" style="background-image: url('<?php if ( has_post_thumbnail() ) { echo $thumb_url[0]; } else { echo get_template_directory_uri() . '/inc/images/default-featured-image.jpg'; } ?>');">
+							<div class="post-card-body featured-image-background">
 								<a href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>"></a>
+								
+								<?php 
+									if ( has_post_thumbnail() ) {
+										echo '<img src="' . esc_url($featured_img_url) . '" alt="' . $blog_title . '" />';
+									} else { 
+										echo '<img src="' . get_template_directory_uri() . '/inc/images/default-featured-image.jpg" alt="' . $blog_title . '" />';
+									} ?>
+
 								<div class="post-details">
 									<h4>
 										<a class="strong" href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>"><?php the_title(); ?></a>

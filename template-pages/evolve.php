@@ -11,8 +11,9 @@ get_header();
 	<div id="primary" class="content-area" scroll>
 		<main id="main" class="site-main section-container">
 
+
 			<section class="full-section horizontal-scroll-container">
-				<div class="horizontal-outer-wrapper">
+				<div class="horizontal-outer-wrapper" id="container">
       		<div class="horizontal-content">
 
 
@@ -28,155 +29,116 @@ get_header();
 						</svg>
 
 
-						<div class="info-container">
+						<div class="info-container" id="evolve">
 							<div class="slide-content">
-								<div class="columns is-vcentered is-centered">
-									<div class="column is-2">
-										<h1 class="has-text-right medium">Evolve.</h1>
+								<h1 class="slide-title" >Evolve</h1>
+								<div class="columns is-vcentered is-centered is-multiline">
+									<div class="column is-6-desktop is-full-tablet">
+										<h1 class="mobile-content">Evolve</h1>
+										<h5 class="serif-text">The face of education is rapidly changing, and Teq can help you evolve to meet these challenges. Technology integration is at the center of what we do, and our approach is about helping you find the right resources, get the right support, and then pull it all together into a complete thought. </h5>
 									</div>
-									<div class="column is-7">
-										<h6 class="serif-text">Transitions in education make us think outside of the box and push past existing boundaries. But the sheer amount of options, the fast rate of change, and shifting guidelines, can be overwhelming. </h6>
-										<h6 class="serif-text">In the midst of all the options available, Teq emerges with a single solution that speaks to teachers and administrators as much as it does the entire educational community.</h6>
+									<div class="relative-position column is-1-desktop hide-tablet">
+										<div class="icon-scroll"></div>
 									</div>
 								</div>
 							</div>
 							<div class="svg-container">
-								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/evolveSTART_text.svg'); ?>
+								<a href="#prepare"><img class="next" src="<?php echo get_template_directory_uri() . '/inc/evolve/Next-button.png'; ?>" /></a>
 								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/evolveSTART.svg'); ?>
 							</div>
 						</div>
-						<div class="info-container hideContent">
-							<div class="slide-content convex-background">
-								<div class="columns is-vcentered is-centered">
-									<div class="column is-2">
-										<h1 class="has-text-right medium">Adapt.</h1>
-									</div>
-									<div class="column is-6">
-										<h6 class="serif-text">While educators and education are quickly adapting to new teaching environments and learning models, support mechanisms are essential for getting from where you are, to where you need to be.</h6>
-									</div>
-								</div>
-							</div>
-							<div class="text-container adapt content-shown">
-								<p>Teq provides that support for you, whether on the state, district, school, or individual level.</p>
-								<ul>
-									<li>Leverage <span class="strong">OTIS for educators,</span> our online professional development and instructional support platform. </li>
-									<li>Engage with our <span class="strong">on-site, virtual, and blended professional development</span> to provide educators, administrators, and parents with coaching, mentoring, and PD to build capacity and confidence.</li>
-								</ul>
-								<p>Our professional development and instructional support are not only built to fit your individual needs, but to exceed your expectations. We provide the training that the entire community needs to succeed.</p>
-								<img src="<?php echo get_template_directory_uri() . '/inc/evolve/evolve_OTIS-for-educators-logo.svg'; ?>" />
-							</div>
-							<div class="svg-container">
-								<img class="displacementImageElement startAnimation adapt-image" src="<?php echo get_template_directory_uri() . '/inc/evolve/adapt_Teacher-image.png'; ?>" />
-								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/adaptSTART_text.svg'); ?>
-									<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/adaptSTART1.svg'); ?>
-										<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/adaptSTART2.svg'); ?>
-											<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/adaptSTART3.svg'); ?>
-												<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/adaptSTART4.svg'); ?>
-													<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/adaptSTART5.svg'); ?>
-								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/evolveLine.svg'); ?>
-							</div>
-						</div>
-						<div class="info-container hideContent">
-							<div class="slide-content description-text columns is-centered">
-								<div class="column is-6 content-shown">Now that you have the PD and instructional support you need,<br />let’s take that new perspective into your learning environment.</div>
-							</div>
-							<div class="svg-container">
-								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/evolveLine.svg'); ?>
-							</div>
-						</div>
-						<div class="info-container">
-							<div class="slide-content convex-background">
-								<div class="columns is-vcentered is-centered">
-									<div class="column is-2">
-										<h1 class="has-text-right medium">Innovate.</h1>
-									</div>
-									<div class="column is-6">
-										<h6 class="serif-text">If the learning environment and models change, then it’s likely the curriculum will have to adapt as well. While each new learning model has its own benefits, each also poses its own challenge. </h6>
-									</div>
-								</div>
-							</div>
-							<div class="text-container innovate content-shown">
-								<p>How do we keep students on-pace and engaged with active learning when the manner in which they learn is suddenly turned upside-down?</p>
-								<p>Our solutions provide flexible, do-anywhere project-based learning that are adaptable to your needs.</p>
-								<ul>
-									<li><span class="strong">iBlocks </span></li>
-									<li><span class="strong">sBlocks  </span></li>
-									<li><span class="strong">Teq-tivities </span></li>
-								</ul>
-								<p>Teq’s PBL activities provide practical, easy to implement activities that work on-pace with your existing curriculum. Our solutions enhance learning, substantiate comprehension, provide a means for self-assessment, and give students an arena in which to practice critical thinking and other essential skills.</p>
-								<img src="<?php echo get_template_directory_uri() . '/inc/evolve/evolve_teq-blocks-logo.png'; ?>" />
-							</div>
-							<div class="svg-container">
-								<img class="displacementImageElement startAnimation innovate-image" src="<?php echo get_template_directory_uri() . '/inc/evolve/innovate_Teacher-image.png'; ?>" />
-								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/innovateSTART_text.svg'); ?>
-									<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/innovateSTART1.svg'); ?>
-										<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/innovateSTART2.svg'); ?>
-											<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/innovateSTART3.svg'); ?>
-												<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/innovateSTART4.svg'); ?>
-													<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/innovateSTART5.svg'); ?>
-														<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/innovateSTART6.svg'); ?>
-								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/evolveLine.svg'); ?>
-							</div>
-						</div>
-						<div class="info-container">
-							<div class="slide-content description-text columns is-centered">
-								<div class="column is-10 content-shown">After you’ve explored active and PBL solutions for every learning environment,<br />next you’ll need the tools and technology to make it happen.</div>
-							</div>
-							<div class="svg-container">
-								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/evolveLine.svg'); ?>
-							</div>
-						</div>
-						<div class="info-container">
-							<div class="slide-content convex-background">
-								<div class="columns is-vcentered is-centered">
-									<div class="column is-2">
-										<h1 class="has-text-right medium content-shown">Educate.</h1>
-									</div>
-									<div class="column is-6 content-shown">
-										<h6 class="serif-text">In addition to layers of support and solutions for anywhere learning, Teq also offers the tools and technologies you need as you adapt to this new learning environment.  </h6>
-									</div>
-								</div>
-							</div>
-							<div class="text-container educate content-shown">
-								<p>We believe that learning can stay just as vibrant and active in the face of new guidelines and restrictions, and we have the tools that can help.</p>
-								<ul>
-									<li><span class="strong">STEM Solutions</span> that travel with students and work just as dynamically in the classroom as they do at home.
-									<li><span class="strong">Interactive flat panels and other classroom technologies</span> that make distance learning as engaging and effective as in-person instruction.
-									<li><span class="strong">ClassVoice</span>, our audio app that ensures teachers and students can be heard during class time, making the most of in-person communication even in the face of limitations, like teaching with PPE. </li>
-								</ul>
-								<img src="<?php echo get_template_directory_uri() . '/inc/evolve/evolve_educate-logo.png'; ?>" />
-							</div>
-							<div class="svg-container">
-								<img class="displacementImageElement startAnimation educate-image" src="<?php echo get_template_directory_uri() . '/inc/evolve/educate_Teacher-image.png'; ?>" />
-								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/educateSTART_text.svg'); ?>
-									<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/educateSTART1.svg'); ?>
-										<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/educateSTART2.svg'); ?>
-											<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/educateSTART3.svg'); ?>
-												<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/educateSTART4.svg'); ?>
-								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/evolveLine.svg'); ?>
-							</div>
-						</div>
-						<div class="info-container">
-							<div class="slide-content description-text columns is-centered">
-								<div class="column is-8 content-shown">You now have everything you need to be your most effective as you face the<br />challenges ahead, and Teq is here to support you along the way.</div>
-							</div>
-							<div class="svg-container">
-								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/evolveLine.svg'); ?>
-							</div>
-						</div>
-						<div class="info-containe">
+
+
+						<div class="info-container" id="prepare">
 							<div class="slide-content">
-								<div class="columns is-vcentered is-centered">
-									<div class="column is-2 content-shown">
-										<h1 class="has-text-right medium">Evolve with us.</h1>
-									</div>
-								</div>
+								<h1 class="slide-title">Prepare</h1>
 							</div>
 							<div class="svg-container">
+								<div class="text-container prepare">
+									<h1 class="mobile-content">Prepare</h1>
+									<h5>Planning for success requires solid preparation. That means making decisions with your new learning environment in mind, championing innovation when it comes to instructional methods, and being sure to prioritize skills development and technical proficiency.</h5>
+								</div>
+								<img src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_prepare.png'; ?>" />
+								<a href="#adapt"><img class="next" src="<?php echo get_template_directory_uri() . '/inc/evolve/Next-button.png'; ?>" /></a>
+								<a href="#evolve"><img class="prev" src="<?php echo get_template_directory_uri() . '/inc/evolve/Prev-button.png'; ?>" /></a>
+								<img class="cone" src="<?php echo get_template_directory_uri() . '/inc/evolve/prepareconeSTART.png'; ?>" />
+								<img class="prepare-image-one" src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_prepare1.png'; ?>" />
 								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/evolveLine.svg'); ?>
 							</div>
 						</div>
 
+
+						<div class="info-container" id="adapt">
+							<div class="slide-content">
+								<h1 class="slide-title">Adapt &<br />Innovate</h1>
+							</div>
+							<div class="svg-container">
+								<div class="text-container adapt">
+									<h1 class="mobile-content">Adapt and Innovate</h1>
+									<h5>In times of challenge, being able to adapt and innovate is key. We have to examine and adjust our processes and find new resources that speak to our needs. We have to adopt alternative solutions, re-imagine assessment models, and maybe even invent our own learning model to respond to new challenges.  </h5>
+								</div>
+								<img class="cone" src="<?php echo get_template_directory_uri() . '/inc/evolve/adaptconeSTART.png'; ?>" />
+								<a href="#educate"><img class="next" src="<?php echo get_template_directory_uri() . '/inc/evolve/Next-button.png'; ?>" /></a>
+								<a href="#prepare"><img class="prev" src="<?php echo get_template_directory_uri() . '/inc/evolve/Prev-button.png'; ?>" /></a>
+								<img src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_adapt.png'; ?>" />
+								<img class="adapt-image-one" src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_adapt2.png'; ?>" />
+								<img class="adapt-image-two" src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_adapt1.png'; ?>" />
+								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/evolveLine.svg'); ?>
+							</div>
+						</div>
+
+
+						<div class="info-container" id="educate">
+							<div class="slide-content">
+								<h1 class="slide-title">Educate</h1>
+							</div>
+							<div class="svg-container">
+								<div class="text-container educate">
+									<h1 class="mobile-content">Educate</h1>
+									<h5>The common denominator of your planning and innovation is to educate. Finding the appropriate tools to engage students can be just as important as the methodology you choose. Our goal should always be to leverage technology in a way that serves students and enables us to deliver content, facilitate learning, and open up a world of discovery. </h5>
+								</div>
+								<img class="cone" src="<?php echo get_template_directory_uri() . '/inc/evolve/educateconeSTART.png'; ?>" />
+								<a href="#ending"><img class="next" src="<?php echo get_template_directory_uri() . '/inc/evolve/Next-button.png'; ?>" /></a>
+								<a href="#adapt"><img class="prev" src="<?php echo get_template_directory_uri() . '/inc/evolve/Prev-button.png'; ?>" /></a>
+								<img src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_educate.png'; ?>" />
+								<img class="educate-image-one" src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_educate2.png'; ?>" />
+								<img class="educate-image-two" src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_educate1.png'; ?>" />
+								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/evolveLine.svg'); ?>
+							</div>
+						</div>
+
+
+						<div class="info-container end" id="ending">
+							<div class="slide-content">
+								<h1 class="slide-title desktop-content">Evolve with us <br />
+									<a href="#educate"><img class="prev" src="<?php echo get_template_directory_uri() . '/inc/evolve/Prev-button.png'; ?>" /></a>
+								</h1>
+								<div class="columns is-vcentered is-centered is-multiline">
+									<div class="column is-6-desktop is-full-tablet">
+										<h1 class="mobile-content white-text">Evolve with us</h1>
+										<h5 class="serif-text white-text">The face of education is rapidly changing, and Teq can help you evolve to meet these challenges. Technology integration is at the center of what we do, and our approach is about helping you find the right resources, get the right support, and then pull it all together into a complete thought. </h5>
+									</div>
+								</div>
+								<div class="slide-container one">
+									<h6 class="serif-text white-text">Browse the create section to discover what’s in your future.</h6>
+									<p>
+										<a class="pill blue serif-text" href="/create">Create</a>
+									</p>
+								</div>
+								<div class="slide-container two">
+									<p>
+										<a class="pill yellow serif-text" href="https://otis.teq.com/">Sign Up</a>
+									</p>
+									<h6 class="serif-text white-text">Free sign up for a basic OTIS account.</h6>
+								</div>
+								<div class="slide-container three">
+									<h6 class="serif-text white-text">Become a member of the growing community of educators that rely on Teq for guidance in preparing for remote and hybrid learning environments, and technology integration.</h6>
+								</div>
+							</div>
+							<div class="svg-container desktop-content">
+								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/evolveLineEnd.svg'); ?>
+							</div>
+						</div>
 
       		</div>
     		</div>

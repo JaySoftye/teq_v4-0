@@ -12,11 +12,11 @@ body.page-template-stemtechnology header.site-header, body.page-template-educati
 header.site-header {
 	height: auto;
 	width: 100%;
-	background-color: rgba(236,238,239,0.48);
+	background-color: rgba(236,238,239,0.75);
 	box-shadow: 0px 3px 6px 0px rgba(0,0,0,.12);
 }
 nav.navbar {
-	background-color: rgba(255,255,255,0.75);
+	background-color: rgba(255,255,255,0.87);
 }
 nav.navbar div.navbar-brand a.navbar-item svg, nav.navbar div.navbar-brand svg {
 	height: 3.9rem;
@@ -660,6 +660,10 @@ h1.page-titles, h1.page-titles a {
 	padding-top: 12%;
 }
 
+.full-section .page-content.top {
+	padding-top: 0;
+}
+
 .section-container section.browse:nth-child(1) {
 	background-image: url('../images/browse_Full-Background-Image.jpg');
 }
@@ -1089,15 +1093,14 @@ Demo Form from Hubspot
 */
 .product-demo-form {
 	position: relative;
-  z-index: 100;
-  background: rgb(255,255,255);
-	box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.15);
+	z-index: 100;
+	background: transparent;
 }
 .product-demo-form a.delete.close-form {
 	position: absolute;
-  right: 5%;
-  top: 24%;
-  background: rgb(0,0,0);
+	right: 5%;
+	top: 12%;
+	background: rgba(0,0,0);
 }
 .product-demo-form .hbspt-form form div.field {
 	width: 50%;
@@ -1183,6 +1186,7 @@ Heada rhymes with chedda for submenu
 	margin-top: 18%;
 	margin-bottom: 18%;
 	background-color: rgb(0,0,0);
+	font-weight: 700;
 	color: rgb(255,255,255);
 }
 

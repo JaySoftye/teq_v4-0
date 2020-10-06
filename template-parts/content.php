@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="container content-container padding-bottom">
+<article id="post-<?php the_ID(); ?>" class="container content-container padding-bottom blog-content">
 
 	<div class="columns is-desktop is-centered">
 		<div class="column is-10">

@@ -638,7 +638,9 @@ get_header();
 			    <div class="form-check column">
 			      <input type="hidden" name="submitted" id="submitted" value="true" />
 			      <?php wp_nonce_field( 'post_nonce', 'post_nonce_field' ); ?>
-			      <button class="button" type="submit" value="submit" id="submit-survey">Submit Survey Answers</button>
+					<button class="button larger dark" type="submit" value="submit" id="submit-survey">Submit Survey Answers</button>
+					<br /><br />
+					<small><a class="bold padding-sm" href="/nedm-survey/network-enabled-device-management-consulting-services-terms-and-conditions/" target="_blank"><u>Terms and Conditions</u></a></small>
 			    </div>
 			  </div>
 

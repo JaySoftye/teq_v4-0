@@ -118,7 +118,7 @@ get_header();
 						<div class="container">
 							<div class="column is-offset-1 is-10">
 								<p class="is-size-5">Learning is at the heart of everything we do at Teq. With our unique blend of emerging educational technologies, STEM solutions, and dynamic professional development and instructional support, we are committed to supporting and enriching the learning experience.</p>
-								<p class="is-size-5 strong">What sets Teq apart is not only our outcome-driven focus, but our passion to ensure that equitable and innovative STEM education is a successful part of every student’s learning journey —and school environment.</p>
+								<p class="is-size-5 strong">What sets Teq apart is not only our outcome-driven focus, but our passion to ensure that equitable and innovative STEM education is a successful part of every student’s learning journey — and school environment.</p>
 							</div>
 						</div>
 					</div>
@@ -249,7 +249,7 @@ get_header();
 											<figure>
 												<img src="https://www.teq.com/images/headshots_circles/DamianScarfo.png" />
 											</figure>
-											<h5><strong class="blue-text">Damian Scarfo</strong><em class="block caption">Chief Executive officer</em></h5>
+											<h5><strong class="blue-text">Damian Scarfo</strong><em class="block caption">Chief Executive Officer</em></h5>
 										</article>
 									</div>
 									<div class="column is-one-third has-text-centered">
@@ -335,7 +335,7 @@ get_header();
 											<figure>
 												<img src="https://www.teq.com/wp-content/uploads/2016/12/RaymondSimpson.png" />
 											</figure>
-											<h5><strong class="blue-text">Ray Simpson</strong><em class="block caption">Director of NEDM<br />(Network-Enabled Device Management)</em></h5>
+											<h5><strong class="blue-text">Ray Simpson</strong><em class="block caption">Executive Director of Technology</em></h5>
 										</article>
 									</div>
 									<div class="column is-one-fifth is-4-tablet has-text-centered">
@@ -343,7 +343,7 @@ get_header();
 											<figure>
 												<img src="https://www.teq.com/images/headshots_circles/JeffreyKoss.png" />
 											</figure>
-											<h5><strong class="blue-text">Jeffrey Koss</strong><em class="block caption">irector of Sales Operations</em></h5>
+											<h5><strong class="blue-text">Jeffrey Koss</strong><em class="block caption">Director of Sales Operations</em></h5>
 										</article>
 									</div>
 									<div class="column is-one-fifth is-4-tablet has-text-centered">
@@ -352,6 +352,14 @@ get_header();
 												<img src="https://www.teq.com/wp-content/uploads/2016/12/about-us-leadership-BrianFried.png" />
 											</figure>
 											<h5><strong class="blue-text">Brian Fried</strong><em class="block caption">Director of Inside Sales</em></h5>
+										</article>
+									</div>
+									<div class="column is-one-fifth is-4-tablet has-text-centered">
+										<article class="profile-card">
+											<figure>
+												<img src="/wp-content/uploads/2020/02/LindseyKane.png" />
+											</figure>
+											<h5><strong class="blue-text">Lindsey Kane</strong><em class="block caption">Director of Channel Sales</em></h5>
 										</article>
 									</div>
 									<div class="column is-one-fifth is-4-tablet has-text-centered">

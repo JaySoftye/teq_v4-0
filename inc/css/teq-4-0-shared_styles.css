@@ -50,6 +50,11 @@ h6 {
 a, a:focus, a:hover, a:active {
   outline: 0;
   font-size: inherit;
+  transition: all ease .21s;
+}
+
+a:focus, a:hover, a:active {
+  color: rgb(79,197,221);
 }
 
 p {
@@ -66,7 +71,8 @@ p {
  }
 
  .serif-text {
-   font-family: "Lucida Console", Monaco, monospace, serfif !important;
+   font-family: Verdana, Geneva, Sans-Serif;
+   font-weight: bold;
  }
 
 .inline-content {
@@ -97,6 +103,16 @@ p {
 
 .relative-position {
   position: relative;
+}
+
+.fixed-position {
+  width: 100%;
+  position: fixed;
+}
+
+.absolute-position {
+  width: 100%;
+  position: absolute;
 }
 
 .z-index-top {
@@ -408,12 +424,16 @@ p {
   box-shadow: 0 0 21px rgba(0, 0, 0, 0.4) inset;
 }
 
+.background-none {
+  background-color: transparent !important;
+}
+
 .white-fill {
   fill: #FFFFFF;
 }
 
 .white-text {
-  color: rgb(255,255,255);
+  color: rgb(255,255,255) !important;
 }
 
 .white-background {
@@ -504,6 +524,12 @@ p {
   background-color: rgb(227,237,247);
 }
 
+.background-image-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .drop-shadow {
   box-shadow: 0 9px 15px 0 rgba(0,0,0,0.24),0 6px 18px 0 rgba(0,0,0,0.21) !important;
 }
@@ -538,6 +564,17 @@ p {
   box-shadow: -15px -15px 30px #cbc9d2, 15px 15px 30px #ffffff;
 }
 
+.button.smaller {
+  padding: 12px 24px;
+}
+
+.button.larger {
+  padding-bottom: calc(2.4em - 12px);
+  padding-left: calc(4.8em - 3%);
+  padding-right: calc(4.8em - 3%);
+  padding-top: calc(2.4em - 12px);
+}
+
 .button.no-shadow {
   box-shadow: none;
 }
@@ -567,6 +604,11 @@ p {
 
 .button.blue {
   background-color: rgb(0, 98, 186);
+  color: #FFFFFF;
+}
+
+.button.white-border {
+  border-color: rgb(255,255,255);
   color: #FFFFFF;
 }
 
@@ -612,6 +654,11 @@ span.arrow.left {
 .button.white-border {
   border-color: rgb(255,255,255);
   color: rgb(255,255,255);
+}
+
+.button.white-border:hover, .button.white-border:focus {
+  border-color: rgb(79,197,221);
+  color: rgb(79,197,221);
 }
 
 .button.white-fill {
@@ -775,11 +822,16 @@ Wordpress Posts
 }
 
 .post-card-container .post-card .post-card-body.featured-image-background {
-	height: calc(21rem + 270px);
-	align-items: flex-end;
+	height: calc(27vh + 270px);
+  align-items: flex-end;
+  flex-direction: column;
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
+}
+
+.post-card-container .post-card .post-card-body.featured-image-background img {
+	width: 100%;
 }
 
 .post-card .post-card-body > a {
@@ -793,7 +845,8 @@ Wordpress Posts
 .post-card .post-card-body .post-details {
 	width: 100%;
 	height: auto;
-  position: relative;
+  position: absolute;
+  bottom: 0;
   z-index: 10;
 	background-color: rgb(255,255,255);
 	padding-bottom: calc(2.4em - 1px);
@@ -842,6 +895,29 @@ ul.number-circle-list li::before {
   line-height: 1.5;
   color: inherit;
   text-align: center;
+}
+
+.blog-content .wp-block-image img {
+	width: 100%;
+}
+
+.blog-content p, .blog-content .wp-block-image img {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.blog-content .wp-block-media-text div {
+  align-self: auto;
+}
+
+.blog-content .wp-block-media-text.has-media-on-the-right div {
+  padding-left: 0 !important;
+  padding-right: 1.5% !important;
+}
+
+.blog-content .wp-block-media-text div {
+  padding-left: 1.5% !important;
+  padding-right: 0 !important;
 }
 
 /*
@@ -985,6 +1061,37 @@ MODALS
 /*
 Hubspot Forms
 */
+.event-request-form div.hbspt-form form, .event-request-form div.hbspt-form form fieldset {
+  width: 100%;
+  max-width: 100%;
+  display: inline-block;
+}
+.event-request-form div.hbspt-form form fieldset.form-columns-2 div.hs-form-field {
+  width: 48%;
+}
+.event-request-form div.hbspt-form form div.hs-form-field.hs-fieldtype-checkbox ul.inputs-list li  {
+  width: 33.3%;
+  float: left;
+}
+.event-request-form div.hbspt-form form div.input input[type=text], .event-request-form div.hbspt-form form div.input input[type=email], .event-request-form div.hbspt-form form div.input input[type=tel], .event-request-form div.hbspt-form form div.input select {
+  width: 90% !important;
+  max-width: 100%;
+}
+.event-request-form div.hbspt-form form div.input select {
+  height: calc(3.24rem + 3px);
+  width: calc(90% + 1.2vw) !important;
+}
+.event-request-form div.hbspt-form form ul.inputs-list {
+  position: relative;
+  margin-top: 18px;
+}
+.event-request-form div.hbspt-form form div.hs-submit input[type=submit].hs-button {
+  width: 42%;
+  display: block;
+  margin: 0 auto;
+  background: rgb(0,0,0);
+  font-size: 18px;
+}
 div.hbspt-form form {
 	width: 66%;
   margin: 0 auto;
@@ -995,27 +1102,33 @@ div.hbspot-form form > div {
 	width: 50% !important;
 }
 div.hbspt-form form div.input {
-	padding: 0 0;
+  display: block;
+  padding: 0 0;
   background: transparent;
 	border: none !important;
 }
 div.hbspt-form div.hs-form-field > label {
 	font-size: .75rem;
 }
-div.hbspt-form form div.input input, div.hbspt-form form div.input select, div.hbspt-form form div.hs-submit input[type=submit].hs-button  {
+div.hbspt-form form div.input input[type="text"], div.hbspt-form form div.input input[type="email"], div.hbspt-form form div.input input[type="tel"], div.hbspt-form form div.input select, div.hbspt-form form div.hs-submit input[type=submit].hs-button  {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 	height: calc(2.4rem + 3px);
 	width: 96%;
 	padding-bottom: calc(0.5em - 1px);
   padding-left: calc(0.75em - 1px);
   padding-right: calc(0.75em - 1px);
   padding-top: calc(0.5em - 1px);
-	background-color: transparent;
 	border-radius: 3px;
-	border: 1px solid rgba(0,0,0,.87);
+  border: 1px solid rgba(0,0,0,.21);
+  box-shadow: 0 0 12px rgba(0,0,0,.21);
 }
 div.hbspt-form form div.input select {
 	width: 96% !important;
-  background: transparent;
+}
+div.hbspt-form form div.input input[type="checkbox"] {
+
 }
 form ul.hs-error-msgs li > label.hs-error-msg {
 	padding: .48rem;
@@ -1033,6 +1146,11 @@ div.hbspt-form form div.hs-submit input[type=submit].hs-button:hover {
 	border-color: black;
 	color: black;
 }
+div.hbspot-form form div.field.hs-fieldtype-checkbox {
+  width: 100%;
+  float: none;
+}
+
 
 /*
 TOP svg
@@ -1083,7 +1201,7 @@ svg#theCompleteThought .active-learning-spaces {
   height: 24px;
   width: 24px;
   position: absolute;
-z-index: 100;
+  z-index: 100;
   align-self: flex-end;
   margin-top: -4.8rem;
   margin-left: 4.8rem;
@@ -1105,6 +1223,36 @@ z-index: 100;
   100% { transform: scale(1,1)      translateY(0); }
 }
 
+.icon-scroll, .icon-scroll::before {
+  position: absolute;
+}
+
+.icon-scroll {
+  width: 42px;
+  height: 69px;
+  top: 48%;
+  margin-left: -21px;
+  margin-top: -36px;
+  box-shadow: inset 0 0 0 3px #000000;
+  border-radius: 21px;
+}
+.icon-scroll::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #000000;
+  top: 9px;
+  left: 40%;
+  border-radius: 6px;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: scroll-icon;
+}
+
+@keyframes scroll-icon {
+  0% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(45px); }
+}
 /*
 NEDM
 */
@@ -1129,6 +1277,51 @@ NEDM
 
 #nedm-survey label.form-check-label input {
   margin-right: 6px;
+}
+
+#nedm-survey .faq-accordion.card {
+  padding: 1.5rem;
+  border: transparent 1px solid;
+  transition: all 0.36s ease-out;
+
+}
+
+#nedm-survey .faq-accordion.card:hover {
+  padding: 1.5rem;
+  border-color: rgb(0,0,0);
+}
+
+#nedm-survey .faq-accordion.card h6 {
+  position: relative;
+  margin-bottom: 18px;
+  z-index: 1;
+}
+
+#nedm-survey  .faq-accordion.card > h6 a {
+  display: block;
+  padding-right: 72px;
+  font-weight: 700;
+}
+
+#nedm-survey .faq-accordion.card > h6 img {
+  height: 48px;
+  width: 48px;
+  position: absolute;
+  top: -18px;
+  right: 0;
+  z-index: -1;
+}
+
+#nedm-survey  .faq-accordion.card > p {
+  max-height: 0;
+  transition: max-height 0.36s ease-out;
+  overflow: hidden;
+}
+
+#nedm-survey  .faq-accordion.card > p.selected {
+  max-height: 750px;
+  overflow: auto;
+  transition: max-height 0.36s ease-in;
 }
 
 /*

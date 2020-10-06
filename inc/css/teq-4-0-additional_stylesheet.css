@@ -126,6 +126,8 @@ form.filterform input[type=submit] {
   height: auto;
   width: auto;
   position: relative;
+  margin-left: calc(3vw - 1.5vw);
+  margin-right: calc(3vw - 1.5vw);
 }
 
 .topic-tags > p {
@@ -161,6 +163,9 @@ form.filterform input[type=submit] {
 /*
 Hubspot Forms
 */
+div.hbspot-form_quote, div.hbspot-form_quote div.hbspt-form form {
+  padding: 0 0;
+}
 div.hbspot-form_quote div.hbspt-form form {
   width: 100%;
   margin: 0 auto;
@@ -213,6 +218,7 @@ form ul.hs-error-msgs li > label.hs-error-msg {
 	font-size: .75rem;
 }
 div.hbspot-form_quote div.hbspt-form form div.hs-submit input[type=submit].hs-button {
+  width: 100%;
 	margin: 36px auto 0 auto;
   outline: none;
   border: none;

@@ -10,6 +10,9 @@
 }
 
 @media (max-width: 1230px) {
+  .navbar.product-site-header .navbar-menu .navbar-start {
+    width: 100%;
+  }
   .navbar.product-site-header .navbar-menu .navbar-end.mobile-dropdown-trigger {
     display: flex;
   }
@@ -31,7 +34,7 @@
     position: absolute;
     top: 1.2rem;
     right: 0;
-    z-index: 100;
+    z-index: 250;
     margin: 0 auto;
     padding: 12px 6px;
     background-color: rgb(255,255,255);
@@ -65,8 +68,11 @@
     right: -36px;
     margin: 0 auto;
   }
-  .main-menu.navbar-end, .menu-button.search-button, nav.navbar div.navbar-brand a.navbar-item, nav.navbar div.navbar-brand a.navbar-item svg, div.navbar-menu button.menu-button.hamburger-button, div.navbar-menu ul.primary-menu, div.navbar-menu.secondary-browse-menu {
+  .main-menu.navbar-end, .menu-button.search-button, nav.navbar div.navbar-brand a.navbar-item, nav.navbar div.navbar-brand a.navbar-item svg, div.navbar-menu button.menu-button.hamburger-button, div.navbar-menu ul.primary-menu, div.navbar-menu.secondary-browse-menu button {
     display: none;
+  }
+  header.site-header div.main-dropdown-menu-container.active.main .menu-list.primary-menu, header.site-header div.main-dropdown-menu-container.active.stem .menu-list.stem-menu, header.site-header div.main-dropdown-menu-container.active.product-filters .menu-list.filters-menu {
+    display: block;
   }
   header.site-header {
     position: relative;
@@ -88,6 +94,8 @@
   }
   header.site-header nav.navbar, header.site-header nav.navbar .navbar-brand, nav.navbar div.navbar-brand svg.mobile-brand-icon {
     height: 66px;
+    display: flex;
+    align-items: center;
   }
   header.site-header nav.navbar .navbar-brand, nav.navbar div.navbar-brand svg.mobile-brand-icon, header.site-header div.main-dropdown-menu-container.active, header.site-header div.main-dropdown-menu-container ul.main-dropdown-menu {
     display: block;
@@ -146,6 +154,9 @@
 }
 
 @media (max-width: 980px) {
+  ul.main-menu.navbar-end li:nth-child(2) {
+    display: none;
+  }
   article.post-card {
     width: 100%;
   }
@@ -247,6 +258,7 @@
   .section-container .full-section .filter-container {
     height: auto;
     width: 100%;
+    position: relative;
     top: 0;
     background-color: #ffffff;
   }

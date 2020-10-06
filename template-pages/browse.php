@@ -44,10 +44,10 @@ get_header();
 					<div class="container">
 						<div class="columns is-desktop">
   						<div class="column is-8 is-offset-2">
-								<h1 class="page-titles has-text-centered"><a class="white-text" href="/stem-technologies">STEM <span class="inline-content">Technology</span></a></h1>
+								<h1 class="page-titles has-text-centered"><a class="white-text" href="/browse/stem-technologies">STEM <span class="inline-content">Technology</span></a></h1>
 								<h5 class="has-text-centered white-text">Revolutionizing the way your students learn by creating solutions with real-world applications.</h5>
 								<h5 class="has-text-centered">
-									<a class="button white-border no-shadow" href="/stem-technologies">Discover more</a>
+									<a class="button white-border no-shadow" href="/browse/stem-technologies">Discover more</a>
 								</h5>
 							</div>
 						</div>
@@ -60,10 +60,10 @@ get_header();
 					<div class="container">
 						<div class="columns is-desktop">
   						<div class="column is-8 is-offset-2">
-								<h1 class="page-titles has-text-centered"><a class="white-text" href="/educational-technology">Educational<span class="inline-content">Technology</span></a></h1>
+								<h1 class="page-titles has-text-centered"><a class="white-text" href="/browse/educational-technology">Educational<span class="inline-content">Technology</span></a></h1>
 								<h5 class="has-text-centered white-text">Enrich student experiences and cultivate collaborative learning with the latest interactive displays and classroom audio systems.</h5>
 								<h5 class="has-text-centered">
-									<a class="button white-border no-shadow" href="/educational-technology">Discover more</a>
+									<a class="button white-border no-shadow" href="/browse/educational-technology">Discover more</a>
 								</h5>
 							</div>
 						</div>
@@ -76,10 +76,10 @@ get_header();
 					<div class="container">
 						<div class="columns is-desktop">
   						<div class="column is-8 is-offset-2">
-								<h1 class="page-titles has-text-centered"><a class="white-text" href="/professional-development">Professional<span class="inline-content">Development</span></a></h1>
+								<h1 class="page-titles has-text-centered"><a class="white-text" href="/browse/professional-development">Professional<span class="inline-content">Development</span></a></h1>
 								<h5 class="has-text-centered white-text">Learn educational technology skills with PD designed around your needs; with options for on-site, online, or a blended learning model.</h5>
 								<h5 class="has-text-centered">
-									<a class="button white-border no-shadow" href="/professional-development">Discover more</a>
+									<a class="button white-border no-shadow" href="/browse/professional-development">Discover more</a>
 								</h5>
 							</div>
 						</div>
@@ -92,10 +92,10 @@ get_header();
 					<div class="container">
 						<div class="columns is-desktop">
   						<div class="column is-8 is-offset-2">
-								<h1 class="page-titles has-text-centered"><a class="white-text" href="/active-learning-spaces">Active Learning<span class="inline-content">Spaces</span></a></h1>
+								<h1 class="page-titles has-text-centered"><a class="white-text" href="/browse/active-learning-spaces">Active Learning<span class="inline-content">Spaces</span></a></h1>
 								<h5 class="has-text-centered white-text">Interactive learning through play and movement</h5>
 								<h5 class="has-text-centered">
-									<a class="button white-border no-shadow" href="/active-learning-spaces">Discover more</a>
+									<a class="button white-border no-shadow" href="/browse/active-learning-spaces">Discover more</a>
 								</h5>
 							</div>
 						</div>

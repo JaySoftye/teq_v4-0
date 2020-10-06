@@ -213,7 +213,7 @@
         {id: '3d-printing', name: '3D Printing'},
         {id: 'gaming', name: 'Gaming'},
         {id: 'instructional-software', name: 'Instructional Software'},
-        {id: 'Circuitry', name: 'Circuitry'}
+        {id: 'circuitry', name: 'Circuitry'}
       ];
     });
     app.controller('technologyProficiencyFilter', function($scope) {

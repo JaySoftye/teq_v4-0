@@ -51,7 +51,7 @@
 
     // Global show hide function for ACCORDION TABS ON PRODUCT PAGES
     $('.showHideElement .show-hide-element-trigger').click(function() {
-      $('.show-hide-element-content').slideToggle('slow');
+      $('.show-hide-element-content').slideToggle();
       $([document.documentElement, document.body]).animate({
         scrollTop: $('.show-hide-element-content').offset().top
       });
@@ -71,6 +71,28 @@
         $('html, body').animate({
           scrollTop: $("#nextTarget").offset().top
         }, 1000);
+    });
+
+    // CLICK FUNCTION FOR FAQ CARDS
+    $('#nedm-survey .faq-accordion.card').each( function(index) {
+      $(this).click( function() {
+        $('p',this).toggleClass('selected');
+      });
+    });
+
+    // SCROLL TO FUNCTION
+    // Set DATA ATTR SCROLL Atrribute to ID of element
+    $(".scrollto").click(function(event) {
+      event.preventDefault();
+      var defaultAnchorOffset = 0;
+        var anchor = $(this).attr('data-attr-scroll');
+          var anchorOffset = $('#'+anchor).attr('data-scroll-offset');
+
+      if (!anchorOffset)
+        anchorOffset = defaultAnchorOffset;
+      $('html,body').animate({
+        scrollTop: $('#'+anchor).offset().top - anchorOffset
+      }, 500);
     });
 
   });

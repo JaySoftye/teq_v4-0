@@ -48,16 +48,14 @@ get_header();
 							</label>
 						</div>
 						<div class="filter-item" ng-controller="gradeLevelFilter">
-							<select id="selectedGradeLevel" ng-model="selectedGradeLevel" ng-options="item.id as item.name for item in items track by item.id">
+							<select class="product-filter"  class="product-filter"  id="selectedGradeLevel" name="selectedGradeLevel" ng-model="selectedGradeLevel" ng-options="item.id as item.name for item in items track by item.id">
 								<option value="" selected disabled>Grade Level</option>
 							</select>
-							<span class="down-arrow"></span>
 						</div>
 						<div class="filter-item" ng-controller="technologyProficiencyFilter">
-							<select id="selectedtechnologyProficiencyLevel" ng-model="selectedtechnologyProficiencyLevel" ng-options="item.id as item.name for item in items track by item.id">
+							<select class="product-filter"  class="product-filter"  id="selectedtechnologyProficiencyLevel" ng-model="selectedtechnologyProficiencyLevel" ng-options="item.id as item.name for item in items track by item.id">
 								<option value="" selected disabled>Technology Proficiency</option>
 							</select>
-							<span class="down-arrow"></span>
 						</div>
 						<div class="filter-item non-filter">
 							<input id="reset-filters" type="reset" value="Reset Filters">

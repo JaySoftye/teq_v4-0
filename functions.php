@@ -396,7 +396,7 @@ function custom_post_type_product_and_service() {
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
 		'menu_position'       => 5,
-    'menu_icon'           => 'dashicons-buddicons-community',
+    'menu_icon'           => 'dashicons-cart',
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => true,
@@ -443,7 +443,7 @@ function custom_post_type_nedm_survey() {
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
 		'menu_position'       => 6,
-    'menu_icon'           => 'dashicons-analytics',
+    'menu_icon'           => 'dashicons-beer',
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => true,
@@ -489,7 +489,7 @@ function custom_post_type_pathway() {
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
 		'menu_position'       => 7,
-    'menu_icon'           => 'dashicons-buddicons-activity',
+    'menu_icon'           => 'dashicons-welcome-learn-more',
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => true,
@@ -786,6 +786,21 @@ function custom_product_service_meta_html( $post) {
   				return true;
 				}
 
+	/**
+		* DISABLE ALL AUTHOR QUERIES
+		* IF URL IS SPECIFIED FOR AUTHOR; e.g. teq.com/author/jaysoftye/
+		* IDENTIFY AUTHOR QUERY AND REDIRECT (301) TO HOME
+		*/
+
+		function wp_redirect_if_author_query() {
+			$is_author_set = get_query_var( 'author', '' );
+				if ( $is_author_set != '' && !is_admin()) {
+					 wp_redirect( home_url(), 301 );
+				 	exit;
+				}
+	  }
+	  add_action( 'template_redirect', 'wp_redirect_if_author_query' );
+
 
 	/**
 		* ADD PARENT PAGE SLUG TO THE BODY CLASS
@@ -808,6 +823,21 @@ function custom_product_service_meta_html( $post) {
 		}
 		add_filter('body_class','wpc_body_class_section');
 
+	/**
+		* ADD FEATURED IMAGE TO RSS FEED
+		* GRAB FEATURED IMAGE OF POST
+		* /category/news/feed/
+		*/
+
+		function add_rss_item_image() { global $post;
+			if(has_post_thumbnail($post->ID))
+		   	{
+		    	$thumbnail = get_the_post_thumbnail_url($post->ID);
+		       echo"\t<image>{$thumbnail}</image>\n";
+		    }
+		}
+		add_action('rss2_item', 'add_rss_item_image');
+		add_action('rss_item', 'add_rss_item_image');
 
 
 	/**

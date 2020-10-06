@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Media
+ * Template Name: Media Downloads
  * The template for displaying all media posts
  * @package Teq_v4.0
  */

@@ -34,6 +34,7 @@
 
 			<div class="columns" ng-show="hidden">
 				<div class="column hbspot-form_quote">
+					<h4 class="padding-sm-top">Interested in <strong><?php echo the_title(); ?></strong> for your school or classroom?<br />Request a quote using the form below.</h4>
 					<?php
 					// CHECK IF THIS IS AN CDW EDC OR FAMIS PRODUCT
 					// DISPLAY QUOTE FORM BASED UPON CDW OR FAMIS
@@ -45,7 +46,21 @@
 						<script>
   						hbspt.forms.create({
 								portalId: "182596",
-								formId: "d90fa090-8474-4069-90b2-909d2b9e42d7"
+								formId: "d90fa090-8474-4069-90b2-909d2b9e42d7",
+									submitButtonClass: '',
+		    					inlineMessage: 'Request Submitted, Thanks.',
+		    						onFormSubmit: function($form){
+
+											// GRAB THE PAGE TITLE AND SET 'BLANK' HIDDEN INPUT FIELD AS TITLE OF THE PAGE
+											var title = $(document).find("title").text();
+											$('input[name="blank"]').val(title)
+
+											// SET REDIRECT WITH FORM DATA IN URL
+		        					setTimeout( function() {
+		            				var formData = $form.serialize();
+		            				window.location = "/thankyouforyourinterest?" + formData;
+		        					}, 250 ); // Redirects to url with query string data from form fields after 250 milliseconds.
+		    					}
 							});
 						</script>
 					<?php } elseif(isset($_GET['famis'])) { ?>
@@ -56,7 +71,21 @@
 						<script>
 							hbspt.forms.create({
 								portalId: "182596",
-								formId: "42b188a8-165d-4be0-af27-ce6016a04a8a"
+								formId: "42b188a8-165d-4be0-af27-ce6016a04a8a",
+									submitButtonClass: '',
+		    					inlineMessage: 'Request Submitted, Thanks.',
+		    						onFormSubmit: function($form){
+
+											// GRAB THE PAGE TITLE AND SET 'BLANK' HIDDEN INPUT FIELD AS TITLE OF THE PAGE
+											var title = $(document).find("title").text();
+											$('input[name="blank"]').val(title)
+
+											// SET REDIRECT WITH FORM DATA IN URL
+		        					setTimeout( function() {
+		            				var formData = $form.serialize();
+		            				window.location = "/thankyouforyourinterest?" + formData;
+		        					}, 250 ); // Redirects to url with query string data from form fields after 250 milliseconds.
+		    					}
 							});
 						</script>
 					<?php } ?>

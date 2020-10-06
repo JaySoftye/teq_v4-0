@@ -71,16 +71,16 @@ get_header();
 						<a href="https://www.teq.com/teq-blocks">
 							<circle id="one" opacity-fill="0.48" filter="url(#inset-shadow-small)" class="teq-blocks" cx="652.35" cy="300.488" r="123.344"/>
 						</a>
-						<a href="/stem-technologies/">
+						<a href="/browse/stem-technologies/">
 							<circle opacity-fill="0.48" filter="url(#inset-shadow-small)" class="stem-technology" cx="490.381" cy="393.832" r="123.344" />
 						</a>
-						<a href="/educational-technology/">
+						<a href="/browse/educational-technology/">
 							<circle opacity-fill="0.48" filter="url(#inset-shadow-small)" class="educational-technology" cx="651.443" cy="495.832" r="123.344" />
 						</a>
-						<a href="/professional-development/">
+						<a href="/browse/professional-development/">
 							<circle opacity-fill="0.48" filter="url(#inset-shadow-small)" class="professional-development" cx="491.084" cy="588.832" r="123.359" />
 						</a>
-						<a href="/active-learning-spaces/">
+						<a href="/browse/active-learning-spaces/">
 							<circle opacity-fill="0.48" filter="url(#inset-shadow-small)" class="active-learning-spaces" cx="651.475" cy="686.488" r="123.344" />
 						</a>
 					</g>
@@ -851,14 +851,14 @@ test.onclick = function() {
 							</a>
 						</div>
 						<div class="column reveal-mask create" ng-class="{'choice-option-open':hoverCreate}">
-							<a class="white-text transition-one-thirds" href="/create" ng-mouseenter="hoverCreate=true" ng-mouseleave="hoverCreate=false">
+							<a class="white-text transition-one-thirds" href="/create-your-solution" ng-mouseenter="hoverCreate=true" ng-mouseleave="hoverCreate=false">
 								<i>Create Your<br />Solution</i>
 								<span></span>
 							</a>
 						</div>
 						<div class="column reveal-mask evolve" ng-class="{'choice-option-open':hoverEvolve}">
 							<a class="transition-one-thirds" href="/evolve" ng-mouseenter="hoverEvolve=true" ng-mouseleave="hoverEvolve=false">
-								<i>Evolve Your<br />Classroom</i>
+								<i>Evolve<br /></i>
 								<span></span>
 							</a>
 						</div>

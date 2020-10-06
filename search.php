@@ -15,7 +15,7 @@ get_header();
 
 		<?php if ( have_posts() ) : ?>
 
-			<section class="full-section teq-talk block padding-bottom">
+			<section class="full-section block padding-bottom">
 
 				<div class="page-content">
 					<div class="container">
@@ -29,8 +29,8 @@ get_header();
 								</h1>
 							</div>
 						</div>
-						<div class="columns is-vcentered is-desktop">
-							<div class="column is-6 is-offset-3 teq-blog-search">
+						<div class="columns is-centered is-desktop">
+							<div class="column is-8 teq-blog-search">
 
 								<form role="search" method="get" class="teq-blog-search search-form" action="<?php echo home_url(); ?>">
 									<div class="field has-addons">
@@ -48,10 +48,10 @@ get_header();
 					</div>
 				</div>
 
-				<div class="page-content padding-bottom">
+				<div class="content padding-bottom">
 					<div class="container">
 
-						<div class="columns is-vcentered is-desktop is-multiline post-card-container">
+						<div class="columns is-centered is-desktop is-multiline post-card-container">
 							<?php
 							/* Start the Loop */
 								while ( have_posts() ) :

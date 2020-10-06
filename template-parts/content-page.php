@@ -10,7 +10,7 @@
 ?>
 
 <section class="full-section">
-	<div class="page-content columns is-desktop">
+	<div class="page-content columns is-desktop <?php if ( is_page( 'Thank You for your interest' ) ) { echo 'top'; } ?>">
 		<div class="column nopadding">
 			<?php
 				the_content();

@@ -36,6 +36,7 @@ get_header();
 					<div class="columns">
 						<div class="column">
 							<a class="delete is-large close-form" href ng-model="demoFormCollapsed" ng-click="demoFormCollapsed=!demoFormCollapsed"></a>
+							<p class="has-text-centered">For more info or to <strong>request a product demo,</strong> simply fill out the form below and a Teq Representative will reach out to you directly.</p>
 							<!--[if lte IE 8]>
 							<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
 							<![endif]-->
@@ -141,6 +142,7 @@ get_header();
 								<div class="column is-6 is-offset-3">
 									<h1><strong>We HelpEducators Succeed!</strong></h1>
 									<h5><strong>Boost your classroom technology skills to engage your students and improve instruction with Teq’s Online Professional Development platform, now known as OTIS.</strong></h5>
+									<h6><u>SCROLL DOWN</u> for a sample course.</h6>
 								</div>
 							</div>
 						</div>
