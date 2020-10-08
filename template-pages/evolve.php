@@ -35,15 +35,16 @@ get_header();
 								<div class="columns is-vcentered is-centered is-multiline">
 									<div class="column is-6-desktop is-full-tablet">
 										<h1 class="mobile-content">Evolve</h1>
-										<h5 class="serif-text">The face of education is rapidly changing, and Teq can help you evolve to meet these challenges. Technology integration is at the center of what we do, and our approach is about helping you find the right resources, get the right support, and then pull it all together into a complete thought. </h5>
+										<h5 class="serif-text padding-left">The face of education is rapidly changing, and Teq can help you evolve to meet these challenges. Technology integration is at the center of what we do, and our approach is about helping you find the right resources, get the right support, and then pull it all together into a complete thought. </h5>
 									</div>
 									<div class="relative-position column is-1-desktop hide-tablet">
-										<div class="icon-scroll"></div>
+										<div class="icon-scroll vertical"></div>
+										scroll
+										<div class="icon-scroll horizontal"></div>
 									</div>
 								</div>
 							</div>
 							<div class="svg-container">
-								<a href="#prepare"><img class="next" src="<?php echo get_template_directory_uri() . '/inc/evolve/Next-button.png'; ?>" /></a>
 								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/evolveSTART.svg'); ?>
 							</div>
 						</div>
@@ -59,8 +60,6 @@ get_header();
 									<h5>Planning for success requires solid preparation. That means making decisions with your new learning environment in mind, championing innovation when it comes to instructional methods, and being sure to prioritize skills development and technical proficiency.</h5>
 								</div>
 								<img src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_prepare.png'; ?>" />
-								<a href="#adapt"><img class="next" src="<?php echo get_template_directory_uri() . '/inc/evolve/Next-button.png'; ?>" /></a>
-								<a href="#evolve"><img class="prev" src="<?php echo get_template_directory_uri() . '/inc/evolve/Prev-button.png'; ?>" /></a>
 								<img class="cone" src="<?php echo get_template_directory_uri() . '/inc/evolve/prepareconeSTART.png'; ?>" />
 								<img class="prepare-image-one" src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_prepare1.png'; ?>" />
 								<?php echo file_get_contents(get_template_directory_uri() . '/inc/evolve/evolveLine.svg'); ?>
@@ -78,8 +77,6 @@ get_header();
 									<h5>In times of challenge, being able to adapt and innovate is key. We have to examine and adjust our processes and find new resources that speak to our needs. We have to adopt alternative solutions, re-imagine assessment models, and maybe even invent our own learning model to respond to new challenges.  </h5>
 								</div>
 								<img class="cone" src="<?php echo get_template_directory_uri() . '/inc/evolve/adaptconeSTART.png'; ?>" />
-								<a href="#educate"><img class="next" src="<?php echo get_template_directory_uri() . '/inc/evolve/Next-button.png'; ?>" /></a>
-								<a href="#prepare"><img class="prev" src="<?php echo get_template_directory_uri() . '/inc/evolve/Prev-button.png'; ?>" /></a>
 								<img src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_adapt.png'; ?>" />
 								<img class="adapt-image-one" src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_adapt2.png'; ?>" />
 								<img class="adapt-image-two" src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_adapt1.png'; ?>" />
@@ -98,8 +95,6 @@ get_header();
 									<h5>The common denominator of your planning and innovation is to educate. Finding the appropriate tools to engage students can be just as important as the methodology you choose. Our goal should always be to leverage technology in a way that serves students and enables us to deliver content, facilitate learning, and open up a world of discovery. </h5>
 								</div>
 								<img class="cone" src="<?php echo get_template_directory_uri() . '/inc/evolve/educateconeSTART.png'; ?>" />
-								<a href="#ending"><img class="next" src="<?php echo get_template_directory_uri() . '/inc/evolve/Next-button.png'; ?>" /></a>
-								<a href="#adapt"><img class="prev" src="<?php echo get_template_directory_uri() . '/inc/evolve/Prev-button.png'; ?>" /></a>
 								<img src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_educate.png'; ?>" />
 								<img class="educate-image-one" src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_educate2.png'; ?>" />
 								<img class="educate-image-two" src="<?php echo get_template_directory_uri() . '/inc/evolve/svg-container-image_educate1.png'; ?>" />
@@ -110,9 +105,7 @@ get_header();
 
 						<div class="info-container end" id="ending">
 							<div class="slide-content">
-								<h1 class="slide-title desktop-content">Evolve with us <br />
-									<a href="#educate"><img class="prev" src="<?php echo get_template_directory_uri() . '/inc/evolve/Prev-button.png'; ?>" /></a>
-								</h1>
+								<h1 class="slide-title desktop-content">Evolve with us</h1>
 								<div class="columns is-vcentered is-centered is-multiline">
 									<div class="column is-6-desktop is-full-tablet">
 										<h1 class="mobile-content white-text">Evolve with us</h1>

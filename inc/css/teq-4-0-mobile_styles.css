@@ -5,14 +5,11 @@
     display: none !important
   }
   .pre-content-container .image-cover {
-    bottom: -3vh;
+    bottom: -9vh;
   }
 }
 
 @media (max-width: 1230px) {
-  .navbar.product-site-header .navbar-menu .navbar-start {
-    width: 100%;
-  }
   .navbar.product-site-header .navbar-menu .navbar-end.mobile-dropdown-trigger {
     display: flex;
   }
@@ -124,7 +121,7 @@
     top: 0;
   }
   .pre-content-container .image-cover {
-    bottom: -6vh;
+    bottom: -15vh;
   }
   .navbar.product-site-header > .container {
     display: flex;

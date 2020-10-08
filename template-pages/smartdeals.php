@@ -102,8 +102,8 @@ get_header();
 
 							<?php
 								$args = array(
-									'post_status' => 'publish',
 									'category_name' => 'smart',
+									'post_status' => 'publish',
 									'order' => 'DESC',
 									'posts_per_page' => -1,
 									'date_query' => array(
@@ -111,9 +111,12 @@ get_header();
 									)
 								);
 
-								$the_query = new WP_Query($args);
-									while ($the_query -> have_posts()) : $the_query -> the_post();
-		        		?>
+								$the_query = new WP_Query( $args );
+									if ( $the_query->have_posts() ) :
+										while ( $the_query->have_posts() ) :
+											$the_query->the_post();
+							?>
+
 		        		<article class="column is-4">
 		          		<div class="card">
 										<div class="card-image">
@@ -139,7 +142,11 @@ get_header();
 		            		</div>
 		          		</div>
 		        		</article>
-		        		<?php endwhile; wp_reset_postdata(); ?>
+							<?php endwhile; else: ?>
+
+								oops nothing found
+
+							<?php wp_reset_postdata(); endif; ?>
 
 						</div>
 					</div>

@@ -8,13 +8,18 @@
  */
 
 get_header();
+
+	// IF NOT EDC CDW PRODUCT OR FAMIS PRODUCT GET THE NAVIGATION HEADER FILE
+	if(!isset($_GET['famis']) && !isset($_GET['edc']))  {
+		include 'navigation.php';
+	}
 ?>
 
 <div id="primary" class="content-area" scroll>
 	<main id="main" class="site-main section-container">
 
 		<?php
-			// CHECK IF THIS IS AN CDW EDC OR FAMIS  PRODUCT
+			// CHECK IF THIS IS AN CDW EDC OR FAMIS PRODUCT
 			// SHOW THE CDW-G Header
 			if(isset($_GET['edc'])) {
 		?>

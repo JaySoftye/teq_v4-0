@@ -246,7 +246,7 @@
   	   $scope.items = [
          {id: 'product-item', name: 'All Products'},
          {id: 'STEM Technologies', name: 'STEM Technology'},
-         {id: 'Eductional Technology', name: 'Educational Technology'},
+         {id: 'Educational Technology', name: 'Educational Technology'},
          {id: 'Professional Development', name: 'Professional Development'},
        ];
     });

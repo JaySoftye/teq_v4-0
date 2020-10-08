@@ -215,15 +215,15 @@
 }
 .svg-container img.adapt-image-one, .svg-container img.educate-image-one {
   height: auto;
-  width: 35vw;
-  top: 75%;
+  width: calc(35vw - 9vh);
+  top: calc(75% + 5vh);
   left: 60%;
   z-index: 100;
 }
 .svg-container img.adapt-image-two, .svg-container img.educate-image-two {
   height: auto;
-  width: 35vw;
-  top: 24%;
+  width: calc(35vw - 9vh);
+  top: calc(24% - 3vh);
   left: 65%;
   z-index: 100;
 }
@@ -474,14 +474,13 @@ img.displacementImageElement.stopAnimation {
   }
 }
 
+.icon-scroll.horizontal {
+  display: none;
+}
+
 @-moz-document url-prefix() {
-  .svg-container img.next, .svg-container img.prev {
-    display: block;
+  .icon-scroll.horizontal {
+     display: block;
   }
-  .icon-scroll {
-     display: none;
-  }
-  .info-container.end .slide-content {
-    left: 0;
-  }
+
 }

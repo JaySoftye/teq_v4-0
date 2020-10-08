@@ -31,11 +31,37 @@ get_header();
 		<section class="full-section grey-background">
 			<div class="columns is-multiline padding-top">
 
-				<div class="column is-full filter-results">
+				<div class="column is-full filter-results filter-container">
 					<h1>Teq Solutions for:<br />
 						<strong><?php echo $selectedProductType . ' ' . $selectedGradeLevel . ' ' . $selectedStemSubjectMatter . ' ' . $selectedtechnologyProficiencyLevel ?></strong>
 					</h1>
-					<h6 class="padding-bottom">Didn’t find what you need? <strong ng-click="openFiltersMenu()"><u>Start another search here.</u></strong></h6>
+					<h6>Didn’t find what you need? <strong>Start another search here using the form below.</strong></h6>
+					<form class="list-filters padding-sm-top-bottom" role="search" method="get" action="<?php echo home_url(); ?>/filter-search-page/?">
+						<div class="filter-item" ng-controller="productTypeFilter">
+							<select id="selectedProductType" name="selectedProductType" ng-model="selectedProductType" ng-options="item.id as item.name for item in items track by item.id">
+								<option value="" selected disabled>Product Type</option>
+							</select>
+							<span class="down-arrow"></span>
+						</div>
+						<div class="filter-item" ng-controller="gradeLevelFilter">
+							<select id="selectedGradeLevel" name="selectedGradeLevel" ng-model="selectedGradeLevel" ng-options="item.id as item.name for item in items track by item.id">
+								<option value="" selected disabled>Grade Level</option>
+							</select>
+						</div>
+						<div class="filter-item" ng-controller="stemSubjectMatterFilter">
+							<select id="selectedStemSubjectMatter" name="selectedStemSubjectMatter" ng-model="selectedStemSubjectMatter" ng-options="item.id as item.name for item in items track by item.id">
+								<option value="" selected disabled>Subject Matter</option>
+							</select>
+						</div>
+						<div class="filter-item" ng-controller="technologyProficiencyFilter">
+							<select id="selectedtechnologyProficiencyLevel" name="selectedtechnologyProficiencyLevel" ng-model="selectedtechnologyProficiencyLevel" ng-options="item.id as item.name for item in items track by item.id">
+								<option value="" selected disabled>Technology Proficiency</option>
+							</select>
+						</div>
+						<div class="filter-item">
+							<input type="submit" value="View Product(s)" />
+						</div>
+					</form>
 					<div class='columns is-multiline'>
 
 							<?php if ( have_posts() ) :

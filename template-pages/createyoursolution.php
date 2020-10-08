@@ -23,7 +23,7 @@ get_header();
 					</div>
 					<div class="column is-9-desktop is-full-mobile">
 						<h1>Welcome Educators!</h1>
-						<h2>We want to help find a solution that fits your school's specific needs, let's get started by first telling us your name, school name, or district.</h2>
+						<h2>Let's find a solution that fits your school's unique needs. To begin, tell us your name, school, or district.</h2>
 						<div class="school-name-control">
   						<div class="input-control">
     						<input class="input school-name" type="text" ng-model="schoolName" placeholder="Please enter your name, school name, or district">
@@ -263,53 +263,58 @@ get_header();
 
 							<div class="dial-ui-set-container slide" ng-show="isSet(1)">
 								<p><strong>2</strong><span class="caption"> / 5</span></p>
-								<div class="dial-ui-set">
+								<div class="dial-ui-set" label="Grade Level">
 									<div class="content-dial">
-										<h5 ng-hide="pdSelected==true"><strong>Professional development</strong> is essential for building capacity and confidence in educators. Choose the PD solution that best fits your needs.</h5>
-										<p class="professional-development-color" ng-show="professionalDevelopmentSolutions == 'Mentoring PD'">Work one-on-one with a Teq PD Specialist and get <strong>focused mentoring</strong> to help you become your most effective. Available as in-person and/or virtual PD.</p>
-										<p class="professional-development-color" ng-show="professionalDevelopmentSolutions == 'Coaching PD'">Assemble a small group of educators for <strong>specialized coaching</strong> around your goals and needs. Available as in-person and/or virtual PD.</p>
-										<p class="professional-development-color" ng-show="professionalDevelopmentSolutions == 'Online (OTIS) PD'">Utilize <strong>OTIS for educators</strong>, our virtual PD platform, for relevant and on-demand training that connects technology and instruction.</p>
-										<input type="radio" name="professinal-development-solutions" ng-model="professionalDevelopmentSolutions" ng-value='"Mentoring PD"' id="mentoring-pd" value="mentoring-pd">
-										<input type="radio" name="professinal-development-solutions" ng-model="professionalDevelopmentSolutions" ng-value='"Coaching PD"' id="coaching-pd" value="coaching-pd">
-										<input type="radio" name="professinal-development-solutions" ng-model="professionalDevelopmentSolutions" ng-value='"Online (OTIS) PD"' id="online-pd" value="online-pd">
-									</div>
-									<div class="radio-dial professional-development outer">
-										<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/pd-three_option_dial.svg'); ?>
-									</div>
-								</div>
-								<div class="dial-ui-set">
-									<div class="content-dial">
-										<h5 ng-hide="lessonContentSelected==true">From project-based learning, to custom curriculum and do-anywhere activities, there's a wealth of <strong>lesson content solutions</strong> for you to leverage. Choose an option!</h5>
-										<p class="content-creation-color" ng-show="lessonContentSolutions == 'Project-Based Learning'">Explore iBlocks, our technology-centric <strong>project-based learning (PBL)</strong> challenges that guide students through the journey of the Engineering Design Process.</p>
-										<p class="content-creation-color" ng-show="lessonContentSolutions == 'Customized Content Creation'">Take your iBlock up a notch with our options to <strong>customize content,</strong> subject matter, scope, and sequence. </p>
-										<p class="content-creation-color" ng-show="lessonContentSolutions == 'Educational Resources'">Access our ever-growing <strong>library of lesson resources and inspiration,</strong> and download templates, files, worksheets, and more.</p>
-										<input type="radio" name="lesson-content-solutions" ng-model="lessonContentSolutions" ng-value='"Project-Based Learning"' value="project-based-learning-lesson-content">
-										<input type="radio" name="lesson-content-solutions" ng-model="lessonContentSolutions" ng-value='"Customized Content Creation"' value="customized-content-lesson-content">
-										<input type="radio" name="lesson-content-solutions" ng-model="lessonContentSolutions" ng-value='"Educational Resources"' value="educational-resources-lesson-content">
+										<h5 ng-hide="gradeSelected==true"><strong>Choose the grade band</strong> that best represents your student demographic. This will help us find the right solution for you.</h5>
+										<p class="grade-band-color" ng-show="gradeBand == 'Grades K-2'"><strong>K-2</strong> best fits the solution I'm looking for.</p>
+										<p class="grade-band-color" ng-show="gradeBand == 'Grades 3-5'"><strong>Grades 3-5</strong> best fits the solution I'm looking for.</p>
+										<p class="grade-band-color" ng-show="gradeBand == 'Grades 6-8'"><strong>Grades 6-8</strong> best fits the solution I'm looking for.</p>
+										<p class="grade-band-color" ng-show="gradeBand == 'Grades 9-12'"><strong>Grades 9-12</strong> best fits the solution I'm looking for.</p>
+										<input type="radio" name="grade-band-level" ng-model="gradeBand" ng-value='"Grades K-2"' value="grades-k-2">
+										<input type="radio" name="grade-band-level" ng-model="gradeBand" ng-value='"Grades 3-5"' value="grades-3-5">
+										<input type="radio" name="grade-band-level" ng-model="gradeBand" ng-value='"Grades 6-8"' value="grades-6-8">
+										<input type="radio" name="grade-band-level" ng-model="gradeBand" ng-value='"Grades 9-12"' value="grades-9-12">
 									</div>
 									<div class="radio-dial outer">
-										<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/lesson-content-three_option_dial.svg'); ?>
+										<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/grade_band_four_option_dial.svg'); ?>
+									</div>
+								</div>
+								<div class="dial-ui-set" label="Technology Proficiency Level">
+									<div class="content-dial">
+										<h5 ng-hide="show==26 || show==27 || show==28">What's your level of <strong>proficiency with technology</strong>? (This is not a trick question!)</h5>
+										<p class="technology-proficiency-color" ng-show="show==26">I'm a beginner so I'll need products with a lighter lift. </p>
+										<p class="technology-proficiency-color" ng-show="show==27">I'm still learning, but I'm pretty good with technology.</p>
+										<p class="technology-proficiency-color" ng-show="show==28">I'm a pro, so give me your best!</p>
+										<input type="radio" name="technology-proficiency" ng-model="technologyProficiency" ng-value='"Easy Proficiency"' value="easy-technology-Proficiency">
+										<input type="radio" name="technology-proficiency" ng-model="technologyProficiency"  ng-value='"Intermediate Proficiency"' value="intermediate-technology-Proficiency">
+										<input type="radio" name="technology-proficiency" ng-model="technologyProficiency"  ng-value='"Advanced Proficiency"' value="advanced-technology-Proficiency">
+									</div>
+									<div class="radio-dial outer">
+										<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/technology-proficiency-three_option_dial.svg'); ?>
 									</div>
 								</div>
 							</div>
 
 							<div class="dial-ui-set-container slide" ng-show="isSet(2)">
 								<p><strong>3</strong><span class="caption"> / 5</span></p>
-								<div class="dial-ui-set">
+								<div class="dial-ui-set" label="Subject">
 									<div class="content-dial">
-										<h5 ng-hide="classroomSelected==true"><strong>Transform classroom learning</strong> with immersive solutions that break the mold, build engagement, and make a lasting impact on student learning.</h5>
-										<p class="classroom-transformation-color" ng-show="classroomTransformationSolutions == 'SMART Board/SMART Learning Suite'"><strong>SMART’s range of interactive flat panels and accompanying software</strong> support dynamic, student-centered learning that sparks interaction and engagement.</p>
-										<p class="classroom-transformation-color" ng-show="classroomTransformationSolutions == 'Active Learning Spaces'">Physical movement and activity helps students learn. Explore the <strong>best-in-class active learning solutions</strong> that get students moving and thinking at the same time.</p>
-										<p class="classroom-transformation-color" ng-show="classroomTransformationSolutions == 'Evospaces (furniture)'">An <strong>evoSpace is a unique classroom environment</strong> that supports and represents every aspect of 21st century learning — we like to call it the complete thought.</p>
-										<input type="radio" name="classroom-transformation-solutions" ng-model="classroomTransformationSolutions" ng-value='"SMART Board/SMART Learning Suite"' value="smartboard-classroom-solutions">
-										<input type="radio" name="classroom-transformation-solutions" ng-model="classroomTransformationSolutions" ng-value='"Active Learning Spaces"' value="active-spaces-classroom-solutions">
-										<input type="radio" name="classroom-transformation-solutions" ng-model="classroomTransformationSolutions" ng-value='"Evospaces (furniture)"' value="evospaces-classroom-solutions">
+										<h5 ng-hide="subjectSelected==true"><strong>Choose the subject</strong> that's most relevant for you.</h5>
+										<p class="subject-matter-color" ng-bind-html="subjectTitle"></p>
+										<input type="checkbox" name="subject[ela]" ng-model="subjectMatterEla" ng-value='"ELA"' value="ela">
+										<input type="checkbox" name="subject[engineering]" ng-model="subjectMatterEngineering" ng-value='"Engineering"' value="engineering">
+										<input type="checkbox" name="subject[english]" ng-model="subjectMatterEnglish" ng-value='"English"' value="english">
+										<input type="checkbox" name="subject[math]" ng-model="subjectMatterMath" ng-value='"Math"' value="math">
+										<input type="checkbox" name="subject[science]" ng-model="subjectMatterScience" ng-value='"Science"' value="science">
+										<input type="checkbox" name="subject[socialStudies]" ng-model="subjectMatterSocialStudies" ng-value='"Social Studies"' value="social-studies">
+										<input type="checkbox" name="subject[specialEducation]" ng-model="subjectMatterSpecialEducation" ng-value='"Special Education"' value="special-education">
+										<input type="checkbox" name="subject[stem]" ng-model="subjectMatterStem" ng-value='"STEM"' value="stem">
 									</div>
 									<div class="radio-dial outer">
-										<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/classroom-transformation-three_option_dial.svg'); ?>
+										<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/subject_matter_eight_option_dial.svg'); ?>
 									</div>
 								</div>
-								<div class="dial-ui-set">
+								<div class="dial-ui-set" label="Area of Interest">
 									<div class="content-dial">
 										<h5 ng-hide="stemSelected==true"><strong>Explore the STEM solutions</strong> that help students practice future-ready skills now, and prepare them for success in college and career.</h5>
 										<p class="stem-solutions-color" ng-show="stemSolutions == 'General STEM'">Take a look at the classroom solutions that open up a world of <strong>STEM for students</strong> and make a lasting impact on learning. </p>
@@ -329,55 +334,50 @@ get_header();
 
 							<div class="dial-ui-set-container slide" ng-show="isSet(3)">
 								<p><strong>4</strong><span class="caption"> / 5</span></p>
-								<div class="dial-ui-set">
+								<div class="dial-ui-set" label="Lesson Content">
 									<div class="content-dial">
-										<h5 ng-hide="gradeSelected==true"><strong>Choose the grade band</strong> that best represents your student demographic. This will help us find the right solution for you.</h5>
-										<p class="grade-band-color" ng-show="gradeBand == 'Grades K-2'"><strong>K-2</strong> best fits the solution I'm looking for.</p>
-										<p class="grade-band-color" ng-show="gradeBand == 'Grades 3-5'"><strong>Grades 3-5</strong> best fits the solution I'm looking for.</p>
-										<p class="grade-band-color" ng-show="gradeBand == 'Grades 6-8'"><strong>Grades 6-8</strong> best fits the solution I'm looking for.</p>
-										<p class="grade-band-color" ng-show="gradeBand == 'Grades 9-12'"><strong>Grades 9-12</strong> best fits the solution I'm looking for.</p>
-										<input type="radio" name="grade-band-level" ng-model="gradeBand" ng-value='"Grades K-2"' value="grades-k-2">
-										<input type="radio" name="grade-band-level" ng-model="gradeBand" ng-value='"Grades 3-5"' value="grades-3-5">
-										<input type="radio" name="grade-band-level" ng-model="gradeBand" ng-value='"Grades 6-8"' value="grades-6-8">
-										<input type="radio" name="grade-band-level" ng-model="gradeBand" ng-value='"Grades 9-12"' value="grades-9-12">
+										<h5 ng-hide="lessonContentSelected==true">From project-based learning, to custom curriculum and do-anywhere activities, there's a wealth of <strong>lesson content solutions</strong> for you to leverage. Choose an option!</h5>
+										<p class="content-creation-color" ng-show="lessonContentSolutions == 'Project-Based Learning'">Explore iBlocks, our technology-centric <strong>project-based learning (PBL)</strong> challenges that guide students through the journey of the Engineering Design Process.</p>
+										<p class="content-creation-color" ng-show="lessonContentSolutions == 'Customized Content Creation'">Take your iBlock up a notch with our options to <strong>customize content,</strong> subject matter, scope, and sequence. </p>
+										<p class="content-creation-color" ng-show="lessonContentSolutions == 'Educational Resources'">Access our ever-growing <strong>library of lesson resources and inspiration,</strong> and download templates, files, worksheets, and more.</p>
+										<input type="radio" name="lesson-content-solutions" ng-model="lessonContentSolutions" ng-value='"Project-Based Learning"' value="project-based-learning-lesson-content">
+										<input type="radio" name="lesson-content-solutions" ng-model="lessonContentSolutions" ng-value='"Customized Content Creation"' value="customized-content-lesson-content">
+										<input type="radio" name="lesson-content-solutions" ng-model="lessonContentSolutions" ng-value='"Educational Resources"' value="educational-resources-lesson-content">
 									</div>
 									<div class="radio-dial outer">
-										<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/grade_band_four_option_dial.svg'); ?>
+										<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/lesson-content-three_option_dial.svg'); ?>
 									</div>
 								</div>
-								<div class="dial-ui-set">
+								<div class="dial-ui-set" label="Professional Development">
 									<div class="content-dial">
-										<h5 ng-hide="subjectSelected==true"><strong>Choose the subject</strong> that's most relevant for you.</h5>
-										<p class="subject-matter-color" ng-bind-html="subjectTitle"></p>
-										<input type="checkbox" name="subject[ela]" ng-model="subjectMatterEla" ng-value='"ELA"' value="ela">
-										<input type="checkbox" name="subject[engineering]" ng-model="subjectMatterEngineering" ng-value='"Engineering"' value="engineering">
-										<input type="checkbox" name="subject[english]" ng-model="subjectMatterEnglish" ng-value='"English"' value="english">
-										<input type="checkbox" name="subject[math]" ng-model="subjectMatterMath" ng-value='"Math"' value="math">
-										<input type="checkbox" name="subject[science]" ng-model="subjectMatterScience" ng-value='"Science"' value="science">
-										<input type="checkbox" name="subject[socialStudies]" ng-model="subjectMatterSocialStudies" ng-value='"Social Studies"' value="social-studies">
-										<input type="checkbox" name="subject[specialEducation]" ng-model="subjectMatterSpecialEducation" ng-value='"Special Education"' value="special-education">
-										<input type="checkbox" name="subject[stem]" ng-model="subjectMatterStem" ng-value='"STEM"' value="stem">
+										<h5 ng-hide="pdSelected==true"><strong>Professional development</strong> is essential for building capacity and confidence in educators. Choose the PD solution that best fits your needs.</h5>
+										<p class="professional-development-color" ng-show="professionalDevelopmentSolutions == 'Mentoring PD'">Work one-on-one with a Teq PD Specialist and get <strong>focused mentoring</strong> to help you become your most effective. Available as in-person and/or virtual PD.</p>
+										<p class="professional-development-color" ng-show="professionalDevelopmentSolutions == 'Coaching PD'">Assemble a small group of educators for <strong>specialized coaching</strong> around your goals and needs. Available as in-person and/or virtual PD.</p>
+										<p class="professional-development-color" ng-show="professionalDevelopmentSolutions == 'Online (OTIS) PD'">Utilize <strong>OTIS for educators</strong>, our virtual PD platform, for relevant and on-demand training that connects technology and instruction.</p>
+										<input type="radio" name="professinal-development-solutions" ng-model="professionalDevelopmentSolutions" ng-value='"Mentoring PD"' id="mentoring-pd" value="mentoring-pd">
+										<input type="radio" name="professinal-development-solutions" ng-model="professionalDevelopmentSolutions" ng-value='"Coaching PD"' id="coaching-pd" value="coaching-pd">
+										<input type="radio" name="professinal-development-solutions" ng-model="professionalDevelopmentSolutions" ng-value='"Online (OTIS) PD"' id="online-pd" value="online-pd">
 									</div>
-									<div class="radio-dial outer">
-										<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/subject_matter_eight_option_dial.svg'); ?>
+									<div class="radio-dial professional-development outer">
+										<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/pd-three_option_dial.svg'); ?>
 									</div>
 								</div>
 							</div>
 
 							<div class="dial-ui-set-container slide" ng-show="isSet(4)">
 								<p><strong>5</strong><span class="caption"> / 5</span></p>
-								<div class="dial-ui-set">
+								<div class="dial-ui-set" label="Environment	">
 									<div class="content-dial">
-										<h5 ng-hide="show==26 || show==27 || show==28">What's your level of <strong>proficiency with technology</strong>? (This is not a trick question!)</h5>
-										<p class="technology-proficiency-color" ng-show="show==26">I'm a beginner so I'll need products with a lighter lift. </p>
-										<p class="technology-proficiency-color" ng-show="show==27">I'm still learning, but I'm pretty good with technology.</p>
-										<p class="technology-proficiency-color" ng-show="show==28">I'm a pro, so give me your best!</p>
-										<input type="radio" name="technology-proficiency" ng-model="technologyProficiency" ng-value='"Easy Proficiency"' value="easy-technology-Proficiency">
-										<input type="radio" name="technology-proficiency" ng-model="technologyProficiency"  ng-value='"Intermediate Proficiency"' value="intermediate-technology-Proficiency">
-										<input type="radio" name="technology-proficiency" ng-model="technologyProficiency"  ng-value='"Advanced Proficiency"' value="advanced-technology-Proficiency">
+										<h5 ng-hide="classroomSelected==true"><strong>Transform your environment</strong> with immersive solutions that break the mold, build engagement, and make a lasting impact on student learning.</h5>
+										<p class="classroom-transformation-color" ng-show="classroomTransformationSolutions == 'SMART Board/SMART Learning Suite'"><strong>SMART’s range of interactive flat panels and accompanying software</strong> support dynamic, student-centered learning that sparks interaction and engagement.</p>
+										<p class="classroom-transformation-color" ng-show="classroomTransformationSolutions == 'Active Learning Spaces'">Physical movement and activity helps students learn. Explore the <strong>best-in-class active learning solutions</strong> that get students moving and thinking at the same time.</p>
+										<p class="classroom-transformation-color" ng-show="classroomTransformationSolutions == 'Evospaces (furniture)'">An <strong>evoSpace is a unique classroom environment</strong> that supports and represents every aspect of 21st century learning — we like to call it the complete thought.</p>
+										<input type="radio" name="classroom-transformation-solutions" ng-model="classroomTransformationSolutions" ng-value='"SMART Board/SMART Learning Suite"' value="smartboard-classroom-solutions">
+										<input type="radio" name="classroom-transformation-solutions" ng-model="classroomTransformationSolutions" ng-value='"Active Learning Spaces"' value="active-spaces-classroom-solutions">
+										<input type="radio" name="classroom-transformation-solutions" ng-model="classroomTransformationSolutions" ng-value='"Evospaces (furniture)"' value="evospaces-classroom-solutions">
 									</div>
 									<div class="radio-dial outer">
-										<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/technology-proficiency-three_option_dial.svg'); ?>
+										<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/classroom-transformation-three_option_dial.svg'); ?>
 									</div>
 								</div>
 								<div class="dial-ui-set instructions" ng-if="pdSelected==true && lessonContentSelected==true && classroomSelected==true && stemSelected==true && gradeSelected==true &&  proficiencySelected==true">

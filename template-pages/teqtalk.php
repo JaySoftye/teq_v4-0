@@ -63,17 +63,17 @@ get_header();
 							if ( $wp_query->have_posts() ) :
 								while ($the_query -> have_posts()) :
 									$the_query -> the_post();
-									$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+									$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
 									$blog_title = esc_html( get_the_title() );
 						?>
 						<article class="column is-4 post-card">
 							<div class="post-card-body featured-image-background">
 								<a href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>"></a>
-								
-								<?php 
+
+								<?php
 									if ( has_post_thumbnail() ) {
 										echo '<img src="' . esc_url($featured_img_url) . '" alt="' . $blog_title . '" />';
-									} else { 
+									} else {
 										echo '<img src="' . get_template_directory_uri() . '/inc/images/default-featured-image.jpg" alt="' . $blog_title . '" />';
 									} ?>
 
@@ -84,7 +84,7 @@ get_header();
 									<?php if(has_excerpt( $some_post_id )) { ?>
 										<p class="medium"><?php echo get_the_excerpt(); ?> <a href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>">[...]</a></p>
 									<?php } ?>
-									<div class="level padding-top">
+									<div class="level">
 										<div class="level-left">
 											<p>
 												<a class="relative-position strong" href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>">Read Article <span class="arrow"></span></a>

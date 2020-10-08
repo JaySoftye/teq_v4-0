@@ -70,7 +70,7 @@ body div.navbar-menu.secondary-browse-menu {
 body div.navbar-menu.secondary-browse-menu ul.main-menu {
 	display: none;
 }
-body.browse div.navbar-menu.secondary-browse-menu ul.main-menu {
+body.browse div.navbar-menu.secondary-browse-menu ul.main-menu, body.filter-search-page div.navbar-menu.secondary-browse-menu ul.main-menu {
 	display: flex;
 	margin-right: 21px;
 }
@@ -1094,6 +1094,7 @@ Demo Form from Hubspot
 .product-demo-form {
 	position: relative;
 	z-index: 100;
+	margin: 0 auto;
 	background: transparent;
 }
 .product-demo-form a.delete.close-form {
@@ -1207,7 +1208,7 @@ Heada rhymes with chedda for submenu
 }
 
 .pre-content-container .image-cover img {
-	width: calc(800px + 15vw);
+	width: calc(800px + 24vh - 12vw);
 	height: auto;
 	display: block;
 	margin: 0 auto;
@@ -1232,7 +1233,8 @@ Heada rhymes with chedda for submenu
 }
 
 .pre-content-container div.column h1.title-text {
-	font-size: 2.1rem;
+	max-width: 75%;
+	font-size: calc(2.1rem + 1.5vh - 1.5vw);
 }
 
 .pre-content-container div.column h2 {

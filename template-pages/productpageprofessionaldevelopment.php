@@ -16,8 +16,8 @@ get_header();
 				// IF THE PAGE IS THE PD BIO PAGE DISABLE THIS
 				$page_title = get_the_title( get_the_ID() );
 				if ($page_title === 'Professional Development Team Biographies') {
-					
-			?> 
+
+			?>
 				<section class="container padding">
 					<div class="columns is-centered">
 						<div class="column is-full">
@@ -140,7 +140,7 @@ get_header();
 						<div class="column is-8 is-offset-2 padding-bottom">
 							<h1><strong>Drive student achievement, and career readiness.</strong></h1>
 							<h5><a href="https://www.iblocks.com"><strong>Introducing iBlocks</strong></a>, a cross-curricular, holistic learning approach by structuring your learning content with a primary and secondary subject focus. But because iBlocks are also customizable and expandable, these foci can change to suit your school’s needs, should you choose to tailor your iBlock.</h5>
-							<p class="has-text-centered"><img class="full-width" src="/wp-content/uploads/2020/02/project-based-learning-iblocks-image.jpg" /></p>
+							<p class="has-text-centered"><img class="three-quarters-width" src="/wp-content/uploads/2020/02/project-based-learning-iblocks-image.jpg" /></p>
 						</div>
 					</div>
 				</div>
@@ -151,11 +151,10 @@ get_header();
 				<div id="otis-pd-course" class="otis-pd-course-container">
 					<div class="before-course-content">
 						<div class="container">
-							<div class="columns">
-								<div class="column is-6 is-offset-3">
+							<div class="columns is-centered">
+								<div class="column is-6-desktop is-8-tablet">
 									<h1><strong>We Help Educators Succeed!</strong></h1>
-									<h5><strong>Boost your classroom technology skills to engage your students and improve instruction with Teq’s Online Professional Development platform, now known as OTIS.</strong></h5>
-									<h6><u>SCROLL DOWN</u> for a sample course.</h6>
+									<p class="hide-laptop">Boost your classroom technology skills to engage your students and improve instruction with Teq’s Online Professional Development platform, now known as <strong>OTIS for educators.</strong> <u>SCROLL DOWN</u> for a sample course.</p>
 								</div>
 							</div>
 						</div>
@@ -175,11 +174,10 @@ get_header();
 				<div id="otis-pd-course" class="otis-pd-course-container">
 					<div class="before-course-content">
 						<div class="container">
-							<div class="columns">
-								<div class="column is-6 is-offset-3">
-									<h1><strong>We Help Educators Succeed!</strong></h1>
-									<h5><strong>Boost your classroom technology skills to engage your students and improve instruction with Teq’s Online Professional Development platform, now known as OTIS.</strong></h5>
-									<h6><u>SCROLL DOWN</u> for a sample course.</h6>
+							<div class="columns is-centered">
+								<div class="column is-6-desktop is-8-tablet">
+									<h1><strong>We Help Educators Succeed!</strong></h1>
+									<p class="hide-laptop">Boost your classroom technology skills to engage your students and improve instruction with Teq’s Online Professional Development platform, now known as <strong>OTIS for educators.</strong> <u>SCROLL DOWN</u> for a sample course.</p>
 								</div>
 							</div>
 						</div>
@@ -207,7 +205,7 @@ get_header();
 						<div class="column is-8 is-offset-2 padding-bottom">
 							<h1><strong>Drive student achievement, and career readiness.</strong></h1>
 							<h5><a href="https://www.iblocks.com"><strong>Introducing iBlocks</strong></a>, a cross-curricular, holistic learning approach by structuring your learning content with a primary and secondary subject focus. But because iBlocks are also customizable and expandable, these foci can change to suit your school’s needs, should you choose to tailor your iBlock.</h5>
-							<p class="has-text-centered"><img class="full-width" src="/wp-content/uploads/2020/02/project-based-learning-iblocks-image.jpg" /></p>
+							<p class="has-text-centered"><img class="three-quarters-width" src="/wp-content/uploads/2020/02/project-based-learning-iblocks-image.jpg" /></p>
 						</div>
 					</div>
 				</div>

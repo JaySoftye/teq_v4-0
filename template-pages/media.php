@@ -42,7 +42,7 @@ get_header();
 
 			<div class="page-content padding-bottom">
 				<div class="container">
-					<div class="columns is-vcentered is-desktop is-multiline post-card-container">
+					<div class="columns is-centered is-desktop is-multiline post-card-container">
 
 						<?php
 							//get the current page
@@ -71,7 +71,7 @@ get_header();
 						<article class="column is-3 post-card">
 							<div class="post-card-body">
 								<div class="post-details">
-									<h4>
+									<h4 class="title">
 										<a class="strong" href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>"><?php the_title(); ?></a>
 									</h4>
 									<?php if(has_excerpt( $some_post_id )) { ?>
@@ -90,7 +90,7 @@ get_header();
 										<?php } ?>
 									<?php } ?>
 									</p>
-									<div class="level padding-top">
+									<div class="level">
 										<div class="level-left">
 											<p>
 												<a class="relative-position strong" href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>">Read Article <span class="arrow"></span></a>

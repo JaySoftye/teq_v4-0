@@ -26,10 +26,11 @@
 				// DISPLAY BACK BUTTON LINK BASED ON TYPE OF PRODUCT
 				if(isset($_GET['edc'])) { ?>
 				<a class="button no-shadow rounded small-text" href="/cdw-g-products/cdw-g-stem-products">Back to Products</a>
+				<button class="button no-shadow rounded caption" g-model="hidden" ng-click="hidden=!hidden">Need a Quote?</button>
 			<?php } elseif(isset($_GET['famis'])) { ?>
 				<a class="button no-shadow rounded small-text" href="/nycdoe/#famis-products-container">Back to Products</a>
+				<button class="button no-shadow rounded caption" g-model="hidden" ng-click="hidden=!hidden">Need a Quote?</button>
 			<?php } ?>
-			<button class="button no-shadow rounded caption" g-model="hidden" ng-click="hidden=!hidden">Need a Quote?</button>
 			<a class="button no-shadow rounded caption" href="javascript:window.print()" data-tooltip="Tooltip Text">PRINT</a>
 
 			<div class="columns" ng-show="hidden">
