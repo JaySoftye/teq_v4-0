@@ -1133,6 +1133,66 @@ Demo Form from Hubspot
 	font-size: 1rem;
 	cursor: pointer;
 }
+/*
+PRODUCT FORM from Hubspot
+*/
+.product-form {
+	position: relative;
+	margin: 21px calc(21px + 3vw);
+}
+.product-form form {
+	overflow: auto;
+	padding: 24px calc(12px + 1.5vw);
+	background-color: #ffffff;
+	border-radius: 0;
+	box-shadow: 21px 21px 60px rgba(12,12,12,0.48), -21px -21px 63px rgba(12,12,12,0.48);
+}
+.product-form form .field .input, .product-form form .field .input > input {
+	width: 100%;
+}
+.product-form form .field .input, .product-form form .field .input:hover, .product-form form .field .input:focus {
+	height: calc(2.4rem + 3px);
+	width: 100%;
+	padding: 6px 12px;
+	border: 1px solid rgb(150,150,150);
+	border-radius: 0;
+	outline: none;
+}
+.product-form form .field .input > input, .product-form form .field .input > select {
+	width: 100%;
+	margin: 0 0;
+	padding: 0 0;
+	background: transparent;
+	border: none;
+	border-radius: 0;
+}
+.product-form form .field label > span {
+	font-weight: 400;
+	font-size: .75rem;
+}
+.product-form form .field > ul.no-list.hs-error-msgs.inputs-list li > label.hs-error-msg {
+  font-size: .75rem;
+  color: red;
+}
+.product-form form .hs-submit input[type=submit].hs-button {
+	height: calc(2.4rem + 3px);
+	width: auto;
+  margin: 18px auto 0 0;
+	padding-left: calc(1.5em - 1px);
+  padding-right: calc(1.5em - 1px);
+	background-color: #000000;
+	background-image: none;
+	border: none;
+	box-shadow: none;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 1rem;
+	color: #FFFFFF;
+	transition: all ease .24s;
+}
+.product-form form .hs-submit input[type=submit].hs-button:hover {
+	background-color: rgb(0,178,227);
+}
 
 /*
 Heada rhymes with chedda for submenu
@@ -1266,10 +1326,11 @@ div.main-page-content-container div.targetScrollContent a.video-link span {
 
 div.main-page-content-container div.targetScrollContent a.video-link::before{
 	content: '';
-	height: 3.6rem;
-	width: 3.6rem;
-	position: absolute;
-	top: -3.6rem;
+	height: 90px;
+	width: 90px;
+	display: block;
+	position: relative;
+	top: -21px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 24.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 50 50' style='enable-background:new 0 0 50 50;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23FFFFFF;%7D%0A%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M25,1.239C11.898,1.239,1.239,11.898,1.239,25S11.898,48.761,25,48.761S48.761,38.102,48.761,25 S38.102,1.239,25,1.239z M44.723,25c0,10.875-8.848,19.723-19.723,19.723C14.125,44.723,5.277,35.875,5.277,25 C5.277,14.125,14.125,5.277,25,5.277C35.875,5.277,44.723,14.125,44.723,25z'/%3E%3Cpath class='st0' d='M19.499,34.404L37.336,25l-17.837-9.403V34.404z M28.676,25l-5.139,2.709v-5.418L28.676,25z'/%3E%3C/g%3E%3C/svg%3E%0A");

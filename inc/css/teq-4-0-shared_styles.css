@@ -1058,11 +1058,11 @@ TOOLTIPS
 }
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 93%;
+  width: calc(100% + 12vw);
   position: absolute;
   z-index: 45;
   bottom: 100%;
-  left: 0;
+  left: -6vw;
   background: #ffffff;
   border-radius: 6px;
   box-shadow: 21px 21px 42px #c9cacb, -21px -21px 42px #ffffff;
@@ -1139,6 +1139,7 @@ div.hbspot-form form > div {
 	width: 50% !important;
 }
 div.hbspt-form form div.input {
+  height: 100%;
   display: block;
   padding: 0 0;
   background: transparent;
@@ -1176,6 +1177,7 @@ div.hbspt-form form div.hs-submit input[type=submit].hs-button {
 	margin-top: 12px;
 	border: 2.1px solid black;
 	background-color: black;
+  background-image: none;
 	color: white;
 }
 div.hbspt-form form div.hs-submit input[type=submit].hs-button:hover {

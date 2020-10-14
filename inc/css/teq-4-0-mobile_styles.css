@@ -270,6 +270,10 @@
   .filter-results .product-item > a div.image-link {
     padding: .75rem 2.4rem;
   }
+  .tooltip .tooltiptext {
+    width: calc(100% + 6vw);
+    left: -3vw;
+  }
 }
 
 @media (max-width: 525px) {
@@ -303,6 +307,9 @@
   }
   header.site-header div.main-dropdown-menu-container .main-dropdown-menu.cols {
     column-count: 1;
+  }
+  .tooltip .tooltiptext {
+    width: 100%;
   }
 }
 

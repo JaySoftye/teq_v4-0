@@ -282,7 +282,7 @@ function custom_meta_html( $post) {
 		<p class="wp-block-html">
 			<label for="sub_header_meta_content"><?php _e( 'Sub Header Content', 'text-domain' ); ?></label>
 			<br>
-			<textarea name="sub_header_meta_content" id="sub_header_meta_content" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'sub_header_meta_content' ); ?></textarea>
+			<textarea name="sub_header_meta_content" id="sub_header_meta_content" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="width: 100%; overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'sub_header_meta_content' ); ?></textarea>
 		</p>
 		<br />
 		<hr />
@@ -290,7 +290,7 @@ function custom_meta_html( $post) {
 		<p class="wp-block-html">
 			<label for="header_info_meta_content"><?php _e( 'Header Info Content', 'text-domain' ); ?></label>
 			<br>
-			<textarea name="header_info_meta_content" id="header_info_meta_content" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'header_info_meta_content' ); ?></textarea>
+			<textarea name="header_info_meta_content" id="header_info_meta_content" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="width: 100%; overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'header_info_meta_content' ); ?></textarea>
 		</p>
 		<br />
 		<hr />
@@ -298,7 +298,7 @@ function custom_meta_html( $post) {
 		<p class="wp-block-html">
 			<label for="pd_meta_content"><?php _e( 'Online OTIS PD Content', 'text-domain' ); ?></label>
 			<br>
-			<textarea name="pd_meta_content" id="pd_meta_content" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'pd_meta_content' ); ?></textarea>
+			<textarea name="pd_meta_content" id="pd_meta_content" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="width: 100%; overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'pd_meta_content' ); ?></textarea>
 		</p>
 		<br />
 		<hr />
@@ -306,7 +306,7 @@ function custom_meta_html( $post) {
 		<p class="wp-block-html">
 			<label for="pathway_meta_content"><?php _e( 'iBlock Pathway Content', 'text-domain' ); ?></label>
 			<br>
-			<textarea name="pathway_meta_content" id="pathway_meta_content" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'pathway_meta_content' ); ?></textarea>
+			<textarea name="pathway_meta_content" id="pathway_meta_content" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="width: 100%; overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'pathway_meta_content' ); ?></textarea>
 		</p>
 		<br />
 		<br />
@@ -314,7 +314,7 @@ function custom_meta_html( $post) {
 		<p class="wp-block-html">
 			<label for="tabs_meta_content"><?php _e( 'Page Tabs Content', 'text-domain' ); ?></label>
 			<br>
-			<textarea name="tabs_meta_content" id="tabs_meta_content" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'tabs_meta_content' ); ?></textarea>
+			<textarea name="tabs_meta_content" id="tabs_meta_content" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="width: 100%; overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'tabs_meta_content' ); ?></textarea>
 		</p>
 		<br />
 		<br />

@@ -31,39 +31,17 @@ get_header();
 					$sub_header_print_value = get_post_meta(get_the_ID(),'sub_header_meta_content',true);
 						echo html_entity_decode($sub_header_print_value);
 					}
+
+					/** ADD FOR TOP SLIDE DOWN ELEMENT
+					* <section class="product-demo-form" ng-show="demoFormCollapsed">
+					*	<div class="columns">
+					* <div class="column">
+					* <a class="delete is-large close-form" href ng-model="demoFormCollapsed" ng-click="demoFormCollapsed=!demoFormCollapsed"></a>
+					* </div>
+					* </div>
+					* </section>
+					*/
 				?>
-				<section class="product-demo-form" ng-show="demoFormCollapsed">
-					<div class="columns">
-						<div class="column">
-							<a class="delete is-large close-form" href ng-model="demoFormCollapsed" ng-click="demoFormCollapsed=!demoFormCollapsed"></a>
-							<p class="has-text-centered">For more info or to <strong>request a product demo,</strong> simply fill out the form below and a Teq Representative will reach out to you directly.</p>
-							<!--[if lte IE 8]>
-							<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-							<![endif]-->
-							<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-							<script>
-								hbspt.forms.create({
-									portalId: "182596",
-									formId: "7066d3c7-0d82-4dca-8b83-48fe09525649",
-									submitButtonClass: '',
-		    					inlineMessage: 'Request Submitted, Thanks.',
-		    						onFormSubmit: function($form){
-
-											// GRAB THE PAGE TITLE AND SET 'BLANK' HIDDEN INPUT FIELD AS TITLE OF THE PAGE
-											var title = $(document).find("title").text();
-											$('input[name="blank"]').val(title)
-
-											// SET REDIRECT WITH FORM DATA IN URL
-		        					setTimeout( function() {
-		            				var formData = $form.serialize();
-		            				window.location = "/thankyouforyourinterest?" + formData;
-		        					}, 250 ); // Redirects to url with query string data from form fields after 250 milliseconds.
-		    						}
-								});
-							</script>
-						</div>
-					</div>
-				</section>
 			</nav>
 			<section ng-show="isSet(1)">
 				<div class="container padding-top">
@@ -84,10 +62,48 @@ get_header();
 						?>
 					</div>
 				</div>
+				<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
 
 				<?php
 					// Grab the main contents for the page
 					the_content();
+				?>
+
+				<script>
+					var productForm = document.getElementById("productForm");
+					/**
+						* TARGET HTML ELEMENT WITH ID 'productForm'
+						* If it isn't "undefined" and it isn't "null", then it exists.
+						* IF THE ELEMENT EXISTS Create the hbspot form
+						* Append hbspot form in 'Target' HTML element with ID 'productForm'
+						* Grab page title and set input field - REDIRECT TO THANK YOU PAGE
+					*/
+					if(typeof(productForm) != 'undefined' && productForm != null){
+						hbspt.forms.create({
+							portalId: "182596",
+							formId: "7066d3c7-0d82-4dca-8b83-48fe09525649",
+							target: "#productForm",
+							submitButtonClass: '',
+							inlineMessage: 'Request Submitted, Thanks.',
+
+							onFormSubmit: function($form) {
+
+								// GRAB THE PAGE TITLE AND SET 'BLANK' HIDDEN INPUT FIELD AS TITLE OF THE PAGE
+								var title = document.getElementsByTagName("title")[0].innerHTML;
+								$('input[name="blank"]').val(title)
+
+								// SET REDIRECT WITH FORM DATA IN URL
+								setTimeout( function() {
+									var formData = $form.serialize();
+									window.location = "/thankyouforyourinterest?" + formData;
+								}, 250 ); // Redirects to url with query string data from form fields after 250 milliseconds.
+							}
+
+						});
+				}
+				</script>
+
+				<?php
 
 					// Grab the iBlock Pathway content if it exists
 					if ( !empty( $pathway_content) ) {
