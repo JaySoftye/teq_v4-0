@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name:Page with Product Filter List
+ * Template Name: Page with Product Filter List
  * Regular Content Template
  * with Additional Product and Service Filter Form on the Bottom
  * @package Teq_v4.0
@@ -28,7 +28,9 @@ get_header();
 					<div class="filter-container showHideElement">
 						<form class="list-filters">
 							<div class="filter-item non-filter">
-							<label>Product Filters <strong class="show-hide-element-trigger letter-spacing">[?]</strong></label>
+								<label>
+									Product Filters <strong class="show-hide-element-trigger letter-spacing">[?]</strong>
+								</label>
 							</div>
 							<div class="filter-item" ng-controller="gradeLevelFilter">
 								<select class="product-filter"  class="product-filter"  id="selectedGradeLevel" name="selectedGradeLevel" ng-model="selectedGradeLevel" ng-options="item.id as item.name for item in items track by item.id">
@@ -51,7 +53,7 @@ get_header();
 								</select>
 							</div>
 							<div class="filter-item non-filter">
-								<input id="reset-filters" type="reset" value="Reset Filters">
+								<input class="reset-filters" type="reset" value="Reset Filters">
 							</div>
 						</form>
 						<p class="show-hide-element-content">Technology proficiency ranks the complexity level for teachers as they implement the product into their instruction. Curriculum versatility indicates products with a higher versatility, meaning they can be used in multiple subject areas or grade levels compared to products that are more subject and/or grade specific.</p>
@@ -84,9 +86,13 @@ get_header();
 							$the_query = new WP_Query( $args );
 								while ($the_query -> have_posts()) : $the_query -> the_post();
 									$custom_url = get_post_meta( $post->ID, 'custom_url_meta_content', true );
+
+									// GET ALL THE CUSTON TAXONOMIES FOR THE Custom Post Type
+									$taxonomies = array('topics', 'grades', 'proficiency', 'curriculum');
+									$terms = wp_get_post_terms( get_the_ID(), $taxonomies, [ 'fields' => 'id=>slug'] );
 							?>
 
-								<article class="<?php $terms = get_the_terms( $post->ID, 'topics' ); foreach($terms as $term) { echo $term -> slug . ' '; } ?>column is-4-desktop is-6-tablet product-item">
+								<article class="<?php echo the_title() . ' '; echo implode( ' ', $terms ); ?> column is-4-desktop is-6-tablet product-item">
 									<a class="product-container" href="<?php if(empty( $custom_url)) { the_permalink(); } else { echo get_post_meta( $post->ID, 'custom_url_meta_content', true ); } ?>">
 										<div class="product-content">
 											<h3>

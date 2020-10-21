@@ -58,7 +58,7 @@ get_header();
 							<span class="down-arrow"></span>
 						</div>
 						<div class="filter-item non-filter">
-							<input id="reset-filters" type="reset" value="Reset Filters">
+							<input class="reset-filters" type="reset" value="Reset Filters">
 						</div>
 					</form>
 				</div>
@@ -89,9 +89,13 @@ get_header();
 							$the_query = new WP_Query( $args );
 								while ($the_query -> have_posts()) : $the_query -> the_post();
 									$custom_url = get_post_meta( $post->ID, 'custom_url_meta_content', true );
+
+									// GET ALL THE CUSTON TAXONOMIES FOR THE Custom Post Type
+									$taxonomies = array('topics', 'grades', 'proficiency', 'curriculum');
+									$terms = wp_get_post_terms( get_the_ID(), $taxonomies, [ 'fields' => 'id=>slug'] );
 							?>
 
-							<article class="<?php $terms = get_the_terms( $post->ID, 'topics' ); foreach($terms as $term) { echo $term -> slug . ' '; } ?>column is-4-desktop is-6-tablet product-item">
+							<article class="<?php echo the_title() . ' '; echo implode( ' ', $terms ); ?> column is-4-desktop is-6-tablet product-item">
 								<a class="product-container" href="<?php if(empty( $custom_url)) { the_permalink(); } else { echo get_post_meta( $post->ID, 'custom_url_meta_content', true ); } ?>">
 									<div class="product-content">
 										<h3>

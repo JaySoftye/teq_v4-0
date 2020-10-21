@@ -139,6 +139,10 @@
   display: block;
 }
 
+.slide-content h5 {
+  font-size: calc(1.25rem - .5vh);
+}
+
 .info-container.end .slide-content {
   left: 21vw;
   z-index: auto;

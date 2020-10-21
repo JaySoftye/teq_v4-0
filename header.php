@@ -55,13 +55,13 @@
 			<div class="navbar-menu">
 				<ul class="main-menu navbar-start primary-menu" role="menu">
 					<li class="navbar-item browse-nav-item">
-						<a href="/browse">Browse<span class="condensed-text">our products</span></a>
+						<a href="/browse">Browse</a>
 					</li>
 					<li class="navbar-item create-nav-item">
-						<a href="/create-your-solution">Create<span class="condensed-text">your solution</span></a>
+						<a href="/create-your-solution">Create</a>
 					</li>
 					<li class="navbar-item evolve-nav-item">
-						<a href="/evolve">Evolve<span class="condensed-text"></span></a>
+						<a href="/evolve">Evolve</a>
 					</li>
 				</ul>
 			</div>
@@ -330,35 +330,9 @@
 					<div class="column is-offset-1">
 
 						<div class="filter-container showHideElement">
-
 							<h4>We’re here to help you every step of the way.<br />Find exactly what you need to meet the demands of your school or district using our <strong>product filters.</strong></h4>
 							<p>All Teq products and services can categorized using the filters below. <strong>Use the dropdown menus below</strong> to create a customized search for more specific solution.</p>
-							<form class="list-filters padding-sm-top-bottom" role="search" method="get" action="<?php echo home_url(); ?>/filter-search-page/?">
-								<div class="filter-item" ng-controller="productTypeFilter">
-									<select id="selectedProductType" name="selectedProductType" ng-model="selectedProductType" ng-options="item.id as item.name for item in items track by item.id">
-										<option value="" selected disabled>Product Type</option>
-									</select>
-									<span class="down-arrow"></span>
-								</div>
-								<div class="filter-item" ng-controller="gradeLevelFilter">
-									<select id="selectedGradeLevel" name="selectedGradeLevel" ng-model="selectedGradeLevel" ng-options="item.id as item.name for item in items track by item.id">
-										<option value="" selected disabled>Grade Level</option>
-									</select>
-								</div>
-								<div class="filter-item" ng-controller="stemSubjectMatterFilter">
-									<select id="selectedStemSubjectMatter" name="selectedStemSubjectMatter" ng-model="selectedStemSubjectMatter" ng-options="item.id as item.name for item in items track by item.id">
-										<option value="" selected disabled>Subject Matter</option>
-									</select>
-								</div>
-								<div class="filter-item" ng-controller="technologyProficiencyFilter">
-									<select id="selectedtechnologyProficiencyLevel" name="selectedtechnologyProficiencyLevel" ng-model="selectedtechnologyProficiencyLevel" ng-options="item.id as item.name for item in items track by item.id">
-										<option value="" selected disabled>Technology Proficiency</option>
-									</select>
-								</div>
-								<div class="filter-item">
-									<input type="submit" value="View Product(s)" />
-								</div>
-							</form>
+							<?php get_template_part( 'template-parts/product-filters-search', get_post_type() ); ?>
 						</div>
 
 					</div>

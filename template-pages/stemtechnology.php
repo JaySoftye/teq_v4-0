@@ -68,7 +68,7 @@ get_header();
 							</select>
 						</div>
 						<div class="filter-item non-filter">
-							<input id="reset-filters" type="reset" value="Reset Filters">
+							<input class="reset-filters" type="reset" value="Reset Filters">
 						</div>
 					</form>
 					<p class="show-hide-element-content">Technology proficiency ranks the complexity level for teachers as they implement the product into their instruction. Curriculum versatility indicates products with a higher versatility, meaning they can be used in multiple subject areas or grade levels compared to products that are more subject and/or grade specific.</p>
@@ -76,6 +76,7 @@ get_header();
 
 				<div class="no-products-found column is-full" style="display: none;">
 					<h3 class="has-text-centered"><strong>That's a bummer, no products found matching these filters.</strong></h3>
+					<h3 class="has-text-centered"><strong><input type="reset" class="reset-filters reset-text">Reset your product filters</button> and try again.</strong></h3>
 				</div>
 
 				<div class="column is-full filter-results">
@@ -101,9 +102,14 @@ get_header();
 							$the_query = new WP_Query( $args );
 								while ($the_query -> have_posts()) : $the_query -> the_post();
 									$custom_url = get_post_meta( $post->ID, 'custom_url_meta_content', true );
+
+									// GET ALL THE CUSTON TAXONOMIES FOR THE Custom Post Type
+									$taxonomies = array('topics', 'grades', 'proficiency', 'curriculum');
+									$terms = wp_get_post_terms( get_the_ID(), $taxonomies, [ 'fields' => 'id=>slug'] );
+
 							?>
 
-								<article class="<?php $terms = get_the_terms( $post->ID, 'topics' ); foreach($terms as $term) { echo $term -> slug . ' '; } ?>column is-4-desktop is-6-tablet product-item">
+								<article class="<?php echo the_title() . ' '; echo implode( ' ', $terms ); ?> column is-4-desktop is-6-tablet product-item">
 									<a class="product-container" href="<?php if(empty( $custom_url)) { the_permalink(); } else { echo get_post_meta( $post->ID, 'custom_url_meta_content', true ); } ?>">
 										<div class="product-content">
 											<h3>

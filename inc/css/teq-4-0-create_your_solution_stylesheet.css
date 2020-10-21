@@ -444,6 +444,14 @@ object.gauge-ticks {
   padding-right: 75px;
 }
 
+.dial-ui-set.instructions h4 {
+  font-size: calc(1.5rem - .75vh);
+}
+
+.dial-ui-set.instructions p {
+  font-size: calc(1rem - .75vh);
+}
+
 .dial-ui-set-container > .dial-ui-set:first-child {
   margin-bottom: 30px;
 }
@@ -484,7 +492,7 @@ object.gauge-ticks {
 
 .dial-ui-set h5 {
   margin: 0 0;
-  font-size: 1rem;
+  font-size: calc(1rem - .75vh);
 }
 
 .radio-dial svg, .radio-dial svg g, .radio-dial svg g path {

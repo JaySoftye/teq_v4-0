@@ -20,7 +20,17 @@
     // Product Filter Function to hide unselected items
     $('select.product-filter').on('change', function() {
       var value = '.' + $(this).val();
-      $('div.filter-results .columns.is-multiline article.product-item').show().not(value).hide();
+        $(this).attr("disabled", true);
+
+      $("article.product-item").each(function() {
+        if($(this).is(":hidden")) {
+            $(this).hide();
+        } else if($(this).is(value)) {
+            $(this).show();
+        } else if($(this).not(value)) {
+            $(this).hide();
+        }
+      });
 
       // If no results are visible
       if($('div.filter-results .columns.is-multiline').children(':visible').length == 0) {
@@ -31,9 +41,19 @@
     });
 
     // Product Filter Reset
-    $('input#reset-filters').click(function() {
+    $('.reset-filters').click(function() {
       $('div.filter-results .columns.is-multiline article.product-item').show();
-      $('.no-products-found').hide();
+        $('select.product-filter').attr("disabled", false).prop('selectedIndex',0);;
+          $('.no-products-found').hide();
+    });
+
+    // BASIC FORM VALIDATION FOR PRODUCT SEARCH FILTERS
+    // Product Type is REQUIRED
+    // ADD CLASS TO REQUIRED html Select Element
+    $("input#searchProducts").click(function () {
+      if( !$('#selectedProductType').val() ) {
+        $('select#selectedProductType').addClass('empty-required-item');
+      }
     });
 
     // Product Sub Menu dropdown menu for mobile views at 1230px wide

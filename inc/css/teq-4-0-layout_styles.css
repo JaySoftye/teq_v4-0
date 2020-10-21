@@ -514,6 +514,9 @@ div#primary main#main section.full div#index-container {
 	position: relative;
 	z-index: 100;
 }
+div#index-container > .columns > .column {
+	padding-top: 4.2rem;
+}
 section.why-are-you-here {
 	min-height: 200vh;
 	height: auto;
@@ -818,8 +821,8 @@ BROWSE PRODUCT search
 }
 
 .section-container .full-section .filter-container {
-	min-height: 1.5rem;
 	width: 100%;
+	display: table;
 	position: sticky;
 	top: 0;
 	z-index: 100;
@@ -830,6 +833,10 @@ BROWSE PRODUCT search
 .section-container .full-section .filter-container {
 	padding: 2.1% 6%;
 	box-shadow: 0px 6px 12px 0px rgba(0,0,0,.12);
+}
+
+.section-container .full-section .filter-container.filter-results {
+	box-shadow: none;
 }
 
 .filter-container > form {
@@ -887,6 +894,19 @@ form.list-filters .filter-item > select {
 	font-size: .87rem;
 	color: #000000;
 	-webkit-appearance: none;
+	transition: all ease .15s;
+}
+
+form.list-filters .filter-item > select:disabled {
+	background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 50 50' style='enable-background:new 0 0 50 50;' xml:space='preserve'%3E%3Crect style='fill:%2350B200;' fill='%2350B200' width='50' height='50'/%3E%3Cpath style='fill:%23FFFFFF;' fill='%23FFFFFF' d='M24.5,30.9L24.5,30.9c-0.3,0-0.6-0.1-0.8-0.3l-3.6-3.6c-0.4-0.4-0.4-1.2,0-1.6s1.2-0.4,1.6,0l2.9,2.9l8.5-8.5 c0.4-0.4,1.2-0.4,1.6,0c0.4,0.4,0.4,1.2,0,1.6l-9.3,9.3C25.1,30.7,24.8,30.9,24.5,30.9z'/%3E%3C/svg%3E%0A");
+	background-color: #50B200;
+	color: #FFFFFF;
+}
+
+form.list-filters .filter-item > select.empty-required-item:required {
+	background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 50 50'%3E%3Crect fill='%23727272' class='st0' width='50' height='50'/%3E%3Cellipse fill='%23FFFFFF' cx='24.486' cy='32.365' rx='1.152' ry='1.21'/%3E%3Cpath fill='%23FFFFFF' d='M24.486,29.945c1.325,0,1.591-9.689,1.591-10.66c0-0.944-0.647-1.672-1.591-1.672 c-0.971,0-1.591,0.728-1.591,1.672C22.894,20.256,23.16,29.945,24.486,29.945z'/%3E%3C/svg%3E");
+  outline: 0;
+  box-shadow: 0  0 12px rgba(255,0,0,0.24);
 }
 
 form.list-filters .filter-item > input[type="reset"] {
@@ -921,6 +941,24 @@ form.list-filters .filter-item > input[type="submit"] {
 
 form.list-filters .filter-item > input[type="submit"]:hover {
 	color: rgb(0,178,228);
+}
+
+input.reset-filters.reset-text {
+	vertical-align: bottom;
+  display: inline-block;
+  margin-right: 18px;
+  padding-bottom: calc(0.36em + 3px);
+  padding-left: 3.3rem;
+  padding-right: 3.3rem;
+  padding-top: calc(0.36em + 3px);
+	border-radius: 0 !important;
+	border: none;
+	background-color: rgb(255,255,255);
+	box-shadow: 3px 6px 12px 0px rgba(0,0,0,.12);
+	font-weight: 900;
+	font-size: 1.12rem;
+	color: #000000;
+	cursor: pointer;
 }
 
 .filter-results .product-item {
@@ -1268,7 +1306,7 @@ Heada rhymes with chedda for submenu
 }
 
 .pre-content-container .image-cover img {
-	width: calc(800px + 24vh - 12vw);
+	width: calc(800px + 24vh - 18vw);
 	height: auto;
 	display: block;
 	margin: 0 auto;
@@ -1293,7 +1331,7 @@ Heada rhymes with chedda for submenu
 }
 
 .pre-content-container div.column h1.title-text {
-	max-width: 75%;
+	max-width: 90%;
 	font-size: calc(2.1rem + 1.5vh - 1.5vw);
 }
 

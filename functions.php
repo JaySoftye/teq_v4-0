@@ -539,9 +539,9 @@ function send_mails_on_publish( $new_status, $old_status, $post ) {
 * hook into the init action and call create_book_taxonomies when it fires
 */
 add_action( 'init', 'create_topics_hierarchical_taxonomy', 0 );
-//create a custom taxonomy name it topics for your posts
+//create a custom taxonomies for your custom post types
 function create_topics_hierarchical_taxonomy() {
-// Add new taxonomy, make it hierarchical like categories
+// Add new taxonomies, make it hierarchical like categories
 //first do the translations part for GUI
   $labels = array(
     'name' => _x( 'Topics', 'taxonomy general name' ),
@@ -564,6 +564,72 @@ function create_topics_hierarchical_taxonomy() {
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array( 'slug' => 'topic' ),
+  ));
+	$labels = array(
+    'name' => _x( 'Grades', 'taxonomy general name' ),
+    'singular_name' => _x( 'Grade', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Grades' ),
+    'all_items' => __( 'All Grades' ),
+    'parent_item' => __( 'Parent Grade' ),
+    'parent_item_colon' => __( 'Parent Grade:' ),
+    'edit_item' => __( 'Edit Grade' ),
+    'update_item' => __( 'Update Grade' ),
+    'add_new_item' => __( 'Add New Grade' ),
+    'new_item_name' => __( 'New Grade Name' ),
+    'menu_name' => __( 'Grades' ),
+  );
+// Now register the taxonomy
+  register_taxonomy('grades',array('product-and-service'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'grade' ),
+  ));
+	$labels = array(
+    'name' => _x( 'Proficiency', 'taxonomy general name' ),
+    'singular_name' => _x( 'Proficiency', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Proficiency' ),
+    'all_items' => __( 'All Proficiency' ),
+    'parent_item' => __( 'Parent Proficiency' ),
+    'parent_item_colon' => __( 'Parent Proficiency:' ),
+    'edit_item' => __( 'Edit Proficiency' ),
+    'update_item' => __( 'Update Proficiency' ),
+    'add_new_item' => __( 'Add New Proficiency' ),
+    'new_item_name' => __( 'New Proficiency Name' ),
+    'menu_name' => __( 'Proficiency' ),
+  );
+// Now register the taxonomy
+  register_taxonomy('proficiency',array('product-and-service'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'proficiency' ),
+  ));
+	$labels = array(
+    'name' => _x( 'Curriculum', 'taxonomy general name' ),
+    'singular_name' => _x( 'Curriculum', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Curriculum' ),
+    'all_items' => __( 'All Curriculum' ),
+    'parent_item' => __( 'Parent Curriculum' ),
+    'parent_item_colon' => __( 'Parent Curriculum:' ),
+    'edit_item' => __( 'Edit Curriculum' ),
+    'update_item' => __( 'Update Curriculum' ),
+    'add_new_item' => __( 'Add New Curriculum' ),
+    'new_item_name' => __( 'New Curriculum Name' ),
+    'menu_name' => __( 'Curriculum' ),
+  );
+// Now register the taxonomy
+  register_taxonomy('curriculum',array('product-and-service'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'curriculum' ),
   ));
 }
 
