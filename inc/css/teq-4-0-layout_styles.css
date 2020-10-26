@@ -6,7 +6,7 @@ header.site-header {
 	top: 0;
 	z-index: 500;
 }
-body.page-template-stemtechnology header.site-header, body.page-template-educationaltechnology header.site-header, body.page-template-professionaldevelopment header.site-header, body.page-template-smartproducts header.site-header, body.page-template-activelearningspaces header.site-header, body.page-template-productpage header.site-header, body.page-template-productpageprofessionaldevelopment header.site-header, body.page-template-aboutus header.site-header, body.page-template-evolve header.site-header {
+body.page-template-stemtechnology header.site-header, body.page-template-educationaltechnology header.site-header, body.page-template-professionaldevelopment header.site-header, body.page-template-smartproducts header.site-header, body.page-template-activelearningspaces header.site-header, body.page-template-productpage header.site-header, body.page-template-productpageprofessionaldevelopment header.site-header, body.page-template-aboutus header.site-header, body.page-template-evolve header.site-header, body.archive.category header.site-header {
 	position: relative;
 }
 header.site-header {

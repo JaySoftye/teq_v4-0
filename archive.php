@@ -10,40 +10,69 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<div id="primary" class="content-area white-background-fill">
+		<main id="main" class="site-main section-container">
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+			<nav id="subhead" class="navbar product-site-header">
+				<div class="navbar-menu container">
+					<div class="navbar-start">
+						<figure>
+							<img class="large-brand-logo" src="/wp-content/uploads/2020/02/about-us-teq-teq-blocks-otis-for-educators_logo.png" alt="Teq OTIS for educators" />
+						</figure>
+					</div>
+					<div class="navbar-end">
+						<?php the_archive_title( '<h1 class="navbar-item nomargin is-size-5">', ' </h1>' ); ?>
+					</div>
+					<div class="navbar-end">
+						<a class="navbar-item product-demo-request" href="/contact-us">Contact us</a>
+					</div>
+				</div>
+			</nav>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			<section>
+				<div class="content-container container">
+					<div class="columns is-centered is-multiline padding-bottom">
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
 
-			endwhile;
+						<?php while ( have_posts() ) : the_post(); ?>
 
-			the_posts_navigation();
+							<div class="column is-3-desktop is-4-tablet">
+								<div class="card">
+									<div class="card-image">
+										<figure class="image">
+											<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large') ?></a>
+										</figure>
+									</div>
+									<div class="card-content">
+										<h5>
+											<a class="relative-position less-line-height" href="<?php the_permalink(); ?>"><?php the_title(); ?> <span class="arrow"></span></a>
+										</h5>
+									</div>
+								</div>
+							</div>
 
-		else :
+						<?php endwhile;
 
-			get_template_part( 'template-parts/content', 'none' );
+		else : ?>
 
-		endif;
-		?>
+			<section>
+				<div class="content-container container">
+					<div class="columns is-centered padding-bottom">
+
+						<div class="container">
+							<div class="column">
+								<h1 class="page-titles has-text-centered"><?php esc_html_e( 'Nothing Found', 'teq_v4-0' ); ?></h1>
+								<p class="has-text-centered"><?php esc_html_e( 'Sorry, but nothing can be found for this page.', 'teq_v4-0' ); ?></p>
+							</div>
+						</div>
+
+		<?php endif; ?>
+
+					</div>
+				</div>
+			</section>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

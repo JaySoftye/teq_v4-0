@@ -70,7 +70,7 @@ get_header();
 						?>
 						<article class="column is-3 post-card">
 							<div class="post-card-body">
-								<div class="post-details">
+								<div class="post-details media-resource">
 									<h4 class="title">
 										<a class="strong" href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>"><?php the_title(); ?></a>
 									</h4>

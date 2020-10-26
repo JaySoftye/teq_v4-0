@@ -855,6 +855,10 @@ Wordpress Posts
   padding-top: calc(1.5em - 1px);
 }
 
+.post-card .post-card-body .post-details.media-resource {
+  position: relative;
+}
+
 .post-card-body .post-details .title {
   font-size: calc(1.5rem - .15vw);
 }
