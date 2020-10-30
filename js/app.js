@@ -606,3 +606,66 @@
       $scope.firstName = firstName;
 
     });
+
+
+    /**
+      * PRODUCT PAGE SVG CIRCLE HIGHLIGHT
+      * GET DOC HEIGHT USING OffsetScroll and Body Height
+      * USE MATH FUNCTION TO COMPARE BROWSER HEIGHT TO THE SCROLL location
+      * SET DocHeight to variable
+      */
+    function getDocHeight() {
+      var D = document;
+        return Math.max (
+          D.body.scrollHeight, D.documentElement.scrollHeight,
+            D.body.offsetHeight, D.documentElement.offsetHeight,
+              D.body.clientHeight, D.documentElement.clientHeight
+        )
+    }
+    var docHeight = getDocHeight();
+
+    /**
+      * DETERMINE THE AMOUNT USER HAS SCROLLED DOWN THE PAGE
+      * Compare the DocHeight to the current page position as well as the page offset
+      * Initial scroll event listener
+      */
+    function amountScrolled() {
+        var winHeight= window.innerHeight || (document.documentElement || document.body).clientHeight
+          var docHeight = getDocHeight()
+            var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+              var trackLength = docHeight - winHeight
+
+        // Multiple to amount * 100 to get pertage of page scrolled
+        // gets percentage scrolled (ie: 80 or NaN if tracklength == 0)
+        var pctScrolled = Math.floor(scrollTop/trackLength * 100)
+
+        /**
+          * GET THE FEATURED IMAGE SVG CIRCLE
+          * Set Radius amount to 45 and subsctract the percentage of the page scrolled.
+          * Set the 'r' attribute on the SVG circle element to animate the sequence
+          * Once the Radius Attribute reaches 0 stop the sequence
+          */
+          var featuredHighlight = document.getElementById('featureHighlight');
+            var featuredRadius = "45" - pctScrolled * 7.5;
+              if (featuredRadius > 0 && featuredHighlight) {
+                featuredHighlight.setAttribute('r', featuredRadius + "%");
+              }
+
+        /**
+          * GET THE FEATURED IMAGE SVG CIRCLE
+          * Set Radius amount to 45 and subsctract the percentage of the page scrolled.
+          * Set the 'r' attribute on the SVG circle element to animate the sequence
+          */
+          var logoHighlight = document.getElementById('logoHighlight');
+            var logoRadius = "0" + pctScrolled * 1.5;
+              if (logoRadius <= 40 && logoHighlight) {
+                logoHighlight.setAttribute('r', logoRadius + "%");
+              }
+
+        // console.log(pctScrolled + "% has been scrolled")
+        // console.log(logoRadius)
+    }
+
+    window.addEventListener("scroll", function(){
+        amountScrolled()
+    }, false);

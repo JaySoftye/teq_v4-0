@@ -16,7 +16,7 @@ get_header();
 			<div class="page-content">
 				<div class="container">
 					<div class="columns is-vcentered is-desktop">
-						<div class="column is-6 is-offset-3">
+						<div class="column is-6 is-offset-3 padding-top">
 							<h1 class="page-titles has-text-centered">Teq Talk</h1>
 						</div>
 					</div>

@@ -16,7 +16,7 @@ header.site-header {
 	box-shadow: 0px 3px 6px 0px rgba(0,0,0,.12);
 }
 nav.navbar {
-	background-color: rgba(255,255,255,0.87);
+	background-color: transparent;
 }
 nav.navbar div.navbar-brand a.navbar-item svg, nav.navbar div.navbar-brand svg {
 	height: 3.9rem;
@@ -622,7 +622,7 @@ h1.page-titles, h1.page-titles a {
   line-height: 1;
   font-style: normal;
   font-weight: 900;
-  font-size: calc(7.2vw - 24px);
+  font-size: calc(9rem - 6vh);
 	transition: all ease .36s;
 }
 
@@ -660,7 +660,7 @@ h1.page-titles, h1.page-titles a {
 
 .full-section .page-content {
 	width: 100%;
-	padding-top: 12%;
+	padding-top: calc(12% - 12vh);
 }
 
 .full-section .page-content.top {
@@ -1240,34 +1240,31 @@ Heada rhymes with chedda for submenu
 	top: 0;
 	z-index: 90;
 	flex-wrap: wrap;
-	padding: 2.1% 4.8% .15% 4.8%;
+	padding-top: 1.5%;
+	padding-bottom: 1.5%;
 }
-
 .navbar.product-site-header .navbar-menu {
+	display: flex;
 	margin: 0 auto;
+	padding-left: 3rem;
+	padding-right: 3rem;
 }
-
 .navbar.product-site-header .navbar-menu .navbar-start figure {
   min-width: 11.1rem;
 }
-
 .navbar.product-site-header .navbar-menu .navbar-start figure img {
 	width: 100%;
   max-width: 12rem;
 }
-
 .navbar.product-site-header .navbar-menu .navbar-start figure img.large-brand-logo {
   max-width: 24rem;
 }
-
 .navbar.product-site-header .navbar-menu .navbar-end.mobile-dropdown-trigger {
 	display: none;
 }
-
 .navbar.product-site-header .navbar-menu .navbar-end {
 	margin-left: 0;
 }
-
 .navbar.product-site-header .navbar-menu .navbar-end .navbar-item, .navbar.product-site-header .navbar-menu .navbar-start .navbar-item {
 	margin-right: 6px;
 	padding: .75rem calc(.5rem + 12px);
@@ -1276,20 +1273,40 @@ Heada rhymes with chedda for submenu
 	font-size: .87rem;
 	color: rgb(0,0,0);
 }
-
 .navbar.product-site-header .navbar-menu .navbar-end .navbar-item:hover, .navbar.product-site-header .navbar-menu .navbar-end .navbar-item.active, .navbar.product-site-header .navbar-menu .navbar-start .navbar-item:hover, .navbar.product-site-header .navbar-menu .navbar-start .navbar-item.active {
 	font-weight: 900;
 }
-
 .navbar.product-site-header .navbar-menu .navbar-end .navbar-item.product-demo-request {
-	margin-top: 18%;
-	margin-bottom: 18%;
-	background-color: rgb(0,0,0);
+	margin-top: 12px;
+  margin-bottom: 12px;
+	background-color: rgba(236,238,239,0.75);
+	border-radius: 9px;
 	font-weight: 700;
-	color: rgb(255,255,255);
 }
 
-.pre-content-container {
+.navbar.product-site-header svg {
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	overflow: visible;
+}
+.navbar.product-site-header svg > circle {
+	fill: rgba(5,166,159,0.36);
+}
+.navbar.product-site-header svg.active-learning-spaces > circle {
+	fill: rgba(237,0,96,0.36);
+}
+.navbar.product-site-header svg.educational-technology > circle {
+	fill: rgba(80,178,0,0.36);
+}
+.navbar.product-site-header svg.stem-technologies > circle {
+	fill: rgba(5,166,159,0.36);
+}
+.navbar.product-site-header svg.professional-development > circle {
+	fill: rgba(248,126,11,0.36);
+}
+
+.pre-content-container, .product-content-container {
 	position: relative;
 	z-index: 5;
 }
@@ -1325,6 +1342,65 @@ Heada rhymes with chedda for submenu
 	top: 24%;
 }
 
+.pre-content-container.product-content-container {
+	min-height: 75vh;
+	align-items: flex-start;
+	padding-bottom: 1rem;
+}
+
+.pre-content-container.product-content-container div.column, .pre-content-container.product-content-container div.column > * {
+	height: auto;
+	min-height: auto;
+	position: relative;
+	display: block;
+	margin: 0 auto;
+}
+
+.pre-content-container.product-content-container .featured-image > svg {
+	height: 150%;
+	width: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+  transform: translate(-50%,-50%);
+	z-index: -1;
+	fill: rgba(5,166,159,0.24);
+}
+
+.pre-content-container.product-content-container .featured-image.active-learning-spaces > svg {
+	fill: rgba(237,0,96,0.24);
+}
+.pre-content-container.product-content-container .featured-image.educational-technology > svg {
+	fill: rgba(80,178,0,0.24);
+}
+.pre-content-container.product-content-container .featured-image.stem-technologies > svg {
+	fill: rgba(5,166,159,0.24);
+}
+.pre-content-container.product-content-container .column.professional-development > svg {
+	fill: rgba(248,126,11,0.24);
+}
+.pre-content-container.product-content-container .column.active-learning-spaces strong {
+	color: rgb(237,0,96);
+}
+.pre-content-container.product-content-container .column.educational-technology strong {
+	color: rgb(80,178,0);
+}
+.pre-content-container.product-content-container .column.stem-technologies strong {
+	color: rgb(5,166,159);
+}
+.pre-content-container.product-content-container .column.professional-development strong {
+	color: rgb(248,126,11);
+}
+
+.pre-content-container.product-content-container div.column h1 {
+	font-size: calc(1.5rem);
+}
+
+.pre-content-container.product-content-container .scroll-icon-container {
+	margin-left: 66%;
+	margin-bottom: 6%;
+}
+
 .pre-content-container div.column h1, .pre-content-container div.column h2 {
 	display: block;
 	margin: 0 auto;
@@ -1337,6 +1413,10 @@ Heada rhymes with chedda for submenu
 
 .pre-content-container div.column h2 {
 	font-size: 1.2rem;
+}
+
+.pre-content-container.product-content-container div.column h1, .pre-content-container.product-content-container div.column h2 {
+	margin-top: 12px;
 }
 
 .post-content-container {

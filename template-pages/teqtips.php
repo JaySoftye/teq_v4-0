@@ -15,7 +15,7 @@ get_header();
 		<section class="full-section block">
 			<div class="container page-content">
 				<div class="columns is-vcentered is-desktop">
-					<div class="column is-6 is-offset-3">
+					<div class="column is-6 is-offset-3 padding-top">
 						<h1 class="page-titles has-text-centered">
 							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 21">
 								<polygon points="15.658,5.519 10.17,5.266 10.423,6.363 12.112,6.194 11.943,15.059 12.618,15.228 13.547,6.11 15.404,6.025 	"/>
