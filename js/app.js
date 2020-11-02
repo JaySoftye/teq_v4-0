@@ -640,7 +640,7 @@
         var pctScrolled = Math.floor(scrollTop/trackLength * 100)
 
         /**
-          * GET THE FEATURED IMAGE SVG CIRCLE
+          * GET THE FEATURED IMAGE SVG CIRCLE; ADDED conditional that this element must exist
           * Set Radius amount to 45 and subsctract the percentage of the page scrolled.
           * Set the 'r' attribute on the SVG circle element to animate the sequence
           * Once the Radius Attribute reaches 0 stop the sequence
@@ -652,7 +652,7 @@
               }
 
         /**
-          * GET THE FEATURED IMAGE SVG CIRCLE
+          * GET THE FEATURED IMAGE SVG CIRCLE; ADDED conditional that this element must exist
           * Set Radius amount to 45 and subsctract the percentage of the page scrolled.
           * Set the 'r' attribute on the SVG circle element to animate the sequence
           */
@@ -665,7 +665,6 @@
         // console.log(pctScrolled + "% has been scrolled")
         // console.log(logoRadius)
     }
-
     window.addEventListener("scroll", function(){
         amountScrolled()
     }, false);

@@ -321,4 +321,7 @@
   .pre-content-container .image-cover {
     bottom: -36vh;
   }
+  h1.page-titles, h1.page-titles a {
+    font-size: calc(7.5rem - 7.5vh);
+  }
 }
