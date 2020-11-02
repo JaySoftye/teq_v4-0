@@ -16,7 +16,7 @@ get_header();
 			?>
 
 			<nav id="subhead" class="navbar product-site-header">
-				<div class="navbar-menu container">
+				<div class="navbar-menu">
 					<div class="navbar-start">
 						<figure ng-class="{ active: isSet(1) }" ng-click="setTab(1)">
 							<img class="large-brand-logo" src="/wp-content/uploads/2020/02/about-us-teq-teq-blocks-otis-for-educators_logo.png" alt="Teq Teq Blocks OTIS for educators" />
@@ -30,8 +30,6 @@ get_header();
 						<a class="navbar-item" ng-class="{ active: isSet(2) }" href ng-click="setTab(2)">Our Culture & Leadership</a>
 						<a class="navbar-item" ng-class="{ active: isSet(3) }" href ng-click="setTab(3)">Testimonials</a>
 						<a class="navbar-item" ng-class="{ active: isSet(4) }" href ng-click="setTab(4)">Join our Team</a>
-					</div>
-					<div class="navbar-end">
 						<a class="navbar-item product-demo-request" href ng-model="demoFormCollapsed" ng-click="demoFormCollapsed=!demoFormCollapsed">Contact us</a>
 					</div>
 				</div>
@@ -64,7 +62,10 @@ get_header();
 							?>
 						</div>
 						<div class="column is-12">
-							<h1 class="has-text-centered title-text">Teq supports outcomes by evaluating and delivering products and services for the educational environment. We are dedicated to <strong>providing dynamic professional development and instructional support</strong> to educators.</h1>
+							<h1 class="has-text-centered ">Teq supports outcomes by evaluating and delivering products and services for the educational environment.</h1>
+						</div>
+						<div class="column is-12">
+							<h1 class="has-text-centered">We are dedicated to <strong>providing dynamic professional development and instructional support</strong> to educators.</h1>
 						</div>
 					</div>
 				</div>

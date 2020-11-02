@@ -64,32 +64,55 @@ get_header();
 					if( !empty( $sub_header) ) {
 			?>
 			<nav id="subhead" class="navbar product-site-header">
-				<?php
-					$sub_header_print_value = get_post_meta(get_the_ID(),'sub_header_meta_content',true);
-						echo html_entity_decode($sub_header_print_value);
-					}
-				?>
+				<div class="navbar-menu">
+					<?php
+						$sub_header_print_value = get_post_meta(get_the_ID(),'sub_header_meta_content',true);
+							echo html_entity_decode($sub_header_print_value);
+						}
+
+						/** ADD FOR TOP SLIDE DOWN ELEMENT
+						* <section class="product-demo-form" ng-show="demoFormCollapsed">
+						*	<div class="columns">
+						* <div class="column">
+						* <a class="delete is-large close-form" href ng-model="demoFormCollapsed" ng-click="demoFormCollapsed=!demoFormCollapsed"></a>
+						* </div>
+						* </div>
+						* </section>
+						*/
+					?>
+					<svg class="<?php echo $parent_slug; ?>">
+						<circle id="logoHighlight" cx="30%" cy="30%" r="0" />
+					</svg>
+				</div>
 			</nav>
 			<section ng-show="isSet(1)">
 				<div class="container padding-top">
 
-					<div class="pre-content-container columns is-multiline is-desktop">
-						<div class="image-cover">
+					<div class="pre-content-container product-content-container columns is-vcentered is-multiline is-desktop">
+						<div class="column featured-image is-three-fifths <?php echo $parent_slug; ?>">
 							<?php
 								// Get the Feature Image
 								echo get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'feature-image-cover' ));
 							?>
+							<svg>
+  							<circle id="featureHighlight" cx="50%" cy="50%" r="45%" />
+							</svg>
 						</div>
-						<?php
-							// Grab the Header Info Meta for the product intro if it exists
-							if ( !empty( $header_info) ) {
-								$header_info_print_value = get_post_meta(get_the_ID(),'header_info_meta_content',true);
+						<div class="column is-two-fifths-desktop <?php echo $parent_slug; ?>">
+							<?php
+								// Grab the Header Info Meta for the product intro if it exists
+								if ( !empty( $header_info) ) {
+									$header_info_print_value = get_post_meta(get_the_ID(),'header_info_meta_content',true);
 									echo html_entity_decode($header_info_print_value);
-							}
-						?>
+								}
+							?>
+						</div>
+						<div class="relative-position scroll-icon-container hide-laptop">
+							<div class="icon-scroll vertical"></div>
+							<p class="margin-sm-bottom caption">SCROLL</p>
+						</div>
 					</div>
 				</div>
-
 				<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
 
 				<?php
