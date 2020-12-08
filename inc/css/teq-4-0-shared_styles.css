@@ -64,16 +64,16 @@ p {
 
 *:focus {
    outline: 0;
- }
+}
 
 .condensed-text {
    font-family: 'Roboto Condensed','Roboto',Helvetica,Arial,san-serif !important;
- }
+}
 
- .serif-text {
+.serif-text {
    font-family: Verdana, Geneva, Sans-Serif;
    font-weight: bold;
- }
+}
 
 .inline-content {
   display: block;
@@ -165,6 +165,10 @@ p {
 
 .has-align-self-center {
   align-self: center;
+}
+
+.is-bottom-vertical {
+  vertical-align: bottom;
 }
 
 .columns.has-step-layout > div.column + div.column {
@@ -451,6 +455,12 @@ p {
 .white-fill {
   fill: #FFFFFF;
 }
+.offwhite-fill {
+  fill: #ECEEEF;
+}
+.grey-fill {
+  fill: #484848;
+}
 
 .white-text {
   color: rgb(255,255,255) !important;
@@ -605,6 +615,10 @@ p {
 
 .button.rounded {
   border-radius: .24rem;
+}
+
+.button.pill {
+  border-radius: 300px;
 }
 
 .button.dark {

@@ -110,7 +110,6 @@
 
 	<div class="columns is-desktop">
 		<div class="column is-3 is-offset-1 topic-tags">
-			<br />
 			<p>
 				<?php
 					$terms = get_the_terms( $post->ID , array( 'topics') );
@@ -125,15 +124,6 @@
  								echo ($i < count($terms))? " / " : "";
  								// Increment counter
  								$i++;
-					}
-				?>
-			</p>
-			<br />
-			<p>
-				<?php
-					$additional_info = get_post_meta( get_the_ID(), 'additional_info_meta_content', true );
-					if ( !empty( $additional_info) ) {
-						echo html_entity_decode($additional_info);
 					}
 				?>
 			</p>

@@ -162,10 +162,10 @@
 				</figure>
 				<div class="column is-full border-top">
 					<p>
-						<small class="condensed-text">7 Norden Lane Huntington Station, NY 11746 (US)  |  877.455.9369 |  info@teq.com</small>
+						<small class="condensed-text">7 Norden Lane Huntington Station, NY 11746 (US)  |  877.455.9369 |  info@teq.com |  <a href="/teq-privacy-policy/"><u>Privacy Policy</u></small>
 						<br />
 						<span>
-							<small><sup>	&copy;</sup>2020 - Teq<sup>&reg;</sup>, It’s all about learning.<sup>&trade;</sup>, iBlocks<sup>&trade;</sup>, evoSpaces<sup>&trade;</sup>, pBlocks<sup>&trade;</sup>, Teq Essentials<sup>&reg;</sup>, nOw Instructional Support<sup>&reg;</sup>, OPD Online Professional Development<sup>&reg;</sup>, Onsite Professional Development<sup>&reg;</sup>, and Powered by Teq<sup>&reg;</sup> are trademarks or registered trademarks of Tequipment, Inc. in the US. Other company names and product names appearing here are the trademarks and registered trademarks of their respective companies.</small>
+							<small><sup>	&copy;</sup>2020 - Teq<sup>&reg;</sup>, It’s all about learning.<sup>&trade;</sup>, iBlocks<sup>&trade;</sup>, evoSpaces<sup>&trade;</sup>, pBlocks<sup>&trade;</sup>, Teq Essentials<sup>&reg;</sup>, OTIS for educators<sup>&reg;</sup> (formerly OPD, Online Professional Development), Onsite Professional Development<sup>&reg;</sup>, and Powered by Teq<sup>&reg;</sup> are trademarks or registered trademarks of Tequipment, Inc. in the US. Other company names and product names appearing here are the trademarks and registered trademarks of their respective companies.</small>
 						</span>
 					</p>
 				</div>

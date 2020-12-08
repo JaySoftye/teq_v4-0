@@ -1,0 +1,49 @@
+<svg>
+  <defs>
+
+    <filter id="innershadow" x0="-50%" y0="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"></feGaussianBlur>
+      <feOffset dy="2" dx="3"></feOffset>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff"></feComposite>
+
+      <feFlood flood-color="#999999" flood-opacity="0.75"></feFlood>
+      <feComposite in2="shadowDiff" operator="in"></feComposite>
+      <feComposite in2="SourceGraphic" operator="over" result="firstfilter"></feComposite>
+    </filter>
+
+    <filter id="dropshadow" x="0" y="0" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"></feGaussianBlur>
+      <feOffset dx="6" dy="6" result="offsetblur"></feOffset>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope=".12"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/><feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="outerglow" x0="-50%" y0="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"></feGaussianBlur>
+      <feOffset dy="-2" dx="-3"></feOffset>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff"></feComposite>
+
+      <feFlood flood-color="#FFFFFF" flood-opacity="0.75"></feFlood>
+      <feComposite in2="shadowDiff" operator="in"></feComposite>
+      <feComposite in2="SourceGraphic" operator="over" result="firstfilter"></feComposite>
+
+    </filter>
+
+    <filter id="highlightshadow" x0="-50%" y0="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="21" result="blur"></feGaussianBlur>
+      <feOffset dy="-21" dx="-27"></feOffset>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff"></feComposite>
+
+      <feFlood flood-color="#000000" flood-opacity=".36"></feFlood>
+      <feComposite in2="shadowDiff" operator="in"></feComposite>
+      <feComposite in2="SourceGraphic" operator="over" result="firstfilter"></feComposite>
+
+      <feBlend in="SourceGraphic" in2="firstfilter" mode="overlay"></feBlend>
+    </filter>
+
+  </defs>
+</svg>

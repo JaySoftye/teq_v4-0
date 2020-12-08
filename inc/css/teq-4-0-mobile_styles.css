@@ -68,12 +68,9 @@
   header.site-header div.main-dropdown-menu-container.active.main .menu-list.primary-menu, header.site-header div.main-dropdown-menu-container.active.stem .menu-list.stem-menu, header.site-header div.main-dropdown-menu-container.active.product-filters .menu-list.filters-menu {
     display: block;
   }
-  header.site-header {
+  body.home header.site-header {
     position: relative;
-  }
-  header.site-header div.main-dropdown-menu-container {
-    min-height: auto;
-    max-height: 100%;
+    background-color: rgba(10,103,146,0.87);
   }
   body img.img-cover {
     height: auto;
@@ -179,6 +176,15 @@
   }
   body.home footer.site-footer {
     margin-top: 0;
+  }
+  body.home .index-content h1 {
+    font-size: calc(81px - 1.5vw);
+  }
+  body.home .index-content > .sub-content {
+    position: relative;
+  }
+  div#primary main#main section.full > svg.dial-highlight {
+    display: none;
   }
   body img.img-cover {
     height: 50vh;
@@ -315,8 +321,8 @@
 }
 
 @media (max-height: 600px) {
-  .otis-pd-course-container .before-course-content {
-    padding-top: 12px;
+  .index-content > .sub-content {
+  	width: 120%;
   }
   .pre-content-container .image-cover {
     bottom: -36vh;

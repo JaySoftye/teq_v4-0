@@ -83,6 +83,16 @@
 						</div>
 					</li>
 				</ul>
+				<ul class="create-your-solution-menu navbar-end" role="menu">
+					<li class="menu-item">
+						<a href="<?php echo home_url(); ?>/create-your-solution/">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50">
+								<path d="M27.762,14.716H17.29l2.895-2.895c1.277-1.276,1.277-3.346,0-4.622c-1.276-1.277-3.346-1.277-4.622,0l-8.475,8.475 c-1.277,1.276-1.277,3.346,0,4.622l8.475,8.475c0.638,0.638,1.475,0.958,2.311,0.958s1.673-0.319,2.311-0.958 c1.277-1.276,1.277-3.346,0-4.622l-2.895-2.895h10.472c5.362,0,9.725,4.363,9.725,9.725s-4.363,9.725-9.725,9.725H12.971 c-1.805,0-3.269,1.463-3.269,3.269s1.464,3.268,3.269,3.268h14.791c8.967,0,16.262-7.295,16.262-16.262S36.729,14.716,27.762,14.716
+								z"/>
+							</svg>
+						</a>
+					</li>
+				</ul>
 				<button class="menu-button search-button" ng-init="searchActive = false" ng-click="searchActive = !searchActive">Search</button>
 				<div class="search-form-container">
 					<form role="search" method="get" class="search-form" ng-class="{'active': searchActive}" action="<?php echo home_url(); ?>">

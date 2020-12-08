@@ -176,9 +176,20 @@ function teq_v4_0_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	// STYLESHEET FOR CREATE YOUR SOLUTION
-	if ( is_page_template( array( 'template-pages/createyoursolution.php', 'template-pages/createyoursolutionResult.php', 'template-pages/createyoursolutionquoterequest.php', 'template-pages/test.php' ) ) ) {
+	// VERSION_1 STYLESHEET AND JAVASCRIPT FUNCTIONS FOR CREATE YOUR SOLUTION
+	if ( is_page_template( array( 'template-pages/createyoursolution.php', 'template-pages/createyoursolutionResult.php', 'template-pages/createyoursolutionquoterequest.php' ))) {
 		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-create_your_solution_stylesheet.css' );
+
+		wp_deregister_script( 'create-js-functions' );
+		wp_enqueue_script( 'create-js-functions', get_template_directory_uri() . '/js/create-functions.js', '', '', true );
+	}
+
+	// VERSION_2 STYLESHEET AND JAVASCRIPT FUNCTIONS FOR CREATE YOUR SOLUTION
+	if ( is_page_template( array( 'template-pages/createyoursolution_2.php', 'template-pages/createyoursolution_results_2.php', 'template-pages/createyoursolution_results_quote_2.php', 'template-pages/test.php' ))) {
+		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-create_your_solution_stylesheet_2.css' );
+
+		wp_deregister_script( 'create-js-functions' );
+		wp_enqueue_script( 'create-js-functions', get_template_directory_uri() . '/js/create-functions_2.js', '', '', true );
 	}
 
 	// STYLESHEET AND JAVASCRIPT FUNCTIONS FOR EVOLVE
@@ -399,7 +410,7 @@ function custom_post_type_product_and_service() {
     'menu_icon'           => 'dashicons-cart',
 		'can_export'          => true,
 		'has_archive'         => false,
-		'exclude_from_search' => true,
+		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
 		'capability_type'     => 'post',
     'taxonomies'          => array('category', 'topic')
@@ -501,6 +512,52 @@ function custom_post_type_pathway() {
 	register_post_type( 'Pathways', $args );
 }
 
+function custom_post_type_solution_set() {
+	// Set UI labels for Custom Post Type
+		$labels = array(
+			'name'                => _x( 'Custom-Solution', 'Post Type General Name', 'teq_v4-0' ),
+			'singular_name'       => _x( 'Custom-Solution', 'Post Type Singular Name', 'teq_v4-0' ),
+			'menu_name'           => __( 'Custom Solutions', 'teq_v4-0' ),
+			'parent_item_colon'   => __( 'Parent Custom-Solution', 'teq_v4-0' ),
+			'all_items'           => __( 'All Custom-Solutions', 'teq_v4-0' ),
+			'view_item'           => __( 'View Custom-Solution', 'teq_v4-0' ),
+			'add_new_item'        => __( 'Add New Custom-Solution', 'teq_v4-0' ),
+			'add_new'             => __( 'Add New', 'teq_v4-0' ),
+			'edit_item'           => __( 'Edit Custom-Solution', 'teq_v4-0' ),
+			'update_item'         => __( 'Update Custom-Solution', 'teq_v4-0' ),
+			'search_items'        => __( 'Search Custom-Solution', 'teq_v4-0' ),
+			'not_found'           => __( 'Not Found', 'teq_v4-0' ),
+			'not_found_in_trash'  => __( 'Not found in Trash', 'teq_v4-0' ),
+		);
+	// Set other options for Custom Post Type
+		$args = array(
+			'label'               => __( 'Custom-Solutions', 'teq_v4-0' ),
+			'description'         => __( 'Custom-Solutions', 'teq_v4-0' ),
+			'labels'              => $labels,
+			// Features this CPT supports in Post Editor
+			'supports'            => array( 'title', 'editor', 'revisions' ),
+			/* A hierarchical CPT is like Pages and can have
+			* Parent and child items. A non-hierarchical CPT
+			* is like Posts.
+			*/
+			'hierarchical'        => false,
+			'public'              => false,
+			'show_ui'             => true,
+			'show_in_menu'        => true,
+			'show_in_nav_menus'   => true,
+			'show_in_admin_bar'   => true,
+			'menu_position'       => 6,
+	    'menu_icon'           => 'dashicons-portfolio',
+			'can_export'          => true,
+			'has_archive'         => true,
+			'exclude_from_search' => true,
+			'publicly_queryable'  => true,
+			'capability_type'     => 'post'
+		);
+		// Registering your Custom Post Type
+		register_post_type( 'Custom-Solutions', $args );
+}
+
 /* Hook into the 'init' action so that the function
 * Containing our post type registration is not
 * unnecessarily executed.
@@ -508,6 +565,7 @@ function custom_post_type_pathway() {
 add_action( 'init', 'custom_post_type_product_and_service', 0 );
 add_action( 'init', 'custom_post_type_pathway', 0 );
 add_action( 'init', 'custom_post_type_nedm_survey', 0 );
+add_action( 'init', 'custom_post_type_solution_set', 0 );
 
 // FUNCTION AND ACTION TO SORT CUSTOM POST TYPES 'PRODUCT AND SERVICE' OR 'PATHWAY' BY TITLE
 function alpha_order_classes( $query ) {
@@ -519,20 +577,25 @@ function alpha_order_classes( $query ) {
 add_action( 'pre_get_posts', 'alpha_order_classes' );
 
 /* add action for email notification
-* anytime a CPT NEDM Survey is published or changed
+* anytime a CPT NEDM Survey or Custom Solution is published or changed
 */
 add_action( 'transition_post_status', 'send_mails_on_publish', 10, 3 );
 
 function send_mails_on_publish( $new_status, $old_status, $post ) {
-  if ( 'publish' !== $new_status or 'publish' === $old_status or 'nedm-surveys' !== get_post_type( $post ) )
-
+  if ( 'publish' !== $new_status or 'publish' === $old_status or 'nedm-surveys' !== get_post_type( $post ) ) {
     return;
 			$to = 'InfrastructureTeam@teq.com, jay@teq.com';
 			$headers = 'CC: paulprincipato@teq.com';
 			$body = sprintf( 'Hey there is a new entry!' . "\n\n");
 			$body .= sprintf( 'See <%s>', get_permalink( $post ));
-
     wp_mail( $to, 'New Network-Enabled Device Management Survey', $body, $headers );
+	} elseif ( 'publish' !== $new_status or 'publish' === $old_status or 'Custom-Solutions' !== get_post_type( $post ) )  {
+		return;
+			$to = 'jay@teq.com';
+			$headers = 'CC: jonathansoftye@teq.com';
+			$body = sprintf( 'New Solution Set Created' . "\n\n");
+    wp_mail( $to, 'New Solution Set Created', $body, $headers );
+	}
 }
 
 /* CUSTOM TAXONOMY CREATED FOR PRODUCT AND SERVICE CUSTOM POST TYPE
@@ -579,7 +642,7 @@ function create_topics_hierarchical_taxonomy() {
     'menu_name' => __( 'Grades' ),
   );
 // Now register the taxonomy
-  register_taxonomy('grades',array('product-and-service'), array(
+  register_taxonomy('grades',array('product-and-service', 'pathways'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,
@@ -601,7 +664,7 @@ function create_topics_hierarchical_taxonomy() {
     'menu_name' => __( 'Proficiency' ),
   );
 // Now register the taxonomy
-  register_taxonomy('proficiency',array('product-and-service'), array(
+  register_taxonomy('proficiency',array('product-and-service', 'pathways'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,
@@ -630,6 +693,28 @@ function create_topics_hierarchical_taxonomy() {
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array( 'slug' => 'curriculum' ),
+  ));
+	$labels = array(
+    'name' => _x( 'Environment', 'taxonomy general name' ),
+    'singular_name' => _x( 'Environment', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Environment' ),
+    'all_items' => __( 'All Environment' ),
+    'parent_item' => __( 'Parent Environment' ),
+    'parent_item_colon' => __( 'Parent Environment:' ),
+    'edit_item' => __( 'Edit Environment' ),
+    'update_item' => __( 'Update Environment' ),
+    'add_new_item' => __( 'Add New Environment' ),
+    'new_item_name' => __( 'New Environment' ),
+    'menu_name' => __( 'Environment' ),
+  );
+// Now register the taxonomy
+  register_taxonomy('environment',array('product-and-service'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'environment' ),
   ));
 }
 
@@ -757,10 +842,11 @@ function custom_product_service_meta_html( $post) {
 	function custom_pathway_add_meta_box() {
 		add_meta_box(
 			'custom-meta',
-			__( 'PD Course and Product Information', 'text-domain' ),
+			__( 'iBlock Information', 'text-domain' ),
 			'custom_pathway_meta_html',
 			'pathways', //Post Type
-			'high' //Location
+			'normal', //Location
+			'low' //Priority
 		);
 	}
 	add_action( 'add_meta_boxes', 'custom_pathway_add_meta_box', 1 );
@@ -769,15 +855,15 @@ function custom_product_service_meta_html( $post) {
 	function custom_pathway_meta_html( $post) {
 		wp_nonce_field( '_custom_meta_nonce', 'custom_meta_nonce' ); ?>
 		<p class="wp-block-html">
-			<label for="custom_pd_meta_html"><?php _e( 'OTIS Course', 'text-domain' ); ?></label>
+			<label for="iblock_focus_meta_html"><?php _e( 'Focus Description', 'text-domain' ); ?></label>
 			<br>
-			<textarea name="custom_pd_meta_html" id="custom_pd_meta_html" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="width:100%; overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'custom_pd_meta_html' ); ?></textarea>
+			<textarea name="iblock_focus_meta_html" id="iblock_focus_meta_html" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="width:100%; overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'iblock_focus_meta_html' ); ?></textarea>
 		</p>
 		<br />
 		<p class="wp-block-html">
-			<label for="custom_product_meta_html"><?php _e( 'Product(s)', 'text-domain' ); ?></label>
+			<label for="iblock_focus_stats_html"><?php _e( 'Primary and Secondary Focus', 'text-domain' ); ?></label>
 			<br>
-			<textarea name="custom_product_meta_html" id="custom_product_meta_html" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="width:100%; overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'custom_product_meta_html' ); ?></textarea>
+			<textarea name="iblock_focus_stats_html" id="iblock_focus_stats_html" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="width:100%; overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'iblock_focus_stats_html' ); ?></textarea>
 		</p>
 		<br />
 		<?php } //endfunction
@@ -800,11 +886,11 @@ function custom_product_service_meta_html( $post) {
 				if ( ! isset( $_POST['custom_meta_nonce'] ) || ! wp_verify_nonce( $_POST['custom_meta_nonce'], '_custom_meta_nonce' ) ) return;
 					if ( ! current_user_can( 'edit_post', $post_id ) ) return;
 
-					if ( isset( $_POST['custom_pd_meta_html'] ) )
-						update_post_meta( $post_id, 'custom_pd_meta_html', esc_textarea( $_POST['custom_pd_meta_html'] ) );
+					if ( isset( $_POST['iblock_focus_meta_html'] ) )
+						update_post_meta( $post_id, 'iblock_focus_meta_html', esc_textarea( $_POST['iblock_focus_meta_html'] ) );
 
-					if ( isset( $_POST['custom_product_meta_html'] ) )
-						update_post_meta( $post_id, 'custom_product_meta_html', esc_textarea( $_POST['custom_product_meta_html'] ) );
+					if ( isset( $_POST['iblock_focus_stats_html'] ) )
+						update_post_meta( $post_id, 'iblock_focus_stats_html', esc_textarea( $_POST['iblock_focus_stats_html'] ) );
 		}
 		add_action( 'save_post', 'custom_pathway_meta_save' );
 
@@ -930,4 +1016,143 @@ function custom_product_service_meta_html( $post) {
 		function wpse_register_techlevel_param() {
     	global $wp;
     		$wp->add_query_var('selectedtechnologyProficiencyLevel');
+		}
+		add_action('init','wpse_register_environment_param');
+		function wpse_register_environment_param() {
+    	global $wp;
+    		$wp->add_query_var('selectedEducationalEnvironment');
+		}
+
+
+	/**
+		* AJAX FORM AND SCRIPT
+		* Enqueue ajax admin and javascript file for use in function
+		*/
+		function my_ajax_filter_search_scripts() {
+		  wp_enqueue_script( 'my_ajax_filter_search', get_template_directory_uri(). '/js/my-ajax-script_2.js', array(), '1.0', true );
+		  wp_localize_script( 'my_ajax_filter_search', 'ajax_url', admin_url('admin-ajax.php') );
+		}
+	/**
+		* AJAX FORM SHORTCODE FOR USE IN TEMPLATE FILES
+		* FORM FIELDS FOR NAME AND EMAIL
+		* HIDDEN TEXT FIELDS FOR 'Grade Band', 'STEM Focus', 'General Education Category'
+		* RADIO FIELDS VALUES CAPTURED AND SENT TO HIDDEN TEXT FIELDS
+		*/
+		function my_ajax_filter_search_shortcode() {
+		  my_ajax_filter_search_scripts();
+		    ob_start();
+		?>
+		  <form id="my_ajax_filter_search_form" name="my_ajax_filter_search_form" method="get" action="">
+			<div class="ui">
+				<div class="field has-addons">
+					<div class="control input-control is-expanded">
+						<input required class="is-fullwidth ui rounded outer dark input school-name {{my_ajax_filter_search_form.schoolName.$valid}}" type="text" name="schoolName" ng-model="schoolName" placeholder="Please enter your name, school name, or district">
+					</div>
+					<div class="control input-control is-expanded">
+						<input required class="is-fullwidth ui rounded outer dark input school-email {{my_ajax_filter_search_form.schoolEmail.$valid}}" type="email" name="schoolEmail" ng-model="schoolEmail" placeholder="Please enter an email">
+					</div>
+				</div>
+	      <input type="hidden" name="gradeLevelValue" id="gradeLevelValue" ng-value="gradeLevelValue">
+				<input type="hidden" name="stemFocusValue" id="stemFocusValue" ng-value="stemFocusValue">
+				<input type="hidden" name="generalEdValue" id="generalEdValue" ng-value="generalEdValue">
+			</div>
+			</form>
+
+		  <?php
+		    return ob_get_clean();
+		}
+		add_shortcode ('my_ajax_filter_search', 'my_ajax_filter_search_shortcode');
+	/**
+		* AJAX CALLBACK FOR SEARCH PARAMETERS
+		* ENABLE FUNCTION LOGGED AND NONLOGGED IN USERS
+		* CHECK SUBMISSION FOR Input fields: gradeLevelValue, stemFocusValue, generalEdValue
+		* IF INPUT FIELD VALUE EXIST, Capture value and use in Wordpress Array IN LOOP
+		* CAPTURE META AND POST DATA AS JSON DATA AND STORE IN result $array
+		* LOOP THROUGH RESULTS in javascript loop
+		*/
+		add_action('wp_ajax_my_ajax_filter_search', 'my_ajax_filter_search_callback');
+		add_action('wp_ajax_nopriv_my_ajax_filter_search', 'my_ajax_filter_search_callback');
+
+		function my_ajax_filter_search_callback() {
+
+			header("Content-Type: application/json");
+
+				$tax_query = array();
+
+			if(isset($_GET['gradeLevelValue'])) {
+				$gradeLevelValue = sanitize_text_field( $_GET['gradeLevelValue'] );
+				$tax_query[] = array(
+					'taxonomy' => 'grades',
+	        'field' => 'slug',
+					'compare' => '=',
+	        'terms' => $gradeLevelValue
+				);
+	    }
+			if(isset($_GET['stemFocusValue'])) {
+        $stemFocusValue = sanitize_text_field( $_GET['stemFocusValue'] );
+        $tax_query[] = array(
+          'taxonomy' => 'category',
+          'field' => 'slug',
+					'compare' => '=',
+          'terms' => $stemFocusValue
+        );
+    	}
+			if(isset($_GET['generalEdValue'])) {
+        $generalEdValue = sanitize_text_field( $_GET['generalEdValue'] );
+        $tax_query[] = array(
+          'taxonomy' => 'topics',
+          'field' => 'slug',
+					'compare' => '=',
+          'terms' => $generalEdValue
+        );
+    	}
+    	$args = array(
+        'post_type' => 'Product-and-Service',
+				'category_name' => 'Teq Product',
+        'posts_per_page' => -1,
+        'tax_query' => $tax_query
+    	);
+
+				$search_query = new WP_Query( $args );
+
+		  if ( $search_query->have_posts() ) {
+				$result = array();
+
+				while ( $search_query->have_posts() ) {
+					$search_query->the_post();
+
+						$proficienciesSlugArray = array();
+						$proficienciesNameArray = array();
+						$proficiencyTerms = get_the_terms( $post->ID, 'proficiency' );
+							foreach ($proficiencyTerms as $proficiencyTerm) {
+								$proficienciesSlugArray[] = $proficiencyTerm -> slug . ' ';
+								$proficienciesNameArray[] = $proficiencyTerm -> name . ' ';
+							}
+						$environmentsSlugArray = array();
+						$environmentsNameArray = array();
+						$environmentTerms = get_the_terms( $post->ID, 'environment' );
+							foreach ($environmentTerms as $environmentTerm) {
+								$environmentsSlugArray[] = $environmentTerm -> slug . ' ';
+								$environmentsNameArray[] = $environmentTerm -> name . ' ';
+							}
+
+						$result[] = array(
+							"id" => get_the_ID(),
+		          "title" => get_the_title(),
+							"excerpt" => get_the_excerpt(),
+							"permalink" => get_permalink(),
+							"poster" => wp_get_attachment_url(get_post_thumbnail_id($post_id, 'full') ),
+							"proficiencies" => $proficienciesSlugArray,
+							"proficiency" => $proficienciesNameArray,
+							"environments" => $environmentsSlugArray,
+							"environment" => $environmentsNameArray,
+		        );
+				}
+		    wp_reset_query();
+		    	echo json_encode($result); exit;
+
+		  } else {
+				// no posts found
+		  }
+		wp_die();
 		}
