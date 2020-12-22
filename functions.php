@@ -192,6 +192,14 @@ function teq_v4_0_scripts() {
 		wp_enqueue_script( 'create-js-functions', get_template_directory_uri() . '/js/create-functions_2.js', '', '', true );
 	}
 
+	// VERSION_3 STYLESHEET AND JAVASCRIPT FUNCTIONS FOR CREATE YOUR SOLUTION
+	if ( is_page_template( array( 'template-pages/createyoursolution_3.php', 'template-pages/createyoursolution_3_prelim.php', 'template-pages/createyoursolution_3_results.php', 'template-pages/createyoursolution_3_quote.php' ))) {
+		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-create_your_solution_stylesheet_2.css' );
+
+		wp_deregister_script( 'create-js-functions' );
+		wp_enqueue_script( 'create-js-functions', get_template_directory_uri() . '/js/create-functions_3.js', '', '', true );
+	}
+
 	// STYLESHEET AND JAVASCRIPT FUNCTIONS FOR EVOLVE
 	if ( is_page_template( array( 'template-pages/evolve.php' ) ) ) {
 		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-evolve_stylesheet.css' );
@@ -488,7 +496,7 @@ function custom_post_type_pathway() {
 		'description'         => __( 'Pathways', 'teq_v4-0' ),
 		'labels'              => $labels,
 		// Features this CPT supports in Post Editor
-		'supports'            => array( 'title', 'editor', 'author', 'custom-fields', 'revisions' ),
+		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields', 'revisions' ),
 		/* A hierarchical CPT is like Pages and can have
 		* Parent and child items. A non-hierarchical CPT
 		* is like Posts.

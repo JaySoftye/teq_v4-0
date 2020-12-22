@@ -192,7 +192,7 @@
 
   /**
     * CREATE DROPDOWN FILTERS
-    * Target Controll and display
+    * Target Control and display
     */
     app.controller('gradeLevelFilter', function($scope) {
   	  $scope.items = [
