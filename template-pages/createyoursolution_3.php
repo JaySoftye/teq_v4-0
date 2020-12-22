@@ -32,9 +32,9 @@ get_header();
 									<input required class="is-fullwidth ui rounded outer dark input school-email {{products_search_form.schoolEmail.$valid}}" type="email" name="schoolEmail" ng-model="schoolEmail" placeholder="Please enter an email">
 								</div>
 							</div>
-			      	<input type="hidden" name="gradeLevelValue" id="gradeLevelValue" ng-value="gradeLevelValue">
-							<input type="hidden" name="stemFocusValue" id="stemFocusValue" ng-value="stemFocusValue">
-							<input type="hidden" name="generalEdValue" id="generalEdValue" ng-value="generalEdValue">
+			      	<input type="hidden" name="gradeLevelValue" id="gradeLevelValue" ng-value="gradeLevelValue" value>
+							<input type="hidden" name="stemFocusValue" id="stemFocusValue" ng-value="stemFocusValue" value>
+							<input type="hidden" name="generalEdValue" id="generalEdValue" ng-value="generalEdValue" value>
 						</div>
 
 						<div class="input-control level padding-sm-top-bottom">

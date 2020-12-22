@@ -90,7 +90,7 @@
    * SHOW ADDITIONAL RADIO FIELDS for general education field
    */
    $scope.stemFocusValue = '';
-   $scope.generalEdValue = '';
+   $scope.generalEdValue = 'stem-technologies';
 
    $scope.codingSelected = function () {
       document.getElementById("submit_products_search_form").removeAttribute("disabled");
@@ -327,23 +327,18 @@
 
       $(this).toggleClass('selected');
         if($(this).hasClass('selected')) {
-          $("article.product-item").each(function() {
-            if($(this).hasClass(value)) {
-                $(this).addClass("hidden");
+          $(".preliminary-product-list-container article.product-item").each(function() {
+            if(!$(this).hasClass(value)) {
+              $(this).addClass("hidden");
             }
           });
         } else {
-          $("article.product-item").each(function() {
-            if($(this).hasClass(value)) {
-                $(this).removeClass("hidden");
+          $(".preliminary-product-list-container article.product-item").each(function() {
+            if(!$(this).hasClass(value)) {
+              $(this).removeClass("hidden");
             }
           });
         }
-      // FILTER COUNT FUNCTION
-      // TOTAL OF '.refine-filter' ELEMENTS SELECTED
-      var filters = $('.refine-filter-container .refine-filter.selected');
-      var selectedFilters = filters.length
-        $('#filter-count').text(selectedFilters);
 
     });
 
@@ -363,5 +358,59 @@
     $(".close-modal").click(function() {
       $(".modal").removeClass("is-active")
     });
+
+
+    // COUNTER FUNCTION FOR SELECTED ITEMS
+    // GET THE TOTAL NUMBER OF CHECKBOXES SELECTED
+    // DEFAULT Value is set to '0'
+    $(function() {
+      $('.selected-items-counter a i').text('0');
+      var checkboxTotalLen = $("#preliminary-product-list article.product-item input[type='checkbox']:checked").length;
+
+        if(checkboxTotalLen > 0) {
+          $(".selected-items-counter a i").text(checkboxTotalLen);
+        } else {
+          $(".selected-items-counter a i").text('0');
+        }
+    });
+    // UPDATE FUNCTION TO GET THE SELECTED ITEMS LENGTH
+    // COUNT THE TOTALS EACH TIME
+    function updateCounter() {
+      var updatedTotalLen = $("#preliminary-product-list article.product-item input[type='checkbox']:checked").length;
+
+      if(updatedTotalLen > 0) {
+        $(".selected-items-counter a i").text(updatedTotalLen);
+      } else {
+        $(".selected-items-counter a i").text('0');
+      }
+
+    };
+    // USE UPDATE FUNCTION TO PARSE LENGTH TO CONSOLE AND UPDATE counter element
+    // UPDATE NAV ITEM .select.items-counter a i
+    $("#preliminary-product-list article.product-item input:checkbox").on("change", function() {
+      updateCounter();
+        var checkboxTitle = $(this).attr("name");
+          console.log(checkboxTitle);
+    });
+    // ADD OR REMOVE SELECTED ITEMS TO HTML LIST
+    // USE LOOP FUNCTION TO PARSE EACH input:checkbox Element
+    // IF ITEM IS :CHECKED Add to HTML LIST with MATCHING ID
+    // IF ITEM IS not:CHECKED Remove Item with Corresponding ID
+    $("#preliminary-product-list article.product-item input:checkbox").click(function() {
+      $(this).each(function() {
+        var checkboxTitle = $(this).attr("name");
+
+        if ($(this).is(":checked")) {
+          $("ul#select-items-content").append('<li id="'+checkboxTitle+'">'+checkboxTitle+'</li>')
+        } else if($(this).not(':checked')) {
+          $("ul#select-items-content").find("#"+checkboxTitle).remove();
+        }
+
+      });
+    });
+
+
+
+
 
   });
