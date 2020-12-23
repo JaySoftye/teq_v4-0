@@ -198,6 +198,8 @@ function teq_v4_0_scripts() {
 
 		wp_deregister_script( 'create-js-functions' );
 		wp_enqueue_script( 'create-js-functions', get_template_directory_uri() . '/js/create-functions_3.js', '', '', true );
+		wp_deregister_script( 'rest-api-js-response' );
+		wp_enqueue_script( 'rest-api-js-response', get_template_directory_uri(). '/js/my-ajax-script_3.js', array(), '1.0', true );
 	}
 
 	// STYLESHEET AND JAVASCRIPT FUNCTIONS FOR EVOLVE
@@ -503,6 +505,9 @@ function custom_post_type_pathway() {
 		*/
 		'hierarchical'        => false,
 		'public'              => false,
+		'show_in_rest'       => true,
+    'rest_base'          => 'pathways',
+    'rest_controller_class' => 'WP_REST_Posts_Controller',
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
@@ -901,6 +906,42 @@ function custom_product_service_meta_html( $post) {
 						update_post_meta( $post_id, 'iblock_focus_stats_html', esc_textarea( $_POST['iblock_focus_stats_html'] ) );
 		}
 		add_action( 'save_post', 'custom_pathway_meta_save' );
+
+	/**
+		* ADD CUSTOM META FIELD TO REST API RESPONSE
+		* REGISTER REST FIELD IN URL
+		* META FIELD 'iBlock_focus_meta_html' INCLUDED IN REST API return
+		* /wp-json/wp/v2/pathways/'postID'
+		*/
+		add_action( 'rest_api_init', function () {
+			register_rest_field( 'pathways', 'iblock_focus_meta_html', array(
+				'get_callback' => function( $post_arr ) {
+					return get_post_meta( $post_arr['id'], 'iblock_focus_meta_html', true );
+				},
+		   ) );
+		});
+	/**
+		* ADD FEATURED IMAGE TO REST API RESPONSE
+		* REGISTER REST FIELD IN URL
+		* GET FEATURED-IMAGE FROM the OBJECTY data
+		* set as 'img_url' data field in response
+		* /wp-json/wp/v2/pathways/'postID'
+		*/
+		add_action('rest_api_init', 'register_rest_images' );
+			function register_rest_images() {
+				register_rest_field( array('pathways'), 'img_url', array (
+					'get_callback'    => 'get_rest_featured_image',
+          'update_callback' => null,
+          'schema'          => null,
+        ) );
+			}
+			function get_rest_featured_image( $object, $field_name, $request ) {
+    		if( $object['featured_media'] ) {
+        	$img = wp_get_attachment_image_src( $object['featured_media'], 'app-thumb' );
+        	return $img[0];
+    		}
+    		return false;
+			}
 
 
 

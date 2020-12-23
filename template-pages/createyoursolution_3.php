@@ -12,6 +12,26 @@ get_header();
 <div id="primary" class="content-area">
 	<main id="main" class="site-main section-container">
 		<section class="full-section create-your-solution-container">
+			<?php
+				/**
+					* WORDPRESS SEARCH QUERY
+					* 3 RANDOM POSTS with loop to grab featured image
+					*/
+				$args = array(
+					'post_type' => 'product-and-service',
+					'category_name' => 'coding, engineering, robotics, hydroponics, general-education',
+					'posts_per_page' => 3,
+					'orderby' => 'rand'
+				);
+
+				$the_query = new WP_Query( $args );
+					if ($the_query -> have_posts()) :
+						while ($the_query -> have_posts()) : $the_query -> the_post();
+							echo get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'featured-image-product' ) );
+						endwhile;
+					endif;
+				wp_reset_postdata();
+			?>
 
 			<form id="products_search_form" name="products_search_form" method="POST" action="<?php echo get_home_url(); ?>/index.php/create-your-solution/your-solution-products?id=<?php echo(mt_rand(0,999)); ?>" class="container" ng-controller="solutionController">
 

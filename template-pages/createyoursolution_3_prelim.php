@@ -19,7 +19,6 @@ get_header();
 
 					echo file_get_contents(get_template_directory_uri() . '/inc/ui/dropshadow-filter.svg');
 
-
 					if(isset($_POST['gradeLevelValue'])) {
 						$gradeLevel = htmlspecialchars($_POST['gradeLevelValue']);
 						$cat = get_term_by( 'slug', $gradeLevel, 'grades');
@@ -112,24 +111,17 @@ get_header();
 								<div class="preliminary-product-list-container">
 									<p class="column">Are you ready to explore the products and solutions that meet your criteria? Review the solutions below, select the products that interest you, or refine your results even further by using the Technology Proficiency and Educational Environment filters.  </p>
 									<nav class="ui product-tabs-nav">
-										<div class="product-tabs tabs">
+										<div class="product-tabs tabs sub-nav">
 			  							<ul>
 			    							<li class="form-ui">
 													<a id="productRefineFilters" class="modal-open-button" href>
 														Refine your product results
-														<?php echo file_get_contents(get_template_directory_uri() . '/inc/images/create-prelim-form-ui_filters-icons.svg'); ?>
-													</a>
-												</li>
-												<li class="form-ui">
-													<a href>
-														Back
-														<?php echo file_get_contents(get_template_directory_uri() . '/inc/images/create-prelim-form-ui_back-icons.svg'); ?>
+														<?php echo file_get_contents(get_template_directory_uri() . '/inc/images/create-prelim-form-ui_filter-icons.svg'); ?>
 													</a>
 												</li>
 			  							</ul>
 										</div>
 									</nav>
-									<div class="product-list">
 									<?php
 										/**
 									  	* WORDPRESS SEARCH QUERY FOR STEM PRODUCTS
@@ -196,8 +188,18 @@ get_header();
 										endwhile; endif;
 											wp_reset_postdata();
 									?>
-									<h3 class="empty-text">no products here</h3>
-									</div>
+									<nav class="ui product-tabs-nav">
+										<div class="product-tabs tabs">
+			  							<ul>
+												<li class="form-ui">
+													<a href onclick="history.back(-1)">
+														Back
+														<?php echo file_get_contents(get_template_directory_uri() . '/inc/images/create-prelim-form-ui_back-icons.svg'); ?>
+													</a>
+												</li>
+			  							</ul>
+										</div>
+									</nav>
 								</div>
 							</section>
 
@@ -211,12 +213,34 @@ get_header();
 												<p>Discover the iBlocks we’ve imagined and see how they align to relevant state standards. An iBlock can be customized for your interests, goals, and needs. Choose any of the topics below to add to your iBlock product list.</p>
 											</div>
 										</div>
+										<?php
+											/**
+										  	* WORDPRESS SEARCH QUERY FOR ALL IBLOCK PATHWAYS
+												* QUERY ALL Custom Post Type 'Pathway'
+												*/
+
+								    		$full_pathway_args = array(
+								        	'post_type' => 'Pathways',
+								        	'posts_per_page' => -1,
+													'orderby' => 'title',
+    											'order'   => 'ASC'
+								    		);
+
+												$full_pathway_query = new WP_Query( $full_pathway_args );
+													if ($full_pathway_query -> have_posts()) : while ($full_pathway_query -> have_posts()) :
+														$full_pathway_query -> the_post();
+														$post_id = get_the_ID();
+										?>
 										<div class="ui selection-list">
-											<p class="ui-checkbox-container" ng-repeat="pathway in pathways">
-												<input type="checkbox" name="{{pathway.value}}" id="{{pathway.value}}" ng-value="{{pathway.value}}" value="{{pathway.value}}">
-												<label for="{{pathway.value}}"><span class="toggle"></span> <em>{{pathway.title}}</em></label>
+											<p class="ui-checkbox-container">
+												<input type="checkbox" id="<?php echo $post->post_name; ?>" name="<?php echo $post->post_name; ?>" value="<?php echo $post_id; ?>">
+												<label for="<?php echo $post->post_name; ?>"><span class="toggle"></span> <em><?php echo $post->post_title; ?></em></label>
 											</p>
 										</div>
+										<?php
+											endwhile; endif;
+												wp_reset_postdata();
+										?>
 										<button class="close-modal" type="button" aria-label="close">&times;</button>
   								</div>
 								</div>
@@ -226,18 +250,12 @@ get_header();
 								<div class="preliminary-product-list-container">
 									<p class="column">An iBlock, or “instructional block,” is a project-based learning solution built to foster critical thinking, spark creativity, and give students the opportunity to practice 21st century skills. Below are the iBlocks we think will be a great fit for you. To explore even more iBlock topics and trends, click the <em>more iblock pathways</em> button below.</p>
 									<nav class="ui product-tabs-nav">
-										<div class="product-tabs tabs">
+										<div class="product-tabs tabs sub-nav">
 			  							<ul>
 			    							<li class="form-ui">
 													<a id="iBlockPathways" class="modal-open-button" href>
 														more iblock pathways
 														<?php echo file_get_contents(get_template_directory_uri() . '/inc/images/create-prelim-form-ui_list-icons.svg'); ?>
-													</a>
-												</li>
-												<li class="form-ui">
-													<a href>
-														Back
-														<?php echo file_get_contents(get_template_directory_uri() . '/inc/images/create-prelim-form-ui_back-icons.svg'); ?>
 													</a>
 												</li>
 			  							</ul>
@@ -304,26 +322,40 @@ get_header();
 										endwhile; endif;
 											wp_reset_postdata();
 									?>
+
+									<button type="button" id="get-another-quote-button">GET Another iBlock</button>
+									<section id="remote-content"></section>
+
+									<nav class="ui product-tabs-nav">
+										<div class="product-tabs tabs">
+			  							<ul>
+												<li class="form-ui">
+													<a href onclick="history.back(-1)">
+														Back
+														<?php echo file_get_contents(get_template_directory_uri() . '/inc/images/create-prelim-form-ui_back-icons.svg'); ?>
+													</a>
+												</li>
+			  							</ul>
+										</div>
+									</nav>
 								</div>
 							</section>
 
 							<section id="instructional-material-selection"  class="column is-full products-list professional-development ui outer dark" ng-show="isSet(3)">
 								<div class="modal" data-modal-title="otisPdCategories">
-	  							<div class="modal-background"></div>
+									<div class="modal-background"></div>
   								<div class="modal-content ui background outer dark">
     								<div class="columns">
 											<div class="column is-full">
-												<img src="<?php echo get_template_directory_uri() . '/inc/images/create-prelim-site-header_teq-products-logo.svg'; ?>" />
-												<p>You can further refine your results by using the Technology Proficiency and Educational Environment dials. Simply click on the level or environment you would like to view and your product results list will update automatically.</p>
+												<img src="<?php echo get_template_directory_uri() . '/inc/images/create-prelim-site-header_iblocks-logo.svg'; ?>" />
+												<p>Discover the iBlocks we’ve imagined and see how they align to relevant state standards. An iBlock can be customized for your interests, goals, and needs. Choose any of the topics below to add to your iBlock product list.</p>
 											</div>
 										</div>
-										<div class="columns">
-											<div class="column is-half ui ui-container">
-												<div class="filter-container rounded background outer dark">
-													<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/technology_proficiency_dial_2.svg'); ?>
-													<p class="has-text-centered strong caption">Technology Proficiency</p>
-												</div>
-											</div>
+										<div class="ui selection-list">
+											<p class="ui-checkbox-container" ng-repeat="pathway in pathways">
+												<input type="checkbox" name="{{pathway.value}}" id="{{pathway.value}}" ng-value="{{pathway.value}}" value="{{pathway.value}}">
+												<label for="{{pathway.value}}"><span class="toggle"></span> <em>{{pathway.title}}</em></label>
+											</p>
 										</div>
 										<button class="close-modal" type="button" aria-label="close">&times;</button>
   								</div>

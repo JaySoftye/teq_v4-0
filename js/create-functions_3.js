@@ -389,6 +389,7 @@
     // UPDATE NAV ITEM .select.items-counter a i
     $("#preliminary-product-list article.product-item input:checkbox").on("change", function() {
       updateCounter();
+        $(this).parents().toggleClass("product-selected");
         var checkboxTitle = $(this).attr("name");
           console.log(checkboxTitle);
     });
