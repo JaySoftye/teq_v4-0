@@ -63,8 +63,8 @@ get_header();
 										<a href><i>0</i> Items Selected</a>
 										<ul id="select-items-content" class="tooltip-content"></ul>
 									</li>
-									<li class="button-container">
-										<button type="button" class="next-section"><span class="inner">NEXT Section</span></button>
+									<li class="button-container" ng-class="{ getresults: isSet(3) }">
+										<button type="button" class="next-section" ng-click="nextTab()"><span class="inner" ng-bind="nextText"></span></button>
 									</li>
   							</ul>
 							</div>
@@ -206,7 +206,7 @@ get_header();
 							<section id="instructional-material-selection"  class="column is-full products-list iblocks ui outer dark" ng-show="isSet(2)">
 								<div class="modal" data-modal-title="iBlockPathways">
 	  							<div class="modal-background"></div>
-  								<div class="modal-content ui background outer dark">
+  								<div class="modal-content ui background outer dark" id="pathway-checkbox-list">
     								<div class="columns">
 											<div class="column is-full">
 												<img src="<?php echo get_template_directory_uri() . '/inc/images/create-prelim-site-header_iblocks-logo.svg'; ?>" />
@@ -233,8 +233,8 @@ get_header();
 										?>
 										<div class="ui selection-list">
 											<p class="ui-checkbox-container">
-												<input type="checkbox" id="<?php echo $post->post_name; ?>" name="<?php echo $post->post_name; ?>" value="<?php echo $post_id; ?>">
-												<label for="<?php echo $post->post_name; ?>"><span class="toggle"></span> <em><?php echo $post->post_title; ?></em></label>
+												<input type="checkbox" class="pathway-checkbox" id="<?php echo $post->post_name . '-checkbox'; ?>" name="<?php echo $post->post_name . '-checkbox'; ?>" value="<?php echo $post_id; ?>">
+												<label for="<?php echo $post->post_name . '-checkbox'; ?>"><span class="toggle"></span> <em><?php echo $post->post_title; ?></em></label>
 											</p>
 										</div>
 										<?php
@@ -288,6 +288,7 @@ get_header();
 											$pathway_query = new WP_Query( $pathway_args );
 												if ($pathway_query -> have_posts()) : while ($pathway_query -> have_posts()) :
 													$pathway_query -> the_post();
+													$id = get_the_ID();
 									?>
 									<article class="ui rounded product-item iblock-pathway">
 										<label for="<?php echo $post->post_name; ?>">
@@ -302,8 +303,8 @@ get_header();
 											<img src="<?php echo get_template_directory_uri() . '/inc/images/create-prelim-iblock-template_default.png'; ?>" />
 										<?php } ?>
 										<div class="inner-content">
-											<h3 class="product-title accordion_button"><?php the_title(); ?></h3>
-											<div class="iblock-description columns">
+											<h3 class="product-title iblock-info-button"><?php the_title(); ?></h3>
+											<div class="iblock-description hidden columns">
 												<div class="column is-5">
   												<?php the_content(); ?>
 												</div>
@@ -323,8 +324,7 @@ get_header();
 											wp_reset_postdata();
 									?>
 
-									<button type="button" id="get-another-quote-button">GET Another iBlock</button>
-									<section id="remote-content"></section>
+									<section id="additionalPathways"></section>
 
 									<nav class="ui product-tabs-nav">
 										<div class="product-tabs tabs">

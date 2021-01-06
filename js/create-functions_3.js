@@ -241,16 +241,37 @@
 
   /**
     * TABBED CONTENT FUNCTION for product PRELIMINARY PRODUCT SUMMARY
-    * SHOW TABS BASIED ON scope value
+    * SHOW TABS BASED ON scope value
     * TARGET <section> with ng-SHOW
     * ADD 'Active' CLASS TO NAVIGATION SELECT
+    * NAVBAR 'next section' BUTTON
+    * CHANGE TEXT BASED UPON WHAT TAB IS SHOWN
     */
-    $scope.tab = 1;
+    $scope.tab = 2;
+    $scope.nextText = 'next section';
+
     $scope.setTab = function(newTab){
       $scope.tab = newTab;
+      if ($scope.tab === 3) {
+        $scope.nextText = 'get my results';
+      } else {
+        $scope.nextText = 'next section';
+      }
     };
+
     $scope.isSet = function(tabNum){
       return $scope.tab === tabNum;
+    };
+
+    $scope.nextTab = function () {
+      if ($scope.tab === 1) {
+        $scope.tab = 2;
+      } else if ($scope.tab === 2) {
+        $scope.tab = 3;
+        $scope.nextText = 'get my results';
+      } else if ($scope.tab === 3) {
+        alert('Get dem results');
+      }
     };
 
 
@@ -360,6 +381,16 @@
     });
 
 
+    // IBLOCK PATHWAY DESCRIPTION EXPAND FUNCTION
+    // TARGET ENTIRE INSTRUCTIONAL MATERIAL container
+    // NEED A .on(click) FUNCTION TO CATCH THE APPENDED ELEMENTS FROM THE AJAX CALLS
+    // TOGGLE CLASS ON clicked element and CLOSEST 'description' elements
+    $('#instructional-material-selection').on('click',".iblock-pathway .iblock-info-button",function() {
+      $(this).toggleClass("active-expanded");
+      $(this).next("div.iblock-description").toggleClass("hidden");
+    });
+
+
     // COUNTER FUNCTION FOR SELECTED ITEMS
     // GET THE TOTAL NUMBER OF CHECKBOXES SELECTED
     // DEFAULT Value is set to '0'
@@ -409,9 +440,5 @@
 
       });
     });
-
-
-
-
 
   });
