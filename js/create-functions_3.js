@@ -403,25 +403,31 @@
     // CLICK FUNCTION ENABLED FOR '.refine-filter' ELEMENTS
     // GATHER VALUE FROM title attribute
     // TOGGLE HIDE STATE if contains value of filter
+    // LOOP THROUGH 'refine-filter' ELEMENTS TO TOGGLE 'selected' class STATE
+    // ONLY ONE OPTION CAN BE SELECTED AT A TIME
     $('.refine-filter').click(function() {
 
       var value = $(this).attr('title');
         console.log(value);
 
-      $(this).toggleClass('selected');
         if($(this).hasClass('selected')) {
-          $("#product-selection .preliminary-product-list-container article.product-item").each(function() {
-            if(!$(this).hasClass(value)) {
-              $(this).addClass("hidden");
-            }
-          });
-        } else {
           $("#product-selection .preliminary-product-list-container article.product-item").each(function() {
             if(!$(this).hasClass(value)) {
               $(this).removeClass("hidden");
             }
           });
+        } else {
+          $("#product-selection .preliminary-product-list-container article.product-item").each(function() {
+            if(!$(this).hasClass(value)) {
+              $(this).addClass("hidden");
+            } else {
+              $(this).removeClass("hidden");
+            }
+          });
         }
+
+        $(this).toggleClass('selected');
+        $(this).siblings().removeClass('selected');
 
     });
 
@@ -562,6 +568,31 @@
       }
     });
 
+
+    // FINAL RESULTS SELECTION LIST
+    // LOOP THROUGH THE 'article.product-solution' ELEMENTS
+    // APPEND HTML <option> ELEMENT WITH MATCHING TITLE ATTRIBUTE FOR Value
+    $(".solutions-container article.product-solution").each(function() {
+      var solutionTitle = $(this).attr("title");
+      var solutionId = $(this).attr("id");
+        $("#product-summary-options").append("<option value='"+solutionId+"'>"+solutionTitle+"</option>");
+    });
+    // CAPTURE THE VALUE OF <option> ELEMENT CLICKED
+    // SCROLL TO CORRESPONDING ELEMENT
+    $("#product-summary-options").on('change', function() {
+      var optionSelectedValue = $(this).val();
+      $('html, body').animate({
+        scrollTop: $("#"+optionSelectedValue).offset().top -150
+      });
+    });
+
+    // FINAL RESULTS QUOTE LIST
+    // LOOP THROUGH THE 'article.product-solution' ELEMENTS
+    // APPEND HTML <li><div><label<input> ELEMENT WITH MATCHING TITLE ATTRIBUTE FOR Value
+    $(".solutions-container article.product-solution").each(function() {
+      var solutionTitle = $(this).attr("title");
+        $("#product-solution-quote-options").append("<label for='"+solutionTitle+"'><input type='checkbox' class='pd-category-item' name='quoted_items[]' id='"+solutionTitle+"' value='"+solutionTitle+"' title='"+solutionTitle+"' /><span class='checkmark'></span> "+solutionTitle+"</label>");
+    });
 
 
   });

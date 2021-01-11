@@ -12,11 +12,11 @@ get_header();
 <div id="primary" class="content-area">
 	<main id="main" class="site-main section-container">
 		<section class="full-section create-your-solution-container">
-			<div class="container" ng-controller="solutionController">
+			<div class="container product-list" ng-controller="solutionController">
 
 
 				<?php echo file_get_contents(get_template_directory_uri() . '/inc/ui/dropshadow-filter.svg'); ?>
-				<section id="solutionSet" class="columns is-multiline is-centered is-desktop">
+				<section id="solutionSet" class="columns prelim-product-container is-multiline is-centered is-desktop">
 					<div class="column is-full-desktop is-full-mobile">
 
 
@@ -31,7 +31,15 @@ get_header();
 							$gradeLevel = $_POST['gradeLevelValue'];
 							$stemFocus = $_POST['stemFocusValue'];
 							$generalEducation = $_POST['generalEdValue'];
-
+						/**
+							* SET FORM DATA FROM PRODUCT SELECTIONS INTO VARIABLES
+							* STEM PRODUCTS, IBLOCK PATHWAYS, PD OPTIONS, TEQTIVITY OPTION
+							* VARIABLES STORE POST ID EXCEPT FOR TEQTIVITY OPTION
+							*/
+							$user_product_selections = $_POST['userProductSelections'];
+							$user_pathway_selections = $_POST['userPathwaySelections'];
+							$user_pd_selections = $_POST['userPdSelections'];
+							$user_teqtivity_selected = $_POST['teq-tivity-selectioned'];
 						?>
 						<div class="padding-bottom">
 							<h4 class="strong margin-bottom"> It’s here!</h4>
@@ -41,13 +49,13 @@ get_header();
 						<nav class="ui product-tabs-nav main outer dark">
 							<div class="product-tabs results tabs">
 								<div class="select-menu-container">
-									<select id="" name="">
-    								<option value="">Products in this summary</option>
-  								</select>
+									<select id="product-summary-options" name="productSummaryOptions">
+										<option disabled selected>Products in this summary</option>
+									</select>
 								</div>
 	  						<ul id="nav-tab-button">
 									<li class="form-ui">
-										<a href>
+										<a href id="solutionQuoteRequest" class="modal-open-button">
 											Get a quote
 											<?php echo file_get_contents(get_template_directory_uri() . '/inc/images/create-prelim-form-ui_quote-icons.svg'); ?>
 										</a>
@@ -67,11 +75,9 @@ get_header();
 							<?php
 							/**
 								* WORDPRESS SEARCH QUERY FOR STEM PRODUCTS, Query Post Type 'product-and-service'
-								* STORE userProductSelections Array IN Variable
+								* STORED IN userProductSelections Array IN Variable
 								* CHECK IF ARRAY IS EMPTY, IF NOT QUERY RESULTS
 								*/
-
-								$user_product_selections = $_POST['userProductSelections'];
 
 								if(!empty($user_product_selections)) :
 
@@ -85,7 +91,7 @@ get_header();
 									$the_query = new WP_Query( $args );
 										if ($the_query -> have_posts()) : while ($the_query -> have_posts()) : $the_query -> the_post();
 								?>
-								<article class="ui rounded product-solution">
+								<article title="<?php the_title(); ?>" class="ui rounded product-solution" id="<?php echo $the_query->post->ID; ?>">
 									<?php if (has_post_thumbnail( $post->ID ) ): ?>
 		  							<div class="product-image">
 											<?php echo get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'product' ) ); ?>
@@ -105,7 +111,7 @@ get_header();
 															$gradeTerms = get_the_terms( $post->ID, 'grades' );
 															$gradeTermsCount = count($gradeTerms);
 																foreach($gradeTerms as $gradeTerm) {
-																	echo $gradeTerm -> name . ', ';
+																	echo $gradeTerm -> name . ' | ';
 																}
 														?>
 													</span>
@@ -118,12 +124,25 @@ get_header();
 															$proficiencyTerms = get_the_terms( $post->ID, 'proficiency' );
 															$proficiencyTermsCount = count($proficiencyTerms);
 															foreach($proficiencyTerms as $proficiencyTerm) {
-																echo $proficiencyTerm -> name . ', ';
+																echo $proficiencyTerm -> name . ' | ';
 															}
 														?>
 													</span>
 												</p>
 												<div class="bar-counter"><i data="<?php echo $proficiencyTermsCount; ?>"></i></div>
+												<p class="product-stats">
+													<strong>Educational Environment:</strong>
+													<span>
+														<?php
+															$environmentTerms = get_the_terms( $post->ID, 'environment' );
+															$environmentTermsCount = count($proficiencyTerms);
+															foreach($environmentTerms as $environmentTerm) {
+																echo $environmentTerm -> name . ' | ';
+															}
+														?>
+													</span>
+												</p>
+												<div class="bar-counter"><i data="<?php echo $environmentTermsCount; ?>"></i></div>
 											</div>
 										</div>
 									</div>
@@ -133,11 +152,9 @@ get_header();
 							<?php
 							/**
 								* WORDPRESS SEARCH QUERY FOR iBlock PRODUCTS, Query Post Type 'pathways'
-								* STORE userPathwaySelections Array IN Variable
+								* STORED IN userPathwaySelections Array IN Variable
 								* CHECK IF ARRAY IS EMPTY, IF NOT QUERY RESULTS
 								*/
-
-								$user_pathway_selections = $_POST['userPathwaySelections'];
 
 								if(!empty($user_pathway_selections)) :
 
@@ -151,7 +168,7 @@ get_header();
 									$the_query = new WP_Query( $args );
 										if ($the_query -> have_posts()) : while ($the_query -> have_posts()) : $the_query -> the_post();
 								?>
-								<article class="ui rounded product-solution iblock-solution">
+								<article title="<?php the_title(); ?>" class="ui rounded product-solution iblock-solution" id="<?php echo $the_query->post->ID; ?>">
 									<div class="columns is-vcentered product-content">
 										<div class="column is-one-third">
 											<img src="<?php echo get_template_directory_uri() . '/inc/ui/iblock-content-header_iblocks-logo.svg'; ?>" />
@@ -187,7 +204,7 @@ get_header();
 														$gradeTerms = get_the_terms( $post->ID, 'grades' );
 														$gradeTermsCount = count($gradeTerms);
 															foreach($gradeTerms as $gradeTerm) {
-																echo $gradeTerm -> name . ', ';
+																echo $gradeTerm -> name . ' | ';
 															}
 													?>
 												</span>
@@ -200,7 +217,7 @@ get_header();
 														$proficiencyTerms = get_the_terms( $post->ID, 'proficiency' );
 														$proficiencyTermsCount = count($proficiencyTerms);
 														foreach($proficiencyTerms as $proficiencyTerm) {
-															echo $proficiencyTerm -> name . ', ';
+															echo $proficiencyTerm -> name . ' | ';
 														}
 													?>
 												</span>
@@ -222,11 +239,11 @@ get_header();
 							<?php
 							/**
 								* WORDPRESS SEARCH QUERY FOR PROFESSIONAL DEVELOPMENT, Query Post Type 'product-and-service'
-								* STORE userPdSelections Array IN Variable
+								* STORED IN userPdSelections Array IN Variable
+								* STORE PD CATEGORIES TERM SELECTIONS IN Array userPdCategoriesSelections
 								* CHECK IF ARRAY IS EMPTY, IF NOT QUERY RESULTS
 								*/
 
-								$user_pd_selections = $_POST['userPdSelections'];
 								$user_pd_categories = $_POST['userPdCategoriesSelections'];
 
 								if(!empty($user_pd_selections)) :
@@ -241,7 +258,7 @@ get_header();
 									$the_query = new WP_Query( $args );
 										if ($the_query -> have_posts()) : while ($the_query -> have_posts()) : $the_query -> the_post();
 								?>
-								<article class="ui rounded product-solution pd-solution">
+								<article title="<?php the_title(); ?>" class="ui rounded product-solution pd-solution" id="<?php echo $the_query->post->ID; ?>">
 									<?php if (has_post_thumbnail( $post->ID ) ): ?>
 		  							<div class="product-image">
 											<?php echo get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'product' ) ); ?>
@@ -270,11 +287,12 @@ get_header();
 							<?php
 							/**
 								* WORDPRESS SEARCH QUERY FOR TEQ-TIVITY, Query Post Type 'product-and-service'
-								* CHECK IF TEQ-TIVITY SELECTED VALUE IS TRUE
 								* QUERY RESULT BASED ON USER CRITIERIA FOR TAXONOMIES: 'grade level' and 'stem focus'
+								* STORED IN teq-tivity-selectioned Array IN Variable
+								* STORE TEQTIVITY CATEGORIES TERM SELECTIONS IN Array userTeqtivityCategoriesSelections
+								* CHECK IF TEQ-TIVITY SELECTED VALUE IS TRUE
 								*/
 
-								$user_teqtivity_selected = $_POST['teq-tivity-selectioned'];
 								$user_teqtivity_categories = $_POST['userTeqtivityCategoriesSelections'];
 
 								if(!empty($user_teqtivity_selected)) :
@@ -310,7 +328,7 @@ get_header();
 										if ($teq_tivity_query -> have_posts()) : while ($teq_tivity_query -> have_posts()) :
 											$teq_tivity_query -> the_post();
 								?>
-								<article class="ui rounded product-solution pd-solution">
+								<article title="<?php the_title(); ?>" class="ui rounded product-solution pd-solution" id="<?php echo $teq_tivity_query->post->ID; ?>">
 									<?php if (has_post_thumbnail( $post->ID ) ): ?>
 		  							<div class="product-image">
 											<?php echo get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'product' ) ); ?>
@@ -338,105 +356,52 @@ get_header();
 
 
 					</div>
-					<div id="quote-modal" class="modal">
+					<div class="modal" data-modal-title="solutionQuoteRequest">
 						<div class="modal-background"></div>
-							<form class="modal-content card ui quote-form" id="quoteRequestForm" method="post" action="<?php echo get_home_url(); ?>/create-your-solution/your-solution-quote-request">
-								<div class="columns">
-									<div class="column is-full">
-										<h5 class="strong">Let's get your solution inside the classroom!</h5>
-										<p>For pricing on any of the products in your solution set, simply fill out the form below and a Teq Sales Req will reach out to you directly. Please sure to check off which item(s) you would like to see pricing on.</p>
-										<div class="field">
-											<div class="control is-expanded">
-												<label class="caption">Name</label>
-												<input class="input quote-field" type="text" name="schoolNameQuote" value="<?php echo $schoolName ?>" required>
-											</div>
-										</div>
-										<div class="field">
-											<div class="control is-expanded">
-												<label class="caption">School and/or State</label>
-												<input class="input quote-field" type="text" name="schoolDetailsQuote" required>
-											</div>
-										</div>
-										<div class="field is-grouped">
-											<div class="control is-expanded">
-												<label class="caption">Email</label>
-												<input class="input quote-field" type="email" name="schoolEmailQuote" value="<?php echo $schoolEmail ?>" required>
-											</div>
-											<div class="control is-expanded">
-												<label class="caption">Phone</label>
-												<input class="input quote-field" type="tel" name="schoolTelQuote" required>
-											</div>
-										</div>
-										<p>-</p>
-										<ul>
-											<?php
-											/**
-												* WORDPRESS SEARCH QUERY FOR STEM PRODUCTS
-												* Query Custom Post Type 'Product and Service'
-												* TAXONOMY Criteria based up on user input
-												*/
+						<form class="modal-content ui outer dark quote-form" id="quoteRequestForm" method="post" action="<?php echo get_home_url(); ?>/create-your-solution/your-solution-quote-request/">
 
-												$args = array(
-													'post_type' => 'product-and-service',
-													'post__in' => $_POST['SolutionSetProducts'],
-												);
-
-												$the_query = new WP_Query( $args );
-													if ($the_query -> have_posts()) : while ($the_query -> have_posts()) : $the_query -> the_post();
-											?>
-											<li>
-												<div class="control">
-													<label class="checkbox">
-														<input type="checkbox" name="quote_items[]" value="<?php the_title(); ?>"> <?php the_title(); ?>
-													</label>
-												</div>
-											</li>
-											<?php	endwhile; endif; if (isset($_POST['onsite-professional-development'])) { ?>
-											<li>
-												<div class="control">
-													<label class="checkbox">
-														<input type="checkbox" name="quote_items[]" value="Onsite Professional Development"> Onsite Professional Development
-													</label>
-												</div>
-											</li>
-											<?php } if (isset($_POST['otis-for-educators'])) { ?>
-											<li>
-												<div class="control">
-													<label class="checkbox">
-														<input type="checkbox" name="quote_items[]" value="OTIS for educators, Online PD"> OTIS for educators, Online PD
-													</label>
-												</div>
-											</li>
-											<?php } if (isset($_POST['iblocks'])) { ?>
-											<li>
-												<div class="control">
-													<label class="checkbox">
-														<input type="checkbox" name="quote_items[]" value="Project-Based Learning with iBlocks"> Project-Based Learning with iBlocks
-													</label>
-												</div>
-											</li>
-											<?php } if (isset($_POST['teq-tivities'])) { ?>
-												<li>
-													<div class="control">
-													<label class="checkbox">
-														<input type="checkbox" name="quote_items[]" value="Teq-tivities"> Teq-tivities
-													</label>
-												</div>
-											</li>
-											<?php } ?>
-										</ul>
+							<div class="columns">
+								<div class="column is-full">
+									<h4 class="strong">Let's get your solution inside the classroom!</h4>
+									<p>For pricing on any of the products in your solution set, simply fill out the form below and a Teq Sales Req will reach out to you directly. Please sure to check off which item(s) you would like to see pricing on.</p>
+									<div class="field">
+										<div class="control is-expanded">
+											<label class="caption">Name</label>
+											<input class="input quote-field" type="text" name="schoolNameQuote" value="<?php echo $schoolName ?>" required>
+										</div>
 									</div>
-								</div>
+									<div class="field">
+										<div class="control is-expanded">
+											<label class="caption">School and/or State</label>
+											<input class="input quote-field" type="text" name="schoolDetailsQuote" required>
+										</div>
+									</div>
+									<div class="field is-grouped">
+										<div class="control is-expanded">
+											<label class="caption">Email</label>
+											<input class="input quote-field" type="email" name="schoolEmailQuote" value="<?php echo $schoolEmail ?>" required>
+										</div>
+										<div class="control is-expanded">
+											<label class="caption">Phone</label>
+											<input class="input quote-field" type="tel" name="schoolTelQuote" required>
+										</div>
+									</div>
+									<div id="product-solution-quote-options" class="field ui selection-list"></div>
 									<div class="field is-grouped">
 										<div class="control">
 											<input id="submit" class="button is-link" type="submit" value="Get Quote" name="submit" />
 										</div>
 										<div class="control">
-											<button class="button is-light quote-modal-close">Cancel</button>
+											<button class="button is-light quote-modal-close close-modal">Cancel</button>
 										</div>
 									</div>
-							</form>
+								</div>
+							</div>
+
+						</form>
 					</div>
+
+
 				</section>
 
 

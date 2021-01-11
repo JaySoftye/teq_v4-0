@@ -193,7 +193,7 @@ function teq_v4_0_scripts() {
 	}
 
 	// VERSION_3 STYLESHEET AND JAVASCRIPT FUNCTIONS FOR CREATE YOUR SOLUTION
-	if ( is_page_template( array( 'template-pages/createyoursolution_3.php', 'template-pages/createyoursolution_3_prelim.php', 'template-pages/createyoursolution_3_results.php', 'template-pages/createyoursolution_3_quote.php' ))) {
+	if ( is_page_template( array( 'template-pages/createyoursolution_3.php', 'template-pages/createyoursolution_3_prelim.php', 'template-pages/createyoursolution_3_results.php', 'template-pages/createyoursolution_3_results_quote.php' ))) {
 		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-create_your_solution_stylesheet_2.css' );
 
 		wp_deregister_script( 'create-js-functions' );
@@ -589,27 +589,26 @@ function alpha_order_classes( $query ) {
 }
 add_action( 'pre_get_posts', 'alpha_order_classes' );
 
+
+
 /* add action for email notification
-* anytime a CPT NEDM Survey or Custom Solution is published or changed
+* anytime a CPT NEDM Survey is published or changed
 */
 add_action( 'transition_post_status', 'send_mails_on_publish', 10, 3 );
 
 function send_mails_on_publish( $new_status, $old_status, $post ) {
-  if ( 'publish' !== $new_status or 'publish' === $old_status or 'nedm-surveys' !== get_post_type( $post ) ) {
+  if ( 'publish' !== $new_status or 'publish' === $old_status or 'nedm-surveys' !== get_post_type( $post ) )
+
     return;
-			$to = 'InfrastructureTeam@teq.com, jay@teq.com';
-			$headers = 'CC: paulprincipato@teq.com';
-			$body = sprintf( 'Hey there is a new entry!' . "\n\n");
-			$body .= sprintf( 'See <%s>', get_permalink( $post ));
+      $to = 'InfrastructureTeam@teq.com, jay@teq.com';
+      $headers = 'CC: paulprincipato@teq.com';
+      $body = sprintf( 'Hey there is a new entry!' . "\n\n");
+      $body .= sprintf( 'See <%s>', get_permalink( $post ));
+
     wp_mail( $to, 'New Network-Enabled Device Management Survey', $body, $headers );
-	} elseif ( 'publish' !== $new_status or 'publish' === $old_status or 'Custom-Solutions' !== get_post_type( $post ) )  {
-		return;
-			$to = 'jay@teq.com';
-			$headers = 'CC: jonathansoftye@teq.com';
-			$body = sprintf( 'New Solution Set Created' . "\n\n");
-    wp_mail( $to, 'New Solution Set Created', $body, $headers );
-	}
 }
+
+
 
 /* CUSTOM TAXONOMY CREATED FOR PRODUCT AND SERVICE CUSTOM POST TYPE
 * hook into the init action and call create_book_taxonomies when it fires

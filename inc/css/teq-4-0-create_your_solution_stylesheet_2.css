@@ -134,7 +134,11 @@
   top: 5rem;
 }
 .modal form.ui.quote-form {
+  max-height: calc(90vh - 150px);
   padding: 24px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  overflow: auto;
   box-shadow: 0px 0px 99px 0px #000000;
 }
 
@@ -143,6 +147,12 @@
 }
 .modal form.ui.quote-form input.is-danger {
   border-color: #f14668;
+}
+.modal form.ui.quote-form .column .field:first-of-type {
+  margin-top: 15px;
+}
+.modal form.ui.quote-form .column .field:last-child {
+  margin-bottom: 15px;
 }
 
 .ui.radio-selections {
@@ -623,21 +633,21 @@ button.filters-button {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-.prelim-product-container.columns > .products-list > .modal > .modal-background {
+.prelim-product-container.columns > .products-list .modal > .modal-background {
   background-color: rgba(255,255,255,0.66);
 }
-.prelim-product-container.columns > .products-list > .modal > .modal-content {
+.prelim-product-container.columns > .products-list .modal > .modal-content {
   max-height: 75vh;
   background-color: #FFFFFF;
   border-radius: 12px;
   overflow: auto;
 }
-.prelim-product-container.columns > .products-list > .modal > .modal-content.model-dual-containers {
+.prelim-product-container.columns > .products-list .modal > .modal-content.model-dual-containers {
   height: 75vh;
   background-color: #fafafa;
   overflow: hidden;
 }
-.products-list > .modal > .modal-content > button.close-modal {
+.products-list .modal > .modal-content > button.close-modal {
   height: 60px;
   width: 60px;
   position: absolute;
@@ -649,52 +659,52 @@ button.filters-button {
   font-weight: 900;
   cursor: pointer;
 }
-.products-list > .modal > .modal-content > button.close-modal:hover {
+.products-list .modal > .modal-content > button.close-modal:hover {
   color: red;
 }
-.products-list > .modal > .modal-content > .columns {
+.products-list .modal > .modal-content > .columns {
   margin: 0 auto;
   padding: 18px;
 }
-.products-list > .modal > .modal-content > .columns > .column {
+.products-list .modal > .modal-content > .columns > .column {
   padding: .48rem;
   border-radius: 12px;
 }
-.products-list > .modal > .modal-content.model-dual-containers > .columns, .products-list > .modal > .modal-content.model-dual-containers > .columns > .column {
+.products-list .modal > .modal-content.model-dual-containers > .columns, .products-list .modal > .modal-content.model-dual-containers > .columns > .column {
   height: 100%;
   overflow: auto;
 }
-.products-list > .modal > .modal-content.model-dual-containers > .columns {
+.products-list .modal > .modal-content.model-dual-containers > .columns {
   padding: 0 0;
 }
-.products-list > .modal > .modal-content.model-dual-containers > .columns > .column {
+.products-list .modal > .modal-content.model-dual-containers > .columns > .column {
   padding: 24px;
 }
-.products-list > .modal > .modal-content > .columns > .column > .filter-container {
+.products-list .modal > .modal-content > .columns > .column > .filter-container {
   border-radius: 12px;
 }
-.products-list > .modal > .modal-content > .columns > .column > .filter-container svg {
+.products-list .modal > .modal-content > .columns > .column > .filter-container svg {
   overflow: visible;
 }
-.products-list > .modal > .modal-content > .columns > .column img {
+.products-list .modal > .modal-content > .columns > .column img {
   height: auto;
   width: 30%;
 }
-.products-list > .modal > .modal-content.model-dual-containers > .columns > .column img {
+.products-list .modal > .modal-content.model-dual-containers > .columns > .column img {
   width: 75%;
 }
-.products-list > .modal > .modal-content > .ui.selection-list .ui-checkbox-container {
+.products-list .modal > .modal-content > .ui.selection-list .ui-checkbox-container {
   flex-wrap: wrap;
 }
-.products-list > .modal > .modal-content > .ui.selection-list .ui-checkbox-container > label {
+.products-list .modal > .modal-content > .ui.selection-list .ui-checkbox-container > label {
   padding: 15px 2.1rem;
   border-top: 1px solid rgb(200,200,200);
 }
-.products-list > .modal > .modal-content > .ui.selection-list .ui-checkbox-container > label:hover {
+.products-list .modal > .modal-content > .ui.selection-list .ui-checkbox-container > label:hover {
   background-color: rgb(200,200,200);
   text-decoration: none;
 }
-.products-list > .modal > .modal-content > .ui.selection-list .ui-checkbox-container > label > button {
+.products-list .modal > .modal-content > .ui.selection-list .ui-checkbox-container > label > button {
   height: 48px;
   width: 18px;
   position: absolute;
@@ -711,26 +721,26 @@ button.filters-button {
   transition: transform 150ms ease;
   cursor: pointer;
 }
-.products-list > .modal > .modal-content > .ui.selection-list .ui-checkbox-container > label > button:hover, .products-list > .modal > .modal-content > .ui.selection-list .ui-checkbox-container > label > button.active-expanded {
+.products-list .modal > .modal-content > .ui.selection-list .ui-checkbox-container > label > button:hover, .products-list .modal > .modal-content > .ui.selection-list .ui-checkbox-container > label > button.active-expanded {
   background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 45 45'%3E%3Cpath d='M18.366,38.634c-0.768,0-1.536-0.293-2.121-0.879c-1.172-1.171-1.172-3.071,0-4.242L26.758,23L16.245,12.487 c-1.172-1.171-1.172-3.071,0-4.242c1.171-1.172,3.071-1.172,4.242,0l12.634,12.634c1.172,1.171,1.172,3.071,0,4.242L20.487,37.755 C19.902,38.341,19.134,38.634,18.366,38.634z'/%3E%3C/svg%3E%0A");
 	transform: rotate(90deg);
 	transform-origin: center center;
 }
-.products-list > .modal > .modal-content > .ui.selection-list .ui-checkbox-container > .pathway-checkbox-content {
+.products-list .modal > .modal-content > .ui.selection-list .ui-checkbox-container > .pathway-checkbox-content {
   display: none;
   padding: 0 2.4rem 15px 2.4rem;
 }
-.products-list > .modal > .modal-content > .ui.selection-list .ui-checkbox-container > .pathway-checkbox-content.expanded {
+.products-list .modal > .modal-content > .ui.selection-list .ui-checkbox-container > .pathway-checkbox-content.expanded {
   display: block;
 }
-.products-list > .modal > .modal-content > .ui.selection-list .ui-checkbox-container > .pathway-checkbox-content > * {
+.products-list .modal > .modal-content > .ui.selection-list .ui-checkbox-container > .pathway-checkbox-content > * {
   margin: 0 0 0 60px;
   font-size: 14px;
 }
-.products-list > .modal > .modal-content .ui.selection-list.pd-category-list {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list {
   margin-top: 18px;
 }
-.products-list > .modal > .modal-content .ui.selection-list.pd-category-list label {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label, form.quote-form .columns .column .ui.selection-list label {
   display: flex;
   align-items: center;
   position: relative;
@@ -741,38 +751,38 @@ button.filters-button {
   cursor: pointer;
   user-select: none;
 }
-.products-list > .modal > .modal-content .ui.selection-list.pd-category-list label > input {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label > input, form.quote-form .columns .column .ui.selection-list label > input {
   height: 0;
   width: 0;
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
-.products-list > .modal > .modal-content .ui.selection-list.pd-category-list label .checkmark {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label .checkmark, form.quote-form .columns .column .ui.selection-list label .checkmark {
   height: 21px;
   width: 21px;
   margin-right: 6px;
   background-color: #eceeef;
   border-radius: 50%;
 }
-.products-list > .modal > .modal-content .ui.selection-list.pd-category-list label:hover {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label:hover, form.quote-form .columns .column .ui.selection-list label:hover {
   color: rgb(248,129,0);
 }
-.products-list > .modal > .modal-content .ui.selection-list.pd-category-list label input:checked {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label input:checked, form.quote-form .columns .column .ui.selection-list label input:checked {
   color: rgb(248,129,0);
 }
-.products-list > .modal > .modal-content .ui.selection-list.pd-category-list label input:checked ~ .checkmark {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label input:checked ~ .checkmark, form.quote-form .columns .column .ui.selection-list label input:checked ~ .checkmark {
   background-color: rgb(248,129,0);
 }
-.products-list > .modal > .modal-content .ui.selection-list.pd-category-list label .checkmark:after {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label .checkmark:after, form.quote-form .columns .column .ui.selection-list label .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-.products-list > .modal > .modal-content .ui.selection-list.pd-category-list label input:checked ~ .checkmark:after {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label input:checked ~ .checkmark:after, form.quote-form .columns .column .ui.selection-list label input:checked ~ .checkmark:after {
   display: block;
 }
-.products-list > .modal > .modal-content .ui.selection-list.pd-category-list label .checkmark:after {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label .checkmark:after, form.quote-form .columns .column .ui.selection-list label .checkmark:after {
   height: 9px;
   width: 4.5px;
   position: relative;
@@ -783,6 +793,10 @@ button.filters-button {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+form.quote-form .columns .column .ui.selection-list label .checkmark:after {
+  left: 8.1px;
+  top: 4.5px;
 }
 
 .prelim-product-container.columns > .products-list .preliminary-product-list-container {
@@ -1049,7 +1063,7 @@ article.product-solution .product-content div.bar-counter {
   background-color: #FFFFFF;
 }
 article.product-solution .product-content div.bar-counter > i {
-  background-color: rgb(5,166,159);
+  background-color: rgb(248,129,10);
 }
 article.product-solution .product-content div.bar-counter > i[data="0"] {
   width: 0;
@@ -1323,10 +1337,10 @@ section.dropdown.is-active .dropdown-trigger button.solutions-dropdown, section.
     text-align: center;
     font-weight: 600;
   }
-  .prelim-product-container.columns > .products-list > .modal > .modal-content.model-dual-containers {
+  .prelim-product-container.columns > .products-list .modal > .modal-content.model-dual-containers {
     overflow: auto;
   }
-  .products-list > .modal > .modal-content.model-dual-containers > .columns, .products-list > .modal > .modal-content.model-dual-containers > .columns > .column {
+  .products-list .modal > .modal-content.model-dual-containers > .columns, .products-list .modal > .modal-content.model-dual-containers > .columns > .column {
     height: auto;
   }
 }
