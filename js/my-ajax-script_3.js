@@ -21,7 +21,7 @@ $(document).ready(function() {
           $.ajax({
             url: '/wp-json/wp/v2/pathways/'+postId,
             error: function() {
-              $('#info').html('<p>An error has occurred</p>');
+              $('#additionalPathways').html('<p class="error">An error has occurred</p>');
             },
             dataType: 'json',
             type: 'GET',
@@ -35,11 +35,14 @@ $(document).ready(function() {
               // CREATE AN HTML Element WITH JSON DATA
               var html = "<article class='ui rounded product-item iblock-pathway' id='" + data.id + "'>";
                   html += "<label for='" + data.slug + "'>";
-                  html += "<input type='checkbox' id='" + data.slug + "' name='" + data.title.rendered + "' value='" + data.slug + "'><span class='checkmark'></span>";
+                  html += "<input type='checkbox' id='" + data.slug + "' name='userPathwaySelections[]' title='" + data.title.rendered + " iBlock' value='" + data.id + "'><span class='checkmark'></span>";
                   html += "</label>";
                   html += "<img src='" + data.img_url + "' class='product wp-post-image' />";
                   html += "<div class='inner-content'>";
-                  html += "<h3 class='product-title iblock-info-button'>" + data.title.rendered + "</h3>";
+                  html += "<nav class='level'>"
+                  html += "<div class='level-left'><h3 class='level-item product-title'>" + data.title.rendered + "</h3></div>";
+                  html += "<div class='level-right'><h6 class='level-item iblock-info-button'>details</h6></div>";
+                  html += "</nav>"
                   html += "<div class='iblock-description hidden columns'>"
                   html += "<div class='column is-5'>" + data.content.rendered + "</div>";
                   html += "<div class='column is-7'>" + focusMetaDecoded + "</div>";
@@ -54,7 +57,10 @@ $(document).ready(function() {
 
         } else {
           $("#"+postId).remove();
-          console.log('pathway removed');
+
+          var selectedItemId = $(this).attr("id");
+          var selectedProductRemoved = selectedItemId.replace("-checkbox", "-selected-product");
+            $("ul#select-items-content").find("#"+selectedProductRemoved).remove();
         }
     });
 

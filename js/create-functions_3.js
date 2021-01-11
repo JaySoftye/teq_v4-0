@@ -246,16 +246,27 @@
     * ADD 'Active' CLASS TO NAVIGATION SELECT
     * NAVBAR 'next section' BUTTON
     * CHANGE TEXT BASED UPON WHAT TAB IS SHOWN
+    * IF USER SELECTION '3' SHOW SUBMIT BUTTON AND HIDE NEXT BUTTON
     */
-    $scope.tab = 2;
+    $scope.tab = 1;
     $scope.nextText = 'next section';
+    $scope.formSubmitButton = false;
 
     $scope.setTab = function(newTab){
       $scope.tab = newTab;
       if ($scope.tab === 3) {
-        $scope.nextText = 'get my results';
+  /**
+    * IF TAB SELECTED IS '3'
+    * ENABLE SUBMIT BUTTON ON NAV MENU
+    * ng-hide NEXT BUTTON
+    */
+        $scope.resultsText = 'Get my results';
+        $scope.formSubmitButton = true;
       } else {
-        $scope.nextText = 'next section';
+  /**
+    * ng-hide SUBMIT BUTTON
+    */
+        $scope.formSubmitButton = false;
       }
     };
 
@@ -266,11 +277,16 @@
     $scope.nextTab = function () {
       if ($scope.tab === 1) {
         $scope.tab = 2;
+        $scope.formSubmitButton = false;
       } else if ($scope.tab === 2) {
         $scope.tab = 3;
-        $scope.nextText = 'get my results';
+        $scope.resultsText = 'Get my results';
+        $scope.formSubmitButton = true;
       } else if ($scope.tab === 3) {
-        alert('Get dem results');
+        $scope.tab = 3;
+        $scope.resultsText = 'Get my results';
+        $scope.formSubmitButton = true;
+
       }
     };
 
@@ -298,40 +314,86 @@
     }
 
   /**
-    * SCOPE ARRAY FOR iBlock Pathways
+    * SCOPE ARRAY FOR OTIS Professional Development Categories
     * USE ng-repeat TO ILLERATE OVER LOOP
     * CREATE CHECKBOX GROUP FOR ALL ARRAY VALUES
     */
-    $scope.pathways = [
-      { title: 'Class Pet', value: 'class-pet'},
-      { title: 'Clean Water and Sanitation', value: 'clean-water-and-sanitation'},
-      { title: 'Create a Model of an Eclipse', value: 'class-pet'},
-      { title: 'Creating a Video Game', value: 'class-pet'},
-      { title: 'Designing a Board Game', value: 'class-pet'},
-      { title: 'Engineer a Telescope', value: 'class-pet'},
-      { title: 'Engineering 3D Printed Instruments', value: 'class-pet'},
-      { title: 'Engineering an Assistive Game Controller', value: 'class-pet'},
-      { title: 'Engineering for Hazardous Weather: Taking Flood Control to New Heights', value: 'class-pet'},
-      { title: 'Fashion for Function: Smart Wearables', value: 'class-pet'},
-      { title: 'Geometric Self-Watering Planter', value: 'class-pet'},
-      { title: 'Growing a Hydroponic Garden', value: 'class-pet'},
-      { title: 'Mars Colony: Engineering Expedition', value: 'class-pet'},
-      { title: 'No Poverty and Zero Hunger', value: 'class-pet'},
-      { title: 'Programming a Classification System', value: 'class-pet'},
-      { title: 'Reimagining Public Transportation', value: 'class-pet'},
-      { title: 'River Management: Assessing Health', value: 'class-pet'},
-      { title: 'Robotic Amusement Park', value: 'class-pet'},
-      { title: 'Robotic Assembly Line', value: 'class-pet'},
-      { title: 'Robotic Field Day', value: 'class-pet'},
-      { title: 'Rube Goldberg Machines', value: 'class-pet'},
-      { title: 'Space Systems: Light and Shadows', value: 'class-pet'},
-      { title: 'Storytelling Through the Ages', value: 'class-pet'},
-      { title: 'Tiny Houses', value: 'class-pet'}
+    $scope.categories = [
+      { title: "Administrator", value: "Administrator"},
+      { title: "Apple", value: "Apple"},
+      { title: "Apple for Parents", value: "Apple-for-Parents"},
+      { title: "Art & Design", value: "Art-and-Design"},
+      { title: "Assessment", value: "Assessment"},
+      { title: "Blended Learning", value: "Blended-Learning"},
+      { title: "Canvas", value: "Canvas"},
+      { title: "Canvas for Parents", value: "Canvas-for-Parents"},
+      { title: "Chromebooks for Parents", value: "Chromebooks-for-Parents"},
+      { title: "Civics", value: "Civics"},
+      { title: "Computer Science", value: "Computer-Science"},
+      { title: "Digital Accessiblity", value: "Digital-Accessiblity"},
+      { title: "Digital Citizenship", value: "Digital-Citizenship"},
+      { title: "Digital Storytelling", value: "Digital-Storytelling"},
+      { title: "Early Childhood", value: "Early-Childhood"},
+      { title: "Educational Frameworks", value: "Educational-Frameworks"},
+      { title: "ELA", value: "ELA"},
+      { title: "ENL/ELL", value: "ENL-ELL"},
+      { title: "General Interest", value: "General-Interest"},
+      { title: "Google", value: "Google"},
+      { title: "Google for Parents", value: "Google-for-Parents"},
+      { title: "Holiday", value: "Holiday"},
+      { title: "Infinite Campus for Parents", value: "Infinite-Campus-for-Parents"},
+      { title: "iPad", value: "iPad"},
+      { title: "iPads for Parents", value: "iPads-for-Parents"},
+      { title: "Literacy", value: "Literacy"},
+      { title: "Math", value: "Math"},
+      { title: "Microsoft", value: "Microsoft"},
+      { title: "Microsoft for Parents", value: "Microsoft-for-Parents"},
+      { title: "NAO", value: "NAO"},
+      { title: "Parents", value: "Parents"},
+      { title: "Project-Based Learning", value: "Project-Based-Learning"},
+      { title: "Promethean", value: "Promethean"},
+      { title: "Remote Learning", value: "Remote-Learning"},
+      { title: "Rube Goldberg", value: "Rube-Goldberg"},
+      { title: "Schoology", value: "Schoology"},
+      { title: "Schoology for Parents", value: "Schoology-for-Parents"},
+      { title: "Science", value: "Science"},
+      { title: "SMART", value: "SMART"},
+      { title: "SMART Table", value: "SMART-Table"},
+      { title: "Social Emotional Learning", value: "Social-Emotional-Learning"},
+      { title: "Social Studies", value: "Social-Studies"},
+      { title: "Special Ed", value: "Special-Ed"},
+      { title: "STEM", value: "STEM"},
+      { title: "TCEA", value: "TCEA"},
+      { title: "Website Makeover", value: "Website-Makeover"}
+    ];
+    /**
+    * SCOPE ARRAY FOR Teqtivities Categories
+    * USE ng-repeat TO ILLERATE OVER LOOP
+    * CREATE CHECKBOX GROUP FOR ALL ARRAY VALUES
+    */
+    $scope.teqtivities = [
+      { title: "3rd-5th Grade", value: "Third-Fifth-Grade-Teqitivities"},
+      { title: "6th-8th Grade", value: "Sixth-Eighth-Grade-Teqitivities"},
+      { title: "9th-12th Grade", value: "Nineth-Twelfth-Grade-Teqitivities"},
+      { title: "Art, Music & Theatre", value: "Art-Music-and-Theatre-Teqitivities"},
+      { title: "ELA", value: "ELA-Teqitivities"},
+      { title: "ENL/ELL", value: "ENL-ELL-Teqitivities"},
+      { title: "Makey Makey", value: "Makey-Makey-Teqitivities"},
+      { title: "Math", value: "Math-Teqitivities"},
+      { title: "Ozobot", value: "Ozobot-Teqitivities"},
+      { title: "Physical Education", value: "Physical-Education-Teqitivities"},
+      { title: "PrK-2nd Grade", value: "PrK-Second-Grade-Teqitivities"},
+      { title: "Science", value: "Science-Teqitivities"},
+      { title: "Social Emotional Learning", value: "Social-Emotional-LearningTeqitivities"},
+      { title: "Social Studies", value: "Social-StudiesTeqitivities"},
+      { title: "Special Education", value: "Special-EducationTeqitivities"},
+      { title: "Sphero", value: "SpheroTeqitivities"},
+      { title: "Sphero Bolt", value: "Sphero-BoltTeqitivities"},
+      { title: "Sphero RVR", value: "Sphero-RVRTeqitivities"},
+      { title: "Sphero Sprk+", value: "Sphero-Sprk-plus-Teqitivities"},
     ];
 
-
   });
-
 
 
   $(document).ready(function() {
@@ -348,13 +410,13 @@
 
       $(this).toggleClass('selected');
         if($(this).hasClass('selected')) {
-          $(".preliminary-product-list-container article.product-item").each(function() {
+          $("#product-selection .preliminary-product-list-container article.product-item").each(function() {
             if(!$(this).hasClass(value)) {
               $(this).addClass("hidden");
             }
           });
         } else {
-          $(".preliminary-product-list-container article.product-item").each(function() {
+          $("#product-selection .preliminary-product-list-container article.product-item").each(function() {
             if(!$(this).hasClass(value)) {
               $(this).removeClass("hidden");
             }
@@ -381,64 +443,125 @@
     });
 
 
+    // IBLOCK PATHWAY DESCRIPTION EXPAND FUNCTION ON MODAL CHECKBOXES
+    // TARGET MODAL CHECKBOXES
+    // TOGGLE CLASS ON clicked element and CLOSEST 'description' elements
+    $('.ui-checkbox-container').on('click',"label > button",function() {
+      $(this).toggleClass("active-expanded");
+      $(this).parents("label").next("div.pathway-checkbox-content").toggleClass("expanded");
+    });
+
+
     // IBLOCK PATHWAY DESCRIPTION EXPAND FUNCTION
     // TARGET ENTIRE INSTRUCTIONAL MATERIAL container
     // NEED A .on(click) FUNCTION TO CATCH THE APPENDED ELEMENTS FROM THE AJAX CALLS
-    // TOGGLE CLASS ON clicked element and CLOSEST 'description' elements
+    // TOGGLE CLASS ON clicked element PARENT AND CLOSEST 'description' elements
     $('#instructional-material-selection').on('click',".iblock-pathway .iblock-info-button",function() {
       $(this).toggleClass("active-expanded");
-      $(this).next("div.iblock-description").toggleClass("hidden");
+      $(this).parents("nav.level").next("div.iblock-description").toggleClass("hidden");
     });
 
 
     // COUNTER FUNCTION FOR SELECTED ITEMS
     // GET THE TOTAL NUMBER OF CHECKBOXES SELECTED
     // DEFAULT Value is set to '0'
-    $(function() {
+    $('#preliminary-product-list').on( "click", "article.product-item input[type='checkbox']", function() {
       $('.selected-items-counter a i').text('0');
-      var checkboxTotalLen = $("#preliminary-product-list article.product-item input[type='checkbox']:checked").length;
+      var checkboxTotalLen = $(this).length;
 
         if(checkboxTotalLen > 0) {
           $(".selected-items-counter a i").text(checkboxTotalLen);
         } else {
           $(".selected-items-counter a i").text('0');
         }
+
+        // UPDATE FUNCTION TO GET THE SELECTED ITEMS LENGTH
+        // COUNT THE TOTALS EACH TIME
+        function updateCounter() {
+          var updatedTotalLen = $("#preliminary-product-list article.product-item input[type='checkbox']:checked").length;
+
+          if(updatedTotalLen > 0) {
+            $(".selected-items-counter a i").text(updatedTotalLen);
+          } else {
+            $(".selected-items-counter a i").text('0');
+          }
+
+        };
+
+        // USE UPDATE FUNCTION TO PARSE LENGTH TO CONSOLE AND UPDATE counter element
+        // RUN LOOP TO PREVENT MULTIPLE ITEMS
+        // EACH checkbox of PARENT ELEMENT WITH class 'product-item' UPDATE NAV ITEM .select.items-counter a i
+        $(this).each(function() {
+          updateCounter();
+          $(this).parent().toggleClass("product-selected");
+            var checkboxTitle = $(this).attr("title");
+            var checkboxId = $(this).attr("id");
+
+
+              if ($(this).is(":checked")) {
+
+                $("ul#select-items-content").append('<li id="'+checkboxId+'-selected-product">'+checkboxTitle+'</li>');
+                console.log(checkboxTitle + ' added');
+
+              } else if($(this).not(':checked')) {
+
+                $("ul#select-items-content").find("#"+checkboxId+"-selected-product").remove();
+                console.log(checkboxTitle + ' removed')
+
+              }
+        });
     });
-    // UPDATE FUNCTION TO GET THE SELECTED ITEMS LENGTH
-    // COUNT THE TOTALS EACH TIME
-    function updateCounter() {
-      var updatedTotalLen = $("#preliminary-product-list article.product-item input[type='checkbox']:checked").length;
 
-      if(updatedTotalLen > 0) {
-        $(".selected-items-counter a i").text(updatedTotalLen);
-      } else {
-        $(".selected-items-counter a i").text('0');
-      }
 
-    };
-    // USE UPDATE FUNCTION TO PARSE LENGTH TO CONSOLE AND UPDATE counter element
-    // UPDATE NAV ITEM .select.items-counter a i
-    $("#preliminary-product-list article.product-item input:checkbox").on("change", function() {
-      updateCounter();
-        $(this).parents().toggleClass("product-selected");
-        var checkboxTitle = $(this).attr("name");
-          console.log(checkboxTitle);
+    // PATHWAY ITEMS LOADED FROM USER INPUT
+    // LOOP THROUGH HIDDEN INPUT FIELD FROM PATHWAYS LOADED
+    // GATHER VALUE FROM INPUT FIELDS AND FIELD MATCHING CHECKBOX OPTIONS
+    // Mark 'Checked' for PATHWAY OPTIONS LOADED on MODAL PATHWAYS CHECKBOX LIST
+    $("input.checked-items-loaded").each(function() {
+      var checkedItem = $(this).val();
+        $("#pathway-checkbox-list").find("#"+checkedItem).prop( "checked", true );
     });
-    // ADD OR REMOVE SELECTED ITEMS TO HTML LIST
-    // USE LOOP FUNCTION TO PARSE EACH input:checkbox Element
-    // IF ITEM IS :CHECKED Add to HTML LIST with MATCHING ID
-    // IF ITEM IS not:CHECKED Remove Item with Corresponding ID
-    $("#preliminary-product-list article.product-item input:checkbox").click(function() {
-      $(this).each(function() {
-        var checkboxTitle = $(this).attr("name");
+    // IF CHECKBOX MARKED REMOVE CORREPSONDING PATHWAY OPTION Element
+    $("#pathway-checkbox-list .pathway-checkbox:checkbox").change(function() {
+      var postId = $(this).val();
+        $("#"+postId).remove();
+    });
 
-        if ($(this).is(":checked")) {
-          $("ul#select-items-content").append('<li id="'+checkboxTitle+'">'+checkboxTitle+'</li>')
-        } else if($(this).not(':checked')) {
-          $("ul#select-items-content").find("#"+checkboxTitle).remove();
+
+    // INSTRUCTIONAL PD CATEGORY ADD TAGS TO article.product-item
+    // TARGET .pd-category-item INPUT ELEMENTS
+    // GATHER value AND title ATTRIBUTES
+    // CONDITIONAL TO CHECK WHETER CHECKED OR NOT
+    $(".pd-category-list .pd-category-item").change(function() {
+      var categoryItemValue = $(this).val();
+      var categoryItemTitle = $(this).attr("title");
+
+      if ($(this).is(":checked")) {
+
+        // IF CATEGORY CLICKED IS OF CLASS 'otis' or IF OF CLASS 'teqtivity'
+        // APPENDED TAG ELEMENT TO SPECIFIED TAG container
+        if ($(this).hasClass("otis")) {
+          $("div.tags.OTIS.for.educators").append('<span class="tag is-rounded" id="'+categoryItemValue+'-selected-category">'+categoryItemTitle+'<input type="hidden" name="userPdCategoriesSelections[]" value="'+categoryItemValue+'" /></span>');
+            console.log(categoryItemTitle + ' added');
+        } else if ($(this).hasClass("teqtivity")) {
+          $("div.tags.Teq-tivities").append('<span class="tag is-rounded" id="'+categoryItemValue+'-selected-category">'+categoryItemTitle+'<input type="hidden" name="userTeqtivityCategoriesSelections[]" value="'+categoryItemValue+'" /></span>');
+            console.log(categoryItemTitle + ' added');
         }
 
-      });
+      } else if($(this).not(':checked')) {
+
+        // IF CATEGORY ITEM IS CHECKED REMOVE THE ELEMENT BY SPECIFIED ID
+        if ($(this).hasClass("otis")) {
+          $("div.tags.OTIS.for.educators").find("#"+categoryItemValue+"-selected-category").remove();
+            console.log(categoryItemTitle + ' removed')
+        } else if ($(this).hasClass("teqtivity")) {
+          $("div.tags.Teq-tivities").find("#"+categoryItemValue+"-selected-category").remove();
+            console.log(categoryItemTitle + ' removed')
+        }
+
+      }
     });
+
+
 
   });

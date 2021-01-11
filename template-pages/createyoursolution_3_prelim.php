@@ -44,7 +44,7 @@ get_header();
 					console_log( $data );
 
 				?>
-				<section id="prelimProducts" class="columns is-multiline is-centered is-vcentered is-desktop">
+				<form id="prelimProducts" class="columns is-multiline is-centered is-vcentered is-desktop" name="prelimProductsForm" action="<?php echo get_home_url(); ?>/create-your-solution/your-solution-results?" method="POST">
 					<div class="column is-full-desktop is-full-mobile">
 
 						<div class="padding-bottom">
@@ -56,27 +56,30 @@ get_header();
 						<nav class="ui product-tabs-nav main outer dark">
 							<div class="product-tabs tabs">
   							<ul id="nav-tab-button">
-    							<li ng-class="{ active: isSet(1) }" href ng-click="setTab(1)"><a><i>1</i> Product Selection</a></li>
-    							<li ng-class="{ active: isSet(2) }" href ng-click="setTab(2)"><a href><i>2</i> Intructional Material(s)</a></li>
-    							<li ng-class="{ active: isSet(3) }" href ng-click="setTab(3)"><a href><i>3</i> Instructional Support</a></li>
+    							<li ng-class="{ active: isSet(1) }" ng-click="setTab(1)"><a href><i>1</i> Product Selection</a></li>
+    							<li ng-class="{ active: isSet(2) }"ng-click="setTab(2)"><a href><i>2</i> Intructional Material(s)</a></li>
+    							<li ng-class="{ active: isSet(3) }" ng-click="setTab(3)"><a href><i>3</i> Instructional Support</a></li>
     							<li class="selected-items-counter">
 										<a href><i>0</i> Items Selected</a>
 										<ul id="select-items-content" class="tooltip-content"></ul>
 									</li>
-									<li class="button-container" ng-class="{ getresults: isSet(3) }">
-										<button type="button" class="next-section" ng-click="nextTab()"><span class="inner" ng-bind="nextText"></span></button>
+									<li class="button-container" ng-hide="formSubmitButton">
+										<button type="button" class="next-section" ng-class="{ prev: isSet(3) }" ng-click="nextTab()"><span class="inner" ng-bind="nextText"></span></button>
+									</li>
+									<li class="button-container getresults" ng-show="formSubmitButton">
+										<button type="submit" class="next-section"><span class="inner" ng-bind="resultsText"></span></button>
 									</li>
   							</ul>
 							</div>
 						</nav>
 
-						<form id="preliminary-product-list" class="columns prelim-product-container" name="prelimProductsForm" action="<?php echo get_home_url(); ?>/create-your-solution/your-solution-results?" method="POST">
+						<div id="preliminary-product-list" class="columns prelim-product-container">
 
-							<input type="hidden" name="schoolNameValue" value="{{schoolName}}">
-							<input type="hidden" name="schoolEmailValue" value="{{schoolEmail}}">
-							<input type="hidden" name="gradeLevelValue" ng-value="gradeLevelValue">
-					    <input type="hidden" name="stemFocusValue" ng-value="stemFocusValue">
-					    <input type="hidden" name="generalEdValue" ng-value="generalEdValue">
+							<input type="hidden" name="schoolNameValue" value="">
+							<input type="hidden" name="schoolEmailValue" value="">
+							<input type="hidden" name="gradeLevelValue" value="<?php echo $gradeLevel; ?>">
+					    <input type="hidden" name="stemFocusValue" value="<?php echo $stemFocus; ?>">
+					    <input type="hidden" name="generalEdValue" value="">
 
 							<section id="product-selection" class="column is-full products-list teq ui outer dark" ng-show="isSet(1)">
 								<div class="modal" data-modal-title="productRefineFilters">
@@ -175,10 +178,10 @@ get_header();
 										foreach(get_the_terms($stem_product_query->post->ID, 'environment') as $environment) echo $environment->slug . " ";
 									?>">
 										<label for="<?php echo $post->post_name; ?>">
-  										<input type="checkbox" id="<?php echo $post->post_name; ?>" name="<?php echo $post->post_title; ?>" value="<?php echo $post->post_name; ?>">
+  										<input type="checkbox" id="<?php echo $post->post_name; ?>" name="userProductSelections[]" title="<?php the_title(); ?>" value="<?php echo $stem_product_query->post->ID; ?>">
   										<span class="checkmark"></span>
 										</label>
-										<?php echo get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'product' ) ); ?>
+										<?php echo get_the_post_thumbnail( $stem_product_query->post->ID, 'full', array( 'class' => 'product' ) ); ?>
 										<div class="inner-content">
 											<h3 class="product-title"><?php the_title(); ?></h3>
 											<div class="product-description"><?php the_excerpt(); ?></div>
@@ -232,10 +235,17 @@ get_header();
 														$post_id = get_the_ID();
 										?>
 										<div class="ui selection-list">
-											<p class="ui-checkbox-container">
-												<input type="checkbox" class="pathway-checkbox" id="<?php echo $post->post_name . '-checkbox'; ?>" name="<?php echo $post->post_name . '-checkbox'; ?>" value="<?php echo $post_id; ?>">
-												<label for="<?php echo $post->post_name . '-checkbox'; ?>"><span class="toggle"></span> <em><?php echo $post->post_title; ?></em></label>
-											</p>
+											<div class="ui-checkbox-container">
+												<input type="checkbox" class="pathway-checkbox" id="<?php echo $post->post_name . '-checkbox'; ?>" name="<?php echo $post->post_name . '-checkbox'; ?>" value="<?php echo $post_id; ?>" />
+												<label for="<?php echo $post->post_name . '-checkbox'; ?>">
+													<span class="toggle"></span>
+													<em><?php echo $post->post_title; ?></em>
+													<button type="button"></button>
+												</label>
+												<div class="pathway-checkbox-content">
+													<?php the_content(); ?>
+												</div>
+											</div>
 										</div>
 										<?php
 											endwhile; endif;
@@ -288,13 +298,14 @@ get_header();
 											$pathway_query = new WP_Query( $pathway_args );
 												if ($pathway_query -> have_posts()) : while ($pathway_query -> have_posts()) :
 													$pathway_query -> the_post();
-													$id = get_the_ID();
+													$post_id = get_the_ID();
 									?>
-									<article class="ui rounded product-item iblock-pathway">
+									<article class="ui rounded product-item iblock-pathway" id="<?php echo $post_id; ?>">
 										<label for="<?php echo $post->post_name; ?>">
-  										<input type="checkbox" id="<?php echo $post->post_name; ?>" name="<?php echo $post->post_title; ?>" value="<?php echo $post->post_name; ?>">
+  										<input type="checkbox" id="<?php echo $post->post_name; ?>" name="userPathwaySelections[]" title="<?php the_title(); ?> iBlock" value="<?php echo $post_id; ?>">
   										<span class="checkmark"></span>
 										</label>
+										<input type="hidden" class="checked-items-loaded" value="<?php echo $post->post_name . '-checkbox'; ?>" />
 										<?php
 											if ( has_post_thumbnail() ) {
 												echo get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'product' ) );
@@ -303,7 +314,14 @@ get_header();
 											<img src="<?php echo get_template_directory_uri() . '/inc/images/create-prelim-iblock-template_default.png'; ?>" />
 										<?php } ?>
 										<div class="inner-content">
-											<h3 class="product-title iblock-info-button"><?php the_title(); ?></h3>
+											<nav class="level">
+  											<div class="level-left">
+													<h3 class="level-item product-title"><?php the_title(); ?></h3>
+  											</div>
+  											<div class="level-right">
+													<h6 class="level-item iblock-info-button">details</h6>
+												</div>
+											</nav>
 											<div class="iblock-description hidden columns">
 												<div class="column is-5">
   												<?php the_content(); ?>
@@ -341,21 +359,33 @@ get_header();
 								</div>
 							</section>
 
-							<section id="instructional-material-selection"  class="column is-full products-list professional-development ui outer dark" ng-show="isSet(3)">
+							<section id="instructional-support-selection"  class="column is-full products-list professional-development ui outer dark" ng-show="isSet(3)">
 								<div class="modal" data-modal-title="otisPdCategories">
 									<div class="modal-background"></div>
-  								<div class="modal-content ui background outer dark">
-    								<div class="columns">
-											<div class="column is-full">
-												<img src="<?php echo get_template_directory_uri() . '/inc/images/create-prelim-site-header_iblocks-logo.svg'; ?>" />
-												<p>Discover the iBlocks we’ve imagined and see how they align to relevant state standards. An iBlock can be customized for your interests, goals, and needs. Choose any of the topics below to add to your iBlock product list.</p>
+  								<div class="modal-content model-dual-containers ui outer dark">
+    								<div class="columns is-flex-wrap-wrap">
+											<div class="column is-half">
+												<img src="<?php echo get_template_directory_uri() . '/inc/images/create-prelim-site-header_otis-logo.svg'; ?>" />
+												<p>Explore our PD categories on the technology, tools, and strategies that can spark student success.</p>
+												<div class="ui selection-list pd-category-list">
+													<label ng-repeat="category in categories" for="{{category.value}}">
+														<input type="checkbox" class="pd-category-item otis" name="{{category.value}}" title="{{category.title}}" id="{{category.value}}" value="{{category.title}}">
+														<span class="checkmark"></span>
+														{{category.title}}
+													</label>
+												</div>
 											</div>
-										</div>
-										<div class="ui selection-list">
-											<p class="ui-checkbox-container" ng-repeat="pathway in pathways">
-												<input type="checkbox" name="{{pathway.value}}" id="{{pathway.value}}" ng-value="{{pathway.value}}" value="{{pathway.value}}">
-												<label for="{{pathway.value}}"><span class="toggle"></span> <em>{{pathway.title}}</em></label>
-											</p>
+											<div class="column is-half">
+												<img src="<?php echo get_template_directory_uri() . '/inc/images/create-prelim-site-header_teqtivities-logo.png'; ?>" />
+												<p>Explore our Teq-tivities topics meant to jumpstart meaningful learning and engage students.</p>
+												<div class="ui selection-list pd-category-list">
+													<label ng-repeat="teqtivity in teqtivities" for="{{teqtivity.value}}">
+														<input type="checkbox" class="pd-category-item teqtivity" name="{{teqtivity.value}}" title="{{teqtivity.title}}" id="{{teqtivity.value}}" value="{{teqtivity.title}}">
+														<span class="checkmark"></span>
+														{{teqtivity.title}}
+													</label>
+												</div>
+											</div>
 										</div>
 										<button class="close-modal" type="button" aria-label="close">&times;</button>
   								</div>
@@ -366,18 +396,12 @@ get_header();
 								<div class="preliminary-product-list-container">
 									<p class="column">Learn educational technology skills with PD designed around your needs; with options for on-site, online, or a blended learning model. Teq’s PD Specialists and Curriculum Specialists who facilitate both our Onsite PD, Virtual, and  Online PD sessions are State Certified Educators with skills and expertise in every subject and content area – English, Math, Science, Social Studies, STEM, ENL and Special Education. </p>
 									<nav class="ui product-tabs-nav">
-										<div class="product-tabs tabs">
+										<div class="product-tabs tabs sub-nav">
 			  							<ul>
 			    							<li class="form-ui">
 													<a id="otisPdCategories" class="modal-open-button" href>
 														professional development cateogries
 														<?php echo file_get_contents(get_template_directory_uri() . '/inc/images/create-prelim-form-ui_list-icons.svg'); ?>
-													</a>
-												</li>
-												<li class="form-ui">
-													<a href>
-														Back
-														<?php echo file_get_contents(get_template_directory_uri() . '/inc/images/create-prelim-form-ui_back-icons.svg'); ?>
 													</a>
 												</li>
 			  							</ul>
@@ -389,6 +413,8 @@ get_header();
 											* Query Custom Post Type 'Product and Service'
 											* TAXONOMY 'teq-summary-add-on'
 											* SEARCH FOR ONLY POSTS WITH 'teq-summary-add-on' TOPIC ONLY
+											* CONDITIONAL STATEMENT: INSIDE LOOP IF THE POST NAME IS 'teq-tivities'
+											* ADD HIDDEN INPUT FIELD TO QUERY A TEQ-TIVITY on results page
 											*/
 
 											$pd_addon_args = array(
@@ -410,29 +436,43 @@ get_header();
 											$pd_addon_query = new WP_Query( $pd_addon_args );
 												if ($pd_addon_query -> have_posts()) : while ($pd_addon_query -> have_posts()) :
 													$pd_addon_query -> the_post();
+													$post_id = get_the_ID();
 									?>
 									<article class="ui rounded product-item">
 										<label for="<?php echo $post->post_name; ?>">
-  										<input type="checkbox" id="<?php echo $post->post_name; ?>" name="<?php echo $post->post_title; ?>" value="<?php echo $post->post_name; ?>">
+  										<input type="checkbox" id="<?php echo $post->post_name; ?>" <?php if ($post->post_name == 'teq-tivities') { echo 'name="teq-tivity-selectioned"'; } else { echo 'name="userPdSelections[]"';} ?> title="<?php the_title(); ?>" value="<?php echo $post_id; ?>">
   										<span class="checkmark"></span>
 										</label>
 										<?php echo get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'product' ) ); ?>
 										<div class="inner-content">
 											<h3 class="product-title"><?php the_title(); ?></h3>
 											<div class="product-description"><?php the_excerpt(); ?></div>
+											<div class="tags <?php the_title(); ?>"></div>
 										</div>
 									</article>
 									<?php
 										endwhile; endif;
 											wp_reset_postdata();
 									?>
+									<nav class="ui product-tabs-nav">
+										<div class="product-tabs tabs">
+			  							<ul>
+												<li class="form-ui">
+													<a href onclick="history.back(-1)">
+														Back
+														<?php echo file_get_contents(get_template_directory_uri() . '/inc/images/create-prelim-form-ui_back-icons.svg'); ?>
+													</a>
+												</li>
+			  							</ul>
+										</div>
+									</nav>
 								</div>
 							</section>
 
-						</form>
+						</div>
 
 					</div>
-				</section>
+				</form>
 
 			</div>
 		</section>
