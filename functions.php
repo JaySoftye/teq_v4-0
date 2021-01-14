@@ -141,7 +141,7 @@ add_action( 'widgets_init', 'teq_v4_0_widgets_init' );
  */
 function teq_v4_0_scripts() {
 	wp_deregister_script( 'roboto' );
-	wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+	wp_enqueue_style( 'roboto', 'https://use.typekit.net/pih4zrr.css');
 
 	wp_deregister_script('jquery');
 	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', array(), null, true);
@@ -594,9 +594,9 @@ add_action( 'pre_get_posts', 'alpha_order_classes' );
 /* add action for email notification
 * anytime a CPT NEDM Survey is published or changed
 */
-add_action( 'transition_post_status', 'send_mails_on_publish', 10, 3 );
+add_action( 'transition_post_status', 'send_mails_on_nedm_publish', 10, 3 );
 
-function send_mails_on_publish( $new_status, $old_status, $post ) {
+function send_mails_on_nedm_publish( $new_status, $old_status, $post ) {
   if ( 'publish' !== $new_status or 'publish' === $old_status or 'nedm-surveys' !== get_post_type( $post ) )
 
     return;
@@ -606,6 +606,22 @@ function send_mails_on_publish( $new_status, $old_status, $post ) {
       $body .= sprintf( 'See <%s>', get_permalink( $post ));
 
     wp_mail( $to, 'New Network-Enabled Device Management Survey', $body, $headers );
+}
+/* add action for email notification
+* anytime a CPT Custom Solution is published or changed
+*/
+add_action( 'transition_post_status', 'send_mails_on_custom_solution_publish', 10, 3 );
+
+function send_mails_on_custom_solution_publish( $new_status, $old_status, $post ) {
+  if ( 'publish' !== $new_status or 'publish' === $old_status or 'custom-solutions' !== get_post_type( $post ) )
+
+    return;
+      $to = 'jay@teq.com';
+      $headers = 'CC: paulprincipato@teq.com';
+      $body = sprintf( 'Hey there a new Custom Solution was created!' . "\n\n");
+      $body .= sprintf( 'See <%s>', get_permalink( $post ));
+
+    wp_mail( $to, 'Created Solution Quote Request from Teq', $body, $headers );
 }
 
 

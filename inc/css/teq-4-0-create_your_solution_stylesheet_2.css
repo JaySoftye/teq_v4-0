@@ -43,7 +43,7 @@
   cursor: pointer;
 }
 .refine-filter.selected > .filter-title {
-  fill: #484848;
+  fill: #FFFFFF;
 }
 
 .ui.rounded {
@@ -238,6 +238,9 @@
   top: 5rem;
 }
 .ui.product-tabs-nav {
+  margin: 0 auto;
+  padding-top: 0;
+  padding-bottom: 0;
   background-color: rgba(236,238,239,1);
   border-radius: 12px
 }
@@ -294,6 +297,9 @@
   padding: 12px;
   background-color: #FFFFFF;
   box-shadow: 3px 3px 3px rgb(156,157,158), -3px -3px 3px rgb(255,255,255);
+}
+.ui.product-tabs-nav > .product-tabs > ul li.button-container.prev-section {
+  display: none;
 }
 .ui.product-tabs-nav > .product-tabs > ul li.button-container button.next-section {
   background-color: #FFFFFF;
@@ -388,11 +394,17 @@
 .ui.product-tabs-nav > .product-tabs > ul li.form-ui a {
   color: rgb(0,0,0);
 }
+.ui.product-tabs-nav > .product-tabs.sub-nav > ul li.form-ui a {
+  color: rgb(248,129,10);
+}
 .ui.product-tabs-nav > .product-tabs > ul li.form-ui a svg {
   height: 21px;
   width: 21px;
   display: inline-block;
   margin-left: 9px;
+}
+.ui.product-tabs-nav > .product-tabs.sub-nav > ul li.form-ui a svg > * {
+  fill: rgb(248,129,10);
 }
 .ui.product-tabs-nav > .product-tabs.sub-nav {
   margin-bottom: 12px;
@@ -413,13 +425,23 @@
 .ui.product-tabs-nav > .product-tabs.sub-nav > ul li.form-ui > a {
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 15px 6px;
+  font-weight: 400;
 }
 .ui.product-tabs-nav > .product-tabs.sub-nav > ul li.form-ui:hover {
   box-shadow: none;
 }
-.ui.product-tabs-nav > .product-tabs.sub-nav > ul li.form-ui:hover > a {
+.ui.product-tabs-nav > .product-tabs > ul li.form-ui:hover > a {
   color: rgb(248,129,10);
+}
+.ui.product-tabs-nav > .product-tabs > ul li.form-ui:hover > a svg > * {
+  fill: rgb(248,129,10);
+}
+.ui.product-tabs-nav > .product-tabs.sub-nav > ul li.form-ui:hover > a {
+  color: rgb(0,0,0);
+}
+.ui.product-tabs-nav > .product-tabs.sub-nav > ul li.form-ui:hover > a svg > * {
+  fill: rgb(0,0,0);
 }
 .ui.product-tabs-nav > .product-tabs .select-menu-container {
   position: static;
@@ -472,7 +494,7 @@ body.create-your-solution-2 div.navbar-menu.secondary-browse-menu ul.create-your
   opacity: .3;
 }
 .site-main img.featured-image-product:first-child {
-  top: 3.24rem;
+  top: 0;
   right: 0;
 }
 .site-main img.featured-image-product:nth-child(2) {
@@ -739,6 +761,9 @@ button.filters-button {
 }
 .products-list .modal > .modal-content .ui.selection-list.pd-category-list {
   margin-top: 18px;
+}
+form.quote-form .columns .column .ui.selection-list {
+  margin-top: 1.5rem;
 }
 .products-list .modal > .modal-content .ui.selection-list.pd-category-list label, form.quote-form .columns .column .ui.selection-list label {
   display: flex;
@@ -1221,7 +1246,6 @@ section.dropdown.is-active .dropdown-trigger button.solutions-dropdown, section.
   color: #FFFFFF;
 }
 
-
 .view-tablet-mobile {
   display: none;
 }
@@ -1256,6 +1280,42 @@ section.dropdown.is-active .dropdown-trigger button.solutions-dropdown, section.
   }
   .ui.product-tabs-nav.main {
     top: 4.2rem;
+  }
+  .site-main .create-your-solution-container, .ui.product-tabs-nav > .product-tabs > ul, .ui.product-tabs-nav > .product-tabs > ul li.active, .ui.product-tabs-nav > .product-tabs > ul li.button-container button, .ui.product-tabs-nav > .product-tabs > ul li.form-ui, .ui.product-tabs-nav > .product-tabs.results.tabs {
+    width: 100%;
+    display: block;
+  }
+  .ui.product-tabs-nav > .product-tabs > ul li.button-container, .ui.product-tabs-nav > .product-tabs > ul li.button-container.prev-section {
+    width: 46.2%;
+    display: inline-block;
+    margin: 1.5% 1.5% 1.5% 1.5%;
+  }
+  .ui.product-tabs-nav > .product-tabs > ul li, .ui.product-tabs-nav > .product-tabs > ul li.selected-items-counter,  .ui.product-tabs-nav > .product-tabs > ul li.form-ui.print-solution {
+    display: none;
+  }
+  .prelim-product-container.columns > .products-list > img.section-logo {
+    min-height: 150px;
+    width: 45%;
+  }
+  .preliminary-product-list-container article.product-item.iblock-pathway > img, .ui.product-tabs-nav > .product-tabs .select-menu-container {
+    display: none;
+  }
+  .preliminary-product-list-container article.product-item.iblock-pathway > .inner-content {
+    padding: 6px 48px;
+  }
+  .preliminary-product-list-container article.product-item > .inner-content .product-title, .preliminary-product-list-container article.product-item.iblock-pathway > .inner-content .iblock-description {
+    display: block;
+  }
+  .preliminary-product-list-container article.product-item.iblock-pathway > .inner-content .iblock-info-button {
+    display: block;
+    margin-top: -.42rem;
+    padding-bottom: .96rem;
+  }
+  .preliminary-product-list-container article.product-item.iblock-pathway > .inner-content .iblock-description .column {
+    padding: 0 0 12px 0;
+  }
+  .ui.product-tabs-nav > .product-tabs > ul li > a {
+    width: 100%;
   }
 }
 
@@ -1360,7 +1420,7 @@ section.dropdown.is-active .dropdown-trigger button.solutions-dropdown, section.
   .hide-from-print, button, header, .site-main img.featured-image-product .navbar-menu, footer.site-footer > .site-info > .columns:first-child, a.delete, .solution-set-details a.expandable-content-button, form.solution-set-quote-request, article.product-solution .product-content .navbar, article.product-solution .product-content div.bar-counter {
     display: none !important;
   }
-  form.solution-set-quote-request, form.solution-set-quote-request .column, #solutionSet > div.column h4, #solutionSet > div.column h5 {
+  form.solution-set-quote-request, form.solution-set-quote-request .column, #solutionSet > div.column h4, #solutionSet > div.column h5, .ui.product-tabs-nav {
     display: none !important;
   }
   [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate), .ng-hide {
@@ -1402,10 +1462,11 @@ section.dropdown.is-active .dropdown-trigger button.solutions-dropdown, section.
     height: 201px;
   }
   .solutions-container article.product-solution > div.product-image > img.product {
-    height: auto;
-    max-width: 48%;
-    width: 48%;
-    top: 0;
+    height: 180px;
+    max-width: auto;
+    width: auto;
+    position: relative;
+    top: 30px;
     left: 0;
     transform: translate(0,0);
   }

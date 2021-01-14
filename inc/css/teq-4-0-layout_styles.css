@@ -919,6 +919,62 @@ h1.page-titles, h1.page-titles a {
 }
 
 /*
+THE COMPLETE THOUGHT
+*/
+div#primary main#main section.the-complete-thought {
+	height: 100vh;
+	position: relative;
+	padding-top: 7.5rem;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-image: url('../images/the-complete-thought_main-bg-1920x1080.jpg');
+}
+section.the-complete-thought .accordion-container > .accordion-content {
+	min-height: 24vh;
+	padding-top: 30px;
+	padding-bottom: 42px;
+}
+
+section.the-complete-thought .accordion-container > .accordion-content h2 {
+	font-weight: 400;
+	font-size: 1.5rem;
+}
+section.the-complete-thought .accordion-container > .accordion-ui {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+section.the-complete-thought .accordion-container > .accordion-ui button {
+	height: 60px;
+	width: 99px;
+	margin-right: 3px;
+	padding: 6px 33px;
+	background-color: rgba(0,0,0,.75);
+	border: none;
+	border-radius: 6px;
+	opacity: 0.48;
+	cursor: pointer;
+}
+section.the-complete-thought .accordion-container > .accordion-ui button.active {
+	opacity: 1;
+}
+section.the-complete-thought .accordion-container > .accordion-ui button > * {
+	fill: #FFFFFF;
+}
+section.the-complete-thought > .sticky-bottom-container {
+	position: sticky;
+	top: 100%;
+	margin-bottom: 1rem;
+	background-color: rgba(0,0,0,.69)
+}
+section.the-complete-thought > .sticky-bottom-container > .container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 15px;
+}
+
+/*
 Professional Development
 */
 

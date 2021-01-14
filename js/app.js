@@ -190,6 +190,37 @@
         checkPosition();
   }) ();
 
+
+  /**
+  * THE COMPLETE THOUGHT ACCORDION
+  *
+  */
+  app.controller('theCompleteThought', function($scope) {
+    $scope.show = 1;
+    $scope.items = [
+      { id: "1", content: "Yes, part of what we do is sell classroom technologies like SMART boards, STEM solutions, and a broad range of professional development services." },
+      { id: "2", content: "But we do so much more than that." },
+      { id: "3", content: "We want to help you think big. We want to help you bring together all the dynamic, moving parts of education so that no matter what your goal is, you have tools to help you reach it. We want to partner with schools and districts to further the immersive, engaging learning that ignites student learning." },
+      { id: "4", content: "Here’s why we’re qualified to help you." },
+      { id: "5", content: "For 50 years, we’ve been in the trenches of K12 education, watching it evolve, and seeing first-hand how technology has impacted learning." },
+      { id: "6", content: "It occurred to us that if we add up our history, staff, resources, and expertise, we could start our own school. So, to show you just how equipped we are, we’ve created a case study to lay out how we would do it." },
+      { id: "7", content: "Take a look at our hypothetical case study here, or head straight to our Evolve page, where you’ll get the big-picture ideas and ideology that guide the evolution of education." },
+      { id: "8", content: "When you’re ready to take those ideas and build own solution, head to our Create page where we’ll guide you through a unique solution for your school or district — everything from STEM solutions to project-based learning to professional development." },
+      { id: "9", content: "Together, we can help you create your own Complete Thought." }
+    ];
+
+    $scope.nextItem = function() {
+      $scope.show = $scope.show + 1;
+        console.log($scope.show);
+    }
+    $scope.prevItem = function() {
+      $scope.show = $scope.show - 1;
+        console.log($scope.show);
+    }
+
+  });
+
+
   /**
     * CREATE DROPDOWN FILTERS
     * Target Control and display

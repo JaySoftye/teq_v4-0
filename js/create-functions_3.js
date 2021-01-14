@@ -3,6 +3,20 @@
  * Initial app module
  */
 
+ /**
+   * TOGGLE GRADE LEVEL AND STEM FOCUS SECTIONS
+   * SHOW STEM FOCUS SECTION ON NEXT button
+   * BACK TO SHOW GRADE LEVEL SECTION on 'click here' button
+   */
+   function gradeSelection() {
+     document.getElementById("gradeFields").classList.remove("hidden");
+     document.getElementById("stemFields").classList.add("hidden");
+   }
+   function stemSelection() {
+     document.getElementById("gradeFields").classList.add("hidden");
+     document.getElementById("stemFields").classList.remove("hidden");
+   }
+
 /**
   * DROPDOWN MENU FOR FINAL SOLUTIONS LIST
   * TOGGLE CLASS 'is-active' onclick for button target
@@ -134,7 +148,7 @@
         $scope.hydroponicsSelect = false;
         $scope.roboticsSelect = false;
       }
-      $scope.stemContent = '<p><strong>General Education</strong></p><p>STEM is the perfect place to start transforming your classroom. By giving students the right tools and technology, you can spark curiosity, learning, and inquiry-based thinking. </p><p><strong>To further hone your General Education focus, select the subject(s) that best apply.</strong></p>';
+      $scope.stemContent = '<p><strong>General Education</strong></p><p>STEM is the perfect place to start transforming your classroom. By giving students the right tools and technology, you can spark curiosity, learning, and inquiry-based thinking. </p><p><strong>To further hone your General Education focus, select the subject that best applies.</strong></p>';
 		};
 
     $scope.hydroponicsSelected = function () {
@@ -289,6 +303,15 @@
 
       }
     };
+    $scope.prevTab = function () {
+      if ($scope.tab === 1) {
+        $scope.tab = 1;
+      } else if ($scope.tab === 2) {
+        $scope.tab = 1;
+      } else if ($scope.tab === 3) {
+        $scope.tab = 2;
+      }
+    };
 
 
   /**
@@ -398,6 +421,20 @@
 
   $(document).ready(function() {
 
+    // UPDATE FUNCTION TO GET THE SELECTED ITEMS LENGTH
+    // COUNT THE TOTAL AMOUNTS OF ELEMENT article.product-item input:checkbox THAT IS selected
+    // TOTAL NUMBER OF ELEMENTS CHECKED STORED IN updateTotalLen VARIABLE
+    function updateCounter() {
+      var updatedTotalLen = $("#preliminary-product-list article.product-item input[type='checkbox']:checked").length;
+
+      if(updatedTotalLen > 0) {
+        $(".selected-items-counter a i").text(updatedTotalLen);
+      } else {
+        $(".selected-items-counter a i").text('0');
+      }
+
+    }
+
     // PRODUCT FILTER FUNCTION
     // SHOW AND HIDE 'article.product-item' elements based upon selected 'FILTER OPTION'
     // CLICK FUNCTION ENABLED FOR '.refine-filter' ELEMENTS
@@ -419,7 +456,15 @@
         } else {
           $("#product-selection .preliminary-product-list-container article.product-item").each(function() {
             if(!$(this).hasClass(value)) {
+
+              var checkboxId = $(this).find("input:checkbox").attr("id");
+              $("ul#select-items-content").find("#"+checkboxId+"-selected-product").remove();
+
               $(this).addClass("hidden");
+                $(this).children("label").removeClass("product-selected")
+                  $(this).find("input:checkbox").prop( "checked", false );
+
+              updateCounter();
             } else {
               $(this).removeClass("hidden");
             }
@@ -467,7 +512,6 @@
       $(this).parents("nav.level").next("div.iblock-description").toggleClass("hidden");
     });
 
-
     // COUNTER FUNCTION FOR SELECTED ITEMS
     // GET THE TOTAL NUMBER OF CHECKBOXES SELECTED
     // DEFAULT Value is set to '0'
@@ -481,19 +525,6 @@
           $(".selected-items-counter a i").text('0');
         }
 
-        // UPDATE FUNCTION TO GET THE SELECTED ITEMS LENGTH
-        // COUNT THE TOTALS EACH TIME
-        function updateCounter() {
-          var updatedTotalLen = $("#preliminary-product-list article.product-item input[type='checkbox']:checked").length;
-
-          if(updatedTotalLen > 0) {
-            $(".selected-items-counter a i").text(updatedTotalLen);
-          } else {
-            $(".selected-items-counter a i").text('0');
-          }
-
-        };
-
         // USE UPDATE FUNCTION TO PARSE LENGTH TO CONSOLE AND UPDATE counter element
         // RUN LOOP TO PREVENT MULTIPLE ITEMS
         // EACH checkbox of PARENT ELEMENT WITH class 'product-item' UPDATE NAV ITEM .select.items-counter a i
@@ -502,7 +533,6 @@
           $(this).parent().toggleClass("product-selected");
             var checkboxTitle = $(this).attr("title");
             var checkboxId = $(this).attr("id");
-
 
               if ($(this).is(":checked")) {
 
@@ -531,6 +561,7 @@
     $("#pathway-checkbox-list .pathway-checkbox:checkbox").change(function() {
       var postId = $(this).val();
         $("#"+postId).remove();
+          updateCounter();
     });
 
 
@@ -541,27 +572,57 @@
     $(".pd-category-list .pd-category-item").change(function() {
       var categoryItemValue = $(this).val();
       var categoryItemTitle = $(this).attr("title");
+      var categoryItemId = $(this).attr("id");
 
       if ($(this).is(":checked")) {
 
         // IF CATEGORY CLICKED IS OF CLASS 'otis' or IF OF CLASS 'teqtivity'
         // APPENDED TAG ELEMENT TO SPECIFIED TAG container
+        // MARK 'CHECKED' FOR THE PARENT ELEMENT THAT THE CONTENT WAS APPENDED TO
         if ($(this).hasClass("otis")) {
-          $("div.tags.OTIS.for.educators").append('<span class="tag is-rounded" id="'+categoryItemValue+'-selected-category">'+categoryItemTitle+'<input type="hidden" name="userPdCategoriesSelections[]" value="'+categoryItemValue+'" /></span>');
+          $("div.tags.OTIS.for.educators").append('<span class="tag is-rounded" id="'+categoryItemId+'-selected-category">'+categoryItemValue+'<input type="hidden" name="userPdCategoriesSelections[]" value="'+categoryItemId+'" /></span>');
             console.log(categoryItemTitle + ' added');
+
+        // UPDATE THE COUNTER BASED ON THE STATUS OF THE OTIS input element
+        // IF THE INPUT ELEMENT IS CHECKED UPDATE THE COUNTER AND APPEND LIST ITEM
+        // IF LIST ITEM EXISTS ALREADY DON'T UPDATE #selected-items-content LIST ELEMENT
+          var otisForEducators = $("#otis-for-educators");
+          var otisTitle = $(otisForEducators).attr("title");
+          var otisId = $(otisForEducators).attr("id");
+            $(otisForEducators).prop( "checked", true );
+            if($("ul#select-items-content li#"+otisId+"-selected-product").length > 0) {
+              updateCounter();
+            } else {
+              $("ul#select-items-content").append('<li id="'+otisId+'-selected-product">'+otisTitle+'</li>');
+              updateCounter();
+            }
         } else if ($(this).hasClass("teqtivity")) {
-          $("div.tags.Teq-tivities").append('<span class="tag is-rounded" id="'+categoryItemValue+'-selected-category">'+categoryItemTitle+'<input type="hidden" name="userTeqtivityCategoriesSelections[]" value="'+categoryItemValue+'" /></span>');
+          $("div.tags.Teq-tivities").append('<span class="tag is-rounded" id="'+categoryItemId+'-selected-category">'+categoryItemValue+'<input type="hidden" name="userTeqtivityCategoriesSelections[]" value="'+categoryItemValue+'" /></span>');
             console.log(categoryItemTitle + ' added');
+
+        // UPDATE THE COUNTER BASED ON THE STATUS OF THE OTIS input element
+        // IF THE INPUT ELEMENT IS CHECKED UPDATE THE COUNTER AND APPEND LIST ITEM
+        // IF LIST ITEM EXISTS ALREADY DON'T UPDATE #selected-items-content LIST ELEMENT
+          var teqTivities = $("#teq-tivities");
+          var teqTivitiesTitle = $(teqTivities).attr("title");
+          var teqTivitiesId = $(teqTivities).attr("id");
+            $("#teq-tivities").prop( "checked", true );
+            if($("ul#select-items-content li#"+teqTivitiesId+"-selected-product").length > 0) {
+              updateCounter();
+            } else {
+              $("ul#select-items-content").append('<li id="'+teqTivitiesId+'-selected-product">'+teqTivitiesTitle+'</li>');
+              updateCounter();
+            }
         }
 
       } else if($(this).not(':checked')) {
 
         // IF CATEGORY ITEM IS CHECKED REMOVE THE ELEMENT BY SPECIFIED ID
         if ($(this).hasClass("otis")) {
-          $("div.tags.OTIS.for.educators").find("#"+categoryItemValue+"-selected-category").remove();
+          $("div.tags.OTIS.for.educators").find("#"+categoryItemId+"-selected-category").remove();
             console.log(categoryItemTitle + ' removed')
         } else if ($(this).hasClass("teqtivity")) {
-          $("div.tags.Teq-tivities").find("#"+categoryItemValue+"-selected-category").remove();
+          $("div.tags.Teq-tivities").find("#"+categoryItemId+"-selected-category").remove();
             console.log(categoryItemTitle + ' removed')
         }
 

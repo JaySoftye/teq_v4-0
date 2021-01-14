@@ -40,8 +40,8 @@ get_header();
 				<section id="nameFields" class="columns is-multiline is-centered is-vcentered is-desktop">
 					<div class="column is-full-desktop is-full-mobile">
 						<h1 class="has-text-centered">Welcome!</h1>
-						<h5>Here at Teq, we’re continuing to innovate the entire learning experience by bringing all of the dynamic moving parts of education together into a complete thought through the introduction of STEM and interdisciplinary topics. </h5>
-						<h5>The goal of this section is to create a personal profile that reflects your decisions on how to introduce technology to your class, school, or district by taking you through a series of criteria on products, content, instructional support, and learning environment. This unique approach results in a summary specifically tailored to your responses. Use your results as a guide as you make decisions on how you want to integrate STEM, and how you want to foster future-ready skills and career readiness in your students. </h5>
+						<h5>As educators, finding the perfect pedagogical solution to meet your needs can be challenging — until now! </h5>
+						<h5>Here at Teq, we’re innovating the entire learning experience by bringing all the dynamic moving parts of education together into a complete thought. After answering just a few questions, you’ll be able to identify, browse, and refine a selection of customized solutions that best fit your unique needs.  </h5>
 						<h3 class="has-text-centered strong">Let’s get started. </h3>
 						<div class="ui">
 							<div class="field has-addons">
@@ -74,7 +74,7 @@ get_header();
 
 						<div class="padding-bottom has-text-centered">
 							<h1>Select Your Grade Level</h1>
-							<h5>To get things started, using the selection dial, choose the grade level that suits your own unique profile.</h5>
+							<h5>To begin, use the dial below to select the grade band that best suits your needs.</h5>
 						</div>
 						<section class="columns is-vcentered ui ui-content">
 							<div class="column is-one-third-desktop is-full-tablet is-full-mobile ui ui-container">
@@ -97,13 +97,6 @@ get_header();
 							</div>
 							<div class="column is-one-third-desktop is-full-tablet is-full-mobile input-control">
 								<button disabled id="stemFieldsNext" type="button" onclick="stemSelection()" class="submit-button margin-auto ui white outer dark"><span class="inner">NEXT</span></button>
-
-								<script>
-								function stemSelection() {
-									document.getElementById("gradeFields").classList.add("hidden");
-									document.getElementById("stemFields").classList.remove("hidden");
-								}
-								</script>
 							</div>
 						</section>
 
@@ -116,7 +109,7 @@ get_header();
 						<div class="padding-bottom has-text-centered">
 							<h4 class="strong" ng-bind="gradeLevelText"></h4>
 							<h1>Select Your STEM-Based Subject Matter </h1>
-							<h5>Next, we’ll zero in on your specific area of interest, primarily focused on <strong>STEM-based subject matter.</strong> This will provide us with the data we need to produce your preliminary solution profile. </h5>
+							<h5>Next, we’ll zero in on your area of interest. <strong>Using the dial below,</strong> choose the STEM-based subject matter that best suits your interests. If you would like to choose a different grade level <button type="button" onclick="gradeSelection()" class="button blank"><u>click here</u></button>.</h5>
 						</div>
 
 						<section class="columns is-vcentered ui ui-content">
