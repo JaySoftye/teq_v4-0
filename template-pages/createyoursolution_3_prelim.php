@@ -56,7 +56,7 @@ get_header();
 						<div class="padding-bottom">
 							<h4 class="strong margin-bottom"><?php echo $gradeLevelName; ?>, <?php echo $stemFocusName; ?>, <?php echo $generalEdName; ?></h4>
 							<h1>Customize Your <?php echo $schoolName; ?> Solution</h1>
-							<h5>This page will guide you through recommended solutions. As you navigate through the tabs, you’ll be able to look at 1Products, Instructional Materials, and Instructional Support. Select all the options that interest you, and we’ll build your solution.</h5>
+							<h5>This page will guide you through recommended solutions. As you navigate through the tabs, you’ll be able to look at Products, Instructional Materials, and Instructional Support. Select all the options that interest you, and we’ll build your solution.</h5>
 						</div>
 
 						<nav class="ui product-tabs-nav main outer dark">

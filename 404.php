@@ -15,11 +15,11 @@ get_header();
 
 		<section class="full-section padding-bottom">
 
-			<div class="page-content">
+			<div class="page-content padding-top">
 				<div class="container">
-					<div class="columns is-vcentered is-desktop">
+					<div class="columns is-vcentered is-desktop padding-top">
  						<div class="column is-8 is-offset-2">
-							<p class="has-text-centered">
+							<p class="has-text-centered padding-top">
 	 							<img src="<?php echo get_template_directory_uri() . '/inc/images/404-error-image.gif'; ?>" alt="404 error" />
 							</p>
 							<h5 class="has-text-centered sub-header">We seem to be having some <strong>Teq</strong><em>&bull;ni&bull;cal</em> difficulties.</h5>

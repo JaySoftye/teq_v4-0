@@ -921,23 +921,37 @@ h1.page-titles, h1.page-titles a {
 /*
 THE COMPLETE THOUGHT
 */
-div#primary main#main section.the-complete-thought {
-	height: 100vh;
+div#primary main#main section.the-complete-thought, div#primary main#main section.the-complete-thought > .container, div#primary main#main section.the-complete-thought > .container > .columns {
 	position: relative;
+}
+div#primary main#main section.the-complete-thought {
+	min-height: 100vh;
 	padding-top: 7.5rem;
 	background-size: cover;
 	background-repeat: no-repeat;
+	background-position: center;
 	background-image: url('../images/the-complete-thought_main-bg-1920x1080.jpg');
 }
+div#primary main#main section.the-complete-thought .title {
+	font-size: calc(2.1rem + 2.1vw);
+}
 section.the-complete-thought .accordion-container > .accordion-content {
-	min-height: 24vh;
+	min-height: calc(30vh + 3vw);
 	padding-top: 30px;
 	padding-bottom: 42px;
 }
-
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item {
+	opacity: 1;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item.ng-hide-add, section.the-complete-thought .accordion-container > .accordion-content .accordion-item.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item.ng-hide {
+	opacity: 0;
+}
 section.the-complete-thought .accordion-container > .accordion-content h2 {
 	font-weight: 400;
-	font-size: 1.5rem;
+	font-size: calc(1.5rem + .5vw);
 }
 section.the-complete-thought .accordion-container > .accordion-ui {
 	display: flex;
@@ -945,21 +959,24 @@ section.the-complete-thought .accordion-container > .accordion-ui {
 	justify-content: center;
 }
 section.the-complete-thought .accordion-container > .accordion-ui button {
-	height: 60px;
+	height: 66px;
 	width: 99px;
-	margin-right: 3px;
+	margin-right: 6px;
 	padding: 6px 33px;
-	background-color: rgba(0,0,0,.75);
+	background-color: #1b1b1b;
 	border: none;
 	border-radius: 6px;
-	opacity: 0.48;
 	cursor: pointer;
 }
-section.the-complete-thought .accordion-container > .accordion-ui button.active {
-	opacity: 1;
+section.the-complete-thought .accordion-container > .accordion-ui button:disabled {
+	opacity: 0.48;
 }
-section.the-complete-thought .accordion-container > .accordion-ui button > * {
+section.the-complete-thought .accordion-container > .accordion-ui button svg > * {
 	fill: #FFFFFF;
+}
+section.the-complete-thought .accordion-container > .accordion-ui button.active:hover {
+	border: 1.5px solid #1b1b1b;
+	box-shadow: inset 3px 3px 12px #000000;
 }
 section.the-complete-thought > .sticky-bottom-container {
 	position: sticky;
@@ -972,6 +989,21 @@ section.the-complete-thought > .sticky-bottom-container > .container {
 	align-items: center;
 	justify-content: center;
 	padding: 15px;
+}
+section.the-complete-thought > .sticky-bottom-container a.flex-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 15px;
+	font-weight: 600;
+	font-size: 21px;
+	color: #FFFFFF;
+}
+section.the-complete-thought > .sticky-bottom-container a.flex-button svg {
+	height: 48px;
+	width: auto;
+	margin-left: 21px;
+	margin-right: 21px;
 }
 
 /*

@@ -20,7 +20,7 @@ get_header();
 				$args = array(
 					'post_type' => 'product-and-service',
 					'category_name' => 'coding, engineering, robotics, hydroponics, general-education',
-					'posts_per_page' => 3,
+					'posts_per_page' => 2,
 					'orderby' => 'rand'
 				);
 
@@ -63,7 +63,7 @@ get_header();
 							</div>
 							<button type="button" class="submit-button margin-auto ui white outer dark {{products_search_form.schoolName.$valid}} {{products_search_form.schoolEmail.$valid}}" ng-click="gradeSelection()"><span class="inner">NEXT</span></button>
 							<div class="level-right absolute-position">
-								<p class="level-item margin-left margin-right"><a class="caption disabled" href><em>TEQ PRIVACY POLICY</em></a></p>
+								<p class="level-item margin-left margin-right"><a class="caption disabled" href="/teq-privacy-policy/"><em>TEQ PRIVACY POLICY</em></a></p>
 							</div>
 						</div>
 					</div>
@@ -80,10 +80,10 @@ get_header();
 							<div class="column is-one-third-desktop is-full-tablet is-full-mobile ui ui-container">
 								<p class="text-padding" ng-bind-html="gradeContent"></p>
 								<div class="ui radio-selections">
-									<input type="radio" id="gradeK2Selected" name="grade" value="grades-k-2" ng-checked="gradek2Select">
-									<input type="radio" id="grade35Selected" name="grade" value="grades-3-5" ng-checked="grade35Select">
-									<input type="radio" id="grade68Selected" name="grade" value="grades-6-8" ng-checked="grade68Select">
-									<input type="radio" id="grade912Selected" name="grade" value="grades-9-12" ng-checked="grade912Select">
+									<input type="radio" id="gradeK2Selected" name="grade" ng-value="grades-k-2" ng-checked="gradek2Select">
+									<input type="radio" id="grade35Selected" name="grade" ng-value="grades-3-5" ng-checked="grade35Select">
+									<input type="radio" id="grade68Selected" name="grade" ng-value="grades-6-8" ng-checked="grade68Select">
+									<input type="radio" id="grade912Selected" name="grade" ng-value="grades-9-12" ng-checked="grade912Select">
 								</div>
 							</div>
 							<div class="column is-one-third-desktop is-full-tablet is-full-mobile ui ui-container">

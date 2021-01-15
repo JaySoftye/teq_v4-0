@@ -18,6 +18,16 @@
    };
  });
 
+
+/**
+  * FILTER TO ALLOW HTML CHARACTARS IN STRING
+  */
+ app.filter('trustAsHtml',['$sce', function($sce) {
+    return function(text) {
+      return $sce.trustAsHtml(text);
+    };
+  }]);
+
 /**
   * Menu Buttons for Main Dropdown
   * Show Main menu for scope.mainMenu
@@ -204,8 +214,8 @@
       { id: "4", content: "Here’s why we’re qualified to help you." },
       { id: "5", content: "For 50 years, we’ve been in the trenches of K12 education, watching it evolve, and seeing first-hand how technology has impacted learning." },
       { id: "6", content: "It occurred to us that if we add up our history, staff, resources, and expertise, we could start our own school. So, to show you just how equipped we are, we’ve created a case study to lay out how we would do it." },
-      { id: "7", content: "Take a look at our hypothetical case study here, or head straight to our Evolve page, where you’ll get the big-picture ideas and ideology that guide the evolution of education." },
-      { id: "8", content: "When you’re ready to take those ideas and build own solution, head to our Create page where we’ll guide you through a unique solution for your school or district — everything from STEM solutions to project-based learning to professional development." },
+      { id: "7", content: "Take a look at our hypothetical <strong class='modal-open-button' id='caseStudyDownload'><u>case study here,</u></strong> or head straight to our <a href='/evolve'><strong><u>Evolve</u></strong></a> page, where you’ll get the big-picture ideas and ideology that guide the evolution of education." },
+      { id: "8", content: "When you’re ready to take those ideas and build own solution, head to our <a href='/create-your-solution'><strong><u>Create</u></strong></a> page where we’ll guide you through a unique solution for your school or district — everything from STEM solutions to project-based learning to professional development." },
       { id: "9", content: "Together, we can help you create your own Complete Thought." }
     ];
 
@@ -217,7 +227,6 @@
       $scope.show = $scope.show - 1;
         console.log($scope.show);
     }
-
   });
 
 
@@ -379,3 +388,23 @@
     window.addEventListener("scroll", function(){
         amountScrolled()
     }, false);
+
+
+    $(document).ready(function() {
+      // MODAL FUNCTION
+      // GET THE ID OF THE CLICKED Element
+      // FIND THE MATCHING ELEMENT WITH ATTRIBUTE title
+      // addClass TO MATCHING Element
+      $('body').on('click', ".modal-open-button", function() {
+        var modalTitle = $(this).attr("id");
+        var modalTarget = $(".modal[data-modal-title='" + modalTitle + "']");
+          $(modalTarget).addClass("is-active");
+      });
+
+      // CLOSE MODAL FUNCTION
+      // GLOBAL FUNCTION
+      // FIND ANY ELEMENT WITH CLASS "modal" REMOVE CLASS "is-active"
+      $('body').on('click', ".close-modal", function() {
+        $(".modal").removeClass("is-active")
+      });
+    });
