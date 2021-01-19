@@ -22,6 +22,7 @@
 <body <?php body_class(); ?> ng-app="application" ng-controller="navCtrl">
 
 	<header id="masthead" class="site-header" ng-controller="dropdownCtrl">
+
 		<nav class="navbar" role="navigation" aria-label="main navigation">
 
   		<div class="navbar-brand">

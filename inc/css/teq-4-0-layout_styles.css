@@ -713,6 +713,15 @@ div.columns.choice-container div.column.create a > span:last-child::after {
 .ui.ui-container > .ui.ui-dial > svg .dial-select-option {
 	filter: url(#innershadow);
 }
+.ui.ui-container > .ui.ui-dial > svg #the-complete-thought > .text {
+	fill: #408090;
+}
+.ui.ui-container > .ui.ui-dial > svg #the-complete-thought:hover > .text {
+	fill: #FFFFFF;
+}
+.ui.ui-container > .ui.ui-dial > svg #the-complete-thought:hover > .dial-select-option {
+	fill: #000000;
+}
 .ui.ui-container > .ui.ui-dial > svg #professional-delopment:hover > .dial-select-option {
 	fill: rgb(255,163,79);
 	filter: url(#pdglow);
@@ -936,22 +945,68 @@ div#primary main#main section.the-complete-thought .title {
 	font-size: calc(2.1rem + 2.1vw);
 }
 section.the-complete-thought .accordion-container > .accordion-content {
-	min-height: calc(30vh + 3vw);
+	min-height: calc(18vh + 3vw);
+	position: relative;
 	padding-top: 30px;
-	padding-bottom: 42px;
+	margin-bottom: 42px;
 }
 section.the-complete-thought .accordion-container > .accordion-content .accordion-item {
+	transition: 0s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item.is-active span {
 	opacity: 1;
 }
-section.the-complete-thought .accordion-container > .accordion-content .accordion-item.ng-hide-add, section.the-complete-thought .accordion-container > .accordion-content .accordion-item.ng-hide-remove {
-  transition: all linear 0.5s;
-}
-section.the-complete-thought .accordion-container > .accordion-content .accordion-item.ng-hide {
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item.ng-hide span, section.the-complete-thought .accordion-container > .accordion-content .accordion-item.ng-hide-remove span, section.the-complete-thought .accordion-container > .accordion-content .accordion-item.ng-add-remove span {
 	opacity: 0;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span {
+	transition: all linear .75s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span:nth-child(2) {
+	transition-delay: .75s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span:nth-child(3) {
+	transition-delay: 1.65s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span:nth-child(4) {
+	transition-delay: 2.55s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span:nth-child(5) {
+	transition-delay: 3.45s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span:nth-child(6) {
+	transition-delay: 4.05s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span:nth-child(7) {
+	transition-delay: 5.25s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span:nth-child(8) {
+	transition-delay: 6.15s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span:nth-child(9) {
+	transition-delay: 7.05s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span:nth-child(10) {
+	transition-delay: 7.95s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span:nth-child(11) {
+	transition-delay: 8.85s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span:nth-child(12) {
+	transition-delay: 9.75s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span:nth-child(13) {
+	transition-delay: 10.65s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span:nth-child(14) {
+	transition-delay: 11.55s;
+}
+section.the-complete-thought .accordion-container > .accordion-content .accordion-item span:nth-child(15) {
+	transition-delay: 12.45s;
 }
 section.the-complete-thought .accordion-container > .accordion-content h2 {
 	font-weight: 400;
-	font-size: calc(1.5rem + .5vw);
+	font-size: calc(1.23rem + .48vw);
 }
 section.the-complete-thought .accordion-container > .accordion-ui {
 	display: flex;

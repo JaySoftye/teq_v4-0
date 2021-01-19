@@ -4,7 +4,7 @@
  * Initial app module
  */
 
- var app = angular.module('application', ['ngSanitize']);
+ var app = angular.module('application', ['ngSanitize', 'ngAnimate']);
 
 /**
   * Sticky Navbar when scolling
@@ -203,20 +203,23 @@
 
   /**
   * THE COMPLETE THOUGHT ACCORDION
-  *
+  * SET ARRAY FOR ACCORDION items
+  * UTILIZE THE ng-show Directive TO FILTER THROUGH SHOW AND HIDE
+  * nextItem and prevItem FUNCTION SETS THE SHOWN ITEM BASED UPON ID VALUE FROM ARRAY
+  * ANIMATION SEQUENCES ARE BROUGHT FROM CSS LAYOUT STYLESHEET
   */
   app.controller('theCompleteThought', function($scope) {
     $scope.show = 1;
     $scope.items = [
-      { id: "1", content: "Yes, part of what we do is sell classroom technologies like SMART boards, STEM solutions, and a broad range of professional development services." },
-      { id: "2", content: "But we do so much more than that." },
-      { id: "3", content: "We want to help you think big. We want to help you bring together all the dynamic, moving parts of education so that no matter what your goal is, you have tools to help you reach it. We want to partner with schools and districts to further the immersive, engaging learning that ignites student learning." },
-      { id: "4", content: "Here’s why we’re qualified to help you." },
-      { id: "5", content: "For 50 years, we’ve been in the trenches of K12 education, watching it evolve, and seeing first-hand how technology has impacted learning." },
-      { id: "6", content: "It occurred to us that if we add up our history, staff, resources, and expertise, we could start our own school. So, to show you just how equipped we are, we’ve created a case study to lay out how we would do it." },
-      { id: "7", content: "Take a look at our hypothetical <strong class='modal-open-button' id='caseStudyDownload'><u>case study here,</u></strong> or head straight to our <a href='/evolve'><strong><u>Evolve</u></strong></a> page, where you’ll get the big-picture ideas and ideology that guide the evolution of education." },
-      { id: "8", content: "When you’re ready to take those ideas and build own solution, head to our <a href='/create-your-solution'><strong><u>Create</u></strong></a> page where we’ll guide you through a unique solution for your school or district — everything from STEM solutions to project-based learning to professional development." },
-      { id: "9", content: "Together, we can help you create your own Complete Thought." }
+      { id: "1", content: "<span>Yes, part of what we do is sell classroom technologies</span> <span>like SMART boards,</span> <span>STEM solutions,</span> <span>and a broad range of professional development services.</span>" },
+      { id: "2", content: "<span>But</span> <span>we do so much more than that.</span>" },
+      { id: "3", content: "<span>We want to help you think big.</span> <span>We want to help you</span> <span>bring together all the dynamic,</span> <span>moving parts of education</span> <span>so that no matter what your goal is,</span> <span>you have tools to help you reach it.</span> <span>We want to partner with schools and districts</span> <span>to further the immersive, engaging learning</span> <span> that ignites student learning.</span>" },
+      { id: "4", content: "<span>Here’s why we’re qualified</span> <span>to help you.</span>" },
+      { id: "5", content: "<span>For 50 years,</span> <span>we’ve been in the trenches of K12 education,</span> <span>watching it evolve,</span> <span>and seeing first-hand how technology</span> <span>has impacted learning.</span>" },
+      { id: "6", content: "<span>It occurred to us</span> <span>that if we add up our history,</span> <span>staff,</span> <span>resources,</span> <span>and expertise,</span> <span>we could start our own school.</span> <span>So,</span> <span>to show you just how equipped we are,</span> <span>we’ve created a case study to lay out how we would do it.</span>" },
+      { id: "7", content: "<span>Take a look at our</span> <span>hypothetical</span> <span><a class='strong modal-open-button' id='caseStudyDownload'><u>case study here,</u></a></span> <span>or head straight to our <a href='/evolve'><strong><u>Evolve</u></strong></a> page,</span> <span>where you’ll get the big-picture</span> <span>ideas and ideology</span> <span>that guide the evolution of education.</span>" },
+      { id: "8", content: "<span>When you’re ready to take</span> <span>those ideas and build own solution,</span> <span>head to our <a href='/create-your-solution'><strong><u>Create</u></strong></a> page</span> <span>where we’ll guide you through</span> <span>a unique solution</span> <span>for your school or district</span> <span>— everything from STEM solutions</span> <span>to project-based learning</span> <span>to professional development.</span>" },
+      { id: "9", content: "<span>Together,</span> <span>we can help you</span> <span>create</span> <span>your own Complete Thought.</span>" }
     ];
 
     $scope.nextItem = function() {

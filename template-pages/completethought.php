@@ -19,7 +19,7 @@
            		<h1 class="serif-text text-shadow less-letter-spacing white-text title">We’re not the company you think we are.  </h1>
  							<section class="accordion-container" ng-controller="theCompleteThought">
 								<div class="accordion-content">
-									<h2 ng-repeat="item in items" class="accordion-item sub-header-title" ng-show="show == {{item.id}}" ng-bind-html="item.content|trustAsHtml"></h2>
+									<h2 ng-repeat="item in items" class="accordion-item sub-header-title" ng-class="{'is-active': show == {{item.id}}}" ng-show="show == {{item.id}}" ng-bind-html="item.content|trustAsHtml"></h2>
 								</div>
 								<div class="accordion-ui">
 									<button type="button" class="prev" ng-class="{'active': show > 1}" ng-disabled="show < 2" ng-click="prevItem()">
