@@ -193,7 +193,7 @@ function teq_v4_0_scripts() {
 	}
 
 	// VERSION_3 STYLESHEET AND JAVASCRIPT FUNCTIONS FOR CREATE YOUR SOLUTION
-	if ( is_page_template( array( 'template-pages/createyoursolution_3.php', 'template-pages/createyoursolution_3_prelim.php', 'template-pages/createyoursolution_3_results.php', 'template-pages/createyoursolution_3_results_quote.php' ))) {
+	if ( is_page_template( array( 'template-pages/createyoursolution_3.php', 'template-pages/createyoursolution_3_selections.php', 'template-pages/createyoursolution_3_prelim.php', 'template-pages/createyoursolution_3_results.php', 'template-pages/createyoursolution_3_results_quote.php' ))) {
 		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-create_your_solution_stylesheet_2.css' );
 
 		wp_deregister_script( 'create-js-functions' );

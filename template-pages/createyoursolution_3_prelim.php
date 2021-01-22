@@ -50,7 +50,7 @@ get_header();
 					console_log( $data );
 
 				?>
-				<form id="prelimProducts" class="columns is-multiline is-centered is-vcentered is-desktop" name="prelimProductsForm" action="<?php echo get_home_url(); ?>/create-your-solution/your-solution-results?" method="POST">
+				<form id="prelimProducts" class="columns is-multiline is-centered is-vcentered is-desktop" name="prelimProductsForm" action="<?php echo get_home_url(); ?>/create-your-solution/your-solution-results?<?php echo $schoolName; ?>/" method="POST">
 					<div class="column is-full-desktop is-full-mobile">
 
 						<div class="padding-bottom">

@@ -156,9 +156,8 @@
 
 			<div class="columns is-multiline">
 				<figure class="column is-8">
-					<object type="image/svg+xml" data="<?php echo get_template_directory_uri() . '/inc/images/Teq-Inc_Brands.svg'; ?>">
-	  				Teq, OTIS for educators, Onsite Professional Development, iBlocks for project-based learning, STEM, evoSpaces
-					</object>
+					<img src="<?php echo get_template_directory_uri() . '/inc/images/Teq-Inc_Brands.svg'; ?>" />
+	  			<p class="caption">Teq, OTIS for educators, Onsite Professional Development, iBlocks for project-based learning, STEM</p>
 				</figure>
 				<div class="column is-full border-top">
 					<p>
