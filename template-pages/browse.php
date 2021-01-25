@@ -11,6 +11,11 @@ get_header();
 	<div id="primary" class="content-area" scroll>
 		<main id="main" class="site-main section-container">
 
+			<?php
+				// Grab the main contents for the page
+				the_content();
+			?>
+
 			<section class="full-section browse">
 				<div class="fluid-width">
 					<div class="container">

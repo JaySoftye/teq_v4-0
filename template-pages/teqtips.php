@@ -96,7 +96,7 @@ get_header();
 									'post_type' => 'post',
 									'orderby'   => 'rand',
 				     			'category_name' => 'teq-tips',
-				      		'posts_per_page' => 6
+				      		'posts_per_page' => -1
 				   			));
 							?>
 
