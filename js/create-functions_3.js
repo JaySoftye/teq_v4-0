@@ -834,7 +834,7 @@
     // APPEND HTML <li><div><label<input> ELEMENT WITH MATCHING TITLE ATTRIBUTE FOR Value
     $(".solutions-container article.product-solution").each(function() {
       var solutionTitle = $(this).attr("title");
-        $("#product-solution-quote-options").append("<label for='"+solutionTitle+"'><input type='checkbox' class='pd-category-item' name='quoted_items[]' id='"+solutionTitle+"' value='"+solutionTitle+"' title='"+solutionTitle+"' /><span class='checkmark'></span> "+solutionTitle+"</label>");
+        $("#product-solution-quote-options").append("<label for='"+solutionTitle+"'><input type='checkbox' class='pd-category-item' name='quoted_items[]' id='"+solutionTitle+"' value='"+solutionTitle+"' title='"+solutionTitle+"' checked /><span class='checkmark'></span> "+solutionTitle+"</label>");
     });
 
   });

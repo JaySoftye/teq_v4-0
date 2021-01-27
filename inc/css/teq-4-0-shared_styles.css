@@ -644,6 +644,10 @@ p {
   border-radius: 300px;
 }
 
+.button.white-space-wrap {
+  white-space: normal;
+}
+
 .button.dark {
   background-color: rgb(0,0,0);
   color: #FFFFFF;

@@ -401,7 +401,7 @@ get_header();
 							<div class="columns">
 								<div class="column is-full">
 									<h4 class="strong">Let's get your solution inside the classroom!</h4>
-									<p>For pricing on any of the products in your solution set, simply fill out the form below and a Teq Sales Req will reach out to you directly. Please sure to check off which item(s) you would like to see pricing on.</p>
+									<p>For pricing on any of the products in your solution set, simply fill out the form below and a Teq Sales Req will reach out to you directly.</p>
 									<div class="field">
 										<div class="control is-expanded">
 											<label class="caption">Name</label>
@@ -424,7 +424,9 @@ get_header();
 											<input class="input quote-field" type="tel" name="schoolTelQuote" value="" required>
 										</div>
 									</div>
-									<div id="product-solution-quote-options" class="field ui selection-list"></div>
+									<div id="product-solution-quote-options" class="field ui selection-list">
+										<p><label class="strong">I would like to see pricing on:</label></p>
+									</div>
 									<div class="field is-grouped">
 										<div class="control">
 											<input id="submit" class="button is-link" type="submit" value="Get Quote" name="submit" />
