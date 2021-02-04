@@ -76,7 +76,7 @@ get_header();
 										<button type="button" class="next-section" ng-click="nextTab()"><span class="inner" ng-bind="nextText"></span></button>
 									</li>
 									<li class="button-container getresults" ng-show="formSubmitButton">
-										<button type="submit" class="next-section"><span class="inner" ng-bind="resultsText"></span></button>
+										<button id="getSolutionsResults" type="submit" class="next-section"><span class="inner" ng-bind="resultsText"></span></button>
 									</li>
   							</ul>
 							</div>

@@ -29,7 +29,7 @@ get_header();
 			<div id="hbspot-register-form" class="container" ng-show="collapsed">
 				<div class="columns">
 					<div class="column">
-						<h5>Register you deal using the form below.</h5><br />
+						<h5>Register your deal using the form below.</h5><br />
 					</div>
 					<div class="column has-text-right">
 						<button class="button is-danger is-light is-rounded" ng-model="collapsed" ng-click="collapsed=!collapsed"><small>X</small></button>

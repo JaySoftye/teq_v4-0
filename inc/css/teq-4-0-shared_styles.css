@@ -407,6 +407,20 @@ p {
   font-weight: 400;
 }
 
+.rounded-corners {
+  border-radius: 12px;
+}
+
+.rounded-corners-top {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.rounded-corners-bottom {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
 .strong, strong {
   font-weight: 900;
 }
