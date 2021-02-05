@@ -13,7 +13,10 @@ get_header();
 
 			<?php
 				// Grab the main contents for the page
-				the_content();
+				while ( have_posts() ) :
+					the_post(); the_content();
+				endwhile; // End of the loop.
+
 			?>
 
 			<section class="full-section browse">

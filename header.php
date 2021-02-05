@@ -214,6 +214,15 @@
 									'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
 								));?>
 							</div>
+							<div class="has-dropdown-menu menu-closed">
+								<h6 class="dropdown-target">Active Learning Spaces</h6>
+								<?php wp_nav_menu(array(
+									'menu'       => 'Active learning Spaces Dropdown Menu', // specify the menu name
+									'menu_class' => '',
+									'container'  => '',
+									'items_wrap' => '<ul class="main-dropdown-menu dropdown-list" role="menu" >%3$s</ul>'
+								));?>
+							</div>
 							<?php wp_nav_menu(array(
 								'menu'       => 'Educational Technology Dropdown Menu', // specify the menu name
 								'menu_class' => '',
