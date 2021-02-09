@@ -46,7 +46,7 @@ get_header();
 								<div class="padding-bottom">
 									<h4 class="strong margin-bottom"> It’s here!</h4>
 									<h1>This is Your Complete Solution.</h1>
-									<h5><strong>Congratulations <?php echo $schoolName; ?>,</strong> is the plan you’ve been waiting for. We took your input and then used our expertise to put together the following solution. It’s complete, it’s unique to you, and it gives you a holistic pathway to successfully infuse STEM learning into your class, school, or district.</h5>
+									<h5><strong>Congratulations,</strong> this is the plan you’ve been waiting for. We took your input and then used our expertise to put together the following solution. It’s complete, it’s unique to you, and it gives you a holistic pathway to successfully infuse STEM learning into your class, school, or district.</h5>
 								</div>
 								<nav class="ui product-tabs-nav main outer dark">
 									<div class="product-tabs results tabs">
@@ -396,40 +396,51 @@ get_header();
 
 					<div class="modal" data-modal-title="solutionQuoteRequest">
 						<div class="modal-background"></div>
-						<form class="modal-content ui outer dark quote-form" id="quoteRequestForm" method="post" action="<?php echo get_home_url(); ?>/create-your-solution/your-solution-quote-request/">
+						<div class="modal-content ui outer dark quote-form" id="quoteRequestForm">
 
 							<div class="columns">
 								<div class="column is-full">
 									<h4 class="strong">Let's get your solution inside the classroom!</h4>
-									<p>For pricing on any of the products in your solution set, simply fill out the form below and a Teq Sales Req will reach out to you directly.</p>
-									<div class="field">
-										<div class="control is-expanded">
-											<label class="caption">Name</label>
-											<input class="input quote-field" type="text" name="schoolNameQuote" value="<?php echo $schoolName ?>" required>
-										</div>
-									</div>
-									<div class="field">
-										<div class="control is-expanded">
-											<label class="caption">School and/or State</label>
-											<input class="input quote-field" type="text" name="schoolDetailsQuote" value="" required>
-										</div>
-									</div>
-									<div class="field is-grouped">
-										<div class="control is-expanded">
-											<label class="caption">Email</label>
-											<input class="input quote-field" type="email" name="schoolEmailQuote" value="<?php echo $schoolEmail ?>" required>
-										</div>
-										<div class="control is-expanded">
-											<label class="caption">Phone</label>
-											<input class="input quote-field" type="tel" name="schoolTelQuote" value="" required>
-										</div>
-									</div>
+									<!--[if lte IE 8]>
+										<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+									<![endif]-->
+									<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+									<script>
+  									hbspt.forms.create({
+											portalId: "182596",
+											formId: "7ba87b62-fc68-47e1-95c7-8cd530871ec3",
+											onFormReady: function($form) {
+
+												// HIDE THE INITIAL HUBSPOT FORM SUBMIT BUTTON
+												$('input[type="submit"]').css("display","none");
+
+												// CLICK FUNCTION TO SUBMIT HUBSPOT FORM
+												$( "#submitQuoteRequest" ).click(function() {
+
+													// CREATE ARRAY VARIABLE TO STORE input::checked QUOTED_ITEMS[]
+													var quoted_items = new Array();
+
+														// LOOP THROUGH ALL input::checked ELEMENTS AND PASS TO HIDDEN INPUT FIELD input[name="products"]
+														// SUBMIT FORM USING DEFAULT HUBSPOT ERROR CHECKING
+														$.each($("input[name='quoted_items[]']:checked"), function() {
+			  											quoted_items.push($(this).val());
+														});
+														$("input[name='products']").val(JSON.stringify(quoted_items)); //store array
+
+															$( "form.hs-form" ).submit();
+												});
+											},
+											onFormSubmit: function($form) {
+												console.log('submitted');
+											}
+										});
+									</script>
 									<div id="product-solution-quote-options" class="field ui selection-list">
 										<p><label class="strong">I would like to see pricing on:</label></p>
 									</div>
-									<div class="field is-grouped">
+									<div id="product-solution-quote-submit-buttons" class="field is-grouped">
 										<div class="control">
-											<input id="submit" class="button is-link" type="submit" value="Get Quote" name="submit" />
+											<input id="submitQuoteRequest" class="button is-link" type="button" value="Get Quote" name="submitQuoteRequest" />
 										</div>
 										<div class="control">
 											<button class="button is-light quote-modal-close close-modal">Cancel</button>
@@ -438,7 +449,7 @@ get_header();
 								</div>
 							</div>
 
-						</form>
+						</div>
 					</div>
 
 

@@ -133,7 +133,7 @@
 .modal {
   top: 5rem;
 }
-.modal form.ui.quote-form {
+.modal .ui.quote-form {
   max-height: calc(90vh - 150px);
   padding: 24px;
   background-color: #FFFFFF;
@@ -141,17 +141,13 @@
   overflow: auto;
   box-shadow: 0px 0px 99px 0px #000000;
 }
-
-.modal form.ui.quote-form input {
+.modal .ui.quote-form input {
   border: 1px solid grey;
 }
-.modal form.ui.quote-form input.is-danger {
+.modal .ui.quote-form input.is-danger, .modal .ui.quote-form input.error  {
   border-color: #f14668;
 }
-.modal form.ui.quote-form .column .field:first-of-type {
-  margin-top: 15px;
-}
-.modal form.ui.quote-form .column .field:last-child {
+.modal .ui.quote-form .column .field:last-child {
   margin-bottom: 15px;
 }
 
@@ -762,10 +758,10 @@ button.filters-button {
 .products-list .modal > .modal-content .ui.selection-list.pd-category-list {
   margin-top: 18px;
 }
-form.quote-form .columns .column .ui.selection-list {
+.quote-form .columns .column .ui.selection-list {
   margin-top: 1.5rem;
 }
-.products-list .modal > .modal-content .ui.selection-list.pd-category-list label, form.quote-form .columns .column .ui.selection-list label {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label, .quote-form .columns .column .ui.selection-list label {
   display: flex;
   align-items: center;
   position: relative;
@@ -776,38 +772,38 @@ form.quote-form .columns .column .ui.selection-list {
   cursor: pointer;
   user-select: none;
 }
-.products-list .modal > .modal-content .ui.selection-list.pd-category-list label > input, form.quote-form .columns .column .ui.selection-list label > input {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label > input, .quote-form .columns .column .ui.selection-list label > input {
   height: 0;
   width: 0;
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
-.products-list .modal > .modal-content .ui.selection-list.pd-category-list label .checkmark, form.quote-form .columns .column .ui.selection-list label .checkmark {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label .checkmark, .quote-form .columns .column .ui.selection-list label .checkmark {
   height: 21px;
   width: 21px;
   margin-right: 6px;
   background-color: #eceeef;
   border-radius: 50%;
 }
-.products-list .modal > .modal-content .ui.selection-list.pd-category-list label:hover, form.quote-form .columns .column .ui.selection-list label:hover {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label:hover, .quote-form .columns .column .ui.selection-list label:hover {
   color: rgb(248,129,0);
 }
-.products-list .modal > .modal-content .ui.selection-list.pd-category-list label input:checked, form.quote-form .columns .column .ui.selection-list label input:checked {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label input:checked, .quote-form .columns .column .ui.selection-list label input:checked {
   color: rgb(248,129,0);
 }
-.products-list .modal > .modal-content .ui.selection-list.pd-category-list label input:checked ~ .checkmark, form.quote-form .columns .column .ui.selection-list label input:checked ~ .checkmark {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label input:checked ~ .checkmark, .quote-form .columns .column .ui.selection-list label input:checked ~ .checkmark {
   background-color: rgb(248,129,0);
 }
-.products-list .modal > .modal-content .ui.selection-list.pd-category-list label .checkmark:after, form.quote-form .columns .column .ui.selection-list label .checkmark:after {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label .checkmark:after, .quote-form .columns .column .ui.selection-list label .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-.products-list .modal > .modal-content .ui.selection-list.pd-category-list label input:checked ~ .checkmark:after, form.quote-form .columns .column .ui.selection-list label input:checked ~ .checkmark:after {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label input:checked ~ .checkmark:after, .quote-form .columns .column .ui.selection-list label input:checked ~ .checkmark:after {
   display: block;
 }
-.products-list .modal > .modal-content .ui.selection-list.pd-category-list label .checkmark:after, form.quote-form .columns .column .ui.selection-list label .checkmark:after {
+.products-list .modal > .modal-content .ui.selection-list.pd-category-list label .checkmark:after, .quote-form .columns .column .ui.selection-list label .checkmark:after {
   height: 9px;
   width: 4.5px;
   position: relative;
@@ -819,7 +815,7 @@ form.quote-form .columns .column .ui.selection-list {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-form.quote-form .columns .column .ui.selection-list label .checkmark:after {
+.quote-form .columns .column .ui.selection-list label .checkmark:after {
   left: 8.1px;
   top: 4.5px;
 }

@@ -436,6 +436,7 @@ span {
 }
 
 fieldset {
+	max-width: 100% !important;
   border: none;
 }
 

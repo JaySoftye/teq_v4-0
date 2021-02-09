@@ -46,11 +46,11 @@ get_header();
 					<div class="column is-9-desktop is-full-mobile">
 						<h1>Welcome!</h1>
 						<h5>As educators, finding the perfect pedagogical solution to meet your needs can be challenging — until now! </h5>
-						<h5>Here at Teq, we’re innovating the entire learning experience by bringing all the dynamic moving parts of education together into a complete thought. After answering just a few questions, you’ll be able to identify, browse, and refine a selection of customized solutions that best fit your unique needs. <strong class="is-size-4">So let’s get started. </strong>  </h5>
+						<h5>Here at Teq, we’re innovating the entire learning experience by bringing all the dynamic moving parts of education together into a complete thought. After answering just a few questions, you’ll be able to identify, browse, and refine a selection of customized solutions that best fit your unique needs.</h5>
 						<div class="ui margin-top">
 							<div class="field has-addons">
-								<div class="control input-control is-expanded">
-									<input required class="is-fullwidth ui input school-name {{products_search_form.schoolName.$valid}}" type="text" name="schoolName" ng-model="schoolName" placeholder="Please enter your name, school name, or district">
+								<div class="control input-control is-expanded hidden">
+									<input type="hidden" class="is-fullwidth ui input school-name {{products_search_form.schoolName.$valid}}" type="text" name="schoolName" ng-model="schoolName" placeholder="Please enter your name, school name, or district">
 								</div>
 								<div class="control input-control is-expanded hidden">
 									<input type="hidden" class="is-fullwidth ui rounded outer dark input school-email {{products_search_form.schoolEmail.$valid}}" type="email" name="schoolEmail" ng-model="schoolEmail" placeholder="Please enter an email">
@@ -61,7 +61,7 @@ get_header();
 
 						<div class="input-control level">
 							<div class="level-left">
-								<button type="submit" class="level-item submit-button margin-auto ui white outer dark {{products_search_form.schoolName.$valid}} {{products_search_form.schoolEmail.$valid}}"><span class="inner">NEXT</span></button>
+								<button type="submit" class="level-item submit-button margin-auto ui white outer dark {{products_search_form.schoolName.$valid}} {{products_search_form.schoolEmail.$valid}}"><span class="inner">LET'S GET STARTED </span></button>
 							</div>
 							<div class="level-left">
 								<p class="level-item"><a class="caption disabled" href="/teq-privacy-policy/"><em>TEQ PRIVACY POLICY</em></a></p>
