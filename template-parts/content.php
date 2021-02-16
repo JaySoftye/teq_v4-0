@@ -30,8 +30,12 @@
 			<?php
 				$full_name = get_the_author_meta('first_name') . ' ' . get_the_author_meta('last_name');
 				$authorname = get_the_author_meta('nickname');
+				$aside_info = get_post_meta( get_the_ID(), 'aside_content', true );
 			?>
 			<h6><strong><?php echo $full_name; ?></strong><br /><?php echo $authorname; ?></h6>
+			<div>
+				<?php echo html_entity_decode($aside_info); ?>
+			</div>
 			<h6 class="caption">
 				<?php
 					$categories = get_the_category();
