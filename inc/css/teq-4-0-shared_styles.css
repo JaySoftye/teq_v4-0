@@ -1040,6 +1040,11 @@ ul.number-circle-list li::before {
   padding-bottom: .75rem;
 }
 
+.blog-content blockquote, .blockquote {
+  padding-left: 21px;
+  border-left: 3px solid #000000;
+}
+
 /*
 Wordpress Search
 */

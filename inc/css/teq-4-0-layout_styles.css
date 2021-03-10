@@ -802,27 +802,27 @@ h1.page-titles, h1.page-titles a {
 	padding-top: 0;
 }
 
-.section-container section.browse:nth-child(1) {
+.section-container section.browse {
 	background-image: url('../images/browse_Full-Background-Image.jpg');
 }
 
-.section-container section.browse:nth-child(2) {
+.section-container section.browse.project-based-learning {
 	background-image: url('../images/project-based-learning_Full-Background-Image.jpg');
 }
 
-.section-container section.browse:nth-child(3) {
+.section-container section.browse.stem-technology {
 	background-image: url('../images/stem-technology_Full-Background-Image.jpg');
 }
 
-.section-container section.browse:nth-child(4) {
+.section-container section.browse.education-technology {
 	background-image: url('../images/educational-technology_Full-Background-Image.jpg');
 }
 
-.section-container section.browse:nth-child(5) {
+.section-container section.browse.professional-development {
 	background-image: url('../images/professional-development_Full-Background-Image.jpg');
 }
 
-.section-container section.browse:nth-child(6) {
+.section-container section.browse.active-learning-spaces {
 	background-image: url('../images/active-learning-spaces_Full-Background-Image.jpg');
 }
 

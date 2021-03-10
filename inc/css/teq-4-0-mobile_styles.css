@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.hide-desktop {
+  display: none;
+}
+
 @media (max-width: 1440px) {
   .hide {
     display: none !important
@@ -282,6 +286,9 @@
 @media (max-width: 525px) {
   .hide-mobile {
     display: none !important;
+  }
+  .show-mobile {
+    display: block !important;
   }
   h1 {
     font-size: 2rem;

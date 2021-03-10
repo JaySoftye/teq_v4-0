@@ -31,23 +31,7 @@ get_header();
 				</div>
 			</section>
 
-			<section class="full-section browse">
-				<div class="fluid-width">
-					<div class="container">
-						<div class="columns is-desktop">
-  						<div class="column is-8 is-offset-2">
-									<h1 class="page-titles has-text-centered transition-one-thirds"><a class="white-text" href="/teq-blocks">Teq<span class="inline-content">Blocks</span></a></h1>
-								<h5 class="has-text-centered white-text">Teq’s family of “Block” products are technology-centric, do-anywhere activities that engage students in every aspect of the learning process.</h5>
-								<h5 class="has-text-centered">
-									<a class="button white-border no-shadow" href="/teq-blocks">Discover more</a>
-								</h5>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="full-section browse">
+			<section class="full-section browse stem-technology">
 				<div class="fluid-width">
 					<div class="container">
 						<div class="columns is-desktop">
@@ -63,7 +47,7 @@ get_header();
 				</div>
 			</section>
 
-			<section class="full-section browse">
+			<section class="full-section browse education-technology">
 				<div class="fluid-width">
 					<div class="container">
 						<div class="columns is-desktop">
@@ -79,7 +63,7 @@ get_header();
 				</div>
 			</section>
 
-			<section class="full-section browse">
+			<section class="full-section browse professional-development">
 				<div class="fluid-width">
 					<div class="container">
 						<div class="columns is-desktop">
@@ -95,7 +79,7 @@ get_header();
 				</div>
 			</section>
 
-			<section class="full-section browse">
+			<section class="full-section browse active-learning-spaces">
 				<div class="fluid-width">
 					<div class="container">
 						<div class="columns is-desktop">
@@ -104,6 +88,22 @@ get_header();
 								<h5 class="has-text-centered white-text">Interactive learning through play and movement</h5>
 								<h5 class="has-text-centered">
 									<a class="button white-border no-shadow" href="/browse/active-learning-spaces">Discover more</a>
+								</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="full-section browse project-based-learning">
+				<div class="fluid-width">
+					<div class="container">
+						<div class="columns is-desktop">
+  						<div class="column is-8 is-offset-2">
+									<h1 class="page-titles has-text-centered transition-one-thirds"><a class="white-text" href="/teq-blocks">Teq<span class="inline-content">Blocks</span></a></h1>
+								<h5 class="has-text-centered white-text">Teq’s family of “Block” products are technology-centric, do-anywhere activities that engage students in every aspect of the learning process.</h5>
+								<h5 class="has-text-centered">
+									<a class="button white-border no-shadow" href="/teq-blocks">Discover more</a>
 								</h5>
 							</div>
 						</div>

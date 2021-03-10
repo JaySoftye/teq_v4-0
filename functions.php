@@ -194,12 +194,22 @@ function teq_v4_0_scripts() {
 
 	// VERSION_3 STYLESHEET AND JAVASCRIPT FUNCTIONS FOR CREATE YOUR SOLUTION
 	if ( is_page_template( array( 'template-pages/createyoursolution_3.php', 'template-pages/createyoursolution_3_selections.php', 'template-pages/createyoursolution_3_prelim.php', 'template-pages/createyoursolution_3_results.php', 'template-pages/createyoursolution_3_results_quote.php' ))) {
-		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-create_your_solution_stylesheet_2.css' );
+		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-create_your_solution_stylesheet_3.css' );
 
 		wp_deregister_script( 'create-js-functions' );
 		wp_enqueue_script( 'create-js-functions', get_template_directory_uri() . '/js/create-functions_3.js', '', '', true );
 		wp_deregister_script( 'rest-api-js-response' );
 		wp_enqueue_script( 'rest-api-js-response', get_template_directory_uri(). '/js/my-ajax-script_3.js', array(), '1.0', true );
+	}
+
+	// VERSION_4 STYLESHEET AND JAVASCRIPT FUNCTIONS FOR CREATE YOUR SOLUTION
+	if ( is_page_template( array( 'template-pages/createyoursolution_4.php', 'template-pages/createyoursolution_4_selections.php', 'template-pages/createyoursolution_4_prelim.php', 'template-pages/createyoursolution_4_results.php', 'template-pages/createyoursolution_4_results_quote.php' ))) {
+		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-create_your_solution_stylesheet_4.css' );
+
+		wp_deregister_script( 'create-js-functions' );
+		wp_enqueue_script( 'create-js-functions', get_template_directory_uri() . '/js/create-functions_4.js', '', '', true );
+		wp_deregister_script( 'rest-api-js-response' );
+		wp_enqueue_script( 'rest-api-js-response', get_template_directory_uri(). '/js/my-ajax-script_4.js', array(), '1.0', true );
 	}
 
 	// STYLESHEET AND JAVASCRIPT FUNCTIONS FOR EVOLVE
