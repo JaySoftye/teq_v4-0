@@ -1518,14 +1518,15 @@ Heada rhymes with chedda for submenu
 	padding-left: 3rem;
 	padding-right: 3rem;
 }
-.navbar.product-site-header .navbar-menu .navbar-start figure {
+.navbar.product-site-header .navbar-menu .navbar-start figure, .navbar.product-site-header .navbar-menu .navbar-end figure {
   min-width: 11.1rem;
+	margin-right: 15px;
 }
-.navbar.product-site-header .navbar-menu .navbar-start figure img {
+.navbar.product-site-header .navbar-menu .navbar-start figure img, .navbar.product-site-header .navbar-menu .navbar-end figure img {
 	width: 100%;
   max-width: 12rem;
 }
-.navbar.product-site-header .navbar-menu .navbar-start figure img.large-brand-logo {
+.navbar.product-site-header .navbar-menu .navbar-start figure img.large-brand-logo, .navbar.product-site-header .navbar-menu .navbar-end figure img.large-brand-logo {
   max-width: 24rem;
 }
 .navbar.product-site-header .navbar-menu .navbar-end.mobile-dropdown-trigger {
@@ -1911,4 +1912,222 @@ div.main-page-content-container div.targetScrollContent a.video-link::before{
   top: 0;
   transform: rotate(1.5deg);
   z-index: -1;
+}
+
+# {
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+}
+#NEDMsurvey .important {
+	color: #3b2d91;
+}
+#NEDMsurvey > nav {
+	background-color: #FFFFFF;
+	box-shadow: 0px 10px 5px 0px rgba(255,255,255,1);
+}
+#NEDMsurvey > nav .navbar-start {
+	align-items: center;
+}
+#NEDMsurvey > nav .navbar-start > h1 {
+	margin: 0 0;
+	font-weight: 800;
+	font-size: 2.1rem;
+}
+#NEDMsurvey > section > .survey-form-tab-container {
+	padding-top: 4.8rem;
+	padding-bottom: calc(9rem + 3vh);
+}
+#NEDMsurvey > section > .survey-form-tab-container .survey-form-sticky {
+	height: 100%;
+	position: sticky;
+	top: 24.75%;
+}
+#NEDMsurvey > section > .survey-form-tab-container h2.step-header {
+	margin-top: 0;
+	margin-bottom: 3rem;
+	font-weight: 800;
+	font-size: 1.8rem;
+	color: #3b2d91;
+}
+#NEDMsurvey > section .survey-form-fields {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+#NEDMsurvey > section .survey-form-fields .field {
+	margin-bottom: 27px;
+}
+#NEDMsurvey > section .survey-form-fields .field label, #NEDMsurvey > section .survey-form-fields .field label.input {
+	font-weight: 500;
+	font-size: 87%;
+	color: #3b2d91;
+}
+#NEDMsurvey > section .survey-form-fields .field.has-addons, #NEDMsurvey > section .survey-form-fields .field.is-single {
+	margin-bottom: .75rem;
+	border-radius: 4px;
+} {
+	flex-wrap: wrap;
+	margin-bottom: .75rem;
+}
+#NEDMsurvey > section .survey-form-fields .field.has-addons label {
+	width: 100%;
+	display: block;
+}
+#NEDMsurvey > section .survey-form-fields .field.has-addons .control {
+	margin-top: 0;
+}
+#NEDMsurvey > section .survey-form-fields .field.has-addons .control * {
+	box-shadow: inset 0 0.0625em 0.125em rgb(10 10 10 / 5%);
+}
+#NEDMsurvey > section .survey-form-fields .field .control.middle-item * {
+	border-radius: 0 !important;
+	font-weight: 700;
+	font-size: 87%;
+}
+#NEDMsurvey > section .survey-form-fields .field .control.question-block > .input {
+	border-right-width: 0 !important;
+}
+#NEDMsurvey > section .survey-form-fields .field .control.question-block + .control > .input, #NEDMsurvey > section .survey-form-fields .field .control.question-block + .control > .select, #NEDMsurvey > section .survey-form-fields .field .control.question-block + .control > .select > select {
+	border-left-width: 0 !important;
+}
+#NEDMsurvey > section .survey-form-fields .field.has-addons .control > .input {
+	height: 2.5rem;
+	display: inline-flex;
+	justify-content: center;
+	padding-bottom: calc(.5em - 1px);
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: calc(.5em - 1px);
+	border-style: solid;
+	border-color: #dbdbdb;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-radius: 4px;
+	white-space: nowrap;
+	color: #363636;
+}
+#NEDMsurvey > section .survey-form-fields .field.has-addons .control > .input.disabled {
+	background-color: whitesmoke;
+	color: #eceeef;
+	cursor: not-allowed;
+}
+#NEDMsurvey > section .survey-form-fields .field.has-addons .control:first-child > span, #NEDMsurvey > section .survey-form-fields .field.has-addons .control:first-child > input, #NEDMsurvey > section .survey-form-fields .field.has-addons .control:first-child > label {
+	border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+#NEDMsurvey > section .survey-form-fields .field.has-addons .control:last-child > span, #NEDMsurvey > section .survey-form-fields .field.has-addons .control:last-child > input {
+	border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+#NEDMsurvey > section .survey-form-fields .control .button {
+	padding-top: 18px;
+	padding-bottom: 18px;
+	padding-left: 24px;
+	padding-right: 24px;
+	background-color: #000000;
+	border: none;
+	border-radius: 4px;
+	box-shadow: none;
+	color: #ffffff;
+	transition: all .36s;
+}
+#NEDMsurvey > section .survey-form-fields .field.is-grouped .control:first-child .button {
+	padding-right: 33px;
+}
+#NEDMsurvey > section .survey-form-fields .field.is-grouped .control:last-child .button {
+	padding-left: 33px;
+}
+#NEDMsurvey > section .survey-form-fields .control .button.primary {
+	background-color: #3b2d91;
+}
+#NEDMsurvey > section .survey-form-fields .control .button.primary:hover, #NEDMsurvey > section .survey-form-fields .control .button.primary:focus {
+	background-color: #211952;
+}
+#NEDMsurvey > section .survey-form-fields .control .button.secondary {
+	background-color: #aeaeae;
+}
+#NEDMsurvey > section .survey-form-fields .control .button.secondary:hover, #NEDMsurvey > section .survey-form-fields .control .button.secondary:focus {
+	background-color: #646464;
+}
+#NEDMsurvey > section .survey-form-fields .control .button[disabled] {
+	cursor: no-drop;
+	opacity: .12;
+}
+#NEDMsurvey > section .survey-form-fields .control .button.text {
+	background-color: transparent;
+	color: red;
+}
+
+#NEDMsurvey ol.survey-pagination {
+	list-style: none;
+	counter-reset: circle-counter;
+}
+#NEDMsurvey ol.survey-pagination li {
+	height: 30px;
+	width: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 0 0;
+	border-radius: 50%;
+	font-weight: 800;
+	font-size: 75%;
+	color: #FFFFFF;
+	cursor: pointer;
+	transition: all .36s;
+}
+#NEDMsurvey ol.survey-pagination li.marker {
+	background-color: #aeaeae;
+	border: 3px solid #FFFFFF;
+}
+#NEDMsurvey ol.survey-pagination li.marker:hover, #NEDMsurvey ol.survey-pagination li.marker.is-complete {
+	background-color: #3b2d91;
+}
+#NEDMsurvey ol.survey-pagination li.marker::after {
+	content: '';
+	height: 36px;
+	width: 36px;
+	position: absolute;
+	z-index: -1;
+	background: #aeaeae;
+	border-radius: 50%;
+}
+#NEDMsurvey ol.survey-pagination li.spacer {
+	height: calc(30px + 1.5vh);
+	position: relative;
+	z-index: -1;
+	background-color: transparent;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 42 42'%3E%3Crect fill='%23aeaeae' x='20' width='4' height='42'/%3E%3C/svg%3E%0A");
+	background-repeat: repeat-y;
+	background-size: contain;
+}
+#NEDMsurvey ol.survey-pagination li.marker.is-active, #NEDMsurvey ol.survey-pagination li.marker.is-active::after, #NEDMsurvey ol.survey-pagination li.marker.is-complete::after {
+	background-color: #3b2d91;
+}
+#NEDMsurvey ol.survey-pagination li.marker.is-active + li.spacer, #NEDMsurvey ol.survey-pagination li.marker.is-complete + li.spacer, #NEDMsurvey ol.survey-pagination li.marker.is-complete + li.spacer + li.spacer {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 42 42'%3E%3Crect fill='%233b2d91' x='20' width='4' height='42'/%3E%3C/svg%3E%0A");
+}
+#NEDMsurvey ol.survey-pagination li.marker.is-complete::before {
+	content: '';
+	height: 24px;
+	width: 24px;
+	position: absolute;
+	z-index: 5;
+	background-color: #3b2d91;
+	background-size: 75%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 99 99'%3E%3Cpath fill='%23FFFFFF' d='M40.6,73.6c-1.9,0-3.8-0.7-5.3-2.2L20,56.1c-2.9-2.9-2.9-7.7,0-10.6c2.9-2.9,7.7-2.9,10.6,0l10,10l27.8-27.8 c2.9-2.9,7.7-2.9,10.6,0c2.9,2.9,2.9,7.7,0,10.6L45.9,71.4C44.5,72.9,42.5,73.6,40.6,73.6z'/%3E%3C/svg%3E");
+	border-radius: 50%;
+}
+#NEDMsurvey .googleCaptcha input[type="submit"] {
+	height: 76.2px;
+	width: 76.2px;
+	display: table;
+	padding: 3px;
+	border: 1px solid #d3d3d3;
+	border-radius: 3px;
+	box-shadow: 0 0 4px 1px rgb(0 0 0 / 8%);
+	-webkit-box-shadow: 0 0 4px 1px rgb(0 0 0 / 8%);
 }

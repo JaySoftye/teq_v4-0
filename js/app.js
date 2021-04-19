@@ -312,6 +312,22 @@
       $scope.isSet = function(tabNum){
         return $scope.tab === tabNum;
       };
+
+  /**
+    * NEDM FUNCTIONS
+    * MODELS DECLARED FOR USE IN VALIDATION ON FIRST FORM STEP
+    * THESE ARE REQUIRED FIELDS ONLY
+    * Default ng-values should be set to null or empty
+    */
+      $scope.nedmSurveyFirstName = '';
+      $scope.nedmSurveyLastName = '';
+      $scope.nedmSurveyTitleRole = '';
+      $scope.nedmSurveySchoolName = '';
+      $scope.nedmSurveyContactPhone = '';
+      $scope.nedmSurveyContactEmail = '';
+      $scope.nedmSurveyErrorCheck = true;
+      $scope.nedmSurveySubmitField = 'FINISH AND SUBMIT';
+
     }]);
 
     /**

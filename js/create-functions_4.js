@@ -722,8 +722,10 @@
       var userPathwaySelections = $(this).parents("div.column").find("article.product-item.iblock-pathway input:checked");
         if (userPathwaySelections.length != 0) {
           $("#iBlocksNextButton").attr( "disabled", false );
+          $("#iBlocksSkipButton").attr( "disabled", true );
         } else {
           $("#iBlocksNextButton").attr( "disabled", true );
+          $("#iBlocksSkipButton").attr( "disabled", false );
         }
     });
 
@@ -874,8 +876,10 @@
       var userPdOptions = $("#preliminary-product-list .products-list.professional-development div.column").find("article.product-item.pd-option input.instructional-support:checked");
         if (userPdOptions.length != 0) {
           $("#pdFinishedButton").attr( "disabled", false );
+          $("#pdSkipButton").attr( "disabled", true );
         } else {
           $("#pdFinishedButton").attr( "disabled", true );
+          $("#pdSkipButton").attr( "disabled", false );
         }
     });
 
@@ -887,8 +891,10 @@
       var userPdOptions = $(this).parents("div.column").find("article.product-item.pd-option input.instructional-support:checked");
         if (userPdOptions.length != 0) {
           $("#pdFinishedButton").attr( "disabled", false );
+          $("#pdSkipButton").attr( "disabled", true );
         } else {
           $("#pdFinishedButton").attr( "disabled", true );
+          $("#pdSkipButton").attr( "disabled", false );
         }
     });
 

@@ -405,7 +405,7 @@ get_header();
 
 								<div class="column is-one-quarter sticky-item input-control">
 									<button type="button" disabled="disabled" id="iBlocksNextButton" class="next-button margin-auto ui white outer dark top-content-scroll" ng-class="{ active: isSet(3) }" ng-click="setTab(3)">NEXT STEP</button>
-									<button type="button" class="next-button skip ui white outer dark top-content-scroll" ng-class="{ active: isSet(3) }" ng-click="setTab(3)">SKIP STEP</button>
+									<button type="button" id="iBlocksSkipButton" class="next-button skip ui white outer dark top-content-scroll" ng-class="{ active: isSet(3) }" ng-click="setTab(3)">SKIP STEP</button>
 									<a class="back-button top-content-scroll" ng-class="{ active: isSet(1) }" ng-click="setTab(1)">PREV STEP</a>
 									<div class="margin-top margin-left margin-right">
 										<p class="has-text-centered is-size-6 has-text-grey-darker padding-top"><strong>Have a question?</strong><br /><a href id="solutionQuoteRequest" class="modal-open-button"><u>Click here</u></a> to have a Teq Representative reach out to you.</p>
@@ -512,7 +512,7 @@ get_header();
 									</div>
 									<div class="column is-one-quarter sticky-item input-control">
 										<button type="submit" id="pdFinishedButton" disabled="disabled" class="submit-button finished margin-auto ui white outer dark"><span class="inner">FINISHED</span></button>
-										<button type="submit" class="next-button skip ui white outer dark top-content-scroll" ng-class="{ active: isSet(3) }"ng-click="setTab(3)">SKIP STEP</button>
+										<button type="submit" id="pdSkipButton" class="next-button skip ui white outer dark top-content-scroll" ng-class="{ active: isSet(3) }"ng-click="setTab(3)">SKIP STEP</button>
 										<a class="back-button top-content-scroll" ng-class="{ active: isSet(2) }" ng-click="setTab(2)">PREV STEP</a>
 										<div class="margin-top margin-left margin-right">
 											<p class="has-text-centered is-size-6 has-text-grey-darker padding-top"><strong>Have a question?</strong><br /><a href id="solutionQuoteRequest" class="modal-open-button"><u>Click here</u></a> to have a Teq Representative reach out to you.</p>

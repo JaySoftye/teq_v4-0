@@ -76,9 +76,11 @@ $(document).ready(function() {
                 // UPDATE 'button@iBlocksNextButton' attribute accordingly
                 if (userPathwaySelections.length != 0) {
                   $("#iBlocksNextButton").attr( "disabled", false );
+                  $("#iBlocksSkipButton").attr( "disabled", true );
                 } else {
                   $("#iBlocksNextButton").attr( "disabled", true );
-                }   
+                  $("#iBlocksSkipButton").attr( "disabled", false );
+                }
               console.log(checkboxTitle + ' added');
 
             },

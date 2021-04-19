@@ -291,6 +291,14 @@ function empty_content($str) {
   return trim(str_replace('&nbsp;','',strip_tags($str))) == '';
 }
 
+// get permalink by title
+function get_page_permalink_from_name($page_name) {
+    global $post;
+    global $wpdb;
+    $pageid_name = $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_title = '" . $page_name . "' LIMIT 0, 1");
+ return get_permalink($pageid_name);
+}
+
 /**
  * CUSTOM META BOXES FOR PAGE ONLY
  * FIELDS FOR SUB HEADERS, PD AND PATHWAY

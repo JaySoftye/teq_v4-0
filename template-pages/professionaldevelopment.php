@@ -6,6 +6,7 @@
  */
 
 get_header();
+
 ?>
 
 <div id="primary" class="content-area" scroll>
@@ -15,7 +16,12 @@ get_header();
 			<div class="fluid-width columns is-desktop">
 				<div class="column is-4 is-offset-2">
 					<h1>Professional<br />Development</h1>
-					<h5 class="scroll-icon dark-icon strong less-line-height">Learn educational technology skills with PD designed around your needs; with options for on-site, online, or a blended learning model.</h5>
+					<h5 class="scroll-icon dark-icon strong less-line-height">Learn educational technology skills with PD designed around your needs; with options for on-site, online, or a blended learning model. <br />
+						<figure>
+							<img src="/wp-content/themes/teq_v4-0/inc/images/pd-certified-trainers_google-cloud-microsoft.svg" alt="Google Cloud Partner | Microsoft MIE Certified Partner">
+						</figure>
+					</h5>
+
 				</div>
 				<div class="half-background">
 					<?php

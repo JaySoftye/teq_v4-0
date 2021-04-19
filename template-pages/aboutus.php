@@ -244,8 +244,8 @@ get_header();
 										<h6 class="extra-letter-spacing strong has-text-centered">EXECUTIVE TEAM</h6>
 									</div>
 								</div>
-								<div class="columns">
-									<div class="column is-one-third has-text-centered">
+								<div class="columns is-centered">
+									<div class="column is-one-quarter has-text-centered">
 										<article class="profile-card">
 											<figure>
 												<img src="https://www.teq.com/images/headshots_circles/DamianScarfo.png" />
@@ -253,7 +253,7 @@ get_header();
 											<h5><strong class="blue-text">Damian Scarfo</strong><em class="block caption">Chief Executive Officer</em></h5>
 										</article>
 									</div>
-									<div class="column is-one-third has-text-centered">
+									<div class="column is-one-quarter has-text-centered">
 										<article class="profile-card">
 											<figure>
 												<img src="https://www.teq.com/images/headshots_circles/JenniferEddelson.png" />
@@ -261,12 +261,20 @@ get_header();
 											<h5><strong class="blue-text">Jennifer Eddelson</strong><em class="block caption">Chief Financial Officer</em></h5>
 										</article>
 									</div>
-									<div class="column is-one-third has-text-centered">
+									<div class="column is-one-quarter has-text-centered">
 										<article class="profile-card">
 											<figure>
 												<img src="https://www.teq.com/images/headshots_circles/Robert-WayneHarris.png" />
 											</figure>
 											<h5><strong class="blue-text">Robert-Wayne Harris</strong><em class="block caption">Chief Learning Officer</em></h5>
+										</article>
+									</div>
+									<div class="column is-one-quarter has-text-centered">
+										<article class="profile-card">
+											<figure>
+												<img src="https://www.teq.com/wp-content/uploads/2016/12/about-us-leadership-JohnBall.png" />
+											</figure>
+											<h5><strong class="blue-text">John Ball</strong><em class="block caption">Chief Operating Officer</em></h5>
 										</article>
 									</div>
 								</div>
@@ -279,17 +287,17 @@ get_header();
 									<div class="column is-one-fifth is-4-tablet has-text-centered">
 										<article class="profile-card">
 											<figure>
-												<img src="https://www.teq.com/wp-content/uploads/2016/12/about-us-leadership-chrissy_rebert.png" />
+												<img src="https://www.teq.com/images/headshots_circles/DawnCastillo.png" />
 											</figure>
-											<h5><strong class="blue-text">Chrissy Rebert</strong><em class="block caption">VP of Global Instructional Solutions</em></h5>
+											<h5><strong class="blue-text">Dawn Castillo</strong><em class="block caption">President of Teq</em></h5>
 										</article>
 									</div>
 									<div class="column is-one-fifth is-4-tablet has-text-centered">
 										<article class="profile-card">
 											<figure>
-												<img src="https://www.teq.com/wp-content/uploads/2016/12/about-us-leadership-JohnBall.png" />
+												<img src="https://www.teq.com/wp-content/uploads/2016/12/about-us-leadership-chrissy_rebert.png" />
 											</figure>
-											<h5><strong class="blue-text">John Ball</strong><em class="block caption">VP of Operations</em></h5>
+											<h5><strong class="blue-text">Chrissy Rebert</strong><em class="block caption">VP of Global Instructional Solutions</em></h5>
 										</article>
 									</div>
 									<div class="column is-one-fifth is-4-tablet has-text-centered">
@@ -308,12 +316,20 @@ get_header();
 											<h5><strong class="blue-text">Peter Kurtz</strong><em class="block caption">VP of Marketing</em></h5>
 										</article>
 									</div>
+									<div class="column is-one-fifth is-4-tablet is-4-tablet has-text-centered">
+										<article class="profile-card">
+											<figure>
+												<img src="https://www.teq.com/wp-content/uploads/2016/12/about-us-leadership-PaulPrincipato.png" />
+											</figure>
+											<h5><strong class="blue-text">Paul Principato</strong><em class="block caption">Vice President of Creative Services and Development</em></h5>
+										</article>
+									</div>
 									<div class="column is-one-fifth is-4-tablet has-text-centered">
 										<article class="profile-card">
 											<figure>
-												<img src="https://www.teq.com/images/headshots_circles/DawnCastillo.png" />
+												<img src="https://www.teq.com/wp-content/uploads/2016/12/RaymondSimpson.png" />
 											</figure>
-											<h5><strong class="blue-text">Dawn Castillo</strong><em class="block caption">President of Teq</em></h5>
+											<h5><strong class="blue-text">Ray Simpson</strong><em class="block caption">Chief Technology Officer</em></h5>
 										</article>
 									</div>
 								</div>
@@ -323,22 +339,6 @@ get_header();
 									</div>
 								</div>
 								<div class="columns is-multiline">
-									<div class="column is-one-fifth is-4-tablet is-4-tablet has-text-centered">
-										<article class="profile-card">
-											<figure>
-												<img src="https://www.teq.com/wp-content/uploads/2016/12/about-us-leadership-PaulPrincipato.png" />
-											</figure>
-											<h5><strong class="blue-text">Paul Principato</strong><em class="block caption">Director of Creative and Development</em></h5>
-										</article>
-									</div>
-									<div class="column is-one-fifth is-4-tablet has-text-centered">
-										<article class="profile-card">
-											<figure>
-												<img src="https://www.teq.com/wp-content/uploads/2016/12/RaymondSimpson.png" />
-											</figure>
-											<h5><strong class="blue-text">Ray Simpson</strong><em class="block caption">Executive Director of Technology</em></h5>
-										</article>
-									</div>
 									<div class="column is-one-fifth is-4-tablet has-text-centered">
 										<article class="profile-card">
 											<figure>
