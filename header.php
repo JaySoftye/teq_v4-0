@@ -69,6 +69,7 @@
 
   		<div class="navbar-menu secondary-browse-menu">
 				<ul class="main-menu navbar-end" role="menu">
+				<!--
 					<li>
 						<div class="dropdown is-hoverable">
 							<div class="dropdown-trigger">
@@ -76,6 +77,7 @@
 							</div>
 						</div>
 					</li>
+				-->
 					<li>
 						<div class="dropdown is-hoverable">
 							<div class="dropdown-trigger">
@@ -108,25 +110,7 @@
 		<div class="main-dropdown-menu-container ng-class: menuActive">
 			<div class="container">
 				<div class="menu-list primary-menu columns">
-					<?php if(is_page('Browse')) { ?>
-						<div class="column">
-							<?php wp_nav_menu(array(
-								'menu'       => 'Main Menu', // specify the menu name
-								'menu_class' => '',
-								'container'  => '',
-								'items_wrap' => '<ul class="main-dropdown-menu center" role="menu" >%3$s</ul>'
-							));?>
-						</div>
-					<?php } elseif($post->post_parent != 0) { ?>
-						<div class="column">
-							<?php wp_nav_menu(array(
-								'menu'       => 'Main Menu', // specify the menu name
-								'menu_class' => '',
-								'container'  => '',
-								'items_wrap' => '<ul class="main-dropdown-menu center" role="menu" >%3$s</ul>'
-							));?>
-						</div>
-					<?php } else { ?>
+					<?php //START OF MENU CONDITIONAL ?>
 						<div class="column">
 							<h6><a href="/browse/stem-technologies">STEM Technologies</a></h6>
 							<div class="has-dropdown-menu menu-closed">
@@ -239,7 +223,7 @@
 								'items_wrap' => '<ul class="main-dropdown-menu" role="menu" >%3$s</ul>'
 							));?>
 						</div>
-					<?php } ?>
+						<?php //END OF MENU CONDITIONAL ?>
 				</div>
 				<div class="menu-list stem-menu columns is-multiline">
 					<div class="column">

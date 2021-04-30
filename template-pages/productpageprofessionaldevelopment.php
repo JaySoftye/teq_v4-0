@@ -242,18 +242,18 @@ get_header();
 			<?php } ?>
 
 			<section ng-show="isSet(2)">
-				<div class="content-container container padding-bottom">
+				<div class="content-container container margin-bottom">
 					<div class="columns is-centered">
 						<div class="column is-full">
 							<h4 class="margin-bottom">We provide you with access to a dedicated team of State Certified Educators with skills and expertise in every subject and content area – English, Math, Science, Social Studies, STEM, ENL and Special Education. Teq’s PD Specialists and Curriculum Specialists who facilitate both our Onsite PD and Online PD sessions are all SMART Certified Trainers, Google Certified Educators, and possess various certifications including, but not limited to: <strong>Microsoft Office 365; Adobe Acrobat; STEM, Robotics and Coding; and Apple.</strong></h4>
 						</div>
 					</div>
-					<div class="columns is-centered is-multiline">
+					<div class="columns is-multiline margin-bottom">
 
 						<?php $blogusers = get_users( [ 'role__in' => [ 'author' ] ] );
 							// Array of WP_User objects.
 							foreach ( $blogusers as $user ) {
-								echo '<div class="column is-4"><div class="card"><div class="card-content">';
+								echo '<div class="column is-4"><div class="card" style="height:100%;"><div class="card-content">';
 								echo '<div class="media">';
 								echo '<div class="media-left">';
 								echo '<figure class="image is-96x96"><img src="https://www.teq.com/images/headshots_circles/' . esc_html( $user->first_name ) . esc_html( $user->last_name ) . '.png" /></figure>';
@@ -266,7 +266,7 @@ get_header();
 									if ( !empty( $user->certification) ) {
 										echo '<p><strong class="caption">CERTIFICATIONS:</strong><br />' . $user->certification . '</p>';
 									}
-								echo '<div class="tooltip"><a class="navbar-burger"><span></span><spaN></span><span></span></a><div class="tooltiptext"><span class="tooltip-inner">' . $user->description . '</span></div></div>';
+								echo '<p class="caption">' . $user->description . '</p>';
 								echo '</div>';
 								echo '</div></div></div>';
 							}

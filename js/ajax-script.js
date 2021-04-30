@@ -18,17 +18,18 @@
     });
 
     // Product Filter Function to hide unselected items
+    // article.product-item ELEMENT LOOPED AND HIDDEN BASED ON SELECTION
     $('select.product-filter').on('change', function() {
       var value = '.' + $(this).val();
         $(this).attr("disabled", true);
 
       $("article.product-item").each(function() {
         if($(this).is(":hidden")) {
-            $(this).hide();
+            $(this).hide(360).addClass('product-filtered');
         } else if($(this).is(value)) {
-            $(this).show();
+            $(this).show(360).removeClass('product-filtered');
         } else if($(this).not(value)) {
-            $(this).hide();
+            $(this).hide(360).addClass('product-filtered');
         }
       });
 
