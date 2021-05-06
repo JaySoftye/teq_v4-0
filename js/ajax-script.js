@@ -32,13 +32,13 @@
             $(this).hide(360).addClass('product-filtered');
         }
       });
-
       // If no results are visible
-      if($('div.filter-results .columns.is-multiline').children(':visible').length == 0) {
+      if($('.filter-results .columns article.product-item').length === $('.filter-results .columns article.product-item.product-filtered').length) {
         $('.no-products-found').show();
       } else {
         $('.no-products-found').hide();
       }
+
     });
 
     // Product Filter Reset
@@ -114,6 +114,22 @@
       $('html,body').animate({
         scrollTop: $('#'+anchor).offset().top - anchorOffset
       }, 500);
+    });
+
+    // PRODUCT PRICING FORM
+    // HUBSPOT FORM ON BROWSE LEAD PAGES
+    // GATHER DATA FROM ATTRIBUTES OF button element CLICKED
+    // SET 'data-title' FOR MODAL ID AND TEXT
+    // ADD CLASS 'IS-ACTIVE' to MODAL Element
+    // SET 'src' of PRODUCT IMAGE IN MODAL TO FEATURE IMAGE URL
+    $(".pricing-modal-activate").click(function(event) {
+      event.preventDefault();
+      var productTitle = $(this).attr("data-title");
+      var productImage = $(this).attr("data-image");
+        $(".modal.product-pricing").addClass("is-active");
+        $("#product-form").attr("product-title", productTitle);
+        $("#product-form-title").text(productTitle);
+        $("#product-image").attr("src", productImage);
     });
 
   });

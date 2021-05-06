@@ -7,6 +7,41 @@
 
 get_header();
 ?>
+<div id="product-form" product-title="" class="modal product-pricing">
+	<div class="modal-background"></div>
+	<div class="modal-content is-centered columns">
+		<section class="modal-card-body column is-three-quarters rounded-corners">
+			<img id="product-image" src />
+			<p>To request exact pricing for <strong id="product-form-title"></strong>, simply fill out the form below and a Teq Representative will reach out to you directly.</p>
+			<br />
+			<!--[if lte IE 8]>
+			<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+			<![endif]-->
+			<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+			<script>
+				hbspt.forms.create({
+					portalId: "182596",
+					formId: "2c1fcff8-e0a3-4b79-8745-b53e2125a305",
+					submitButtonClass: '',
+					inlineMessage: 'Request Submitted, Thanks.',
+					onFormSubmit: function($form) {
+
+						// GRAB THE PAGE TITLE AND SET 'BLANK' HIDDEN INPUT FIELD AS TITLE OF THE PAGE
+						var title = $("#product-form").attr("product-title");
+						$('input[name="blank"]').val(title)
+
+						// SET REDIRECT WITH FORM DATA IN URL
+						setTimeout( function() {
+							var formData = $form.serialize();
+							window.location = "/thankyouforyourinterest?" + formData;
+						}, 250 ); // Redirects to url with query string data from form fields after 250 milliseconds.
+					}
+				});
+			</script>
+		</section>
+	</div>
+	<button class="modal-close is-large" aria-label="close"></button>
+</div>
 
 <div id="primary" class="content-area" scroll>
 	<main id="main" class="site-main section-container">
@@ -89,42 +124,40 @@ get_header();
 							$the_query = new WP_Query( $args );
 								while ($the_query -> have_posts()) : $the_query -> the_post();
 									$custom_url = get_post_meta( $post->ID, 'custom_url_meta_content', true );
+									$image_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'full' );
 
 									// GET ALL THE CUSTON TAXONOMIES FOR THE Custom Post Type
 									$taxonomies = array('topics', 'grades', 'proficiency', 'curriculum');
 									$terms = wp_get_post_terms( get_the_ID(), $taxonomies, [ 'fields' => 'id=>slug'] );
 							?>
 
-							<article class="<?php echo the_title() . ' '; echo implode( ' ', $terms ); ?> column is-4-desktop is-6-tablet product-item">
-								<a class="product-container" href="<?php if(empty( $custom_url)) { the_permalink(); } else { echo get_post_meta( $post->ID, 'custom_url_meta_content', true ); } ?>">
+							<article class="<?php echo the_title() . ' '; echo implode( ' ', $terms ); ?> column is-three-quarters-mobile is-one-third-tablet is-one-quarter-desktop is-one-fifth-widescreen is-one-fifth-fullhd product-item">
+								<div class="product-container">
 									<div class="product-content">
 										<h3>
-											<?php the_title(); ?>
+											<a href="<?php if(empty( $custom_url)) { the_permalink(); } else { echo get_post_meta( $post->ID, 'custom_url_meta_content', true ); } ?>">
+												<?php the_title(); ?>
+											</a>
 										</h3>
-									</div>
-									<div class="image-link">
-										<?php echo get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'featured-image' ) ); ?>
-									</div>
-									<div class="product-content toggle-content">
 										<?php the_excerpt(); ?>
-									</div>
-									<div class="product-content toggle-content" style="display:none;">
-										<ul>
-											<li class="strong caption">PRODUCT FILTERS</li>
+										<p class="product-filter-list toggle-content" style="display:none;">
+											<strong>PRODUCT FILTERS:</strong><br />
 											<?php
 												$terms = get_the_terms( $post->ID, 'topics' );
 												foreach($terms as $term) {
-													echo '<li>' . $term -> name . '</li>';
+													echo '<span>' . $term -> name . '  /  </span>';
 												}
 											?>
-										</ul>
+										</p>
 									</div>
-								</a>
-								<a role="button" class="navbar-burger">
-									<span aria-hidden="true"></span>
-									<span aria-hidden="true"></span>
-									<span aria-hidden="true"></span>
-								</a>
+									<a class="image-link" href="<?php if(empty( $custom_url)) { the_permalink(); } else { echo get_post_meta( $post->ID, 'custom_url_meta_content', true ); } ?>">
+										<?php echo get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'featured-image' ) ); ?>
+									</a>
+								</div>
+								<div class="button-group">
+									<a href="<?php if(empty( $custom_url)) { the_permalink(); } else { echo get_post_meta( $post->ID, 'custom_url_meta_content', true ); } ?>">More Info</a>
+									<a class="pricing-modal-activate" data-title="<?php the_title(); ?>" data-image="<?php echo $image_url ?>">Get Pricing</a>
+								</div>
 							</article>
 
 						<?php endwhile; endif; wp_reset_postdata(); // End have_posts() check. ?>

@@ -25,11 +25,10 @@ get_header();
 						</div>
 					</div>
 					<div class="columns is-centered is-multiline padding-bottom">
-
 						<?php $blogusers = get_users( [ 'role__in' => [ 'author' ] ] );
 							// Array of WP_User objects.
 							foreach ( $blogusers as $user ) {
-								echo '<div class="column is-4"><div class="card"><div class="card-content">';
+								echo '<div class="column is-4"><div class="card" style="height:100%;"><div class="card-content">';
 								echo '<div class="media">';
 								echo '<div class="media-left">';
 								echo '<figure class="image is-96x96"><img src="https://www.teq.com/images/headshots_circles/' . esc_html( $user->first_name ) . esc_html( $user->last_name ) . '.png" /></figure>';
@@ -42,7 +41,7 @@ get_header();
 									if ( !empty( $user->certification) ) {
 										echo '<p><strong class="caption">CERTIFICATIONS:</strong><br />' . $user->certification . '</p>';
 									}
-								echo '<div class="tooltip"><a class="navbar-burger"><span></span><spaN></span><span></span></a><div class="tooltiptext"><span class="tooltip-inner">' . $user->description . '</span></div></div>';
+								echo '<p class="caption">' . $user->description . '</p>';
 								echo '</div>';
 								echo '</div></div></div>';
 							}

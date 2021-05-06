@@ -106,11 +106,6 @@ get_header();
 									</p>
 								</div>
 							</a>
-							<a role="button" class="navbar-burger">
-    						<span aria-hidden="true"></span>
-    						<span aria-hidden="true"></span>
-    						<span aria-hidden="true"></span>
-  						</a>
 						</article>
 
 						<?php endwhile; else : ?>

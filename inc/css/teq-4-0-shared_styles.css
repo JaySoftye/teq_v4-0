@@ -1220,11 +1220,10 @@ TOOLTIPS
 }
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: calc(100% + 12vw);
+  width: calc(100% + 21vw);
   position: absolute;
   z-index: 45;
-  bottom: 100%;
-  left: -6vw;
+  left: -50%;
   background: #ffffff;
   border-radius: 6px;
   box-shadow: 21px 21px 42px #c9cacb, -21px -21px 42px #ffffff;
@@ -1538,6 +1537,7 @@ NEDM
 #nedm-survey  .faq-accordion.card > p.selected {
   max-height: 750px;
   overflow: auto;
+  word-break: break-word;
   transition: max-height 0.36s ease-in;
 }
 
