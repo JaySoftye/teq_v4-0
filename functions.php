@@ -176,6 +176,16 @@ function teq_v4_0_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
+	// AJAX SCRIPT FOR TEQ TALK BLOG
+	if ( is_page_template( array( 'template-pages/teqtalk.php', 'template-pages/teqtalkV2.php' ))) {
+
+		wp_enqueue_script( 'my_ajax_script', get_template_directory_uri(). '/js/load-more-posts.js', array( 'jquery' ), '0.1.0', true );
+		wp_localize_script( 'my_ajax_script', 'my_ajax_url', admin_url( 'admin-ajax.php' ) );
+
+		wp_deregister_script( 'load-more-posts' );
+		wp_enqueue_script( 'load-more-posts', get_template_directory_uri() . '/js/load-more-posts.js', '', '', true );
+	}
+
 	// VERSION_1 STYLESHEET AND JAVASCRIPT FUNCTIONS FOR CREATE YOUR SOLUTION
 	if ( is_page_template( array( 'template-pages/createyoursolution.php', 'template-pages/createyoursolutionResult.php', 'template-pages/createyoursolutionquoterequest.php' ))) {
 		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-create_your_solution_stylesheet.css' );
@@ -298,6 +308,41 @@ function get_page_permalink_from_name($page_name) {
     $pageid_name = $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_title = '" . $page_name . "' LIMIT 0, 1");
  return get_permalink($pageid_name);
 }
+
+
+// GET THE FIRST IMAGE ELEMENT WITHIN THE CONTENT OF POST
+// DECLARE GLOBAL TERM TO BE USED WITHIN LOOP
+// GET ALL CONTENT AND 'output' ALL IMAGES TAGS
+// GET THE FIRST ITEM IN THE 'output'
+function get_content_first_image() {
+  global $post, $posts;
+  $first_img = '';
+  ob_start();
+  ob_end_clean();
+  	$output = preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $post->post_content, $matches);
+  	$first_img = $matches[1][0];
+  		return $first_img;
+}
+
+
+// ADD VISIT COUNTER TO POSTS
+// CREATE META DATA FIELD 'my_post_viewed' LINKED TO THE POST ID
+// BY DEFAULT 'my_post_view' SET TO 1, WILL INCREASE BASED UPON VIEWS
+function count_post_visits() {
+	if( is_single() ) {
+		global $post;
+			$views = get_post_meta( $post->ID, 'my_post_viewed', true );
+
+			if( $views == '' ) {
+				update_post_meta( $post->ID, 'my_post_viewed', '1' );
+      } else {
+        $views_no = intval( $views );
+        update_post_meta( $post->ID, 'my_post_viewed', ++$views_no );
+      }
+   }
+}
+add_action( 'wp_head', 'count_post_visits' );
+
 
 /**
  * CUSTOM META BOXES FOR PAGE ONLY
@@ -1238,3 +1283,42 @@ function custom_product_service_meta_html( $post) {
 		  }
 		wp_die();
 		}
+
+
+	/**
+		* AJAX CALLBACK FOR QUERYING ADDITIONAL POSTS
+		*
+		*
+		*
+		*/
+		function get_ajax_posts() {
+    	$args = array(
+        'post_status' => array('publish'),
+				'category_name' => 'news',
+        'posts_per_page' => 12,
+        'order' => 'DESC',
+				'offset' => 13
+    	);
+
+			// The Query
+    	$ajaxposts = new WP_Query( $args );
+
+    	$response = '';
+
+    	// The Query
+    	if ( $ajaxposts->have_posts() ) {
+        while ( $ajaxposts->have_posts() ) {
+          $ajaxposts->the_post();
+          $response .= get_template_part('template-parts/content-single-post');
+        }
+    	} else {
+        $response .= get_template_part('template-parts/content-none');
+    	}
+
+    		echo $response;
+    	exit; // leave ajax call
+		}
+
+		// Fire AJAX action for both logged in and non-logged in users
+		add_action('wp_ajax_get_ajax_posts', 'get_ajax_posts');
+		add_action('wp_ajax_nopriv_get_ajax_posts', 'get_ajax_posts');

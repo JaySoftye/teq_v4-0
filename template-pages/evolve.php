@@ -37,11 +37,6 @@ get_header();
 										<h1 class="mobile-content">Evolve</h1>
 										<h5 class="serif-text padding-left">The face of education is rapidly changing, and Teq can help you evolve to meet these challenges. Technology integration is at the center of what we do, and our approach is about helping you find the right resources, get the right support, and then pull it all together into a complete thought. </h5>
 									</div>
-									<div class="relative-position column is-1-desktop hide-tablet">
-										<div class="icon-scroll vertical"></div>
-										scroll
-										<div class="icon-scroll horizontal"></div>
-									</div>
 								</div>
 							</div>
 							<div class="svg-container">

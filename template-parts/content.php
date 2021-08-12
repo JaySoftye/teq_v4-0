@@ -101,35 +101,50 @@
 
 <section class="recent-posts-container padding-top">
 	<div class="container">
-		<div class="columns">
-			<div class="column is-11 is-offset-1 border-bottom">
-				<h4>Related Articles</h4>
-			</div>
+		<div class="columns is-centered">
+			<div class="column is-10 border-bottom"></div>
 		</div>
-		<div class="columns is-desktop padding-top padding-bottom">
+		<div class="columns is-desktop is-centered padding-top padding-bottom">
+			<div class="column is-3 padding-right">
+				<h4><strong>Related Articles & Other Recommended Reading</strong></h4>
+			</div>
+			<div class="column is-7">
+				<?php
+   			// recent post query
+					$the_query = new WP_Query( array(
+     				'category_name' => 'news',
+						'offset' => 9,
+      			'posts_per_page' => 3,
+   				));
 
-			<?php
-   		// recent post query
-				$the_query = new WP_Query( array(
-     			'category_name' => 'news',
-      		'posts_per_page' => 3,
-   			));
-			?>
+					if ( $the_query->have_posts() ) :
+						while ( $the_query->have_posts() ) :
+							$the_query->the_post(); ?>
 
-			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+							<div class="box">
+		  					<article class="media">
+		    					<div class="media-left">
+										<a class="image is-96x96" href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>">
+											<?php echo get_the_post_thumbnail( $page->ID, 'medium' ); ?>
+										</a>
+		    					</div>
+		    					<div class="media-content">
+		      					<div class="content">
+		        					<p>
+												<a href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>">
+													<strong><?php the_title(); ?></strong>
+												</a>
+												<br />
+												<?php echo get_the_excerpt(); ?>
+											</p>
+											<a class="block caption" href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>">[ READ MORE ]</a>
+		      					</div>
+		    				</div>
+		  				</article>
+						</div>
 
-				<div class="column is-3 is-offset-1 card padding-sm">
-					<p>
-						<a class="strong" href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>">
-						<?php echo get_the_post_thumbnail( $page->ID, 'medium' ); ?></a>
-					</p>
-					<h6>
-						<a class="strong" href="<?php if(metadata_exists('post', $post->ID,'bannerHeaderURL')) { echo get_post_meta( $post->ID, 'bannerHeaderURL', true ); } else { the_permalink(); }; ?>"><?php the_title(); ?></a>
-					</h6>
-					<p class="relative-position"><span class="arrow"></span></p>
+  				<?php endwhile; wp_reset_postdata(); endif; ?>
 				</div>
-  			<?php endwhile; ?>
-  		<?php wp_reset_postdata(); endif; ?>
 
 		</div>
 	</div>

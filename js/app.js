@@ -18,7 +18,6 @@
    };
  });
 
-
 /**
   * FILTER TO ALLOW HTML CHARACTARS IN STRING
   */
@@ -239,7 +238,7 @@
     */
     app.controller('gradeLevelFilter', function($scope) {
   	  $scope.items = [
-        {id: 'product-item', name: 'All Grade Levels'},
+        {id: '', name: 'All Grade Levels'},
         {id: 'grades-k-2', name: 'Grades K-2'},
         {id: 'grades-3-5', name: 'Grades 3-5'},
         {id: 'grades-6-8', name: 'Grades 6-8'},
@@ -248,7 +247,7 @@
     });
     app.controller('stemSubjectMatterFilter', function($scope) {
       $scope.items = [
-        {id: 'product-item', name: 'All Subject Matters'},
+        {id: '', name: 'All Subject Matters'},
         {id: 'coding', name: 'Coding'},
         {id: 'robotics', name: 'Robotics'},
         {id: 'hydroponics', name: 'Hydroponics'},
@@ -261,7 +260,7 @@
     });
     app.controller('technologyProficiencyFilter', function($scope) {
       $scope.items = [
-        {id: 'product-item', name: 'All Proficiencies'},
+        {id: '', name: 'All Proficiencies'},
         {id: 'easy-proficiency', name: 'Easy Proficiency'},
         {id: 'intermediate-proficiency', name: 'Intermediate Proficiency'},
         {id: 'advanced-proficiency', name: 'Advanced Proficiency'}
@@ -269,7 +268,7 @@
     });
     app.controller('curriculumVersatilityFilter', function($scope) {
   	   $scope.items = [
-         {id: 'product-item', name: 'Any Curriculum Level'},
+         {id: '', name: 'Any Curriculum Level'},
          {id: 'subject-grade-specific', name: 'Subject Grade Specific'},
          {id: 'medium-curriculum-versatility', name: 'Medium Curriculum Versatility'},
          {id: 'high-curriculum-versatility', name: 'High Curriculum Versatility'}
@@ -277,7 +276,7 @@
     });
     app.controller('edTechFilter', function($scope) {
   	   $scope.items = [
-         {id: 'product-item', name: 'All Products'},
+         {id: '', name: 'All Products'},
          {id: 'interactive-flat-panels', name: 'Interactive Flat Panels'},
          {id: 'collaborative-software', name: 'Collaborative Software'},
          {id: 'active-learning-spaces', name: 'Active Learning Spaces'},
@@ -287,7 +286,7 @@
     });
     app.controller('productTypeFilter', function($scope) {
   	   $scope.items = [
-         {id: 'product-item', name: 'All Products'},
+         {id: '', name: 'All Products'},
          {id: 'STEM Technologies', name: 'STEM Technology'},
          {id: 'Educational Technology', name: 'Educational Technology'},
          {id: 'Professional Development', name: 'Professional Development'},
@@ -347,68 +346,6 @@
     });
 
 
-    /**
-      * PRODUCT PAGE SVG CIRCLE HIGHLIGHT
-      * GET DOC HEIGHT USING OffsetScroll and Body Height
-      * USE MATH FUNCTION TO COMPARE BROWSER HEIGHT TO THE SCROLL location
-      * SET DocHeight to variable
-      */
-    function getDocHeight() {
-      var D = document;
-        return Math.max (
-          D.body.scrollHeight, D.documentElement.scrollHeight,
-            D.body.offsetHeight, D.documentElement.offsetHeight,
-              D.body.clientHeight, D.documentElement.clientHeight
-        )
-    }
-    var docHeight = getDocHeight();
-
-    /**
-      * DETERMINE THE AMOUNT USER HAS SCROLLED DOWN THE PAGE
-      * Compare the DocHeight to the current page position as well as the page offset
-      * Initial scroll event listener
-      */
-    function amountScrolled() {
-        var winHeight= window.innerHeight || (document.documentElement || document.body).clientHeight
-          var docHeight = getDocHeight()
-            var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
-              var trackLength = docHeight - winHeight
-
-        // Multiple to amount * 100 to get pertage of page scrolled
-        // gets percentage scrolled (ie: 80 or NaN if tracklength == 0)
-        var pctScrolled = Math.floor(scrollTop/trackLength * 100)
-
-        /**
-          * GET THE FEATURED IMAGE SVG CIRCLE; ADDED conditional that this element must exist
-          * Set Radius amount to 45 and subsctract the percentage of the page scrolled.
-          * Set the 'r' attribute on the SVG circle element to animate the sequence
-          * Once the Radius Attribute reaches 0 stop the sequence
-          */
-          var featuredHighlight = document.getElementById('featureHighlight');
-            var featuredRadius = "45" - pctScrolled * 7.5;
-              if (featuredRadius > 0 && featuredHighlight) {
-                featuredHighlight.setAttribute('r', featuredRadius + "%");
-              }
-
-        /**
-          * GET THE FEATURED IMAGE SVG CIRCLE; ADDED conditional that this element must exist
-          * Set Radius amount to 45 and subsctract the percentage of the page scrolled.
-          * Set the 'r' attribute on the SVG circle element to animate the sequence
-          */
-          var logoHighlight = document.getElementById('logoHighlight');
-            var logoRadius = "0" + pctScrolled * 1.5;
-              if (logoRadius <= 40 && logoHighlight) {
-                logoHighlight.setAttribute('r', logoRadius + "%");
-              }
-
-        // console.log(pctScrolled + "% has been scrolled")
-        // console.log(logoRadius)
-    }
-    window.addEventListener("scroll", function(){
-        amountScrolled()
-    }, false);
-
-
     $(document).ready(function() {
       // MODAL FUNCTION
       // GET THE ID OF THE CLICKED Element
@@ -425,5 +362,247 @@
       // FIND ANY ELEMENT WITH CLASS "modal" REMOVE CLASS "is-active"
       $('body').on('click', ".close-modal", function() {
         $(".modal").removeClass("is-active")
+        // IF VIDEO ELEMENT EXIST PAUSE ON CLOSE
+        $(".modal-content video").each(function() {
+          $(this).get(0).pause();
+        });
+      });
+      $('body').on('click', ".modal-background", function() {
+        // IF VIDEO ELEMENT EXIST PAUSE ON CLOSE
+        $(".modal-content video").each(function() {
+          $(this).get(0).pause();
+        });
+      });
+
+
+      // MODAL FUNCTION FOR SIMILAR PRODUCTS
+      // CLICK FUNCTION ENABLED FOR PRICING AND SIMILAR PRODUCT MODALS
+      // MODAL ELEMENT div#product-form GIVEN ACTIVE-STATE
+      // IF PRICING ELEMENT TRIGGER span.pricing-modal-ativate CLICKED SHOW PRICING FORM .model-content.pricing-form
+      $('.navbar-menu.similar-products-template').on('click', ".navbar-item.product-demo-request span.pricing-modal-activate", function() {
+        $('.modal.product-pricing').addClass("is-active");
+          $('.modal.product-pricing .modal-content.similar-products').hide();
+            $('.modal.product-pricing .modal-content.pricing-form').css('display', 'flex');
+      });
+      $('.site-main.section-container').on('click', ".pricing-modal-activate", function() {
+        $('.modal.product-pricing').addClass("is-active");
+          $('.modal.product-pricing .modal-content.similar-products').hide();
+            $('.modal.product-pricing .modal-content.pricing-form').css('display', 'flex');
+      });
+      // IF SIMILAR PRODUCT ELEMENT TRIGGER span.similar-product-modal-ativate CLICKED SHOW PRICING FORM .model-content.similar-products
+      $('.site-main.section-container').on('click', ".similar-product-modal-activate", function() {
+        $('.modal.product-pricing').addClass("is-active");
+          $('.modal.product-pricing .modal-content.pricing-form').hide();
+            $('.modal.product-pricing .modal-content.similar-products').css('display', 'flex');
+      });
+
+    });
+
+  // INFINITE CAROUSEL FUNCTION
+  // SET OBJECT GLOBAL FUNCTION TO CONTAIN CONTENT
+  // PARSE STORED DATA IN ARRAY AND ILERTERATE OVER LOOP
+  var $jscomp = { scope: {} };
+
+  $jscomp.defineProperty =
+    "function" == typeof Object.defineProperties
+      ? Object.defineProperty
+        : function (a, b, c) {
+          if (c.get || c.set)
+            throw new TypeError("ES3 does not support getters and setters.");
+            a != Array.prototype && a != Object.prototype && (a[b] = c.value);
+        };
+
+  $jscomp.getGlobal = function (a) {
+    return "undefined" != typeof window && window === a
+      ? a
+        : "undefined" != typeof global && null != global
+      ? global
+        : a;
+  };
+
+  $jscomp.global = $jscomp.getGlobal(this);
+  $jscomp.SYMBOL_PREFIX = "jscomp_symbol_";
+
+  $jscomp.initSymbol = function () {
+    $jscomp.initSymbol = function () {};
+    $jscomp.global.Symbol || ($jscomp.global.Symbol = $jscomp.Symbol);
+  };
+
+  $jscomp.symbolCounter_ = 0;
+  $jscomp.Symbol = function (a) {
+    return $jscomp.SYMBOL_PREFIX + (a || "") + $jscomp.symbolCounter_++;
+  };
+
+  $jscomp.initSymbolIterator = function () {
+    $jscomp.initSymbol();
+    var a = $jscomp.global.Symbol.iterator;
+    a || (a = $jscomp.global.Symbol.iterator = $jscomp.global.Symbol("iterator"));
+      "function" != typeof Array.prototype[a] &&
+
+      $jscomp.defineProperty(Array.prototype, a, {
+        configurable: !0,
+        writable: !0,
+        value: function () {
+          return $jscomp.arrayIterator(this);
+        }
+      });
+
+    $jscomp.initSymbolIterator = function () {};
+  };
+
+  $jscomp.arrayIterator = function (a) {
+    var b = 0;
+    return $jscomp.iteratorPrototype(function () {
+      return b < a.length ? { done: !1, value: a[b++] } : { done: !0 };
+    });
+  };
+
+  $jscomp.iteratorPrototype = function (a) {
+    $jscomp.initSymbolIterator();
+    a = { next: a };
+      a[$jscomp.global.Symbol.iterator] = function () {
+        return this;
+      };
+    return a;
+  };
+
+  $jscomp.polyfill = function (a, b, c, d) {
+    if (b) {
+      c = $jscomp.global;
+      a = a.split(".");
+        for (d = 0; d < a.length - 1; d++) {
+          var f = a[d];
+          f in c || (c[f] = {});
+          c = c[f];
+        }
+      a = a[a.length - 1];
+      d = c[a];
+      b = b(d);
+      b != d &&
+        null != b &&
+
+      $jscomp.defineProperty(c, a, {
+        configurable: !0,
+        writable: !0,
+        value: b
+      });
+    }
+  };
+
+  $jscomp.polyfill(
+    "Array.from",
+    function (a) {
+      return a
+        ? a
+        : function (a, c, d) {
+          $jscomp.initSymbolIterator();
+          c =
+            null != c
+              ? c
+              : function (a) {
+                  return a;
+              };
+
+          var b = [],
+            e = a[Symbol.iterator];
+          if ("function" == typeof e)
+            for (a = e.call(a); !(e = a.next()).done; )
+              b.push(c.call(d, e.value));
+          else
+            for (var e = a.length, g = 0; g < e; g++) b.push(c.call(d, a[g]));
+          return b;
+        };
+      },
+      "es6-impl",
+      "es3"
+    );
+
+var MOUSE_EVENTS = ["click", "touchstart"],
+  Carousel = function (a) {
+    this.element = a;
+    this.init();
+  };
+Carousel.prototype.init = function () {
+  var a = this;
+  this.items = Array.from(this.element.querySelectorAll(".carousel-item"));
+  MOUSE_EVENTS.forEach(function (b) {
+    var c = a.element.querySelector(".carousel-nav-left"),
+      d = a.element.querySelector(".carousel-nav-right");
+    c &&
+      c.addEventListener(
+        b,
+        function (b) {
+          b.preventDefault();
+          a.move("previous");
+          a.autoplayInterval &&
+            (clearInterval(a.autoplayInterval),
+            a.autoPlay(a.element.dataset.delay || 5e3));
+        },
+        !1
+      );
+    d &&
+      d.addEventListener(
+        b,
+        function (b) {
+          b.preventDefault();
+          a.move("next");
+          a.autoplayInterval &&
+            (clearInterval(a.autoplayInterval),
+            a.autoPlay(a.element.dataset.delay || 5e3));
+        },
+        !1
+      );
+    });
+    this.initOrder();
+    this.element.dataset.autoplay &&
+      "true" == this.element.dataset.autoplay &&
+      this.autoPlay(this.element.dataset.delay || 5e3);
+    };
+    Carousel.prototype.initOrder = function () {
+      var a = this.element.querySelector(".carousel-item.is-active");
+        (a = this.items.indexOf(a))
+        ? this.items.push(this.items.splice(0, a))
+          : this.items.unshift(this.items.pop());
+        this.setOrder();
+    };
+    Carousel.prototype.setOrder = function () {
+      this.items.forEach(function (a, b) {
+        a.style["z-index"] = 1 !== b ? "0" : "1";
+        a.style.order = b;
+      });
+    };
+    Carousel.prototype.move = function (a) {
+      a = void 0 === a ? "next" : a;
+      var b = this;
+        this.items.length &&
+        (this.element
+          .querySelector(".carousel-item.is-active")
+          .classList.remove("is-active"),
+        "previous" === a
+        ? (this.items.unshift(this.items.pop()),
+          this.element.classList.add("is-reversing"))
+        : (this.items.push(this.items.shift()),
+          this.element.classList.remove("is-reversing")),
+        (1 <= this.items.length ? this.items[1] : this.items[0]).classList.add("is-active"),
+    this.setOrder(),
+    this.element.classList.toggle("carousel-animated"),
+
+      setTimeout(function () {
+        b.element.classList.toggle("carousel-animated");
+      }, 50));
+    };
+    Carousel.prototype.autoPlay = function (a) {
+      var b = this;
+      this.autoplayInterval = setInterval(
+        function () {
+          b.move("next");
+        },
+        void 0 === a ? 5e3 : a
+      );
+    };
+    document.addEventListener("DOMContentLoaded", function () {
+      var a = document.querySelectorAll(".carousel, .hero-carousel");
+      [].forEach.call(a, function (a) {
+        new Carousel(a);
       });
     });

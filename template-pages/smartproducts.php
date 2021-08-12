@@ -155,8 +155,7 @@ get_header();
 									</a>
 								</div>
 								<div class="button-group">
-									<a href="<?php if(empty( $custom_url)) { the_permalink(); } else { echo get_post_meta( $post->ID, 'custom_url_meta_content', true ); } ?>">More Info</a>
-									<a class="pricing-modal-activate" data-title="<?php the_title(); ?>" data-image="<?php echo $image_url ?>">Get Pricing</a>
+									<a href="<?php if(empty( $custom_url)) { the_permalink(); } else { echo get_post_meta( $post->ID, 'custom_url_meta_content', true ); } ?>">More Details</a>
 								</div>
 							</article>
 

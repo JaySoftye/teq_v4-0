@@ -132,4 +132,23 @@
         $("#product-image").attr("src", productImage);
     });
 
+    // Product Filter Function to hide unselected items
+		$('select#resourceFilter').on('change', function() {
+			var value = '.' + $(this).val();
+
+			$(".media-resource-content .resource-item").each(function() {
+				if($(this).is(value)) {
+					$(this).show(360).removeClass('filtered');
+				} else if($(this).not(value)) {
+					$(this).hide(360).addClass('filtered');
+				}
+			});
+			// If no results are visible
+			if($('.media-resource-content .resource-item').length === $('.media-resource-content .resource-item.filtered').length) {
+				$('.no-products-found').show();
+			} else {
+				$('.no-products-found').hide();
+			}
+		});
+
   });

@@ -110,25 +110,27 @@ get_header();
 				</div>
 			</nav>
 			<section class="padding-bottom">
-				<div class="content-container container">
-					<div class="columns is-centered is-multiline padding-bottom">
-						<?php while ( have_posts() ) : the_post(); ?>
-							<div class="column is-3-desktop is-4-tablet">
-								<div class="card">
-									<div class="card-image">
-										<figure class="image">
-											<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large') ?></a>
-										</figure>
-									</div>
-									<div class="card-content">
-										<h5>
-											<a class="relative-position less-line-height" href="<?php the_permalink(); ?>"><?php the_title(); ?> <span class="arrow"></span></a>
-										</h5>
-									</div>
-								</div>
+				<div class="content-container padding-left padding-right container">
+					<?php while ( have_posts() ) : the_post(); ?>
+
+						<div class="columns is-vcentered margin-left margin-right border-bottom">
+							<div class="column is-1">
+								<?php if ( has_post_thumbnail() ) { ?>
+									<a class="block less-line-height" href="<?php the_permalink(); ?>">
+										<img class="drop-shadow" width="50" height="50" src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' ); ?>" />
+									</a>
+								<?php } ?>
 							</div>
-						<?php endwhile; ?>
-					</div>
+							<div class="column">
+								<a class="block less-line-height" href="<?php the_permalink(); ?>"><?php the_title(); ?><span class="arrow"></span></a>
+							</div>
+							<div class="column is-2">
+								<p class="condensed-text upper-case caption has-text-right"><?php echo get_the_date( 'M d, Y' ); ?></p>
+							</div>
+						</div>
+
+
+					<?php endwhile; ?>
 				</div>
 			</section>
 

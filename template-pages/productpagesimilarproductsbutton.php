@@ -1,69 +1,128 @@
 <?php
 /**
- * Template Name: Professional Development Product Page
- * The template for displaying OTIS and Onsite PD and PD Bios
+ * Template Name: Product Page with Similar Products Button
+ * The template for displaying Products (includes Sub headers, OTIS Course, Pathway meta values)
  * @package Teq_v4.0
  */
 
 get_header();
 ?>
 
+<div id="product-form" product-title="<?php the_title_attribute(); ?>" class="modal product-pricing similar-products-options">
+	<div class="modal-background"></div>
+	<div class="modal-content is-centered columns pricing-form">
+		<section class="modal-card-body column is-three-quarters rounded-corners">
+			<?php echo get_the_post_thumbnail(); ?>
+			<p>To request exact pricing for <strong><?php the_title_attribute(); ?></strong>, simply fill out the form below and a Teq Representative will reach out to you directly.</p>
+			<br />
+			<!--[if lte IE 8]>
+			<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+			<![endif]-->
+			<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+			<script>
+				hbspt.forms.create({
+					portalId: "182596",
+					formId: "7066d3c7-0d82-4dca-8b83-48fe09525649",
+					submitButtonClass: '',
+					inlineMessage: '-',
+					onFormSubmit: function($form) {
+
+						// GRAB THE PAGE TITLE AND SET 'BLANK' HIDDEN INPUT FIELD AS TITLE OF THE PAGE
+						var title = $("#product-form").attr("product-title");
+						$('input[name="blank"]').val(title)
+
+						// SET CONFIRMATION TEXT UPON FormSubmit to #similarProductFormSubmitText HTML ELEMENT
+						$('h2#similarProductFormSubmitText').html('<strong class="blue-text condensed-text">Thank you </strong>for your interest. <span class="block is-size-5">A Teq Representative will reach out to you shortly, but please feel free to contact us with any additional questions at 877.455.9369.<br /><br /><br /><strong class="is-size-4">You might also be interested in:</strong></span>');
+						// SET PRICING FORM CONTAINER TO HIDDEN
+						$('.modal-content.pricing-form').hide();
+						// DISPLAY SIMILAR PRODUCTS CONTAINER UPON FormSubmit
+						$('.modal-content.similar-products').css('display', 'flex');
+					}
+				});
+			</script>
+		</section>
+	</div>
+	<div class="modal-content is-centered columns similar-products">
+		<h2 id="similarProductFormSubmitText" class="column is-full has-text-centered white-text"><strong>You might also be interested in:</strong></h2>
+
+		<?php
+		// GET MATCHING CPT Product-and-Service
+		// STORE in ARRAY ALL 'CATEGORIES' ASSOCIATED WITH MATCHING CustomPostType
+			$post_name = get_the_title();
+			$post = get_page_by_title( $post_name, OBJECT, 'Product-and-Service' );
+			$terms = wp_get_post_categories( $post->ID );
+			$categories = array();
+				foreach ( $terms as $term => $post_terms ) {
+					$categories[] = $post_terms;
+				};
+
+			// EXCLUDE 'CDW-G, FAMIS Product, Teq Product, Teq-tivities' CATEGORIES FROM THE ARRAY
+			$cdw_g_cat = get_cat_ID('CDW-G');
+			$famis_cat = get_cat_ID('FAMIS Product');
+			$teq_cat = get_cat_ID('Teq Product');
+			$teqtivities_cat = get_cat_ID('Teq-tivities');
+				$excluded_categories = array($cdw_g_cat, $famis_cat, $teq_cat, $teqtivities_cat);
+				$categories = array_diff($categories, $excluded_categories);
+
+
+				// QUERY WORDPRESS LOOP
+				if ( have_posts() ) :
+					$args = array(
+						'post_type' => 'product-and-service',
+						'cat' => $categories,
+						'post__not_in' => array( $post->ID ),
+						'taxonomy' => 'topic',
+						'posts_per_page' => 3,
+						'orderby' => 'rand',
+						'tax_query' => array(
+							array (
+								'taxonomy' => 'topics',
+								'field' => 'slug',
+								'terms' => 'STEM Technologies'
+							)
+						),
+					);
+
+			$the_query = new WP_Query( $args );
+				while ($the_query -> have_posts()) : $the_query -> the_post();
+					$custom_url = get_post_meta( $post->ID, 'custom_url_meta_content', true );
+		?>
+			<article class="column is-one-third rounded-corners <?php echo implode( ' ', $categories ); ?>">
+				<div class="modal-card-body card">
+					<a href="<?php if(empty( $custom_url)) { the_permalink(); } else { echo get_post_meta( $post->ID, 'custom_url_meta_content', true ); } ?>">
+						<span class="block has-text-centered strong is-size-5"><?php the_title(); ?></span>
+						<?php echo get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'featured-image' ) ); ?>
+					</a>
+				</div>
+			</article>
+		<?php endwhile; endif; wp_reset_postdata(); // End have_posts() check. ?>
+	</div>
+	<button class="modal-close is-large" aria-label="close"></button>
+</div>
+
 	<div id="primary" class="content-area white-background-fill" ng-app="productTabs">
 		<main id="main" class="site-main section-container" ng-controller="TabController">
 
-			<?php while ( have_posts() ) : the_post();
-
-				// IF THE PAGE IS THE PD BIO PAGE DISABLE THIS
-				$page_title = get_the_title( get_the_ID() );
-				if ($page_title === 'Professional Development Team Biographies') {
-
-			?>
-				<section class="container padding">
-					<div class="columns is-centered">
-						<div class="column is-full">
-							<h4 class="margin-bottom">We provide you with access to a dedicated team of State Certified Educators with skills and expertise in every subject and content area – English, Math, Science, Social Studies, STEM, ENL and Special Education. Teq’s PD Specialists and Curriculum Specialists who facilitate both our Onsite PD and Online PD sessions are all SMART Certified Trainers, Google Certified Educators, and possess various certifications including, but not limited to: <strong>Microsoft Office 365; Adobe Acrobat; STEM, Robotics and Coding; and Apple.</strong></h4>
-						</div>
-					</div>
-					<div class="columns is-centered is-multiline padding-bottom">
-						<?php $blogusers = get_users( [ 'role__in' => [ 'author' ] ] );
-							// Array of WP_User objects.
-							foreach ( $blogusers as $user ) {
-								echo '<div class="column is-4"><div class="card" style="height:100%;"><div class="card-content">';
-								echo '<div class="media">';
-								echo '<div class="media-left">';
-								echo '<figure class="image is-96x96"><img src="https://www.teq.com/images/headshots_circles/' . esc_html( $user->first_name ) . esc_html( $user->last_name ) . '.png" /></figure>';
-								echo '</div>';
-								echo '<div class="media-content"><p class="title is-5">' . esc_html( $user->first_name ) . ' ' . esc_html( $user->last_name ) . '<br />';
-								echo '<small><em>' . esc_html( $user->nickname ) . '</em><br /><a href="mailto:' . esc_html( $user->user_email ) . '">' . esc_html( $user->user_email ) . '</a></small></p></div>';
-								echo '</div>';
-								echo '<div class="content">';
-								echo '<p>' . $user->background . '</p>';
-									if ( !empty( $user->certification) ) {
-										echo '<p><strong class="caption">CERTIFICATIONS:</strong><br />' . $user->certification . '</p>';
-									}
-								echo '<p class="caption">' . $user->description . '</p>';
-								echo '</div>';
-								echo '</div></div></div>';
-							}
-						?>
-					</div>
-				</section>
 			<?php
-				} else {
+				while ( have_posts() ) :
+					the_post();
 
-				// variables for metadata
+					// variables for metadata
 					$sub_header = get_post_meta( get_the_ID(), 'sub_header_meta_content', true );
 					$header_info = get_post_meta( get_the_ID(), 'header_info_meta_content', true );
 					$pd_content = get_post_meta( get_the_ID(), 'pd_meta_content', true );
 					$pathway_content = get_post_meta( get_the_ID(), 'pathway_meta_content', true );
 					$tabs_content = get_post_meta( get_the_ID(), 'tabs_meta_content', true );
 
+					// GRAB THE PARENT PAGE TITLE
+					$post_data = get_post($post->post_parent);
+						$parent_slug = $post_data->post_name;
 
 					// Grab the Sub Header Meta for the product sub navbar if it exists
 					if( !empty( $sub_header) ) {
 			?>
 			<nav id="subhead" class="navbar product-site-header">
-				<div class="navbar-menu">
+				<div class="navbar-menu similar-products-template">
 					<?php
 						$sub_header_print_value = get_post_meta(get_the_ID(),'sub_header_meta_content',true);
 							echo html_entity_decode($sub_header_print_value);
@@ -79,8 +138,12 @@ get_header();
 						* </section>
 						*/
 					?>
+					<svg class="<?php echo $parent_slug; ?>">
+						<circle id="logoHighlight" cx="30%" cy="30%" r="0" />
+					</svg>
 				</div>
 			</nav>
+
 			<section ng-show="isSet(1)">
 				<div class="container padding-top">
 
@@ -102,10 +165,10 @@ get_header();
 									echo html_entity_decode($header_info_print_value);
 								}
 							?>
-						</div>
-						<div class="relative-position scroll-icon-container hide-laptop">
-							<div class="icon-scroll vertical"></div>
-							<p class="margin-sm-bottom caption">SCROLL</p>
+							<div class="buttons">
+  							<button class="button rounded no-shadow is-black pricing-modal-activate">Contact a Sales Rep</button>
+  							<button class="button rounded no-shadow scrollto" data-attr-scroll="productForm">Product Details</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -131,7 +194,7 @@ get_header();
 							formId: "7066d3c7-0d82-4dca-8b83-48fe09525649",
 							target: "#productForm",
 							submitButtonClass: '',
-							inlineMessage: 'Request Submitted, Thanks.',
+							inlineMessage: '',
 
 							onFormSubmit: function($form) {
 
@@ -143,7 +206,7 @@ get_header();
 								setTimeout( function() {
 									var formData = $form.serialize();
 									window.location = "/thankyouforyourinterest?" + formData;
-								}, 250 ); // Redirects to url with query string data from form fields after 250 milliseconds.
+								}, 50 ); // Redirects to url with query string data from form fields after 250 milliseconds.
 							}
 
 						});
@@ -151,6 +214,7 @@ get_header();
 				</script>
 
 				<?php
+
 					// Grab the iBlock Pathway content if it exists
 					if ( !empty( $pathway_content) ) {
 				?>
@@ -178,7 +242,7 @@ get_header();
 						<div class="container">
 							<div class="columns is-centered">
 								<div class="column is-6-desktop is-8-tablet">
-									<h1><strong>We Help Educators Succeed!</strong></h1>
+									<h1><strong>We Help Educators Succeed!</strong></h1>
 									<p class="hide-laptop">Boost your classroom technology skills to engage your students and improve instruction with Teq’s Online Professional Development platform, now known as <strong>OTIS for educators.</strong> <u>SCROLL DOWN</u> for a sample course.</p>
 								</div>
 							</div>
@@ -201,7 +265,7 @@ get_header();
 						<div class="container">
 							<div class="columns is-centered">
 								<div class="column is-6-desktop is-8-tablet">
-									<h1><strong>We Help Educators Succeed!</strong></h1>
+									<h1><strong>We HelpEducators Succeed!</strong></h1>
 									<p class="hide-laptop">Boost your classroom technology skills to engage your students and improve instruction with Teq’s Online Professional Development platform, now known as <strong>OTIS for educators.</strong> <u>SCROLL DOWN</u> for a sample course.</p>
 								</div>
 							</div>
@@ -236,49 +300,13 @@ get_header();
 				</div>
 			</section>
 			<?php } ?>
-
-			<section ng-show="isSet(2)">
-				<div class="content-container container margin-bottom">
-					<div class="columns is-centered">
-						<div class="column is-full">
-							<h4 class="margin-bottom">We provide you with access to a dedicated team of State Certified Educators with skills and expertise in every subject and content area – English, Math, Science, Social Studies, STEM, ENL and Special Education. Teq’s PD Specialists and Curriculum Specialists who facilitate both our Onsite PD and Online PD sessions are all SMART Certified Trainers, Google Certified Educators, and possess various certifications including, but not limited to: <strong>Microsoft Office 365; Adobe Acrobat; STEM, Robotics and Coding; and Apple.</strong></h4>
-						</div>
-					</div>
-					<div class="columns is-multiline margin-bottom">
-
-						<?php $blogusers = get_users( [ 'role__in' => [ 'author' ] ] );
-							// Array of WP_User objects.
-							foreach ( $blogusers as $user ) {
-								echo '<div class="column is-4"><div class="card" style="height:100%;"><div class="card-content">';
-								echo '<div class="media">';
-								echo '<div class="media-left">';
-								echo '<figure class="image is-96x96"><img src="https://www.teq.com/images/headshots_circles/' . esc_html( $user->first_name ) . esc_html( $user->last_name ) . '.png" /></figure>';
-								echo '</div>';
-								echo '<div class="media-content"><p class="title is-5">' . esc_html( $user->first_name ) . ' ' . esc_html( $user->last_name ) . '<br />';
-								echo '<small><em>' . esc_html( $user->nickname ) . '</em><br /><a href="mailto:' . esc_html( $user->user_email ) . '">' . esc_html( $user->user_email ) . '</a></small></p></div>';
-								echo '</div>';
-								echo '<div class="content">';
-								echo '<p>' . $user->background . '</p>';
-									if ( !empty( $user->certification) ) {
-										echo '<p><strong class="caption">CERTIFICATIONS:</strong><br />' . $user->certification . '</p>';
-									}
-								echo '<p class="caption">' . $user->description . '</p>';
-								echo '</div>';
-								echo '</div></div></div>';
-							}
-						?>
-					</div>
-				</div>
-			</section>
-
 			<?php
 				// Grab the other tabs content if it exists
 				if ( !empty( $tabs_content) ) {
 					$tabs_print_value = get_post_meta(get_the_ID(),'tabs_meta_content',true);
 						echo html_entity_decode($tabs_print_value);
 				}
-			}
-			endwhile; // End of the loop.
+				endwhile; // End of the loop.
 			?>
 
 		</main><!-- #main -->

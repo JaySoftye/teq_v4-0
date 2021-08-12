@@ -174,7 +174,7 @@ get_header();
 
 							?>
 
-								<article class="<?php echo the_title() . ' '; echo implode( ' ', $terms ); ?> column is-three-quarters-mobile is-one-third-tablet is-one-quarter-desktop is-one-fifth-widescreen is-one-fifth-fullhd product-item">
+								<article class="<?php echo the_title() . ' '; echo implode( ' ', $terms ); ?> column is-full-mobile is-one-third-tablet is-one-quarter-desktop is-one-fifth-widescreen is-2-fullhd product-item">
 									<div class="product-container">
 										<div class="product-content">
 											<h3>
@@ -198,8 +198,10 @@ get_header();
 										</a>
 									</div>
 									<div class="button-group">
-  									<a href="<?php if(empty( $custom_url)) { the_permalink(); } else { echo get_post_meta( $post->ID, 'custom_url_meta_content', true ); } ?>">More Info</a>
+  									<a href="<?php if(empty( $custom_url)) { the_permalink(); } else { echo get_post_meta( $post->ID, 'custom_url_meta_content', true ); } ?>">MORE DETAILS</a>
+										<!--
   									<a class="pricing-modal-activate" data-title="<?php the_title(); ?>" data-image="<?php echo $image_url ?>">Get Pricing</a>
+										-->
 									</div>
 								</article>
 

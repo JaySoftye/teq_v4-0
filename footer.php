@@ -30,7 +30,7 @@
 							c0,0,0-4.758,0-8.71H16.03v-3.077h1.721v-1.992c0-1.426,0.677-3.654,3.653-3.654l2.681,0.011v2.988c0,0-1.63,0-1.946,0
 							c-0.317,0-0.768,0.158-0.768,0.839v1.809h2.76L23.814,47.74z"/>
 						</a>
-						<a href="https://twitter.com/OTIS4educators">
+						<a href="https://twitter.com/TeqProducts">
 						<path d="M72.165,30.301c-9.627,0-17.433,7.806-17.433,17.433c0,9.629,7.806,17.433,17.433,17.433s17.433-7.803,17.433-17.433
 							C89.598,38.107,81.793,30.301,72.165,30.301z M79.098,44.18c0.007,0.153,0.011,0.307,0.011,0.462
 							c0,4.726-3.597,10.176-10.176,10.176c-2.02,0-3.899-0.592-5.483-1.607c0.281,0.032,0.565,0.049,0.854,0.049
@@ -157,14 +157,14 @@
 			<div class="columns is-multiline">
 				<figure class="column is-8">
 					<img src="<?php echo get_template_directory_uri() . '/inc/images/Teq-Inc_Brands.svg'; ?>" />
-	  			<p class="caption">Teq, OTIS for educators, Onsite Professional Development, iBlocks for project-based learning, STEM</p>
+	  			<p class="caption">Teq | Teaching Things, Inc.</p>
 				</figure>
 				<div class="column is-full border-top">
 					<p>
 						<small class="condensed-text">7 Norden Lane Huntington Station, NY 11746 (US)  |  877.455.9369 |  info@teq.com |  <a href="/teq-privacy-policy/"><u>Privacy Policy</u></a></small>
 						<br />
 						<span>
-							<small><sup>	&copy;</sup>2020 - Teq<sup>&reg;</sup>, It’s all about learning.<sup>&trade;</sup>, iBlocks<sup>&trade;</sup>, evoSpaces<sup>&trade;</sup>, pBlocks<sup>&trade;</sup>, Teq Essentials<sup>&reg;</sup>, OTIS for educators<sup>&reg;</sup> (formerly OPD, Online Professional Development), Onsite Professional Development<sup>&reg;</sup>, and Powered by Teq<sup>&reg;</sup> are trademarks or registered trademarks of Tequipment, Inc. in the US. Other company names and product names appearing here are the trademarks and registered trademarks of their respective companies.</small>
+							<small><sup>	&copy;</sup>2020 - Teq<sup>&reg;</sup>, It’s all about learning.<sup>&trade;</sup>, registered trademarks of Tequipment, Inc. in the US. Other company names and product names appearing here are the trademarks and registered trademarks of their respective companies.</small>
 						</span>
 					</p>
 				</div>

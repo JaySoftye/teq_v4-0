@@ -33,7 +33,7 @@ get_header();
 						<a class="navbar-item product-demo-request" href ng-model="demoFormCollapsed" ng-click="demoFormCollapsed=!demoFormCollapsed">Contact us</a>
 					</div>
 				</div>
-				<section class="product-demo-form" ng-show="demoFormCollapsed">
+				<section class="product-demo-form container" ng-show="demoFormCollapsed">
 					<div class="columns">
 						<div class="column">
 							<a class="delete is-large close-form" href ng-model="demoFormCollapsed" ng-click="demoFormCollapsed=!demoFormCollapsed"></a>

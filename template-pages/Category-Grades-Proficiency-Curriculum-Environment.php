@@ -103,11 +103,11 @@ get_header();
 							<td <?php if (has_term('grades-3-5', 'grades')) { echo 'class="checked"'; } ?>></td>
 							<td <?php if (has_term('grades-6-8', 'grades')) { echo 'class="checked"'; } ?>></td>
 							<td <?php if (has_term('grades-9-12', 'grades')) { echo 'class="checked"'; } ?>></td>
-							<td <?php if ( in_category('Coding') ) { echo 'class="checked"'; } ?>></td>
-							<td <?php if ( in_category('Engineering') ) { echo 'class="checked"'; } ?>></td>
-							<td <?php if ( in_category('Robotics') ) { echo 'class="checked"'; } ?>></td>
-							<td <?php if ( in_category('Hydroponics') ) { echo 'class="checked"'; } ?>></td>
-							<td <?php if ( in_category('General Education') ) { echo 'class="checked"'; } ?>></td>
+							<td <?php if (in_category('Coding') ) { echo 'class="checked"'; } ?>></td>
+							<td <?php if (in_category('Engineering') ) { echo 'class="checked"'; } ?>></td>
+							<td <?php if (in_category('Robotics') ) { echo 'class="checked"'; } ?>></td>
+							<td <?php if (in_category('Hydroponics') ) { echo 'class="checked"'; } ?>></td>
+							<td <?php if (in_category('General Education') ) { echo 'class="checked"'; } ?>></td>
 							<td <?php if (has_term('ela', 'topics')) { echo 'class="checked"'; } ?>></td>
 							<td <?php if (has_term('mathematics', 'topics')) { echo 'class="checked"'; } ?>></td>
 							<td <?php if (has_term('science', 'topics')) { echo 'class="checked"'; } ?>></td>

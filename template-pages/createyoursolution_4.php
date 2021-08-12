@@ -44,9 +44,9 @@ get_header();
 
 				<section id="nameFields" class="columns is-multiline is-centered is-vcentered is-desktop">
 					<div class="column is-9-desktop is-full-mobile has-text-centered">
-						<h1>Welcome!</h1>
-						<h2 class="is-size-5 margin-top margin-bottom">As educators, finding the perfect pedagogical solution to meet your needs can be challenging — until now! </h2>
-						<h2 class="is-size-5 margin-top margin-bottom">Here at Teq, we’re innovating the entire learning experience by bringing all the dynamic moving parts of education together into a complete thought. After answering just a few questions, you’ll be able to identify, browse, and refine a selection of customized solutions that best fit your unique needs.</h2>
+						<h1><strong>CREATE</strong> Your Solution</h1>
+						<h2 class="is-size-5 margin-top margin-bottom">Use our self-guided product and services selection tool to build a custom solution for your school!</h2>
+						<h2 class="is-size-5 margin-top margin-bottom">After answering a few simple questions, you’ll build a plan that includes STEM technology, project-based learning activities, and the professional learning that ties it all together. Then, get a summary of your selection results and start a conversation with our team.</h2>
 						<div class="input-control level">
 							<div class="level-item margin-top">
 								<button type="submit" class="level-item submit-button margin-auto ui white outer dark"><span class="inner">LET'S GET STARTED </span></button>

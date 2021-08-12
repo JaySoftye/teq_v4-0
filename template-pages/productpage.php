@@ -46,9 +46,6 @@ get_header();
 						* </section>
 						*/
 					?>
-					<svg class="<?php echo $parent_slug; ?>">
-						<circle id="logoHighlight" cx="30%" cy="30%" r="0" />
-					</svg>
 				</div>
 			</nav>
 
