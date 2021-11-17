@@ -1073,7 +1073,9 @@ ul.number-circle-list li::before {
 .blog-content .wp-block-image img {
 	width: 100%;
 }
-
+.blog-content ol, .blog-content ul {
+  padding-left: 24px;
+}
 .blog-content p, .blog-content .wp-block-image img {
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
@@ -1119,7 +1121,6 @@ ul.number-circle-list li::before {
 
 .blog-content ul {
   margin-top: 1.2rem;
-  margin-left: calc(12px + 1.2vw);
 }
 
 .blog-content li {

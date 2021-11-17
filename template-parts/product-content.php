@@ -101,7 +101,7 @@
 					if ( !empty( $custom_image) ) {
 			?>
 				<a class="block padding-sm-top" href="/product-and-service/otis-for-educators/?edc">
-					<img src="<?php echo html_entity_decode($custom_image); ?>" />
+					<img src="<?php echo get_template_directory_uri() . '/inc/ui/' . html_entity_decode($custom_image) . '.svg" />'; ?>" />
 				</a>
 				<?php } ?>
 			<?php } ?>

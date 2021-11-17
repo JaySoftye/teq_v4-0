@@ -71,7 +71,7 @@ get_header();
 			<div class="page-content featured-post">
 				<div class="container">
 
-					<div class="columns is-vcentered">
+					<div class="columns">
 						<?php
 							$args = array(
 								'category_name' => 'news',
@@ -83,11 +83,10 @@ get_header();
 								if ( $the_query->have_posts() ) :
 									while ( $the_query->have_posts() ) :
 										$the_query->the_post();
+											$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
 						?>
 						<div class="column">
-							<a href="<?php the_permalink(); ?>">
-								<figure><img src="<?php echo get_content_first_image(); ?>" /></figure>
-							</a>
+							<a href="<?php the_permalink(); ?>" style="height:100%;display:block;background-image:url('<?php echo esc_url($featured_img_url) ?>');background-position:center top;background-size:cover;background-repeat:no-repeat;"></a>
 						</div>
 						<article class="column">
 							<small class="condensed-text upper-case strong"><?php echo get_the_date( 'F d Y' ); ?></small>

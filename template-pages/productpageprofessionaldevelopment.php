@@ -37,9 +37,11 @@ get_header();
 								echo '<small><em>' . esc_html( $user->nickname ) . '</em><br /><a href="mailto:' . esc_html( $user->user_email ) . '">' . esc_html( $user->user_email ) . '</a></small></p></div>';
 								echo '</div>';
 								echo '<div class="content">';
-								echo '<p>' . $user->background . '</p>';
 									if ( !empty( $user->certification) ) {
 										echo '<p><strong class="caption">CERTIFICATIONS:</strong><br />' . $user->certification . '</p>';
+									}
+									if ( !empty( $user->background) ) {
+										echo '<p><strong class="caption">SPECIALTY AREAS:</strong><br />' . $user->background . '</p>';
 									}
 								echo '<p class="caption">' . $user->description . '</p>';
 								echo '</div>';
@@ -93,6 +95,9 @@ get_header();
 							<svg>
   							<circle id="featureHighlight" cx="50%" cy="50%" r="45%" />
 							</svg>
+							<a href="https://www.teachingthings.com">
+								<img style="max-width:39%;display:block;margin:0 auto;" src="<?php echo get_template_directory_uri() . '/inc/images/InPartnershipWithTeachingThings.svg'; ?>" alt="In Partnership with Teaching Things" />
+							</a>
 						</div>
 						<div class="column is-two-fifths-desktop <?php echo $parent_slug; ?>">
 							<?php
@@ -258,9 +263,11 @@ get_header();
 								echo '<small><em>' . esc_html( $user->nickname ) . '</em><br /><a href="mailto:' . esc_html( $user->user_email ) . '">' . esc_html( $user->user_email ) . '</a></small></p></div>';
 								echo '</div>';
 								echo '<div class="content">';
-								echo '<p>' . $user->background . '</p>';
 									if ( !empty( $user->certification) ) {
 										echo '<p><strong class="caption">CERTIFICATIONS:</strong><br />' . $user->certification . '</p>';
+									}
+									if ( !empty( $user->background) ) {
+										echo '<p><strong class="caption">SPECIALTY AREAS:</strong><br />' . $user->background . '</p>';
 									}
 								echo '<p class="caption">' . $user->description . '</p>';
 								echo '</div>';

@@ -16,7 +16,7 @@ get_header();
 					<div class="navbar-start hide-mobile">
 						<a class="navbar-item search-button" ng-class="{ close: isSearchFormOpen }" ng-click="isSearchFormOpen = !isSearchFormOpen">QUESTIONS/COMMENTS?</a>
 					</div>
-					<div class="navbar-center"></div>
+					<div class="navbar-center">Teq <strong>Events</strong></div>
 				  <div class="navbar-end hide-tablet">
 						<?php echo file_get_contents(get_template_directory_uri() . '/inc/images/social.svg'); ?>
 				  </div>
@@ -44,8 +44,8 @@ get_header();
 			<section class="media-download-header upcoming-events">
 				<div class="container columns is-vcentered is-desktop">
 					<div class="column is-7 teq-blog-search card">
-						<h1 class="less-line-height">Teq <strong>Events</strong></h1>
-						<h6>Here at Teq we strive to continually educate ourselves and others on the latest improvements in education. Below you can find a list of upcoming Events, Webinars, Professional Development Sessions, etc. Please feel free to engage with the Teq team here or through any one of our social channels. We look forward to your feedback and invite you to be part of our learning community.</h6>
+						<p>Here at Teq we strive to continually educate ourselves and others on the latest improvements in education. <strong>Below you can find a list of upcoming Events, Webinars, Professional Development Sessions, etc.</strong></p>
+						<h6>Please feel free to engage with the Teq team here or through any one of our social channels. We look forward to your feedback and invite you to be part of our learning community.</h6>
 
 						<h6><a class="button white-fill drop-shadow" href="/edtech-in-focus/">Host an EdTech Day <span class="arrow"></span></a> <a class="margin-left button blue-fill drop-shadow" href="/request-teq-squad">Request Teq Squad <span class="arrow light"></span></a> </h6>
 

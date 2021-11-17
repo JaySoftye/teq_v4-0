@@ -222,6 +222,16 @@ function teq_v4_0_scripts() {
 		wp_enqueue_script( 'rest-api-js-response', get_template_directory_uri(). '/js/my-ajax-script_4.js', array(), '1.0', true );
 	}
 
+	// VERSION_5 STYLESHEET AND JAVASCRIPT FUNCTIONS FOR CREATE YOUR SOLUTION
+	if ( is_page_template( array( 'template-pages/createyoursolution_5.php', 'template-pages/createyoursolution_5_products.php', 'template-pages/createyoursolution_5_solutionresult.php' ))) {
+		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-create_your_solution_stylesheet_5.css' );
+
+		wp_deregister_script( 'create-js-functions' );
+		wp_enqueue_script( 'create-js-functions', get_template_directory_uri() . '/js/create-functions_5.js', '', '', true );
+		wp_deregister_script( 'rest-api-js-response' );
+		wp_enqueue_script( 'rest-api-js-response', get_template_directory_uri(). '/js/my-ajax-script_5.js', array(), '1.0', true );
+	}
+
 	// STYLESHEET AND JAVASCRIPT FUNCTIONS FOR EVOLVE
 	if ( is_page_template( array( 'template-pages/evolve.php' ) ) ) {
 		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-evolve_stylesheet.css' );
@@ -475,6 +485,10 @@ function custom_post_type_product_and_service() {
 		*/
 		'hierarchical'        => false,
 		'public'              => true,
+		'show_in_rest'       => true,
+    'rest_base'          => 'product-and-service',
+    'rest_controller_class' => 'WP_REST_Posts_Controller',
+		'show_ui'             => true,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
@@ -688,7 +702,6 @@ function send_mails_on_custom_solution_publish( $new_status, $old_status, $post 
 }
 
 
-
 /* CUSTOM TAXONOMY CREATED FOR PRODUCT AND SERVICE CUSTOM POST TYPE
 * hook into the init action and call create_book_taxonomies when it fires
 */
@@ -739,6 +752,7 @@ function create_topics_hierarchical_taxonomy() {
     'show_ui' => true,
     'show_admin_column' => true,
     'query_var' => true,
+		‘show_in_rest’ => true,
     'rewrite' => array( 'slug' => 'grade' ),
   ));
 	$labels = array(
@@ -761,6 +775,7 @@ function create_topics_hierarchical_taxonomy() {
     'show_ui' => true,
     'show_admin_column' => true,
     'query_var' => true,
+		‘show_in_rest’ => true,
     'rewrite' => array( 'slug' => 'proficiency' ),
   ));
 	$labels = array(
@@ -783,6 +798,7 @@ function create_topics_hierarchical_taxonomy() {
     'show_ui' => true,
     'show_admin_column' => true,
     'query_var' => true,
+		‘show_in_rest’ => true,
     'rewrite' => array( 'slug' => 'curriculum' ),
   ));
 	$labels = array(
@@ -805,8 +821,9 @@ function create_topics_hierarchical_taxonomy() {
     'show_ui' => true,
     'show_admin_column' => true,
     'query_var' => true,
+		‘show_in_rest’ => true,
     'rewrite' => array( 'slug' => 'environment' ),
-  ));
+	));
 }
 
 /* CUSTOM TAXONOMY CREATED FOR PATHWAY CUSTOM POST TYPE
@@ -837,9 +854,20 @@ function create_product_hierarchical_taxonomy() {
     'show_ui' => true,
     'show_admin_column' => true,
     'query_var' => true,
+		‘show_in_rest’ => true,
     'rewrite' => array( 'slug' => 'product' ),
   ));
 }
+
+/**
+ * REGISTER TAGS TAXONOMY FOR CUSTOM POST TYPES (CPT)
+ * ALLOW USAGE OF TAGS FOR PRODUCT AND SERVICE, PATHWAY CPT'S
+ */
+function reg_tags() {
+	register_taxonomy_for_object_type('post_tag', 'pathways');
+	register_taxonomy_for_object_type('post_tag', 'product-and-service');
+}
+add_action('init', 'reg_tags');
 
 /**
  * CUSTOM META BOXES FOR PRODUCT AND SERVICE CUSTOM POST TYPE ONLY
@@ -952,9 +980,9 @@ function custom_product_service_meta_html( $post) {
 		</p>
 		<br />
 		<p class="wp-block-html">
-			<label for="iblock_focus_stats_html"><?php _e( 'Primary and Secondary Focus', 'text-domain' ); ?></label>
+			<label for="iblock_focus_stats_html"><?php _e( 'Primary Icon', 'text-domain' ); ?></label>
 			<br>
-			<textarea name="iblock_focus_stats_html" id="iblock_focus_stats_html" class="block-editor-plain-text" placeholder="Write HTML…" aria-label="HTML" rows="12" style="width:100%; overflow-y: scroll; overflow-wrap: break-word; box-shadow: 0 3px 5px rgba(0,0,0,.2);"><?php echo custom_get_meta( 'iblock_focus_stats_html' ); ?></textarea>
+			<input type="text" name="iblock_focus_stats_html" id="iblock_focus_stats_html" class="block-editor-plain-text" placeholder="SVG File Name…" aria-label="HTML" style="width:100%; box-shadow: 0 3px 5px rgba(0,0,0,.2);" value="<?php echo custom_get_meta( 'iblock_focus_stats_html' ); ?>" />
 		</p>
 		<br />
 		<?php } //endfunction
@@ -989,12 +1017,41 @@ function custom_product_service_meta_html( $post) {
 		* ADD CUSTOM META FIELD TO REST API RESPONSE
 		* REGISTER REST FIELD IN URL
 		* META FIELD 'iBlock_focus_meta_html' INCLUDED IN REST API return
+		* META FIELD 'iBlock_focus_STATS_html' INCLUDED IN REST API return
 		* /wp-json/wp/v2/pathways/'postID'
 		*/
 		add_action( 'rest_api_init', function () {
 			register_rest_field( 'pathways', 'iblock_focus_meta_html', array(
 				'get_callback' => function( $post_arr ) {
 					return get_post_meta( $post_arr['id'], 'iblock_focus_meta_html', true );
+				},
+		   ) );
+		});
+		add_action( 'rest_api_init', function () {
+			register_rest_field( 'pathways', 'iblock_focus_stats_html', array(
+				'get_callback' => function( $post_arr ) {
+					return get_post_meta( $post_arr['id'], 'iblock_focus_stats_html', true );
+				},
+		   ) );
+		});
+	/**
+		* ADD CUSTOM META FIELD TO REST API RESPONSE
+		* REGISTER REST FIELD IN URL
+		* META FIELD 'custom_image_meta_content' INCLUDED IN REST API return
+		* META FIELD 'additional_info_meta_content' INCLUDED IN REST API return
+		* /wp-json/wp/v2/product-and-service/'postID'
+		*/
+		add_action( 'rest_api_init', function () {
+			register_rest_field( 'product-and-service', 'custom_image_meta_content', array(
+				'get_callback' => function( $post_arr ) {
+					return get_post_meta( $post_arr['id'], 'custom_image_meta_content', true );
+					},
+			  ) );
+		});
+		add_action( 'rest_api_init', function () {
+			register_rest_field( 'product-and-service', 'additional_info_meta_content', array(
+				'get_callback' => function( $post_arr ) {
+					return get_post_meta( $post_arr['id'], 'additional_info_meta_content', true );
 				},
 		   ) );
 		});
@@ -1007,7 +1064,7 @@ function custom_product_service_meta_html( $post) {
 		*/
 		add_action('rest_api_init', 'register_rest_images' );
 			function register_rest_images() {
-				register_rest_field( array('pathways'), 'img_url', array (
+				register_rest_field( array('pathways', 'product-and-service'), 'img_url', array (
 					'get_callback'    => 'get_rest_featured_image',
           'update_callback' => null,
           'schema'          => null,
@@ -1021,7 +1078,65 @@ function custom_product_service_meta_html( $post) {
     		return false;
 			}
 
+	/**
+		* ADDITIONAL FIELDS FOR REST calls
+		* REGISTER REST FIELD IN URL
+		* GET tag -> name from ID
+		* set as 'tags_names' data field in response
+		* /wp-json/wp/v2/pathways/'postID'
+		*/
+		add_action( 'rest_api_init', 'wpse_register_tags_names_field' );
+			function wpse_register_tags_names_field() {
+				register_rest_field( array('pathways', 'product-and-service'), 'tags_names', array(
+					'get_callback'    => 'wpse_get_tags_names',
+					'update_callback' => null,
+					'schema'          => null,
+        ) );
+			}
+			function wpse_get_tags_names( $object, $field_name, $request ) {
+	    	$formatted_tags = array();
+	    	$tags = get_the_tags( $object['id'] );
 
+				foreach ($tags as $tag) {
+	        $formatted_tags[] = $tag->name;
+	    	}
+	    return $formatted_tags;
+		}
+		add_action( 'rest_api_init', 'wpse_register_grade_levels_field' );
+			function wpse_register_grade_levels_field() {
+				register_rest_field( array('pathways', 'product-and-service'), 'grade_levels', array(
+					'get_callback'    => 'wpse_get_grade_levels',
+					'update_callback' => null,
+					'schema'          => null,
+        ) );
+			}
+			function wpse_get_grade_levels( $object, $field_name, $request ) {
+	    	$grade_bands = array();
+	    	$grades = get_the_terms( $object['id'], grades );
+
+				foreach ($grades as $grade) {
+	        $grade_bands[] = ' ' . $grade->name;
+	    	}
+	    	return $grade_bands;
+			}
+		add_action( 'rest_api_init', 'wpse_register_categories_names_field' );
+			function wpse_register_categories_names_field() {
+
+    		register_rest_field( array('pathways', 'product-and-service'), 'categories_names', array(
+          'get_callback'    => 'wpse_get_categories_names',
+          'update_callback' => null,
+          'schema'          => null,
+        ) );
+			}
+			function wpse_get_categories_names( $object, $field_name, $request ) {
+				$formatted_categories = array();
+    		$categories = get_the_category( $object['id'] );
+
+    		foreach ($categories as $category) {
+        	$formatted_categories[] = ' ' . $category->slug;
+    		}
+    		return $formatted_categories;
+			}
 
 	/**
 		* ADD EXTRA USER FIELDS FOR PROFILE INFO

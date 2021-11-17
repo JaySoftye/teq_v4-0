@@ -374,14 +374,6 @@ get_header();
 									<div class="column is-one-fifth is-4-tablet has-text-centered">
 										<article class="profile-card">
 											<figure>
-												<img src="https://www.teq.com/wp-content/uploads/2016/12/about-us-leadership-JosephSanfilippo.png" />
-											</figure>
-											<h5><strong class="blue-text">Joseph Sanfilippo</strong><em class="block caption">Director of eLearning</em></h5>
-										</article>
-									</div>
-									<div class="column is-one-fifth is-4-tablet has-text-centered">
-										<article class="profile-card">
-											<figure>
 												<img src="https://www.teq.com/wp-content/uploads/2016/12/about-us-leadership-MichellePetry.png" />
 											</figure>
 											<h5><strong class="blue-text">Michelle Petry</strong><em class="block caption">Director of Client Services</em></h5>

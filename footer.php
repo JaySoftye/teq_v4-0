@@ -15,7 +15,7 @@
 		<div class="site-info container fluid-width">
 			<div class="columns">
 				<div class="column">
-					<h2 class="condensed-text"> It's all about learning.</h2>
+					<h2 class="condensed-text"> It's all about learning</h2>
 					<?php wp_nav_menu(array(
 	          'menu'       => 'Main Menu', // specify the menu name
 	          'menu_class' => '',
@@ -41,7 +41,7 @@
 							c0.814-0.159,1.58-0.457,2.271-0.868c-0.268,0.836-0.834,1.536-1.572,1.979c0.723-0.085,1.413-0.278,2.053-0.562
 							C80.403,43.046,79.797,43.676,79.098,44.18z"/>
 						</a>
-						<a href="https://www.linkedin.com/company/teq/">
+						<a href="https://www.linkedin.com/company/1102354/admin/">
 						<path d="M125.295,46.453v-0.036c-0.006,0.012-0.016,0.026-0.024,0.036H125.295z"/>
 						<path d="M124.251,30.301c-9.628,0-17.433,7.806-17.433,17.433c0,9.629,7.804,17.433,17.433,17.433
 							c9.627,0,17.433-7.803,17.433-17.433C141.684,38.107,133.878,30.301,124.251,30.301z M119.493,56.066h-3.738v-11.24h3.738V56.066z
@@ -50,7 +50,7 @@
 							c-1.031,0-1.647,0.698-1.917,1.368c-0.099,0.24-0.123,0.573-0.123,0.911v6.277h-3.736c0,0,0.048-10.187,0-11.24h3.736v1.592
 							c0.498-0.768,1.386-1.856,3.369-1.856c2.458,0,4.303,1.605,4.303,5.058L132.967,56.066L132.967,56.066z"/>
 						</a>
-						<a href="https://www.youtube.com/channel/UCD_OKAjPLDEJbkgq3IYXdlg">
+						<a href="https://www.youtube.com/channel/UCct9dxPcs-f0duZ033F40cA">
 						<path d="M176.185,45.078c0.135,0,0.242-0.036,0.32-0.111c0.08-0.075,0.12-0.179,0.12-0.308v-2.647c0-0.107-0.04-0.191-0.121-0.257
 							c-0.081-0.066-0.188-0.098-0.319-0.098c-0.12,0-0.219,0.032-0.296,0.098c-0.074,0.066-0.113,0.151-0.113,0.257v2.647
 							c0,0.134,0.036,0.236,0.107,0.308C175.953,45.045,176.054,45.078,176.185,45.078z"/>
@@ -106,7 +106,7 @@
 					</svg>
 				</div>
 				<div class="column">
-					<h2 class="condensed-text">Teq Talk.</h2>
+					<h2 class="condensed-text">Teq Talk</h2>
 
 						<?php
 							$args = array(
@@ -138,7 +138,7 @@
 
 				</div>
 				<div class="column">
-					<h2 class="condensed-text"> And stay connected.</h2>
+					<h2 class="condensed-text"> And stay connected</h2>
 					<!--[if lte IE 8]>
 		      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
 		      <![endif]-->
