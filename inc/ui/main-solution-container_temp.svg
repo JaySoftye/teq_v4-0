@@ -120,7 +120,8 @@
 	.st117{fill:#110000;}
 	.st118{fill:#B8EB67;}
 </style>
-<image xlink:href="/wp-content/themes/teq_v4-0/inc/ui/farmshelf-reverse.svg" x="0" y="0" id="farmshelf" class="hidden" width="135" height="135" />
+<image xlink:href="/wp-content/themes/teq_v4-0/inc/ui/farmshelf-reverse.svg" x="0" y="0" id="farmshelf" class="hidden smart-product" width="135" height="135" />
+<image xlink:href="/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution.svg" x="0" y="0" id="smart-board-add-on" class="hidden smart-product" width="100%" height="100%" />
 <g id="Virtual-PD-SMART-Board" class="classroom-element">
 	<g>
 		<path class="st0" d="M182.879,84.135l44.063,24.549l44.063,24.549l2.215,13.617c-8.144-4.537-6.16,3.79-22.279-5.191

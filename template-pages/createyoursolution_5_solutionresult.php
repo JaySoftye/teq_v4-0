@@ -129,6 +129,7 @@ get_header();
 													$post_id = get_the_ID();
 										      $custom_image = get_post_meta( get_the_ID(), 'custom_image_meta_content', true );
 													$solution_content = get_post_meta( get_the_ID(), 'additional_info_meta_content', true );
+                          $product_url = get_post_meta( get_the_ID(), 'custom_url_meta_content', true );
 										  ?>
 										  <li class="solution-item">
 												<button type="button" class="close-selection" ng-click="accordionNameItem = ''" ng-show="accordionNameItem == '<?php echo $post_label; ?>'"></button>
@@ -138,6 +139,7 @@ get_header();
 													<h2><?php the_title(); ?><small>STEM Technology</small></h2>
 													<div class="solution-details" ng-show="accordionNameItem == '<?php echo $post_label; ?>'">
 														<?php echo html_entity_decode($solution_content); ?>
+                            <a href="<?php echo $product_url; ?>" class="product-link" target="_blank">Learn More ›</a>
 													</div>
 												</div>
 											</li>
@@ -170,6 +172,7 @@ get_header();
 													<h2><?php the_title(); ?><small>Project-Based Learning Activity</small></h2>
 													<div class="solution-details" ng-show="accordionNameItem == '<?php echo $post_label; ?>'">
 														<?php echo html_entity_decode($solution_content); ?>
+                            <a href="https://iblocks.com/iblocks-ideas/" class="product-link" target="_blank">Learn More ›</a>
 													</div>
 												</div>
 											</li>
@@ -193,6 +196,7 @@ get_header();
 														$post_id = get_the_ID();
 											      $custom_image = get_post_meta( get_the_ID(), 'custom_image_meta_content', true );
 														$solution_content = get_post_meta( get_the_ID(), 'additional_info_meta_content', true );
+                            $pd_product_url = get_post_meta( get_the_ID(), 'custom_url_meta_content', true );
 										    ?>
 												<li class="solution-item">
 													<button type="button" class="close-selection" ng-click="accordionNameItem = ''" ng-show="accordionNameItem == '<?php echo $post_label; ?>'"></button>
@@ -202,6 +206,7 @@ get_header();
 														<h2><?php the_title(); ?><small>Professional Development</small></h2>
 														<div class="solution-details" ng-show="accordionNameItem == '<?php echo $post_label; ?>'">
 															<?php echo html_entity_decode($solution_content); ?>
+                              <a href="<?php echo $pd_product_url; ?>" class="product-link" target="_blank">Learn More ›</a>
 														</div>
 													</div>
 												</li>
@@ -209,6 +214,36 @@ get_header();
 										    endwhile; endif;
 										      wp_reset_postdata();
 										  ?>
+											<li class="solution-item smart-board-option">
+												<button type="button" class="close-selection" ng-click="accordionNameItem = ''" ng-show="accordionNameItem == 'smart_board_options'"></button>
+												<div class="smart-board-title" ng-click="accordionNameItem = 'smart_board_options'" ng-class="{'is-active' : accordionNameItem == 'smart_board_options'}">
+
+													<img src='/wp-content/themes/teq_v4-0/inc/ui/add_a_smart_display.svg' />
+                          <img src='/wp-content/themes/teq_v4-0/inc/ui/add_a_smart_display_is-selected.svg' />
+
+													<h2>An unparalleled collaborative experience <small>There’s a SMART display for every classroom</small></h2>
+                          <div class="solution-details" ng-show="accordionNameItem == 'smart_board_options'">
+
+                            <label class="checkbox" data-type="7000r" ng-click="smartBoard7000r = 'true'; smartBoard6000s = 'false'; smartBoardMx = 'false';" ng-class="{'is-selected' : smartBoard7000r == 'true'}">
+                              <img src='/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-7000r-icon.svg' />
+                              <input type="checkbox" class="smartBoardOption" name="quoted_items[]" value="SMART-7000r">
+                              <p>SMART 7000r Series<small>Available in 65”, 75”, or 86” with HyPr Touch with inGlass™ included, fueled by the powerful iQ module. Designed for precision writing and interaction. SMART Board 7000R series gives you cutting-edge technology for a competitive price, for more connected classrooms and engaging learning. </small></p>
+                            </label>
+                            <label class="checkbox" data-type="6000s" ng-click="smartBoard7000r = 'false'; smartBoard6000s = 'true'; smartBoardMx = 'false';" ng-class="{'is-selected' : smartBoard6000s == 'true'}">
+                              <img src='/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-6000s-icon.svg' />
+                              <input type="checkbox" class="smartBoardOption" name="quoted_items[]" value="SMART-6000s">
+                              <p>SMART 6000s Series<small>Available in 55“, 65”, 75”, or 86” with HyPr Touch with Advanced IR included, fueled by the powerful iQ module. Cutting-edge technology at a competitive price, for more connected classrooms and engaging learning. SMART Board 6000S’s ease of use brings capability to the classroom without complexity, for a proven return on your technology investment.</small></p>
+                            </label>
+                            <label class="checkbox" data-type="mx" ng-click="smartBoard7000r = 'false'; smartBoard6000s = 'false'; smartBoardMx = 'true';" ng-class="{'is-selected' : smartBoardMx == 'true'}">
+                              <img src='/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-mx-icon.svg' />
+                              <input type="checkbox" class="smartBoardOption" name="quoted_items[]" value="SMART-MX">
+                              <p>SMART MX Series<small>Available in 65”, 75”, or 86” with Advanced IR included. Easily connect devices, content and learning experiences, both in and out of the classroom. And with a SMART Board that’s easy to deploy and support, you achieve return on your technology investment and a lower total cost of ownership.</small></p>
+                            </label>
+
+                            <button type="button" class="removeSmartOptions" ng-show="smartBoard7000r == 'true' || smartBoard6000s == 'true' || smartBoardMx == 'true'" ng-click="smartBoard7000r = 'false'; smartBoard6000s = 'false'; smartBoardMx = 'false';">Remove Selected</button>
+                          </div>
+												</div>
+											</li>
 										</ul>
 									</div>
 									<div id="solutionSVG" class="column solution-svg-container">
@@ -233,8 +268,9 @@ get_header();
 						<button type="button" id="productSearchNextButton" class="next contactFormButton">Talk to a Rep</button>
 						<button type="button" id="productSearchBackButton" class="skip" onclick="goBack()">Back</button>
 					</div>
-					<div class="buttonGroup">
-						<button type="button" id="yourClassroomSolution" class="print">PRINT SOLUTION</button>
+					<div class="buttonGroup hide-tablet">
+            <button type="button" class="print" onclick="checkedItems()">/ LOG</button>
+						<button type="button" id="printYourSolution" class="print">PRINT SOLUTION</button>
 					</div>
 				</div>
 			</div>

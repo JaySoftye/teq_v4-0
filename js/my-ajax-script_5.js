@@ -160,6 +160,21 @@ $(document).ready(function() {
         });
       });
 
+
+  function hideAllElements() {
+    // HIDE ALL ELEMENTS IN SVG CONTAINER
+    $(".solution-svg-container #loader").show();
+    $("#deviceOne").addClass("hidden");
+    $("#deviceTwo").addClass("hidden");
+    $("#deviceThree").addClass("hidden");
+    $("#deviceFour").addClass("hidden");
+    $("#farmshelf").addClass("hidden");
+    $("#stem-pd-instructor").addClass("hidden");
+    $("#online-pd-educator").addClass("hidden");
+    $("#iblock-onsite-pd-instructor").addClass("hidden");
+    $("#Virtual-PD-SMART-Board").addClass("hidden");
+    $("#smart-board-add-on").addClass("hidden");
+  }
   // JQUERY FUNCTION TO HANDLE REST API RESPONSE
   // END SOLUTION RESULT
   // CAPTURE THE IMAGE ICONS AND APPEND TO THE #solution-svg-container ELEMENT
@@ -169,15 +184,7 @@ $(document).ready(function() {
     var postCategory = $(this).attr('data-Category');
     var stemTitle = $(this).attr('title');
 
-      $(".solution-svg-container #loader").show();
-      $("#deviceOne").addClass("hidden");
-      $("#deviceTwo").addClass("hidden");
-      $("#deviceThree").addClass("hidden");
-      $("#deviceFour").addClass("hidden");
-      $("#stem-pd-instructor").addClass("hidden");
-      $("#online-pd-educator").addClass("hidden");
-      $("#iblock-onsite-pd-instructor").addClass("hidden");
-      $("#Virtual-PD-SMART-Board").addClass("hidden");
+      hideAllElements()
 
     // AJAX CALL TO GATHER JSON data
     // JSON DATA PARSED AS HTML
@@ -189,7 +196,6 @@ $(document).ready(function() {
       dataType: 'json',
       type: 'GET',
       success: function(data) {
-
 
         function pdStudentDevices() {
         // APPEND ELEMENT TO CONTAINERS IN SVG ELEMENT
@@ -227,6 +233,7 @@ $(document).ready(function() {
           $("#farmshelf").addClass("hidden");
           $(".solution-svg-container svg .classroom-element.student").removeClass("hidden");
           $("#stem-pd-instructor").removeClass("hidden");
+
         } else if (postCategory == 'pathway') {
           var img = "/wp-content/themes/teq_v4-0/inc/ui/" + data.iblock_focus_stats_html + ".svg";
           var imgReverse = "/wp-content/themes/teq_v4-0/inc/ui/" + data.iblock_focus_stats_html + "-reverse.svg";
@@ -268,4 +275,73 @@ $(document).ready(function() {
     });
   });
 
+  // SMART BOARD OPTION CHECKBOX
+  // HIDE ALL IMAGE ELEMENTS IN SVG CONTAINER
+  // UPDATE STUDENT DEVICE IMAGES AND APPEND NEW IMAGE PATH BASED IN 'data-type' ATTRIBUTE
+  // SHOW STUDENT DEVICE, TEACHER, SMART BOARD ID ELEMENTS
+  // ADD CHECK STATUS TO ITEM THAT WAS CLICKED OF THE 'input' ELEMENT
+  // LOOP THROUGH SIMILAR SIBLING ELEMENTS AND MARK UNCHECKED
+  // WHEN CHECKBOX ELEMENT IS CHECKED ADD 'selected' CLASS TO PARENT ELEMENT
+  $("#main-solution-container .solution-item.smart-board-option .smart-board-title .solution-details label.checkbox").on( "click", function() {
+    var dataType = $(this).attr('data-type');
+      hideAllElements()
+      $(".solution-svg-container #loader").hide();
+
+      $("#deviceOne").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/pd-product-student-device1.svg').fadeIn(1000);
+      $("#deviceTwo").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/pd-product-student-device2.svg').fadeIn(1000);
+      $("#deviceThree").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/pd-product-student-device3.svg').fadeIn(1000);
+      $("#deviceFour").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/pd-product-student-device4.svg').fadeIn(1000);
+
+        if (dataType == '7000r') {
+          $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-7000r.svg').fadeIn(1000);
+        } else if (dataType == '6000s') {
+          $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-6000s.svg').fadeIn(1000);
+        } else if (dataType == 'mx') {
+          $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-mx.svg').fadeIn(1000);
+        }
+
+        $(".solution-svg-container svg .classroom-element.student").removeClass("hidden");
+        $("#smart-board-add-on").removeClass("hidden");
+        $("#stem-pd-instructor").removeClass("hidden");
+
+      $(".smart-board-option .smart-board-title .solution-details       label.checkbox input").each(function() {
+        $(this).prop('checked',false);
+      });
+      $(this).children('input').prop('checked',true);
+      $(this).closest('.smart-board-title').addClass('is-selected');
+
+    $('html, body').animate({
+        scrollTop: $("#productSelections").offset().top
+    }, 480);
+  });
+  // UNCHECK ALL SMART BOARD OPTIONS
+  $("#main-solution-container button.removeSmartOptions").on( "click", function() {
+    $(".smart-board-option .smart-board-title .solution-details label.checkbox input").each(function() {
+      $(this).prop('checked',false);
+      $(this).closest('.smart-board-title').removeClass('is-selected');
+    });
+    $("#smart-board-add-on").addClass("hidden");
+  });
+
+  // PRINT YOUR SOLUTION button
+  // ENABLE PRINT FUNCTION WITH THE PRINT STYLE GUIDE
+  $("#printYourSolution").click(function(){
+    $(".solution-details").each(function() {
+      $(this).removeClass("ng-hide").addClass("is-active");
+    });
+      window.print();
+      location.reload();
+        return false;
+  });
+
 });
+
+
+function checkedItems() {
+  var array = []
+  var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+  for (var i = 0; i < checkboxes.length; i++) {
+    array.push(checkboxes[i].value)
+  }
+  console.log(array);
+}

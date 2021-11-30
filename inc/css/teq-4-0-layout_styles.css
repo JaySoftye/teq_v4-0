@@ -33,10 +33,6 @@ nav.navbar div.navbar-brand a.navbar-item svg, nav.navbar div.navbar-brand svg {
 	width: auto;
 }
 
-body.home nav.navbar div.navbar-brand svg g {
-	 fill: #2f8ccd;
-}
-
 nav.navbar div.navbar-brand svg.mobile-brand-icon {
 	display: none;
 	padding: 12px;

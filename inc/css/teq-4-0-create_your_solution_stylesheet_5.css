@@ -17,7 +17,7 @@
 h1, h2, h3, h4, h5, h6, p, small, blockquote, a, li, table, td, tr, button {
   color: rgb(0,0,0);
 }
-h1, h2, h3, h4, h5, h6, button, input, th, a.tags span {
+h1, h2, h3, h4, h5, h6, button, input, th, a.tags span, a.product-link {
   line-height: 1.2;
   font-family: 'Roboto-slab',Helvetica,Arial,san-serif !important;
 }
@@ -881,7 +881,7 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
   user-select: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-  height: 100%;
+  min-height: 99px;
   width: 100%;
   position: absolute;
   top: 0;
@@ -894,7 +894,7 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
 #main-solution-container .column ul li.solution-item input[type="checkbox"] {
   display: none !important;
 }
-#main-solution-container .column ul li.solution-item .solution-title {
+#main-solution-container .column ul li.solution-item .solution-title, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -902,18 +902,26 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
   margin-bottom: 6px;
   padding: 12px 24px;
   background-color: #ECEEEF;
+  border: 2px solid #ECEEEF;
   border-radius: 9px;
   cursor: pointer;
   transition: .18s ease;
 }
-#main-solution-container .column ul li.solution-item .solution-title:hover {
-  box-shadow: 0 3px 6px rgba(0,0,0,.12);
-  transform: translateX(3px);
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title.is-active:hover {
+  background-color: #FFFFFF;
+  border: dotted 3px #ECEEEF;
+}
+#main-solution-container .column ul li.solution-item .solution-title:hover, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title:hover {
+  border-color: #3298dc;
 }
 #main-solution-container .column ul li.solution-item .solution-title.is-active {
   background-color: #FFFFFF;
 }
-#main-solution-container .column ul li.solution-item .solution-title.is-active::after {
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title:hover {
+  background-color: #ECEEEF;
+  border-color: #ECEEEF;
+}
+#main-solution-container .column ul li.solution-item .solution-title.is-active::after, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title.is-active::after {
   content: ' \2715';
   height: 24px;
   width: 24px;
@@ -922,25 +930,51 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
   right: 24px;
   color: #888888;
 }
-#main-solution-container .column ul li.solution-item .solution-title > img {
+#main-solution-container .column ul li.solution-item .solution-title > img, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > img {
   max-width: 90px;
   height: auto;
   padding-right: 18px;
   user-select: none;
 }
-#main-solution-container .column ul li.solution-item .solution-title h2 {
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title.is-selected > img {
+  opacity: .36;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > img:nth-child(2) {
+  position: absolute;
+  top: 12px;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: .18s ease;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title.is-selected > img:nth-child(2) {
+  opacity: 1;
+  visibility: visible;
+}
+#main-solution-container .column ul li.solution-item .solution-title h2, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title h2 {
   width: calc(100% - 90px);
   margin-top: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
+  padding-right: 12px;
   font-size: 1.5rem;
   font-weight: 500;
   color: #3298dc;
 }
-#main-solution-container .column ul li.solution-item .solution-title h2 > small {
+#main-solution-container .column ul li.solution-item .solution-title h2 > small, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title small {
   display: block;
   font-size: 12px !important;
   font-weight: 400;
   color: #4d4d4d;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title h2, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title small {
+  opacity: 0.36;
+  transition: .18s ease;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title.is-selected h2, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title.is-selected small {
+  opacity: 1;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title:hover h2, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title:hover small, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title.is-active h2, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title.is-active small {
+  opacity: 1;
 }
 #main-solution-container .column ul li.solution-item .solution-title > .solution-details {
   flex-shrink: 1;
@@ -953,6 +987,133 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
 }
 #main-solution-container .column ul li.solution-item .solution-title > .solution-details p {
   font-size: 1rem;
+}
+#main-solution-container .column ul li.solution-item .solution-title > .solution-details a.product-link {
+  display: inline-block;
+  position: relative;
+  z-index: 900;
+  margin-top: 18px;
+  padding: 6px 18px;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: .75rem;
+  color: #ffffff;
+}
+#main-solution-container .column ul li.solution-item .solution-title > .solution-details a.product-link:hover, #main-solution-container .column ul li.solution-item .solution-title > .solution-details a.product-link:focus {
+  background-color: #3298dc;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option > .solution-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-left: 90px;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label {
+  display: flex;
+  flex: 100%;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  margin-bottom: 6px;
+  padding: 12px 24px 12px 6px;
+  background-color: #FFFFFF;
+  border: 2px dotted #ECEEEF;
+  border-radius: 9px;
+  cursor: pointer;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label img {
+  width: 75px;
+  opacity: .36;
+  transition: all .18s;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label input[type="checkbox"] ~ .checkmark {
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  top: calc(50% - 30px);
+  left: 120px;
+  display: block !important;
+  margin-top: 12px;
+  background-color: #FFFFFF;
+  border: 2px solid #9c9c9c;
+  border-radius: 60px;
+  transition: all .18s;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label {
+  transition: all .18s;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label:hover {
+  border-style: solid;
+  border-color: #9c9c9c;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label.is-selected {
+  background-color: #ECEEEF;
+  border-color: #3298dc;
+  border-style: solid;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label:hover img, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label.is-selected img {
+  opacity: 1;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label input:checked ~ .checkmark {
+  background-color: #FFFFFF;
+  border: 2px solid #3298dc;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label.is-selected input ~ .checkmark::after {
+  content: '';
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background-color: #3298dc;
+  border-radius: 60px;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label p {
+  width: calc(100% - 75px);
+  margin-top: 0;
+  margin-bottom: 6px;
+  margin-left: 12px;
+  font-size: 1.14rem;
+  font-weight: 700;
+  font-family: 'Roboto-slab',Helvetica,Arial,san-serif !important;
+  color: #9c9c9c;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label p > small {
+  display: block;
+  line-height: normal;
+  font-size: 12px !important;
+  font-family: 'Roboto',Helvetica,Arial,san-serif !important;
+  color: #9c9c9c;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label.is-selected p {
+  color: #3298dc;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button.removeSmartOptions {
+  height: auto;
+  float: right;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  margin-left: 90px;
+  padding: 9px 9px 9px 30px;
+  border: 2px dotted #ECEEEF;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  color: #9c9c9c;
+  transition: all ease .12s;
+  background-size: 27px;
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 500 500'%3E%3Cpath fill='%239c9c9c' d='M406.728,190.843c-2.586-2.925-6.303-4.601-10.21-4.601H125.71c-3.907,0-7.624,1.676-10.21,4.601 c-2.589,2.925-3.797,6.82-3.318,10.695l29.646,240.74c3.358,28.329,27.404,49.692,55.932,49.692h126.711 c28.525,0,52.567-21.362,55.922-49.63l29.653-240.802C410.524,197.663,409.317,193.768,406.728,190.843z M353.332,439.069 c-1.737,14.619-14.143,25.641-28.861,25.641H197.76c-14.722,0-27.127-11.023-28.868-25.701L141.12,213.503h239.988L353.332,439.069 z'/%3E%3Cpath fill='%239c9c9c' d='M398.375,96.523c7.261-1.989,11.53-9.487,9.54-16.746l-3.411-12.452c-7.75-28.252-37.06-44.929-65.295-37.185 l-47.505,13.029l-1.465-5.338c-5.577-20.334-26.658-32.347-46.987-26.763l-40.564,11.124 c-20.332,5.577-32.338,26.657-26.761,46.988l1.464,5.341l-47.503,13.028c-13.69,3.753-25.094,12.612-32.119,24.946 c-7.025,12.332-8.825,26.663-5.068,40.346l3.411,12.447c0.955,3.487,3.255,6.451,6.399,8.241c2.073,1.182,4.399,1.787,6.745,1.787 c1.208,0,2.419-0.16,3.604-0.486L398.375,96.523z M209.899,48.48l40.561-11.124c0.968-0.265,1.943-0.391,2.902-0.391 c4.822,0,9.254,3.206,10.589,8.077l1.465,5.337L203.68,67.31l-1.464-5.338C200.615,56.134,204.063,50.083,209.899,48.48z M121.46,125.985c3.417-6.005,8.971-10.319,15.636-12.148l60.644-16.632c0.001,0,0.002,0,0.003-0.001l88.027-24.142 c0.001,0,0.002-0.001,0.003-0.001l60.644-16.632c13.534-3.705,27.539,4.08,31.596,17.414l-259.206,71.09 C117.227,138.48,118.159,131.78,121.46,125.985z'/%3E%3Cpath fill='%239c9c9c' d='M261.115,436.031c5.647,0,10.223-4.577,10.223-10.223V249.052c0-5.645-4.575-10.223-10.223-10.223 c-5.647,0-10.222,4.577-10.222,10.223v176.755C250.893,431.453,255.469,436.031,261.115,436.031z'/%3E%3Cpath fill='%239c9c9c' d='M205.221,436.031c0.269,0,0.543-0.01,0.815-0.032c5.628-0.446,9.83-5.369,9.384-10.996l-13.973-176.755 c-0.442-5.629-5.377-9.822-10.995-9.386c-5.627,0.446-9.83,5.369-9.384,10.996l13.973,176.755 C195.464,431.967,199.94,436.031,205.221,436.031z'/%3E%3Cpath fill='%239c9c9c' d='M316.192,435.999c0.273,0.022,0.546,0.032,0.815,0.032c5.281,0,9.757-4.063,10.179-9.418l13.973-176.755 c0.446-5.627-3.757-10.551-9.384-10.996c-5.641-0.435-10.552,3.757-10.995,9.386l-13.973,176.755 C306.362,430.63,310.565,435.553,316.192,435.999z'/%3E%3C/svg%3E");
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button.removeSmartOptions:hover, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button.removeSmartOptions:focus {
+  border-color: #3298dc;
+  color: #3298dc;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 500 500'%3E%3Cpath fill='%233298dc' d='M406.728,190.843c-2.586-2.925-6.303-4.601-10.21-4.601H125.71c-3.907,0-7.624,1.676-10.21,4.601 c-2.589,2.925-3.797,6.82-3.318,10.695l29.646,240.74c3.358,28.329,27.404,49.692,55.932,49.692h126.711 c28.525,0,52.567-21.362,55.922-49.63l29.653-240.802C410.524,197.663,409.317,193.768,406.728,190.843z M353.332,439.069 c-1.737,14.619-14.143,25.641-28.861,25.641H197.76c-14.722,0-27.127-11.023-28.868-25.701L141.12,213.503h239.988L353.332,439.069 z'/%3E%3Cpath fill='%233298dc' d='M398.375,96.523c7.261-1.989,11.53-9.487,9.54-16.746l-3.411-12.452c-7.75-28.252-37.06-44.929-65.295-37.185 l-47.505,13.029l-1.465-5.338c-5.577-20.334-26.658-32.347-46.987-26.763l-40.564,11.124 c-20.332,5.577-32.338,26.657-26.761,46.988l1.464,5.341l-47.503,13.028c-13.69,3.753-25.094,12.612-32.119,24.946 c-7.025,12.332-8.825,26.663-5.068,40.346l3.411,12.447c0.955,3.487,3.255,6.451,6.399,8.241c2.073,1.182,4.399,1.787,6.745,1.787 c1.208,0,2.419-0.16,3.604-0.486L398.375,96.523z M209.899,48.48l40.561-11.124c0.968-0.265,1.943-0.391,2.902-0.391 c4.822,0,9.254,3.206,10.589,8.077l1.465,5.337L203.68,67.31l-1.464-5.338C200.615,56.134,204.063,50.083,209.899,48.48z M121.46,125.985c3.417-6.005,8.971-10.319,15.636-12.148l60.644-16.632c0.001,0,0.002,0,0.003-0.001l88.027-24.142 c0.001,0,0.002-0.001,0.003-0.001l60.644-16.632c13.534-3.705,27.539,4.08,31.596,17.414l-259.206,71.09 C117.227,138.48,118.159,131.78,121.46,125.985z'/%3E%3Cpath fill='%233298dc' d='M261.115,436.031c5.647,0,10.223-4.577,10.223-10.223V249.052c0-5.645-4.575-10.223-10.223-10.223 c-5.647,0-10.222,4.577-10.222,10.223v176.755C250.893,431.453,255.469,436.031,261.115,436.031z'/%3E%3Cpath fill='%233298dc' d='M205.221,436.031c0.269,0,0.543-0.01,0.815-0.032c5.628-0.446,9.83-5.369,9.384-10.996l-13.973-176.755 c-0.442-5.629-5.377-9.822-10.995-9.386c-5.627,0.446-9.83,5.369-9.384,10.996l13.973,176.755 C195.464,431.967,199.94,436.031,205.221,436.031z'/%3E%3Cpath fill='%233298dc' d='M316.192,435.999c0.273,0.022,0.546,0.032,0.815,0.032c5.281,0,9.757-4.063,10.179-9.418l13.973-176.755 c0.446-5.627-3.757-10.551-9.384-10.996c-5.641-0.435-10.552,3.757-10.995,9.386l-13.973,176.755 C306.362,430.63,310.565,435.553,316.192,435.999z'/%3E%3C/svg%3E");
 }
 #main-solution-container .solution-svg-container {
   position: relative;
@@ -968,6 +1129,11 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
 }
 #main-solution-container .solution-svg-container svg .classroom-element {
   animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+#main-solution-container .solution-svg-container svg .smart-product {
+  animation: fadeInAnimation ease 2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -1032,8 +1198,14 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
   h5 { font-size: 14px; }
   h6, p, a { font-size: 12px; }
   h1, h2, h3, h4, h5, h6, p { margin-top: 12px; margin-bottom: 0; }
-  .hide-from-print, header, .button-container.form-action, footer.site-footer > .site-info.container > .columns:first-child  {
+  .hide-from-print, header, .button-container.form-action, footer.site-footer > .site-info.container > .columns:first-child, a.product-link {
+    height: 0;
+    width: 0;
     display: none !important;
+  }
+  .solution-details {
+    display: block !important;
+    opacity: 1 !important;
   }
   .padding-top {
     padding-top: 21px;
@@ -1054,7 +1226,37 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
     padding-left: 0;
     padding-right: 0;
   }
+  #productSelections .columns .column .box-section, #main-solution-container .column {
+    width: 95%;
+    padding: 0 0;
+    border: none;
+    border-radius: 0;
+  }
+  #main-solution-container .column ul li.solution-item {
+    margin-bottom: 15px;
+    border: 2px solid #dddddd;
+    border-radius: 9px;
+  }
+  #main-solution-container .column ul li.solution-item .solution-title, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title {
+    margin: 0 0;
+    padding: 6px;
+    border: none;
+  }
+  #main-solution-container > .solution-svg-container, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button.removeSmartOptions {
+    display: none !important;
+  }
+  #main-solution-container .column ul li.solution-item .solution-title .solution-details, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title .solution-details, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label.is-selected {
+    display: block !important;
+  }
+  #main-solution-container .column ul li.solution-item .solution-title.is-active::after, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title.is-active::after, li.solution-item.smart-board-option .smart-board-title > img, li.solution-item.smart-board-option .smart-board-title > .solution-details label {
+    display: none !important;
+  }
+  main.site-main.create-your-solution-container form#products_search_form, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label.is-selected {
+    padding: 0 0;
+    border: none;
+  }
   footer.site-footer {
+    margin: 0 auto;
     box-shadow: none;
   }
 }
