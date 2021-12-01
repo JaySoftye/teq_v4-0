@@ -276,6 +276,7 @@ $(document).ready(function() {
   });
 
   // SMART BOARD OPTION CHECKBOX
+  // LOOP THROUGH EACH CHECKBOX LABEL AND REMOVE CLASS 'is-selected'
   // HIDE ALL IMAGE ELEMENTS IN SVG CONTAINER
   // UPDATE STUDENT DEVICE IMAGES AND APPEND NEW IMAGE PATH BASED IN 'data-type' ATTRIBUTE
   // SHOW STUDENT DEVICE, TEACHER, SMART BOARD ID ELEMENTS
@@ -283,6 +284,11 @@ $(document).ready(function() {
   // LOOP THROUGH SIMILAR SIBLING ELEMENTS AND MARK UNCHECKED
   // WHEN CHECKBOX ELEMENT IS CHECKED ADD 'selected' CLASS TO PARENT ELEMENT
   $("#main-solution-container .solution-item.smart-board-option .smart-board-title .solution-details label.checkbox").on( "click", function() {
+
+    $(".smart-board-option .smart-board-title .solution-details label.checkbox").each(function() {
+      $(this).removeClass('is-selected');
+    });
+
     var dataType = $(this).attr('data-type');
       hideAllElements()
       $(".solution-svg-container #loader").hide();
@@ -292,12 +298,15 @@ $(document).ready(function() {
       $("#deviceThree").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/pd-product-student-device3.svg').fadeIn(1000);
       $("#deviceFour").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/pd-product-student-device4.svg').fadeIn(1000);
 
-        if (dataType == '7000r') {
+        if (dataType == 'smart-board-7000r') {
           $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-7000r.svg').fadeIn(1000);
-        } else if (dataType == '6000s') {
+            $(".checkbox.smartboard7000r").addClass('is-selected');
+        } else if (dataType == 'smart-board-6000s') {
           $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-6000s.svg').fadeIn(1000);
-        } else if (dataType == 'mx') {
+            $(".checkbox.smartboard6000s").addClass('is-selected');
+        } else if (dataType == 'smart-board-mx') {
           $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-mx.svg').fadeIn(1000);
+            $(".checkbox.smartboardmx").addClass('is-selected');
         }
 
         $(".solution-svg-container svg .classroom-element.student").removeClass("hidden");
@@ -315,7 +324,7 @@ $(document).ready(function() {
     }, 480);
   });
   // UNCHECK ALL SMART BOARD OPTIONS
-  $("#main-solution-container button.removeSmartOptions").on( "click", function() {
+  $(".smart-board-title .solution-details button.removeSmartOptions").on( "click", function() {
     $(".smart-board-option .smart-board-title .solution-details label.checkbox input").each(function() {
       $(this).prop('checked',false);
       $(this).closest('.smart-board-title').removeClass('is-selected');

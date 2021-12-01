@@ -89,9 +89,9 @@ get_header();
 				<div class="button-container form-action">
 					<div class="container">
 						<div class="buttonGroup">
-							<button type="button" id="productSearchBackButton" class="skip" onclick="goBack()">Back</button>
-							<button type="button" id="productSearchNextButton" class="next" ng-hide="readyToSubmit" ng-click="nextSolutions()" disabled>Next</button>
+							<button type="button" id="productSearchNextButton" class="next" ng-hide="readyToSubmit" ng-click="nextSolutions()" disabled>Next Section</button>
 							<button type="submit" id="productSearchSubmitButton" class="next" ng-show="readyToSubmit"><strong>submit</strong></button>
+							<button type="button" id="productSearchBackButton" class="skip" ng-click="reload()">Start Over</button>
 						</div>
 						<button type="button" id="yourClassroomSolution" class="tags has-addons" disabled>
 							<span class="tag">Your classroom solution</span>

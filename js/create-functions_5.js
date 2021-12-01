@@ -3,7 +3,7 @@
  * Initial app module
  */
 
-app.controller('solutionController', function($scope, $location) {
+app.controller('solutionController', function($scope, $location, $window) {
 'use strict';
 
 /**
@@ -29,6 +29,11 @@ app.controller('solutionController', function($scope, $location) {
       $scope.solutionHeaderText = "Let's jump right into great STEM products for your students!"
       $scope.solutionSubheaderText = "Transform your classroom and your students’ learning experience with STEM products."
       $scope.solutionBodyText = "By giving students the right tools and technology, you can spark curiosity, innovation, and inquiry-based thinking. Find the perfect products for your class – search or filter by grade level and topic."
+    } else if($scope.searchObject.includes('initialEntryPoint')) {
+      $scope.solutionHeaderText = 'What type of solution do you want to start with?'
+      $scope.getStarted = !$scope.getStarted;
+      $scope.entryPointChoiced = true;
+      $scope.createProgress = '1'
     } else {
       $scope.letsGetStarted = function() {
         $scope.solutionHeaderText = 'What type of solution do you want to start with?'
@@ -142,7 +147,15 @@ app.controller('solutionController', function($scope, $location) {
   */
   $scope.accordionNameItem = '';
 
+  $scope.reload = function() {
+    location.reload();
+  }
+  $scope.backToStart = function() {
+    $window.location.href = 'create-your-solution/?entryPoint=initialEntryPoint';
+  }
+
 });
+
 
 /**
   * TURN BACK TIME
@@ -233,6 +246,7 @@ app.controller('solutionController', function($scope, $location) {
  function solutionSetCount() {
 
    const pathwayNextButton = document.getElementById('productSearchNextButton');
+   const pathwayBackButton = document.getElementById('productSearchBackButton');
    const progressBar = document.getElementById('progressBarAmount');
    const progressStatus = document.getElementById('progressStatusAmount');
       var progressBarAmount = parseInt(progressBar.value);
@@ -247,9 +261,11 @@ app.controller('solutionController', function($scope, $location) {
    if(solutionSetTotal < 1) {
      yourClassroomSolutionButton.disabled = true;
      pathwayNextButton.disabled = true;
+     pathwayBackButton.disabled = true;
    } else {
      yourClassroomSolutionButton.disabled = false;
      pathwayNextButton.disabled = false;
+     pathwayBackButton.disabled = false;
    }
 
    var stemTotal =  optionsSelected.querySelectorAll('input[type="checkbox"].stem-product:checked').length;
