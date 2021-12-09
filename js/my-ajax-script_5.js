@@ -298,31 +298,149 @@ $(document).ready(function() {
       $("#deviceThree").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/pd-product-student-device3.svg').fadeIn(1000);
       $("#deviceFour").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/pd-product-student-device4.svg').fadeIn(1000);
 
-        if (dataType == 'smart-board-7000r') {
-          $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-7000r.svg').fadeIn(1000);
+        if (dataType == 'smartboard7000r') {
+          $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-7000r.svg').addClass("hidden");
             $(".checkbox.smartboard7000r").addClass('is-selected');
-        } else if (dataType == 'smart-board-6000s') {
-          $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-6000s.svg').fadeIn(1000);
+            $("#iblock-onsite-pd-instructor").removeClass("hidden");
+        } else if (dataType == 'smartboard6000s') {
+          $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-6000s.svg').addClass("hidden");
             $(".checkbox.smartboard6000s").addClass('is-selected');
-        } else if (dataType == 'smart-board-mx') {
-          $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-mx.svg').fadeIn(1000);
+            $("#online-pd-educator").removeClass("hidden");
+        } else if (dataType == 'smartboardmx') {
+          $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-mx.svg').addClass("hidden");
             $(".checkbox.smartboardmx").addClass('is-selected');
+            $("#stem-pd-instructor").removeClass("hidden");
         }
 
         $(".solution-svg-container svg .classroom-element.student").removeClass("hidden");
-        $("#smart-board-add-on").removeClass("hidden");
-        $("#stem-pd-instructor").removeClass("hidden");
+        $("#smart-board-add-on").addClass("is-shown").removeClass("hidden");
 
-      $(".smart-board-option .smart-board-title .solution-details       label.checkbox input").each(function() {
+      $(".smart-board-option .smart-board-title .solution-details label.checkbox input").each(function() {
         $(this).prop('checked',false);
       });
       $(this).children('input').prop('checked',true);
       $(this).closest('.smart-board-title').addClass('is-selected');
 
-    $('html, body').animate({
-        scrollTop: $("#productSelections").offset().top
-    }, 480);
   });
+
+  // SMART BOARD ADD TO SOLUTION FUNCTION
+  // APPEND NEW SMART BOARD OPTION ELEMENT TO AS "li.smart-board-option" TO DOM
+  // GET AND PARSE DATA FROM SMART BOARD DETAILS 'label.checkbox' OPTION
+  // APPEND HTML ELEMENT AND HIDE THE "label" ELEMENT THAT WAS CLICKED
+  $(".smart-board-title .solution-details button.addSmartOptions").on( "click", function() {
+
+    var postIdLabel = $(".smart-board-title.is-active.is-selected .solution-details").find("label.checkbox.is-selected");
+      $(postIdLabel).addClass("is-added");
+    var postIdLabelInput = $(".smart-board-title.is-active.is-selected .solution-details").find("label.checkbox.is-selected > input");
+      var postId = $(postIdLabelInput).val();
+
+    // AJAX CALL TO GATHER JSON data
+    // JSON DATA PARSED AS HTML
+    $.ajax({
+      url: '/wp-json/wp/v2/product-and-service/'+postId,
+      error: function() {
+        $('#main-solution-container').html('<p class="error">An error has occurred</p>');
+      },
+      dataType: 'json',
+      type: 'GET',
+      beforeSend: function(){
+        $(".loading").show();
+      },
+      success: function(data) {
+
+          $(".loading").hide();
+          var img = "/wp-content/themes/teq_v4-0/inc/ui/" + data.custom_image_meta_content + ".svg";
+          var dataType = data.slug.replace(/-/g, '');
+
+          // CREATE AN HTML Element WITH JSON DATA
+          var html = '<li class="solution-item smart-board-option added-to-solution" data-type="'+ dataType + '">';
+              html += "<input type='checkbox' name='quoted_items[]' value='" + data.id + "' checked=''>";
+              html += "<div class='solution-title'>";
+              html += '<button type="button" class="remove-selection" data-target="' + data.slug + '"></button>';
+							html += "<img src='" + img + "'>";
+							html += "<h2>" + data.title.rendered + data.excerpt.rendered + "</h2>";
+              html += "</div>";
+              html += "</li>";
+
+          // APPEND THE DATA TO THE 'additional pathways' HTML container
+          $("#smart-board-addition-panel").before(html).text();
+      },
+      complete:function(data){
+        // AJAX FUNCTION COMPLETE AND NEW ELEMENT APPENDED TO DOM
+        // HIDE THE LABEL OPTION CLICKED
+        // DECLARE NEW CLICK FUNCTION FOR ELEMENT ADDED
+        // SHOW SMART BOARD svg elements based on OPTION ADDED
+        // CREATE HOVER FUNCTION TO REMOVE THE NEW 'li.smart-board-option'
+
+        $(".solution-svg-container #loader").hide();
+        $("#smart-board-addition-panel .smart-board-title").removeClass('is-selected').addClass('is-added');
+        $(".smart-board-option .smart-board-title .solution-details label.checkbox input").each(function() {
+          $(this).prop('checked',false);
+        });
+
+        $("#main-solution-container li.solution-item.smart-board-option.added-to-solution").on( "click", function() {
+
+          $("#main-solution-container div ul li.solution-item").each(function() {
+            $(this).find(".solution-title.is-active").removeClass('is-active');
+            $(this).find(".solution-title .solution-details").addClass('ng-hide');
+          });
+
+            $("#main-solution-container").addClass('has-active-selection');
+              hideAllElements()
+          $(".solution-svg-container #loader").hide();
+          $("#deviceOne").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/pd-product-student-device1.svg').fadeIn(1000);
+          $("#deviceTwo").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/pd-product-student-device2.svg').fadeIn(1000);
+          $("#deviceThree").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/pd-product-student-device3.svg').fadeIn(1000);
+          $("#deviceFour").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/pd-product-student-device4.svg').fadeIn(1000);
+
+          var dataType = $(this).attr('data-type');
+
+          if (dataType == 'smartboard7000r') {
+            $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-7000r.svg').addClass("hidden");
+              $(".checkbox.smartboard7000r").addClass('is-selected');
+              $("#iblock-onsite-pd-instructor").removeClass("hidden");
+          } else if (dataType == 'smartboard6000s') {
+            $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-6000s.svg').addClass("hidden");
+              $(".checkbox.smartboard6000s").addClass('is-selected');
+              $("#online-pd-educator").removeClass("hidden");
+          } else if (dataType == 'smartboardmx') {
+            $("#smart-board-add-on").attr("href", '/wp-content/themes/teq_v4-0/inc/ui/smart-board-add-on-solution-mx.svg').addClass("hidden");
+              $(".checkbox.smartboardmx").addClass('is-selected');
+              $("#stem-pd-instructor").removeClass("hidden");
+          }
+          $(".solution-svg-container svg .classroom-element.student").removeClass("hidden");
+          $("#smart-board-add-on").addClass("is-shown").removeClass("hidden");
+        });
+
+        $("button.remove-selection").on( "mouseover", function() {
+          $(this).parent(".solution-title").css("border", "2px solid #3298dc");
+        });
+        $("button.remove-selection").on( "mouseout", function() {
+          $(this).parent(".solution-title").css("border", "2px solid #ECEEEF");
+        });
+
+        // REMOVE SELECTED SMART BOARD Element
+        // LOOP THROUGH SIMILAR SIBLING 'li.solution-item' ELEMENTS AND REMOVE 'is-selected' AND 'ng-show' CLASSES
+        // TARGET SELF VIA PARENT ELEMENT AND REMOVE
+        // LOCATE 'li.solution-item.smart-board-option' ELEMENT AND SHOW
+        $("li.solution-item.smart-board-option.added-to-solution .solution-title button.remove-selection").on( "click", function() {
+          var dataTarget = $(this).attr('data-target');
+            $("#smartBoardSelections").each(function() {
+              $(this).find('label.checkbox').removeClass('is-selected');
+            });
+            $("#smartBoardSelections").each(function() {
+              $(this).find('label.checkbox button.addSmartOptions').removeClass('ng-show').addClass('ng-hide');
+            });
+              $("#smartBoardSelections").find("label#" + dataTarget).removeClass("is-added").addClass("is-selected");
+              $("#smartBoardSelections").find("label#" + dataTarget + " button.addSmartOptions").removeClass('ng-hide').addClass('ng-show');
+            $(this).parent().parent("li.solution-item.smart-board-option.added-to-solution").fadeOut(300, function(){ $(this).remove();});
+        });
+
+      },
+      cache: false
+    });
+  });
+
   // UNCHECK ALL SMART BOARD OPTIONS
   $(".smart-board-title .solution-details button.removeSmartOptions").on( "click", function() {
     $(".smart-board-option .smart-board-title .solution-details label.checkbox input").each(function() {
@@ -348,7 +466,7 @@ $(document).ready(function() {
 
 function checkedItems() {
   var array = []
-  var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+  var checkboxes = document.querySelectorAll("input[name='quoted_items[]']:checked")
   for (var i = 0; i < checkboxes.length; i++) {
     array.push(checkboxes[i].value)
   }

@@ -161,28 +161,28 @@ main.site-main.create-your-solution-container {
   padding-left: 48px;
   padding-right: 48px;
 }
-main.site-main.create-your-solution-container form#products_search_form {
+main.site-main.create-your-solution-container #products_search_form {
   padding-bottom: 150px;
 }
-form#products_search_form h1.main-title {
+#products_search_form h1.main-title {
   margin-top: 12px;
   margin-bottom: 12px;
 }
-form#products_search_form .progress {
+#products_search_form .progress {
   margin: 0 auto;
   border-radius: 3px;
 }
-form#products_search_form .progress + .progress-status {
+#products_search_form .progress + .progress-status {
   display: block;
   padding-bottom: 60px;
   font-size: 12px
 }
-form#products_search_form .progress + .progress-status::after {
+#products_search_form .progress + .progress-status::after {
   content: '% Completed';
   width: auto;
   position: absolute;
 }
-form#products_search_form .button-container.form-action {
+#products_search_form .button-container.form-action {
   min-height: 100px;
   width: 100vw;
   position: fixed;
@@ -193,57 +193,57 @@ form#products_search_form .button-container.form-action {
   box-shadow: 0 0 30px 0 rgba(0,0,0,0.24);
   padding: 24px 0;
 }
-form#products_search_form .button-container.form-action .container {
+#products_search_form .button-container.form-action .container {
   display: flex;
   justify-content: space-between;
   padding-left: 78px;
   padding-right: 78px;
 }
-form#products_search_form .button-container.form-action .container button {
+#products_search_form .button-container.form-action .container button {
   padding: 0 0;
   background: transparent;
   border: none;
   transition: all .18s;
 }
-form#products_search_form .button-container.form-action .container button.next[type=button]:disabled, form#products_search_form .button-container.form-action .container button.skip[type=button]:disabled {
+#products_search_form .button-container.form-action .container button.next[type=button]:disabled, #products_search_form .button-container.form-action .container button.skip[type=button]:disabled {
   width: 0;
   visibility: hidden;
   opacity: 0;
   margin: 0;
   padding: 0;
 }
-form#products_search_form .button-container.form-action .container button.tags:hover {
+#products_search_form .button-container.form-action .container button.tags:hover {
   transform: translateY(-.75px);
 }
-form#products_search_form .button-container.form-action .container button.tags {
+#products_search_form .button-container.form-action .container button.tags {
   margin: 0 6px;
   background-color: #4d4d4d;
   border-radius: 9px;
 }
-form#products_search_form .button-container.form-action .container button.tags:disabled {
+#products_search_form .button-container.form-action .container button.tags:disabled {
   background-color: #FFFFFF;
 }
-form#products_search_form .button-container.form-action .container button, form#products_search_form .button-container.form-action .container button.tags, form#products_search_form .button-container.form-action .container button.tags span {
+#products_search_form .button-container.form-action .container button, #products_search_form .button-container.form-action .container button.tags, #products_search_form .button-container.form-action .container button.tags span {
   margin-bottom: 0;
   font-size: 18px;
 }
-form#products_search_form .button-container.form-action .container button.tags span {
+#products_search_form .button-container.form-action .container button.tags span {
   background-color: transparent;
   border: none;
   font-weight: 400;
   color: #FFFFFF;
   cursor: pointer;
 }
-form#products_search_form .button-container.form-action .container button.tags:disabled span {
+#products_search_form .button-container.form-action .container button.tags:disabled span {
   background-color: transparent;
   font-weight: 300;
   color: #4d4d4d;
   cursor: not-allowed;
 }
-form#products_search_form .button-container.form-action .container .buttonGroup, .modal-card-foot.buttonGroup {
+#products_search_form .button-container.form-action .container .buttonGroup, .modal-card-foot.buttonGroup {
   display: flex;
 }
-form#products_search_form .button-container.form-action .container .buttonGroup button, .modal-card-foot.buttonGroup button {
+#products_search_form .button-container.form-action .container .buttonGroup button, .modal-card-foot.buttonGroup button {
   display: block;
   margin: 0 3px;
   padding: 12px calc(30px + 1.5vw);
@@ -258,31 +258,31 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
   cursor: pointer;
   transition: all .18s;
 }
-form#products_search_form .button-container.form-action .container .buttonGroup button:hover, form#products_search_form .button-container.form-action .container .buttonGroup button:focus, .modal-card-foot.buttonGroup button:hover, .modal-card-foot.buttonGroup button:focus {
+#products_search_form .button-container.form-action .container .buttonGroup button:hover, #products_search_form .button-container.form-action .container .buttonGroup button:focus, .modal-card-foot.buttonGroup button:hover, .modal-card-foot.buttonGroup button:focus {
   transform: translateY(-.75px);
 }
-form#products_search_form .button-container.form-action .container .buttonGroup button.selections, .modal-card-foot.buttonGroup button.selections {
+#products_search_form .button-container.form-action .container .buttonGroup button.selections, .modal-card-foot.buttonGroup button.selections {
   background-color: #4d4d4d;
   border-color: #4d4d4d;
   color: rgb(255,255,255);
 }
-form#products_search_form .button-container.form-action .container .buttonGroup button.next, .modal-card-foot.buttonGroup button.next {
+#products_search_form .button-container.form-action .container .buttonGroup button.next, .modal-card-foot.buttonGroup button.next {
   background-color: #3298dc;
   border-color: #3298dc;
   color: #FFFFFF;
 }
-form#products_search_form .button-container.form-action .container .buttonGroup button.skip, .modal-card-foot.buttonGroup button.skip {
+#products_search_form .button-container.form-action .container .buttonGroup button.skip, .modal-card-foot.buttonGroup button.skip {
   background-color: #ECEEEF;
   border-color: #ECEEEF;
   color: #3298dc;
 }
-form#products_search_form .button-container.form-action .container .buttonGroup button.add, .modal-card-foot.buttonGroup button.add {
+#products_search_form .button-container.form-action .container .buttonGroup button.add, .modal-card-foot.buttonGroup button.add {
   background-color: #4DA1FF;
   border-color: #4DA1FF;
   font-weight: 400;
   color: #FFFFFF;
 }
-form#products_search_form .button-container.form-action .container .buttonGroup button.print, .modal-card-foot.buttonGroup button.print {
+#products_search_form .button-container.form-action .container .buttonGroup button.print, .modal-card-foot.buttonGroup button.print {
   background-color: transparent;
   border-color: transparent;
   font-weight: 400;
@@ -907,6 +907,9 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
   cursor: pointer;
   transition: .18s ease;
 }
+#main-solution-container .column ul li.solution-item .solution-title.remove-option {
+  transform: translateX(-6px);
+}
 #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title.is-active:hover {
   background-color: #FFFFFF;
   border: dotted 3px #ECEEEF;
@@ -952,8 +955,12 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
   font-weight: 500;
   color: #3298dc;
 }
-#main-solution-container .column ul li.solution-item .solution-title h2 > small, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title small {
+#main-solution-container .column ul li.solution-item.smart-board-option .solution-title h2 {
+  padding-right: 48px;
+}
+#main-solution-container .column ul li.solution-item .solution-title h2 > small, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title small, #main-solution-container .column ul li.solution-item.smart-board-option .solution-title h2 > p {
   display: block;
+  margin: 0 0;
   font-size: 12px !important;
   font-weight: 400;
   color: #4d4d4d;
@@ -967,6 +974,27 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
 }
 #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title:hover h2, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title:hover small, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title.is-active h2, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title.is-active small {
   opacity: 1;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option button.remove-selection {
+  height: 42px;
+  width: 42px;
+  position: absolute;
+  right: 24px;
+  top: calc(50% - 24px);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center center;
+  border: none;
+  border-radius: 6px;
+  opacity: .48;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option button.remove-selection {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 500 500'%3E%3Cpath fill='%239c9c9c' d='M406.728,190.843c-2.586-2.925-6.303-4.601-10.21-4.601H125.71c-3.907,0-7.624,1.676-10.21,4.601 c-2.589,2.925-3.797,6.82-3.318,10.695l29.646,240.74c3.358,28.329,27.404,49.692,55.932,49.692h126.711 c28.525,0,52.567-21.362,55.922-49.63l29.653-240.802C410.524,197.663,409.317,193.768,406.728,190.843z M353.332,439.069 c-1.737,14.619-14.143,25.641-28.861,25.641H197.76c-14.722,0-27.127-11.023-28.868-25.701L141.12,213.503h239.988L353.332,439.069 z'/%3E%3Cpath fill='%239c9c9c' d='M398.375,96.523c7.261-1.989,11.53-9.487,9.54-16.746l-3.411-12.452c-7.75-28.252-37.06-44.929-65.295-37.185 l-47.505,13.029l-1.465-5.338c-5.577-20.334-26.658-32.347-46.987-26.763l-40.564,11.124 c-20.332,5.577-32.338,26.657-26.761,46.988l1.464,5.341l-47.503,13.028c-13.69,3.753-25.094,12.612-32.119,24.946 c-7.025,12.332-8.825,26.663-5.068,40.346l3.411,12.447c0.955,3.487,3.255,6.451,6.399,8.241c2.073,1.182,4.399,1.787,6.745,1.787 c1.208,0,2.419-0.16,3.604-0.486L398.375,96.523z M209.899,48.48l40.561-11.124c0.968-0.265,1.943-0.391,2.902-0.391 c4.822,0,9.254,3.206,10.589,8.077l1.465,5.337L203.68,67.31l-1.464-5.338C200.615,56.134,204.063,50.083,209.899,48.48z M121.46,125.985c3.417-6.005,8.971-10.319,15.636-12.148l60.644-16.632c0.001,0,0.002,0,0.003-0.001l88.027-24.142 c0.001,0,0.002-0.001,0.003-0.001l60.644-16.632c13.534-3.705,27.539,4.08,31.596,17.414l-259.206,71.09 C117.227,138.48,118.159,131.78,121.46,125.985z'/%3E%3Cpath fill='%239c9c9c' d='M261.115,436.031c5.647,0,10.223-4.577,10.223-10.223V249.052c0-5.645-4.575-10.223-10.223-10.223 c-5.647,0-10.222,4.577-10.222,10.223v176.755C250.893,431.453,255.469,436.031,261.115,436.031z'/%3E%3Cpath fill='%239c9c9c' d='M205.221,436.031c0.269,0,0.543-0.01,0.815-0.032c5.628-0.446,9.83-5.369,9.384-10.996l-13.973-176.755 c-0.442-5.629-5.377-9.822-10.995-9.386c-5.627,0.446-9.83,5.369-9.384,10.996l13.973,176.755 C195.464,431.967,199.94,436.031,205.221,436.031z'/%3E%3Cpath fill='%239c9c9c' d='M316.192,435.999c0.273,0.022,0.546,0.032,0.815,0.032c5.281,0,9.757-4.063,10.179-9.418l13.973-176.755 c0.446-5.627-3.757-10.551-9.384-10.996c-5.641-0.435-10.552,3.757-10.995,9.386l-13.973,176.755 C306.362,430.63,310.565,435.553,316.192,435.999z'/%3E%3C/svg%3E");
+}
+#main-solution-container .column ul li.solution-item.smart-board-option button.remove-selection:hover {
+  opacity: 1;
+  border: 2px dotted #930000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 500 500'%3E%3Cpath fill='%23930000' d='M406.728,190.843c-2.586-2.925-6.303-4.601-10.21-4.601H125.71c-3.907,0-7.624,1.676-10.21,4.601 c-2.589,2.925-3.797,6.82-3.318,10.695l29.646,240.74c3.358,28.329,27.404,49.692,55.932,49.692h126.711 c28.525,0,52.567-21.362,55.922-49.63l29.653-240.802C410.524,197.663,409.317,193.768,406.728,190.843z M353.332,439.069 c-1.737,14.619-14.143,25.641-28.861,25.641H197.76c-14.722,0-27.127-11.023-28.868-25.701L141.12,213.503h239.988L353.332,439.069 z'/%3E%3Cpath fill='%23930000' d='M398.375,96.523c7.261-1.989,11.53-9.487,9.54-16.746l-3.411-12.452c-7.75-28.252-37.06-44.929-65.295-37.185 l-47.505,13.029l-1.465-5.338c-5.577-20.334-26.658-32.347-46.987-26.763l-40.564,11.124 c-20.332,5.577-32.338,26.657-26.761,46.988l1.464,5.341l-47.503,13.028c-13.69,3.753-25.094,12.612-32.119,24.946 c-7.025,12.332-8.825,26.663-5.068,40.346l3.411,12.447c0.955,3.487,3.255,6.451,6.399,8.241c2.073,1.182,4.399,1.787,6.745,1.787 c1.208,0,2.419-0.16,3.604-0.486L398.375,96.523z M209.899,48.48l40.561-11.124c0.968-0.265,1.943-0.391,2.902-0.391 c4.822,0,9.254,3.206,10.589,8.077l1.465,5.337L203.68,67.31l-1.464-5.338C200.615,56.134,204.063,50.083,209.899,48.48z M121.46,125.985c3.417-6.005,8.971-10.319,15.636-12.148l60.644-16.632c0.001,0,0.002,0,0.003-0.001l88.027-24.142 c0.001,0,0.002-0.001,0.003-0.001l60.644-16.632c13.534-3.705,27.539,4.08,31.596,17.414l-259.206,71.09 C117.227,138.48,118.159,131.78,121.46,125.985z'/%3E%3Cpath fill='%23930000' d='M261.115,436.031c5.647,0,10.223-4.577,10.223-10.223V249.052c0-5.645-4.575-10.223-10.223-10.223 c-5.647,0-10.222,4.577-10.222,10.223v176.755C250.893,431.453,255.469,436.031,261.115,436.031z'/%3E%3Cpath fill='%23930000' d='M205.221,436.031c0.269,0,0.543-0.01,0.815-0.032c5.628-0.446,9.83-5.369,9.384-10.996l-13.973-176.755 c-0.442-5.629-5.377-9.822-10.995-9.386c-5.627,0.446-9.83,5.369-9.384,10.996l13.973,176.755 C195.464,431.967,199.94,436.031,205.221,436.031z'/%3E%3Cpath fill='%23930000' d='M316.192,435.999c0.273,0.022,0.546,0.032,0.815,0.032c5.281,0,9.757-4.063,10.179-9.418l13.973-176.755 c0.446-5.627-3.757-10.551-9.384-10.996c-5.641-0.435-10.552,3.757-10.995,9.386l-13.973,176.755 C306.362,430.63,310.565,435.553,316.192,435.999z'/%3E%3C/svg%3E");
 }
 #main-solution-container .column ul li.solution-item .solution-title > .solution-details {
   flex-shrink: 1;
@@ -983,7 +1011,7 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
 #main-solution-container .column ul li.solution-item .solution-title > .solution-details a.product-link {
   display: inline-block;
   position: relative;
-  z-index: 900;
+  z-index: 1;
   margin-top: 18px;
   padding: 6px 18px;
   background-color: rgba(0, 0, 0, 0.15);
@@ -992,6 +1020,9 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
   font-weight: 500;
   font-size: .75rem;
   color: #ffffff;
+}
+#main-solution-container .column ul li.solution-item .smart-board-title > .solution-details {
+  width: 100%;
 }
 #main-solution-container .column ul li.solution-item .solution-title > .solution-details a.product-link:hover, #main-solution-container .column ul li.solution-item .solution-title > .solution-details a.product-link:focus {
   background-color: #3298dc;
@@ -1008,9 +1039,9 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
   display: flex;
   flex: 100%;
   flex-wrap: nowrap;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 6px;
-  padding: 12px 24px 12px 6px;
+  padding: 12px 12px 12px 6px;
   background-color: #FFFFFF;
   border: 2px dotted #ECEEEF;
   border-radius: 9px;
@@ -1044,6 +1075,10 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
 #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label.is-selected {
   border-color: #3298dc;
   border-style: solid;
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label.is-added {
+  position: absolute;
+  opacity: 0;
 }
 #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label:hover img, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label.is-selected img {
   opacity: 1;
@@ -1085,36 +1120,31 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
 #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button {
   height: auto;
   float: right;
-  margin-top: 18px;
-  margin-bottom: 6px;
   margin-left: 12px;
   padding: 9px 9px 9px 30px;
   border: 2px dotted #ECEEEF;
   border-radius: 9px;
   cursor: pointer;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 700;
   color: #9c9c9c;
   transition: all ease .12s;
   background-size: 27px;
   background-repeat: no-repeat;
-  background-position: center left;
+  background-position: 6px center;
 }
-#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button:hover, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button:focus {
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button:hover {
   border-color: #3298dc;
   color: #3298dc;
-}
-#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button.removeSmartOptions {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 500 500'%3E%3Cpath fill='%239c9c9c' d='M406.728,190.843c-2.586-2.925-6.303-4.601-10.21-4.601H125.71c-3.907,0-7.624,1.676-10.21,4.601 c-2.589,2.925-3.797,6.82-3.318,10.695l29.646,240.74c3.358,28.329,27.404,49.692,55.932,49.692h126.711 c28.525,0,52.567-21.362,55.922-49.63l29.653-240.802C410.524,197.663,409.317,193.768,406.728,190.843z M353.332,439.069 c-1.737,14.619-14.143,25.641-28.861,25.641H197.76c-14.722,0-27.127-11.023-28.868-25.701L141.12,213.503h239.988L353.332,439.069 z'/%3E%3Cpath fill='%239c9c9c' d='M398.375,96.523c7.261-1.989,11.53-9.487,9.54-16.746l-3.411-12.452c-7.75-28.252-37.06-44.929-65.295-37.185 l-47.505,13.029l-1.465-5.338c-5.577-20.334-26.658-32.347-46.987-26.763l-40.564,11.124 c-20.332,5.577-32.338,26.657-26.761,46.988l1.464,5.341l-47.503,13.028c-13.69,3.753-25.094,12.612-32.119,24.946 c-7.025,12.332-8.825,26.663-5.068,40.346l3.411,12.447c0.955,3.487,3.255,6.451,6.399,8.241c2.073,1.182,4.399,1.787,6.745,1.787 c1.208,0,2.419-0.16,3.604-0.486L398.375,96.523z M209.899,48.48l40.561-11.124c0.968-0.265,1.943-0.391,2.902-0.391 c4.822,0,9.254,3.206,10.589,8.077l1.465,5.337L203.68,67.31l-1.464-5.338C200.615,56.134,204.063,50.083,209.899,48.48z M121.46,125.985c3.417-6.005,8.971-10.319,15.636-12.148l60.644-16.632c0.001,0,0.002,0,0.003-0.001l88.027-24.142 c0.001,0,0.002-0.001,0.003-0.001l60.644-16.632c13.534-3.705,27.539,4.08,31.596,17.414l-259.206,71.09 C117.227,138.48,118.159,131.78,121.46,125.985z'/%3E%3Cpath fill='%239c9c9c' d='M261.115,436.031c5.647,0,10.223-4.577,10.223-10.223V249.052c0-5.645-4.575-10.223-10.223-10.223 c-5.647,0-10.222,4.577-10.222,10.223v176.755C250.893,431.453,255.469,436.031,261.115,436.031z'/%3E%3Cpath fill='%239c9c9c' d='M205.221,436.031c0.269,0,0.543-0.01,0.815-0.032c5.628-0.446,9.83-5.369,9.384-10.996l-13.973-176.755 c-0.442-5.629-5.377-9.822-10.995-9.386c-5.627,0.446-9.83,5.369-9.384,10.996l13.973,176.755 C195.464,431.967,199.94,436.031,205.221,436.031z'/%3E%3Cpath fill='%239c9c9c' d='M316.192,435.999c0.273,0.022,0.546,0.032,0.815,0.032c5.281,0,9.757-4.063,10.179-9.418l13.973-176.755 c0.446-5.627-3.757-10.551-9.384-10.996c-5.641-0.435-10.552,3.757-10.995,9.386l-13.973,176.755 C306.362,430.63,310.565,435.553,316.192,435.999z'/%3E%3C/svg%3E");
-}
-#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button.removeSmartOptions:hover, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button.removeSmartOptions:focus {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 500 500'%3E%3Cpath fill='%233298dc' d='M406.728,190.843c-2.586-2.925-6.303-4.601-10.21-4.601H125.71c-3.907,0-7.624,1.676-10.21,4.601 c-2.589,2.925-3.797,6.82-3.318,10.695l29.646,240.74c3.358,28.329,27.404,49.692,55.932,49.692h126.711 c28.525,0,52.567-21.362,55.922-49.63l29.653-240.802C410.524,197.663,409.317,193.768,406.728,190.843z M353.332,439.069 c-1.737,14.619-14.143,25.641-28.861,25.641H197.76c-14.722,0-27.127-11.023-28.868-25.701L141.12,213.503h239.988L353.332,439.069 z'/%3E%3Cpath fill='%233298dc' d='M398.375,96.523c7.261-1.989,11.53-9.487,9.54-16.746l-3.411-12.452c-7.75-28.252-37.06-44.929-65.295-37.185 l-47.505,13.029l-1.465-5.338c-5.577-20.334-26.658-32.347-46.987-26.763l-40.564,11.124 c-20.332,5.577-32.338,26.657-26.761,46.988l1.464,5.341l-47.503,13.028c-13.69,3.753-25.094,12.612-32.119,24.946 c-7.025,12.332-8.825,26.663-5.068,40.346l3.411,12.447c0.955,3.487,3.255,6.451,6.399,8.241c2.073,1.182,4.399,1.787,6.745,1.787 c1.208,0,2.419-0.16,3.604-0.486L398.375,96.523z M209.899,48.48l40.561-11.124c0.968-0.265,1.943-0.391,2.902-0.391 c4.822,0,9.254,3.206,10.589,8.077l1.465,5.337L203.68,67.31l-1.464-5.338C200.615,56.134,204.063,50.083,209.899,48.48z M121.46,125.985c3.417-6.005,8.971-10.319,15.636-12.148l60.644-16.632c0.001,0,0.002,0,0.003-0.001l88.027-24.142 c0.001,0,0.002-0.001,0.003-0.001l60.644-16.632c13.534-3.705,27.539,4.08,31.596,17.414l-259.206,71.09 C117.227,138.48,118.159,131.78,121.46,125.985z'/%3E%3Cpath fill='%233298dc' d='M261.115,436.031c5.647,0,10.223-4.577,10.223-10.223V249.052c0-5.645-4.575-10.223-10.223-10.223 c-5.647,0-10.222,4.577-10.222,10.223v176.755C250.893,431.453,255.469,436.031,261.115,436.031z'/%3E%3Cpath fill='%233298dc' d='M205.221,436.031c0.269,0,0.543-0.01,0.815-0.032c5.628-0.446,9.83-5.369,9.384-10.996l-13.973-176.755 c-0.442-5.629-5.377-9.822-10.995-9.386c-5.627,0.446-9.83,5.369-9.384,10.996l13.973,176.755 C195.464,431.967,199.94,436.031,205.221,436.031z'/%3E%3Cpath fill='%233298dc' d='M316.192,435.999c0.273,0.022,0.546,0.032,0.815,0.032c5.281,0,9.757-4.063,10.179-9.418l13.973-176.755 c0.446-5.627-3.757-10.551-9.384-10.996c-5.641-0.435-10.552,3.757-10.995,9.386l-13.973,176.755 C306.362,430.63,310.565,435.553,316.192,435.999z'/%3E%3C/svg%3E");
 }
 #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button.addSmartOptions {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 300 300'%3E%3Cpath fill='%239C9C9C' d='M236.303,82.465h-18.768V63.697c0-16.084-13.085-29.169-29.169-29.169H63.697 c-16.084,0-29.169,13.086-29.169,29.169v124.667c0,16.085,13.086,29.17,29.169,29.17h18.768v18.768 c0,16.084,13.086,29.169,29.169,29.169h124.667c16.084,0,29.169-13.085,29.169-29.169V111.635 C265.472,95.551,252.387,82.465,236.303,82.465z M102.364,111.65c0.033-5.088,4.198-9.254,9.271-9.286h124.667 c5.112,0,9.271,4.159,9.271,9.271v124.683c0.033,5.071-4.065,9.222-9.12,9.255H111.635c-5.112,0-9.271-4.159-9.271-9.271 C102.364,236.303,102.364,111.65,102.364,111.65z M54.426,63.682c-0.016-2.456,0.925-4.772,2.651-6.519 c1.725-1.748,4.028-2.72,6.487-2.735h124.8c5.112,0,9.271,4.159,9.271,9.271v18.767h-86c-16.084,0-29.169,13.086-29.169,29.169 v86.001H63.697c-5.112,0-9.271-4.159-9.271-9.271C54.426,188.365,54.426,63.682,54.426,63.682z'/%3E%3Cpath fill='%239C9C9C' d='M135.604,183.918h28.416v28.416c0,5.486,4.464,9.949,9.949,9.949s9.949-4.464,9.949-9.949v-28.416h28.416 c5.486,0,9.949-4.464,9.949-9.949c0-5.486-4.464-9.949-9.949-9.949h-28.416v-28.416c0-5.486-4.464-9.949-9.949-9.949 s-9.949,4.463-9.949,9.949v28.416h-28.416c-5.486,0-9.949,4.464-9.949,9.949C125.655,179.455,130.117,183.918,135.604,183.918z'/%3E%3C/svg%3E");
 }
-#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button.addSmartOptions:hover, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button.addSmartOptions:focus {
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button.addSmartOptions:hover {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 300 300'%3E%3Cpath fill='%233298dc' d='M236.303,82.465h-18.768V63.697c0-16.084-13.085-29.169-29.169-29.169H63.697 c-16.084,0-29.169,13.086-29.169,29.169v124.667c0,16.085,13.086,29.17,29.169,29.17h18.768v18.768 c0,16.084,13.086,29.169,29.169,29.169h124.667c16.084,0,29.169-13.085,29.169-29.169V111.635 C265.472,95.551,252.387,82.465,236.303,82.465z M102.364,111.65c0.033-5.088,4.198-9.254,9.271-9.286h124.667 c5.112,0,9.271,4.159,9.271,9.271v124.683c0.033,5.071-4.065,9.222-9.12,9.255H111.635c-5.112,0-9.271-4.159-9.271-9.271 C102.364,236.303,102.364,111.65,102.364,111.65z M54.426,63.682c-0.016-2.456,0.925-4.772,2.651-6.519 c1.725-1.748,4.028-2.72,6.487-2.735h124.8c5.112,0,9.271,4.159,9.271,9.271v18.767h-86c-16.084,0-29.169,13.086-29.169,29.169 v86.001H63.697c-5.112,0-9.271-4.159-9.271-9.271C54.426,188.365,54.426,63.682,54.426,63.682z'/%3E%3Cpath fill='%233298dc' d='M135.604,183.918h28.416v28.416c0,5.486,4.464,9.949,9.949,9.949s9.949-4.464,9.949-9.949v-28.416h28.416 c5.486,0,9.949-4.464,9.949-9.949c0-5.486-4.464-9.949-9.949-9.949h-28.416v-28.416c0-5.486-4.464-9.949-9.949-9.949 s-9.949,4.463-9.949,9.949v28.416h-28.416c-5.486,0-9.949,4.464-9.949,9.949C125.655,179.455,130.117,183.918,135.604,183.918z'/%3E%3C/svg%3E");
+}
+#main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details button:disabled.addSmartOptions {
+  opacity: .21;
 }
 #main-solution-container .solution-svg-container {
   position: relative;
@@ -1125,7 +1155,7 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
   position: absolute;
   z-index: 500;
 }
-#main-solution-container .solution-svg-container div#loader {
+#main-solution-container .solution-svg-container div#loader, #main-solution-container div ul li.loading {
   left: calc(50% - 50px);
 }
 #main-solution-container .solution-svg-container svg .classroom-element {
@@ -1133,7 +1163,7 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
-#main-solution-container .solution-svg-container svg .smart-product {
+#main-solution-container .solution-svg-container svg .smart-product.is-shown {
   animation: fadeInAnimation ease 2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -1252,7 +1282,7 @@ form#products_search_form .button-container.form-action .container .buttonGroup 
   #main-solution-container .column ul li.solution-item .solution-title.is-active::after, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title.is-active::after, li.solution-item.smart-board-option .smart-board-title > img, li.solution-item.smart-board-option .smart-board-title > .solution-details label {
     display: none !important;
   }
-  main.site-main.create-your-solution-container form#products_search_form, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label.is-selected {
+  main.site-main.create-your-solution-container #products_search_form, #main-solution-container .column ul li.solution-item.smart-board-option .smart-board-title > .solution-details label.is-selected {
     padding: 0 0;
     border: none;
   }

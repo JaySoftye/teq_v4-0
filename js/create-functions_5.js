@@ -154,6 +154,12 @@ app.controller('solutionController', function($scope, $location, $window) {
     $window.location.href = 'create-your-solution/?entryPoint=initialEntryPoint';
   }
 
+
+  $scope.addUser = {};
+  $scope.$watch('addUser', function(newVal){
+    newVal.isAllOrgSelected !== undefined && alert(newVal.isAllOrgSelected);
+  }, true)
+
 });
 
 
