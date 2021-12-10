@@ -110,9 +110,9 @@ app.controller('solutionController', function($scope, $location, $window) {
         pathwayProductOptions[e].parentElement.classList.remove('ng-hide');
         pathwayProductOptions[e].parentElement.classList.add('ng-show');
       }
-      $scope.solutionHeaderText = "Now, let’s choose the technology that will allow your students to succeed!"
-      $scope.solutionSubheaderText = "Bring your project-based activities to life with cutting-edge classroom tech."
-      $scope.solutionBodyText = "Explore our STEM technology with your selected iBlocks in mind. You may choose to get one or more of the suggested technologies recommended in the iBlock, or you may prefer a selection of your own choosing."
+      $scope.solutionHeaderText = "Now, let’s explore projects that will make the best use of your new tech!"
+      $scope.solutionSubheaderText = "Hands-on learning with inventive technology integration."
+      $scope.solutionBodyText = "Explore our iBlocks project-based learning experiences with your selected technology in mind. iBlocks are cross-curricular and skills-focused, so no matter what you choose, students will be getting a PBL experience like no other."
 
       $scope.readyToSubmit = false;
         showAllProductItems();
@@ -126,9 +126,9 @@ app.controller('solutionController', function($scope, $location, $window) {
         stemProductOptions[g].parentElement.classList.remove('ng-hide');
         stemProductOptions[g].parentElement.classList.add('ng-show');
       }
-      $scope.solutionHeaderText = "Now, let’s explore projects that will make the best use of your new tech!"
-      $scope.solutionSubheaderText = "Utilize cutting-edge classroom tech to bring your iBlock(s) to life."
-      $scope.solutionBodyText = "Explore our iBlocks project-based learning experiences with your selected technology in mind. iBlocks are cross-curricular and skills-focused, so no matter what you choose, students will be getting a PBL experience like no other."
+      $scope.solutionHeaderText = "Now, let’s choose the technology that will allow your students to succeed!"
+      $scope.solutionSubheaderText = "Bring your project-based activities to life with cutting-edge classroom tech."
+      $scope.solutionBodyText = "Explore our STEM technology with your selected iBlocks in mind. You may choose to get one or more of the suggested technologies recommended in the iBlock, or you may prefer a selection of your own choosing."
 
       $scope.readyToSubmit = false;
         showAllProductItems();

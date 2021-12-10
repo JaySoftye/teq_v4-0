@@ -62,7 +62,7 @@ get_header();
     							<input type="radio" name="entryPoint" ng-click="createProgress = '25'" ng-model="entryPoint" value="pblEntryPoint">
 									<span class="checkmark"></span>
 									<h4><b>Project-Based Learning Activities</b></h4>
-									<p>An iBlock, or “instructional block,” is a project-based learning solution built to foster critical thinking, spark creativity, and give students the opportunity to practice 21st century skills.</p>
+									<p>An iBlock, or “instructional block” is a project-based learning solution that sparks creativity and fosters 21st century skills. iBlocks are the perfect way to enhance classroom instruction, or invigorate your afterschool or summer program!</p>
 								</label>
 							</div>
 						</div>
