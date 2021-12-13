@@ -41,7 +41,7 @@ get_header();
 							// LOOP THROUGH ALL input::checked ELEMENTS AND PASS TO HIDDEN INPUT FIELD input[name="products"]
 							// SUBMIT FORM USING DEFAULT HUBSPOT ERROR CHECKING
 							$.each($("input[name='quoted_items[]']:checked"), function() {
-								quoted_items.push($(this).val());
+								quoted_items.push($(this).attr("title"));
 							});
 								$("input[name='products']").val(JSON.stringify(quoted_items)); //store array
 
@@ -260,7 +260,7 @@ get_header();
     										   ?>
 
                             <label class="checkbox" id="<?php echo $post_name ?>" data-type="<?php echo $post_ng_name ?>" ng-click="<?php echo $click_ng ?>" ng-class="{'is-selected' : <?php echo $post_ng_name ?> == 'true'}">
-                             <input type="checkbox" id="<?php echo $post_id ?>" value="<?php echo $post_id ?>" />
+                             <input type="checkbox" name="quoted_items[]" id="<?php echo $post_id ?>" title="<?php echo $post_name ?>" value="<?php echo $post_id ?>" />
                              <img src='/wp-content/themes/teq_v4-0/inc/ui/<?php echo $custom_image; ?>.svg' />
                              <p><?php the_title(); ?><small><?php echo html_entity_decode($solution_content); ?></small></p>
                              <button type="button" class="addSmartOptions" ng-show="<?php echo $show_ng ?>" ng-click="">Add to Solution</button>
