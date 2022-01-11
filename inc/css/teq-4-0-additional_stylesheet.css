@@ -8,10 +8,6 @@ header#masthead {
   background-image: url('../images/diit-nycdoe-top-header-bg.jpg');
 }
 
-.full-section.cdw-g-products {
-  background-image: url('../images/teq-g-technology-main-hero-banner-bg.jpg');
-}
-
 .section {
   min-height: auto;
   width: auto;
@@ -22,14 +18,6 @@ header#masthead {
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
-
-.section.cdw-g-stem {
-  background-image: url('../images/teq-g-stem-main-hero-banner-bg.jpg');
-}
-
-.section.cdw-g-pd {
-  background-image: url('../images/teq-g-pd-main-hero-banner-bg.jpg');
 }
 
 .full-section.nycdoe .container nav.navbar {

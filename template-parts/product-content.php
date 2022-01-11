@@ -9,141 +9,140 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="container content-container padding-bottom">
+<section class="post-<?php the_ID(); ?> grey-background">
+	<div class="container padding-top">
+		<div class="columns is-desktop is-vend featured-container">
+			<div class="column is-4 notopbottompadding featured-content">
+				<?php if ( is_singular() ) :
+					the_title( '<h1 class="headline-title">', '</h1>' );
+					else :
+						the_title( '<h2 class="page-titles strong"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+					endif; ?>
 
-	<div class="columns is-desktop">
-		<div class="column is-10 is-offset-1">
-			<?php if ( is_singular() ) :
-				the_title( '<h1 class="page-titles strong">', '</h1>' );
-			else :
-				the_title( '<h2 class="page-titles strong"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-			endif; ?>
+					<div class="content">
+						<?php echo get_the_excerpt(); ?>
+					</div>
 
-			<?php if ( metadata_exists('post', $post->ID, 'hero_image' )) { ?>
-				<img class="full-width" src="<?php echo get_post_meta( $post->ID, 'hero_image', true ); ?>" />
-			<?php }
-				// CHECK IF THIS IS AN CDW EDC OR FAMIS PRODUCT
-				// DISPLAY BACK BUTTON LINK BASED ON TYPE OF PRODUCT
-				if(isset($_GET['edc'])) { ?>
-				<a class="button no-shadow rounded small-text" href="/cdw-g-products/cdw-g-stem-products">Back to Products</a>
-				<button class="button no-shadow rounded caption" g-model="hidden" ng-click="hidden=!hidden">Need a Quote?</button>
-			<?php } elseif(isset($_GET['famis'])) { ?>
-				<a class="button no-shadow rounded small-text" href="/nycdoe/#famis-products-container">Back to Products</a>
-				<button class="button no-shadow rounded caption" g-model="hidden" ng-click="hidden=!hidden">Need a Quote?</button>
-			<?php } ?>
-			<a class="button no-shadow rounded caption" href="javascript:window.print()" data-tooltip="Tooltip Text">PRINT</a>
+					<div class="content padding-bottom">
+						<?php
+							// CHECK IF THIS IS AN CDW EDC OR FAMIS PRODUCT
+							// DISPLAY BACK BUTTON LINK BASED ON TYPE OF PRODUCT
+							if(isset($_GET['edc'])) { ?>
+								<button class="button no-shadow rounded caption" g-model="hidden" ng-click="hidden=!hidden">Need a Quote?</button>
+						<?php } elseif(isset($_GET['famis'])) { ?>
+							<a class="button no-shadow rounded small-text" href="/nycdoe/#famis-products-container">Back to Products</a>
+							<button class="button no-shadow rounded caption" g-model="hidden" ng-click="hidden=!hidden">Need a Quote?</button>
+						<?php } ?>
+							<a class="button no-shadow rounded caption" href="javascript:window.print()" data-tooltip="Tooltip Text">PRINT</a>
 
-			<div class="columns" ng-show="hidden">
-				<div class="column hbspot-form_quote">
-					<h4 class="padding-sm-top">Interested in <strong><?php echo the_title(); ?></strong> for your school or classroom?<br />Request a quote using the form below.</h4>
-					<?php
-					// CHECK IF THIS IS AN CDW EDC OR FAMIS PRODUCT
-					// DISPLAY QUOTE FORM BASED UPON CDW OR FAMIS
-					if(isset($_GET['edc'])) { ?>
-						<!--[if lte IE 8]>
-						<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-						<![endif]-->
-						<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-						<script>
-  						hbspt.forms.create({
-								portalId: "182596",
-								formId: "d90fa090-8474-4069-90b2-909d2b9e42d7",
-									submitButtonClass: '',
-		    					inlineMessage: 'Request Submitted, Thanks.',
-		    						onFormSubmit: function($form){
+						<div class="columns" ng-show="hidden">
+							<div class="column hbspot-form_quote">
+								<h4 class="padding-sm-top">Interested in <strong><?php echo the_title(); ?></strong> for your school or classroom?<br />Request a quote using the form below.</h4>
 
-											// GRAB THE PAGE TITLE AND SET 'BLANK' HIDDEN INPUT FIELD AS TITLE OF THE PAGE
-											var title = $(document).find("title").text();
-											$('input[name="blank"]').val(title)
+								<?php
+									// CHECK IF THIS IS AN CDW EDC OR FAMIS PRODUCT
+									// DISPLAY QUOTE FORM BASED UPON CDW OR FAMIS
+									if(isset($_GET['edc'])) { ?>
+										<!--[if lte IE 8]>
+										<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+										<![endif]-->
+										<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+										<script>
+  										hbspt.forms.create({
+												portalId: "182596",
+												formId: "d90fa090-8474-4069-90b2-909d2b9e42d7",
+												submitButtonClass: '',
+		    								inlineMessage: 'Request Submitted, Thanks.',
+		    									onFormSubmit: function($form){
+														// GRAB THE PAGE TITLE AND SET 'BLANK' HIDDEN INPUT FIELD AS TITLE OF THE PAGE
+														var title = $(document).find("title").text();
+														$('input[name="blank"]').val(title)
 
-											// SET REDIRECT WITH FORM DATA IN URL
-		        					setTimeout( function() {
-		            				var formData = $form.serialize();
-		            				window.location = "/thankyouforyourinterest?" + formData;
-		        					}, 250 ); // Redirects to url with query string data from form fields after 250 milliseconds.
-		    					}
-							});
-						</script>
-					<?php } elseif(isset($_GET['famis'])) { ?>
-						<!--[if lte IE 8]>
-						<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-						<![endif]-->
-						<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-						<script>
-							hbspt.forms.create({
-								portalId: "182596",
-								formId: "42b188a8-165d-4be0-af27-ce6016a04a8a",
-									submitButtonClass: '',
-		    					inlineMessage: 'Request Submitted, Thanks.',
-		    						onFormSubmit: function($form){
+														// SET REDIRECT WITH FORM DATA IN URL
+		        								setTimeout( function() {
+		            							var formData = $form.serialize();
+		            								window.location = "/thankyouforyourinterest?" + formData;
+		        									}, 250 ); // Redirects to url with query string data from form fields after 250 milliseconds.
+		    										}
+													});
+											</script>
+										<?php } elseif(isset($_GET['famis'])) { ?>
+											<!--[if lte IE 8]>
+											<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+											<![endif]-->
+											<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+											<script>
+												hbspt.forms.create({
+													portalId: "182596",
+													formId: "42b188a8-165d-4be0-af27-ce6016a04a8a",
+													submitButtonClass: '',
+		    									inlineMessage: 'Request Submitted, Thanks.',
+		    										onFormSubmit: function($form){
 
-											// GRAB THE PAGE TITLE AND SET 'BLANK' HIDDEN INPUT FIELD AS TITLE OF THE PAGE
-											var title = $(document).find("title").text();
-											$('input[name="blank"]').val(title)
+															// GRAB THE PAGE TITLE AND SET 'BLANK' HIDDEN INPUT FIELD AS TITLE OF THE PAGE
+															var title = $(document).find("title").text();
+															$('input[name="blank"]').val(title)
 
-											// SET REDIRECT WITH FORM DATA IN URL
-		        					setTimeout( function() {
-		            				var formData = $form.serialize();
-		            				window.location = "/thankyouforyourinterest?" + formData;
-		        					}, 250 ); // Redirects to url with query string data from form fields after 250 milliseconds.
-		    					}
-							});
-						</script>
-					<?php } ?>
-					<hr />
-				</div>
+															// SET REDIRECT WITH FORM DATA IN URL
+		        									setTimeout( function() {
+		            								var formData = $form.serialize();
+		            								window.location = "/thankyouforyourinterest?" + formData;
+		        									}, 250 ); // Redirects to url with query string data from form fields after 250 milliseconds.
+		    										}
+												});
+											</script>
+									<?php } ?>
+								<hr />
+							</div>
+						</div>
+					</div>
 			</div>
-
-			<?php
-			// CHECK IF THIS IS AN CDW EDC OR FAMIS PRODUCT
-				if(isset($_GET['edc'])) {
-					$custom_image = get_post_meta( get_the_ID(), 'custom_image_meta_content', true );
-					if ( !empty( $custom_image) ) {
-			?>
-				<a class="block padding-sm-top" href="/product-and-service/otis-for-educators/?edc">
-					<img src="<?php echo get_template_directory_uri() . '/inc/ui/' . html_entity_decode($custom_image) . '.svg" />'; ?>" />
-				</a>
-				<?php } ?>
-			<?php } ?>
+			<div class="column notopbottompadding featured-image">
+				<?php
+        	if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+            the_post_thumbnail( 'full', array( 'class'  => 'full-width' ) ); // show featured image
+        	}
+    		?>
+			</div>
 		</div>
 	</div>
-
+</section>
+<section class="post-<?php the_ID(); ?> container padding-bottom">
 	<div class="columns is-desktop">
-		<div class="column is-3 is-offset-1 topic-tags">
+		<div class="column is-4 topic-tags padding-top padding-right">
+
+			<?php if(get_the_title() === 'iBlocks') { ?>
+				<img src="/wp-content/uploads/2020/02/product-site-header_iblocks-logo.svg" />
+			<?php } else { ?>
+				<h5>-</h5>
+			<?php } ?>
+
+
+
 			<p>
 				<?php
-					$terms = get_the_terms( $post->ID , array( 'topics') );
-					// init counter to list all taxonomies for the post
-					$i = 1;
-					foreach ( $terms as $term ) {
- 						$term_link = get_term_link( $term, array( 'topics') );
- 							if( is_wp_error( $term_link ) )
- 							continue;
- 								echo $term->name;
- 								//  Add space (except after the last theme)
- 								echo ($i < count($terms))? " / " : "";
- 								// Increment counter
- 								$i++;
+					function getProductTopics() {
+						foreach(get_the_terms($product_query->post->ID, 'topics') as $topics)
+							echo $topics->name . "/ ";
 					}
+					function getProductGrades() {
+						foreach(get_the_terms($product_query->post->ID, 'grades') as $grades)
+							echo $grades->name . "/ ";
+					}
+					function getProductProficiencies() {
+						foreach(get_the_terms($product_query->post->ID, 'proficiency') as $proficiencies)
+							echo $proficiencies->name . "/ ";
+					}
+					function getProductCurriculums() {
+						foreach(get_the_terms($product_query->post->ID, 'curriculum') as $curriculums)
+							echo $curriculums->name . "/ ";
+					}
+
+					echo getProductTopics(); getProductGrades(); getProductProficiencies(); getProductCurriculums();
 				?>
 			</p>
-		</div>
-		<div class="column is-7 entry-content">
-			<?php the_content(); ?>
 			<?php
-				// CHECK IF THIS IS AN CDW EDC OR FAMIS  PRODUCT
-				// SHOW THE EDC META INFO
 				if(isset($_GET['edc'])) {
-			?>
-			<div class="padding-top padding-bottom">
-				<h6><img src="<?php echo get_template_directory_uri() . '/inc/images/CDW-G-otis-post-image.jpg'; ?>" alt="OTIS for educators" /></h6>
-				<h4 class="condensed-text thin-heading strong">Bundle with up to 3 Otis for educators licenses!</h4>
-				<p>With Otis (formerly known as Opd), educators have access to PD that will boost their technology skills, and provide them with new ways to engage students and improve instruction. Otis PD helps teachers fulfill state-mandated PD hours while learning valuable skills on dozens of technology topics. Administrators can align PD with instructional goals and create personalized PD plans for their staff.</p>
-				<p>
-					<a class="inline-block relative-position button dark" href="/product-and-service/otis-for-educators/?edc">Read more <span class="arrow light"></span></a>
-				</p>
-			</div>
-			<?php
 					$edc_info = get_post_meta( get_the_ID(), 'edc_meta_content', true );
 					echo html_entity_decode($edc_info);
 				// SHOW THE FAMIS META INFO
@@ -153,6 +152,35 @@
 				}
 			?>
 		</div>
+		<div class="column entry-content padding-top">
+			<?php
+				if(isset($_GET['edc'])) {
+					$edc_info = get_post_meta( get_the_ID(), 'additional_info_meta_content', true );
+					echo html_entity_decode($edc_info);
+				}
+					the_content();
+			?>
+		</div>
 	</div>
-
-</article>
+</section>
+<?php if(isset($_GET['edc'])) { ?>
+	<section class="post-<?php the_ID(); ?> grey-background">
+		<div class="container padding-top">
+			<div class="columns is-desktop is-vend">
+				<div class="column is-4 notopbottompadding">
+					<h1 class="headline-title">Professional Development Made Easy</h1>
+					<div class="content">
+						<p>With Otis (formerly known as Opd), educators have access to PD that will boost their technology skills, and provide them with new ways to engage students and improve instruction. Otis PD helps teachers fulfill state-mandated PD hours while learning valuable skills on dozens of technology topics. Administrators can align PD with instructional goals and create personalized PD plans for their staff.</p>
+						<p>
+					</div>
+					<div class="content padding-bottom">
+						<a class="button no-shadow rounded caption" href="/product-and-service/otis-for-educators/?edc">Read More</a>
+					</div>
+				</div>
+				<div class="column notopbottompadding">
+					<img class="full-width wp-post-image" src="<?php echo get_template_directory_uri() . '/inc/images/CDW-G-otis-post-image.jpg'; ?>" alt="OTIS for educators" />
+				</div>
+			</div>
+		</div>
+	</section>
+<?php } ?>

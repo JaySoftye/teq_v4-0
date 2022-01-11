@@ -22,47 +22,8 @@ get_header();
 			// CHECK IF THIS IS AN CDW EDC OR FAMIS PRODUCT
 			// SHOW THE CDW-G Header
 			if(isset($_GET['edc'])) {
-		?>
-		<nav class="navbar padding-sm-left-right" role="navigation" aria-label="main navigation">
-			<div class="navbar-brand">
-				<a href="/cdw-g-products/">
-					<img src="/wp-content/uploads/2020/02/teq-tagline-logo.svg" width="270"  alt="Teq CDW-G" />
-				</a>
-			</div>
-			<div id="navbarBasicExample" class="navbar-menu nomargin">
-				<div class="navbar-start"></div>
-				<div class="navbar-end">
-					<a class="navbar-item" href="/cdw-g-products/cdw-g-stem-products">STEM Products</a>
-					<a class="navbar-item" href="/cdw-g-products/cdw-g-professional-development">Professional Development</a>
-					<a class="navbar-item strong" href ng-model="collapsed" ng-click="collapsed=!collapsed">Register Your Deal</a>
-				</div>
-			</div>
-		</nav>
-		<div id="hbspot-register-form" class="container" ng-show="collapsed">
-			<div class="columns">
-				<div class="column">
-					<h5>Register you deal using the form below.</h5><br />
-				</div>
-				<div class="column has-text-right">
-					<button class="button is-danger is-light is-rounded" ng-model="collapsed" ng-click="collapsed=!collapsed"><small>X</small></button>
-				</div>
-			</div>
-			<div class="columns">
-				<div class="column">
-					<!--[if lte IE 8]>
-					<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-					<![endif]-->
-					<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-					<script>
-						hbspt.forms.create({
-							portalId: "182596",
-							formId: "239ef9d7-666a-4a6c-83f9-ec34e5e37a42"
-						});
-					</script>
-				</div>
-			</div>
-		</div>
-		<?php
+				get_template_part( 'template-parts/cdw-g-header', '' );
+
 			// CHECK IF THIS IS AN CDW EDC OR FAMIS  PRODUCT
 			// SHOW THE NYC Department of Education Header
 			} elseif(isset($_GET['famis'])) {
@@ -84,8 +45,7 @@ get_header();
 		</div>
 		<?php } ?>
 
-		<section class="full-section padding-bottom">
-
+		<article>
 
 				<?php
 					while ( have_posts() ) :
@@ -104,11 +64,11 @@ get_header();
 					endwhile; // End of the loop.
 				?>
 
-
-		</section>
+		</article>
 
 	</main><!-- #main -->
 </div><!-- #primary -->
 
-<?php
-get_footer();
+	<?php get_template_part( 'template-parts/simple-footer', '' ); ?>
+
+<?php wp_footer(); ?>

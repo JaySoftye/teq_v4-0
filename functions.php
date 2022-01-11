@@ -241,9 +241,18 @@ function teq_v4_0_scripts() {
 	}
 
 	// Additional CSS for Specific Channel Partners
-	if ( is_page_template( array( 'template-pages/nycdoe.php', 'template-pages/cdwgstemproducts.php', 'template-pages/cdwgprofessionaldevelopmentproducts.php', 'template-pages/landingpageadditionalstyling.php') ) ) {
+	if ( is_page_template( array( 'template-pages/nycdoe.php', 'template-pages/landingpageadditionalstyling.php') ) ) {
 		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-additional_stylesheet.css' );
 	}
+	if ( is_page_template( array( 'template-pages/cdwg.php', 'template-pages/cdwgstemproducts.php', 'template-pages/cdwgprofessionaldevelopmentproducts.php') ) ) {
+		wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-CDW-g_stylesheet.css' );
+
+		wp_deregister_script( 'cdw-g-js-functions' );
+		wp_enqueue_script( 'cdw-g-js-functions', get_template_directory_uri() . '/js/cdw-g-functions.js', '', '', true );
+	}
+	if( is_singular( 'product-and-service' ) ){
+    wp_enqueue_style( 'teq-4-0-additional_stylesheet', get_template_directory_uri() . '/inc/css/teq-4-0-CDW-g_stylesheet.css' );
+  }
 
 	// Additional CSS for SPECIFIC CUSTOM POST TYPES
 	if ( is_singular( array( 'product-and-service', 'nedm-surveys', 'pathways') ) ) {
