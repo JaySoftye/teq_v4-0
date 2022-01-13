@@ -170,63 +170,6 @@ get_header();
 							</div>
 						</div>
 					</div>
-					<div class="columns padding-top">
-						<div class="container">
-							<div class="column is-offset-1 is-10">
-								<h4 class="is-size-3 extra-letter-spacing strong">OUR VALUES</h4>
-							</div>
-						</div>
-					</div>
-					<div class="columns padding-bottom">
-						<div class="container">
-							<div class="column is-offset-1 is-10">
-								<div class="columns is-multiline">
-									<div class="column is-one-third has-text-centered">
-										<figure class="padding-left padding-right">
-											<img src="/wp-content/uploads/2020/02/about-us_transparent.svg" />
-										</figure>
-										<h5 class="blue-text strong">Transparent</h5>
-										<p>We believe open, accessible information is the best way to help others. We will represent ourselves and our intentions honestly to our coworkers and to our customers, sharing as much of the truth as we can without sacrificing our other values.</p>
-									</div>
-									<div class="column is-one-third has-text-centered">
-										<figure class="padding-left padding-right">
-											<img src="/wp-content/uploads/2020/02/about-us_authentic.svg" />
-										</figure>
-										<h5 class="blue-text strong">Authentic</h5>
-										<p>We believe in being the same people we are online and offline, in the office and outside of it. We deeply respect and strongly encourage free expression about our differences in opinion and diversity of backgrounds in an environment that nurtures and supports us all.</p>
-									</div>
-									<div class="column is-one-third has-text-centered">
-										<figure class="padding-left padding-right">
-											<img src="/wp-content/uploads/2020/02/about-us_generous.svg" />
-										</figure>
-										<h5 class="blue-text strong">Generous</h5>
-										<p>We will over-deliver when we can, providing our community and our customers with more than their money’s worth. We believe in giving back without asking for anything in return and that providing value and help to others is its own reward.</p>
-									</div>
-									<div class="column is-one-third has-text-centered">
-										<figure class="padding-left padding-right">
-											<img src="/wp-content/uploads/2020/02/about-us_fun.svg" />
-										</figure>
-										<h5 class="blue-text strong">Fun</h5>
-										<p>We strive to make the work of marketing more enjoyable and not take ourselves too seriously. We're dedicated to creating and maintaining a friendly, relaxed work environment, and make every effort to bring positivity to our customers and community.</p>
-									</div>
-									<div class="column is-one-third has-text-centered">
-										<figure class="padding-left padding-right">
-											<img src="/wp-content/uploads/2020/02/about-us_empathetic.svg" />
-										</figure>
-										<h5 class="blue-text strong">Empathetic</h5>
-										<p>We will treat others the way we wish to be treated: with respect for their thoughts, feelings, and opinions. We will work hard to ensure our community lives this value as well.</p>
-									</div>
-									<div class="column is-one-third has-text-centered">
-										<figure class="padding-left padding-right">
-											<img src="/wp-content/uploads/2020/02/about-us_exceptional.svg" />
-										</figure>
-										<h5 class="blue-text strong">Exceptional</h5>
-										<p>The exception to the rule, we will avoid the assumption that existing norms are the right path. We choose to build our products and company in a way that critically examines best practices, often paving our own better path forward.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 					<div class="columns padding-top padding-bottom">
 						<div class="container">
 							<div class="column is-offset-1 is-10">
